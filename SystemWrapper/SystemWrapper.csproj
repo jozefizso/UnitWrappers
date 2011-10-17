@@ -96,6 +96,7 @@
     <Compile Include="IConsoleWrap.cs" />
     <Compile Include="IDateTimeSystem.cs" />
     <Compile Include="IDateTimeWrap.cs" />
+    <Compile Include="IO\IFileSystemWatcherWrap.cs" />
     <Compile Include="IO\BinaryReaderWrap.cs" />
     <Compile Include="IO\BinaryWriterWrap.cs" />
     <Compile Include="IO\Compression\DeflateStreamWrap.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="IO\FileInfoSystem.cs" />
     <Compile Include="IO\FileInfoWrap.cs" />
     <Compile Include="IO\FileStreamWrap.cs" />
+    <Compile Include="IO\FileSystemWatcherWrap.cs" />
     <Compile Include="IO\FileWrap.cs" />
     <Compile Include="IO\IBinaryReaderWrap.cs" />
     <Compile Include="IO\IBinaryWriterWrap.cs" />
