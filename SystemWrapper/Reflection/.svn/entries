@@ -31,7 +31,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:55.262620Z
 d90a2e807fe4f2558bbab63e1c6c25c5
 2011-07-11T20:27:39.933000Z
@@ -65,7 +65,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:55.243947Z
 a20dc108f44baa688d47413cf3cfcbae
 2011-07-11T20:27:39.933000Z
@@ -93,6 +93,29 @@ unknown
 
 
 6914
+
+IAssembly.cs
+file
+
+
+
+add
+
+d90a2e807fe4f2558bbab63e1c6c25c5
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/Reflection/IAssemblyWrap.cs
+79982
 
 AssemblyWrap.cs
 file
@@ -127,6 +150,29 @@ unknown
 
 
 6461
+
+IAssemblyName.cs
+file
+
+
+
+add
+
+a20dc108f44baa688d47413cf3cfcbae
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/Reflection/IAssemblyNameWrap.cs
+79982
 
 AssemblyNameWrap.cs
 file

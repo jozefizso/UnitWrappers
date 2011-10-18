@@ -9,7 +9,7 @@ namespace SystemWrapper.IO
 	/// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
 	/// </summary>
 	[Serializable, ComVisible(true)]
-	public class BinaryWriterWrap :IBinaryWriterWrap
+	public class BinaryWriterWrap :IBinaryWriter
 	{
 		#region Constructors and Initializers
 
@@ -53,7 +53,7 @@ namespace SystemWrapper.IO
 		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
 		/// </summary>
 		/// <param name="output">The output stream.</param>
-		public BinaryWriterWrap(IStreamWrap output)
+		public BinaryWriterWrap(IStream output)
 		{
 			Initialize(output.StreamInstance);
 		}
@@ -62,7 +62,7 @@ namespace SystemWrapper.IO
 		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
 		/// </summary>
 		/// <param name="output">The output stream.</param>
-		public void Initialize(IStreamWrap output)
+		public void Initialize(IStream output)
 		{
 			BinaryWriterInstance = new BinaryWriter(output.StreamInstance);
 		}
@@ -92,7 +92,7 @@ namespace SystemWrapper.IO
 		/// </summary>
 		/// <param name="output">The supplied stream.</param>
 		/// <param name="encoding">The character encoding.</param>
-		public BinaryWriterWrap(IStreamWrap output, Encoding encoding)
+		public BinaryWriterWrap(IStream output, Encoding encoding)
 		{
 			Initialize(output.StreamInstance, encoding);
 		}
@@ -102,7 +102,7 @@ namespace SystemWrapper.IO
 		/// </summary>
 		/// <param name="output">The supplied stream.</param>
 		/// <param name="encoding">The character encoding.</param>
-		public void Initialize(IStreamWrap output, Encoding encoding)
+		public void Initialize(IStream output, Encoding encoding)
 		{
 			BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
 		}

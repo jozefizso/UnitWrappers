@@ -31,7 +31,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:54.791859Z
 ab86ce738b60c537580ce65365276394
 2011-07-11T20:27:39.933000Z
@@ -59,6 +59,29 @@ unknown
 
 
 2639
+
+ISafeFileHandle.cs
+file
+
+
+
+add
+
+ab86ce738b60c537580ce65365276394
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/Microsoft.Win32/SafeHandles/ISafeFileHandleWrap.cs
+79982
 
 SafeFileHandleWrap.cs
 file

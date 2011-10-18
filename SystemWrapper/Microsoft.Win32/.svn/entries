@@ -31,7 +31,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:54.901932Z
 91f96d0ed6be1b0359476ad56d3a651b
 2009-12-30T22:24:44.030000Z
@@ -94,6 +94,29 @@ unknown
 
 1369
 
+IRegistry.cs
+file
+
+
+
+add
+
+91f96d0ed6be1b0359476ad56d3a651b
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/Microsoft.Win32/IRegistryWrap.cs
+79982
+
 RegistryWrap.cs
 file
 
@@ -133,7 +156,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:54.876379Z
 64c7673346d5ae2f483eb036c7a8d211
 2011-07-11T20:27:39.933000Z
@@ -164,4 +187,27 @@ unknown
 
 SafeHandles
 dir
+
+IRegistryKey.cs
+file
+
+
+
+add
+
+64c7673346d5ae2f483eb036c7a8d211
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/Microsoft.Win32/IRegistryKeyWrap.cs
+79982
 

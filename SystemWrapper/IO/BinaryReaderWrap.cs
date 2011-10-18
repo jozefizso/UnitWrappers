@@ -9,7 +9,7 @@ namespace SystemWrapper.IO
 	/// Wrapper for <see cref="T:System.IO.BinaryReader"/> class.
 	/// </summary>
 	[ComVisible(true)]
-	public class BinaryReaderWrap : IBinaryReaderWrap
+	public class BinaryReaderWrap : IBinaryReader
 	{
 		#region Constructors and Initializers
 
@@ -60,7 +60,7 @@ namespace SystemWrapper.IO
 		/// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
 		/// </summary>
 		/// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
-		public BinaryReaderWrap(IStreamWrap input)
+		public BinaryReaderWrap(IStream input)
 		{
 			Initialize(input.StreamInstance);
 		}
@@ -69,7 +69,7 @@ namespace SystemWrapper.IO
 		/// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
 		/// </summary>
 		/// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
-		public void Initialize(IStreamWrap input)
+		public void Initialize(IStream input)
 		{
 			BinaryReaderInstance = new BinaryReader(input.StreamInstance);
 		}
@@ -99,7 +99,7 @@ namespace SystemWrapper.IO
 		/// </summary>
 		/// <param name="stream">The supplied stream.</param>
 		/// <param name="encoding">The character encoding.</param>
-		public BinaryReaderWrap(IStreamWrap stream, Encoding encoding)
+		public BinaryReaderWrap(IStream stream, Encoding encoding)
 		{
 			Initialize(stream.StreamInstance, encoding);
 		}
@@ -109,7 +109,7 @@ namespace SystemWrapper.IO
 		/// </summary>
 		/// <param name="stream">The supplied stream.</param>
 		/// <param name="encoding">The character encoding.</param>
-		public void Initialize(IStreamWrap stream, Encoding encoding)
+		public void Initialize(IStream stream, Encoding encoding)
 		{
 			BinaryReaderInstance = new BinaryReader(stream.StreamInstance, encoding);
 		}

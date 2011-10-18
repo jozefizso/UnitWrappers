@@ -1,4 +1,5 @@
-﻿Microsoft.Win32.SafeHandles
+﻿//TODO: use auto generation
+Microsoft.Win32.SafeHandles
 	* Complete
 	--------------------------
 	- SafeFileHandle

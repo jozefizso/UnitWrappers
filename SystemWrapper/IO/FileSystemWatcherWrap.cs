@@ -4,7 +4,7 @@ using System.IO;
 
 namespace SystemWrapper.IO
 {
-    public class FileSystemWatcherWrap : IFileSystemWatcherWrap
+    public class FileSystemWatcherWrap : IFileSystemWatcher
     {
         #region Constructors and Initializers
 
@@ -47,7 +47,7 @@ namespace SystemWrapper.IO
 
         #endregion
 
-        #region IFileSystemWatcherWrap Members
+        #region IFileSystemWatcher Members
 
         public FileSystemWatcher FileSystemWatcherInstance { get; private set; }
 

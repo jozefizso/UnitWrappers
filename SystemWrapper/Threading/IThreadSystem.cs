@@ -7,7 +7,7 @@ namespace SystemWrapper.Threading
         /// <summary>
         /// Gets the currently running thread.
         /// </summary>
-        IThreadWrap CurrentThread { get; }
+        IThread CurrentThread { get; }
 
         /// <summary>
         /// Suspends the current thread for a specified time.

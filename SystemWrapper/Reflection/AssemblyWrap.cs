@@ -13,7 +13,7 @@ namespace SystemWrapper.Reflection
     /// </summary>
     [Serializable]
     [ComVisible(true)]
-    public class AssemblyWrap : IAssemblyWrap
+    public class AssemblyWrap : IAssembly
     {
         private Assembly _assembly;
 
@@ -135,12 +135,12 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.Equals(obj);
         }
 
-        public IAssemblyWrap GetAssembly(Type type)
+        public IAssembly GetAssembly(Type type)
         {
             return new AssemblyWrap(Assembly.GetAssembly(type));
         }
 
-        public IAssemblyWrap GetCallingAssembly()
+        public IAssembly GetCallingAssembly()
         {
             return new AssemblyWrap(Assembly.GetCallingAssembly());
         }
@@ -155,12 +155,12 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.GetCustomAttributes(attributeType, inherit);
         }
 
-        public IAssemblyWrap GetEntryAssembly()
+        public IAssembly GetEntryAssembly()
         {
             return new AssemblyWrap(Assembly.GetEntryAssembly());
         }
 
-        public IAssemblyWrap GetExecutingAssembly()
+        public IAssembly GetExecutingAssembly()
         {
             return new AssemblyWrap(Assembly.GetExecutingAssembly());
         }
@@ -170,17 +170,17 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.GetExportedTypes();
         }
 
-        public IFileStreamWrap GetFile(string name)
+        public IFileStream GetFile(string name)
         {
             return new FileStreamWrap(AssemblyInstance.GetFile(name));
         }
 
-        public virtual IFileStreamWrap[] GetFiles()
+        public virtual IFileStream[] GetFiles()
         {
             return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles());
         }
 
-        public IFileStreamWrap[] GetFiles(bool getResourceModules)
+        public IFileStream[] GetFiles(bool getResourceModules)
         {
             return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles(getResourceModules));
         }
@@ -190,7 +190,7 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.GetHashCode();
         }
 
-        public IAssemblyNameWrap GetName()
+        public IAssemblyName GetName()
         {
             return new AssemblyNameWrap(AssemblyInstance.GetName());
         }
@@ -200,7 +200,7 @@ namespace SystemWrapper.Reflection
             AssemblyInstance.GetObjectData(info, context);
         }
 
-        public IAssemblyNameWrap[] GetReferencedAssemblies()
+        public IAssemblyName[] GetReferencedAssemblies()
         {
             AssemblyName[] assemblyNames = AssemblyInstance.GetReferencedAssemblies();
             return AssemblyNameWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(assemblyNames);
@@ -211,7 +211,7 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.IsDefined(attributeType, inherit);
         }
 
-        public IAssemblyWrap LoadFrom(string assemblyFile)
+        public IAssembly LoadFrom(string assemblyFile)
         {
             return new AssemblyWrap(Assembly.LoadFrom(assemblyFile));
         }

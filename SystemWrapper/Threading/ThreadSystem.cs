@@ -9,7 +9,7 @@ namespace SystemWrapper.Threading
     public class ThreadSystem : IThreadSystem
     {
         /// <inheritdoc />
-        public IThreadWrap CurrentThread
+        public IThread CurrentThread
         {
             get { return new ThreadWrap(Thread.CurrentThread); }
         }

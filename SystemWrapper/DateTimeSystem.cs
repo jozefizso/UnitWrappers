@@ -5,49 +5,49 @@ namespace SystemWrapper
 {
     public class DateTimeSystem : IDateTimeSystem
     {
-        public IDateTimeWrap Today
+        public DateTime Today
         {
-            get { return new DateTimeWrap(DateTime.Today); }
+            get { return DateTime.Today; }
         }
 
-        public IDateTimeWrap UtcNow
+        public DateTime UtcNow
         {
-            get { return new DateTimeWrap(DateTime.UtcNow); }
+            get { return DateTime.UtcNow; }
         }
 
-        public IDateTimeWrap Now
+        public DateTime Now
         {
-            get { return new DateTimeWrap(DateTime.Now); }
+            get { return DateTime.Now; }
         }
 
-        public bool Equals(IDateTimeWrap t1, IDateTimeWrap t2)
+        public bool Equals(DateTime t1, DateTime t2)
         {
-            return DateTime.Equals(t1.DateTimeInstance, t2.DateTimeInstance);
+            return DateTime.Equals(t1, t2);
         }
 
-        public IDateTimeWrap FromBinary(long dateData)
+        public DateTime FromBinary(long dateData)
         {
-            return new DateTimeWrap(DateTime.FromBinary(dateData));
+            return DateTime.FromBinary(dateData);
         }
 
-        public IDateTimeWrap FromFileTime(long fileTime)
+        public DateTime FromFileTime(long fileTime)
         {
-            return new DateTimeWrap(DateTime.FromFileTime(fileTime));
+            return DateTime.FromFileTime(fileTime);
         }
 
-        public IDateTimeWrap FromFileTimeUtc(long fileTime)
+        public DateTime FromFileTimeUtc(long fileTime)
         {
-            return new DateTimeWrap(DateTime.FromFileTimeUtc(fileTime));
+            return DateTime.FromFileTimeUtc(fileTime);
         }
 
-        public IDateTimeWrap FromOADate(double d)
+        public DateTime FromOADate(double d)
         {
-            return new DateTimeWrap(DateTime.FromOADate(d));
+            return DateTime.FromOADate(d);
         }
 
-        public int Compare(IDateTimeWrap t1, IDateTimeWrap t2)
+        public int Compare(DateTime t1, DateTime t2)
         {
-            return DateTime.Compare(t1.DateTimeInstance, t2.DateTimeInstance);
+            return DateTime.Compare(t1, t2);
         }
 
         public int DaysInMonth(int year, int month)
@@ -60,70 +60,62 @@ namespace SystemWrapper
             return DateTime.IsLeapYear(year);
         }
 
-        public IDateTimeWrap Parse(string s)
+        public DateTime Parse(string s)
         {
-            return new DateTimeWrap(DateTime.Parse(s));
+            return DateTime.Parse(s);
         }
 
-        public IDateTimeWrap Parse(string s, IFormatProvider provider)
+        public DateTime Parse(string s, IFormatProvider provider)
         {
-            return new DateTimeWrap(DateTime.Parse(s, provider));
+            return DateTime.Parse(s, provider);
         }
 
-        public IDateTimeWrap Parse(string s, IFormatProvider provider, DateTimeStyles styles)
+        public DateTime Parse(string s, IFormatProvider provider, DateTimeStyles styles)
         {
-            return new DateTimeWrap(DateTime.Parse(s, provider, styles));
+            return DateTime.Parse(s, provider, styles);
         }
 
-        public IDateTimeWrap ParseExact(string s, string format, IFormatProvider provider)
+        public DateTime ParseExact(string s, string format, IFormatProvider provider)
         {
-            return new DateTimeWrap(DateTime.ParseExact(s, format, provider));
+            return DateTime.ParseExact(s, format, provider);
         }
 
-        public IDateTimeWrap ParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style)
+        public DateTime ParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style)
         {
-            return new DateTimeWrap(DateTime.ParseExact(s, format, provider, style));
+            return DateTime.ParseExact(s, format, provider, style);
         }
 
-        public IDateTimeWrap ParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style)
+        public DateTime ParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style)
         {
-            return new DateTimeWrap(DateTime.ParseExact(s, formats, provider, style));
+            return DateTime.ParseExact(s, formats, provider, style);
         }
 
-        public IDateTimeWrap SpecifyKind(IDateTimeWrap value, DateTimeKind kind)
+        public DateTime SpecifyKind(DateTime value, DateTimeKind kind)
         {
-            return new DateTimeWrap(DateTime.SpecifyKind(value.DateTimeInstance, kind));
+            return DateTime.SpecifyKind(value, kind);
         }
 
-        public bool TryParse(string s, out IDateTimeWrap result)
+        public bool TryParse(string s, out DateTime result)
         {
-            DateTime dtResult;
-            bool returnValue = DateTime.TryParse(s, out dtResult);
-            result = new DateTimeWrap(dtResult);
+            bool returnValue = DateTime.TryParse(s, out result);
             return returnValue;
         }
 
-        public bool TryParse(string s, IFormatProvider provider, DateTimeStyles styles, out IDateTimeWrap result)
+        public bool TryParse(string s, IFormatProvider provider, DateTimeStyles styles, out DateTime result)
         {
-            DateTime dtResult;
-            bool returnValue = DateTime.TryParse(s, provider, styles, out dtResult);
-            result = new DateTimeWrap(dtResult);
+            bool returnValue = DateTime.TryParse(s, provider, styles, out result);
             return returnValue;
         }
 
-        public bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style, out IDateTimeWrap result)
+        public bool TryParseExact(string s, string[] formats, IFormatProvider provider, DateTimeStyles style, out DateTime result)
         {
-            DateTime dtResult;
-            bool returnValue = DateTime.TryParseExact(s, formats, provider, style, out dtResult);
-            result = new DateTimeWrap(dtResult);
+            bool returnValue = DateTime.TryParseExact(s, formats, provider, style, out result);
             return returnValue;
         }
 
-        public bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style, out IDateTimeWrap result)
+        public bool TryParseExact(string s, string format, IFormatProvider provider, DateTimeStyles style, out DateTime result)
         {
-            DateTime dtResult;
-            bool returnValue = DateTime.TryParseExact(s, format, provider, style, out dtResult);
-            result = new DateTimeWrap(dtResult);
+            bool returnValue = DateTime.TryParseExact(s, format, provider, style, out result);
             return returnValue;
         }
     }

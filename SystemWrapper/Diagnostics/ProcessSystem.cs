@@ -5,7 +5,7 @@ namespace ThomsonReuters.CommonOffice.Presentation.Views.Services
 {
     public class ProcessSystem : IProcessSystem
     {
-        public IProcessWrap Start(string fileName)
+        public IProcess Start(string fileName)
         {
             return new ProcessWrap(Process.Start(fileName));
         }

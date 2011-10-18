@@ -8,7 +8,7 @@ namespace SystemWrapper.Microsoft.Win32.SafeHandles
     /// Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
     /// </summary>
     [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode=true)]
-    public class SafeFileHandleWrap : ISafeFileHandleWrap
+    public class SafeFileHandleWrap : ISafeFileHandle
 	{
 		#region Constructors and Initializers
 

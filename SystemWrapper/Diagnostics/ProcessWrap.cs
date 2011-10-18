@@ -6,9 +6,9 @@ namespace SystemWrapper.Diagnostics
 	///<summary>
 	/// Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
 	///</summary>
-	public class ProcessWrap : IProcessWrap
+	public class ProcessWrap : IProcess
 	{
-		private IProcessStartInfoWrap startInfo;
+		private IProcessStartInfo startInfo;
 
 		#region Constructors and Initializers
 
@@ -56,7 +56,7 @@ namespace SystemWrapper.Diagnostics
 			return ProcessInstance.Start();
 		}
 
-		public IProcessStartInfoWrap StartInfo
+		public IProcessStartInfo StartInfo
 		{
 			get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(ProcessInstance.StartInfo)); }
 			set { startInfo = value; }

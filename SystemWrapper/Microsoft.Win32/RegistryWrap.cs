@@ -3,9 +3,9 @@ using Microsoft.Win32;
 
 namespace SystemWrapper.Microsoft.Win32
 {
-    public class RegistryWrap : IRegistryWrap
+    public class RegistryWrap : IRegistry
     {
-        public IRegistryKeyWrap LocalMachine
+        public IRegistryKey LocalMachine
         {
             get { return new RegistryKeyWrap(Registry.LocalMachine); }
         }

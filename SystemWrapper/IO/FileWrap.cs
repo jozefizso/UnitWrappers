@@ -11,7 +11,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.File"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class FileWrap : IFileWrap
+    public class FileWrap : IFile
     {
         public void AppendAllText(string path, string contents)
         {
@@ -23,7 +23,7 @@ namespace SystemWrapper.IO
             File.AppendAllText(path, contents, encoding);
         }
 
-        public IStreamWriterWrap AppendText(string path)
+        public IStreamWriter AppendText(string path)
         {
             return new StreamWriterWrap(File.AppendText(path));
         }
@@ -38,27 +38,27 @@ namespace SystemWrapper.IO
             File.Copy(sourceFileName, destFileName, overwrite);
         }
 
-        public IFileStreamWrap Create(string path)
+        public IFileStream Create(string path)
         {
             return new FileStreamWrap(File.Create(path));
         }
 
-        public IFileStreamWrap Create(string path, int bufferSize)
+        public IFileStream Create(string path, int bufferSize)
         {
             return new FileStreamWrap(File.Create(path, bufferSize));
         }
 
-        public IFileStreamWrap Create(string path, int bufferSize, FileOptions options)
+        public IFileStream Create(string path, int bufferSize, FileOptions options)
         {
             return new FileStreamWrap(File.Create(path, bufferSize, options));
         }
 
-        public IFileStreamWrap Create(string path, int bufferSize, FileOptions options, IFileSecurityWrap fileSecurity)
+        public IFileStream Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity)
         {
             return new FileStreamWrap(File.Create(path, bufferSize, options, fileSecurity.FileSecurityInstance));
         }
 
-        public IStreamWriterWrap CreateText(string path)
+        public IStreamWriter CreateText(string path)
         {
             return new StreamWriterWrap(File.CreateText(path));
         }
@@ -83,12 +83,12 @@ namespace SystemWrapper.IO
             return File.Exists(path);
         }
 
-        public IFileSecurityWrap GetAccessControl(string path)
+        public IFileSecurity GetAccessControl(string path)
         {
             return new FileSecurityWrap(File.GetAccessControl(path));
         }
 
-        public IFileSecurityWrap GetAccessControl(string path, AccessControlSections includeSections)
+        public IFileSecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new FileSecurityWrap(File.GetAccessControl(path, includeSections));
         }
@@ -98,34 +98,34 @@ namespace SystemWrapper.IO
             return File.GetAttributes(path);
         }
 
-        public IDateTimeWrap GetCreationTime(string path)
+        public DateTime GetCreationTime(string path)
         {
-            return new DateTimeWrap(File.GetCreationTime(path));
+            return File.GetCreationTime(path);
         }
 
-        public IDateTimeWrap GetCreationTimeUtc(string path)
+        public DateTime GetCreationTimeUtc(string path)
         {
-            return new DateTimeWrap(File.GetCreationTimeUtc(path));
+            return File.GetCreationTimeUtc(path);
         }
 
-        public IDateTimeWrap GetLastAccessTime(string path)
+        public DateTime GetLastAccessTime(string path)
         {
-            return new DateTimeWrap(File.GetLastAccessTime(path));
+            return File.GetLastAccessTime(path);
         }
 
-        public IDateTimeWrap GetLastAccessTimeUtc(string path)
+        public DateTime GetLastAccessTimeUtc(string path)
         {
-            return new DateTimeWrap(File.GetLastAccessTimeUtc(path));
+            return File.GetLastAccessTimeUtc(path);
         }
 
-        public IDateTimeWrap GetLastWriteTime(string path)
+        public DateTime GetLastWriteTime(string path)
         {
-            return new DateTimeWrap(File.GetLastWriteTime(path));
+            return File.GetLastWriteTime(path);
         }
 
-        public IDateTimeWrap GetLastWriteTimeUtc(string path)
+        public DateTime GetLastWriteTimeUtc(string path)
         {
-            return new DateTimeWrap(File.GetLastWriteTimeUtc(path));
+            return File.GetLastWriteTimeUtc(path);
         }
 
         public void Move(string sourceFileName, string destFileName)
@@ -133,32 +133,32 @@ namespace SystemWrapper.IO
             File.Move(sourceFileName, destFileName);
         }
 
-        public IFileStreamWrap Open(string path, FileMode mode)
+        public IFileStream Open(string path, FileMode mode)
         {
             return new FileStreamWrap(File.Open(path, mode));
         }
 
-        public IFileStreamWrap Open(string path, FileMode mode, FileAccess access)
+        public IFileStream Open(string path, FileMode mode, FileAccess access)
         {
             return new FileStreamWrap(File.Open(path, mode, access));
         }
 
-        public IFileStreamWrap Open(string path, FileMode mode, FileAccess access, FileShare share)
+        public IFileStream Open(string path, FileMode mode, FileAccess access, FileShare share)
         {
             return new FileStreamWrap(File.Open(path, mode, access, share));
         }
 
-        public IFileStreamWrap OpenRead(string path)
+        public IFileStream OpenRead(string path)
         {
             return new FileStreamWrap(File.OpenRead(path));
         }
 
-        public IStreamReaderWrap OpenText(string path)
+        public IStreamReader OpenText(string path)
         {
             return new StreamReaderWrap(File.OpenText(path));
         }
 
-        public IFileStreamWrap OpenWrite(string path)
+        public IFileStream OpenWrite(string path)
         {
             return new FileStreamWrap(File.OpenWrite(path));
         }
@@ -198,7 +198,7 @@ namespace SystemWrapper.IO
             File.Replace(sourceFileName, destinationFileName, destinationBackupFileName, ignoreMetadataErrors);
         }
 
-        public void SetAccessControl(string path, IFileSecurityWrap fileSecurity)
+        public void SetAccessControl(string path, IFileSecurity fileSecurity)
         {
             File.SetAccessControl(path, fileSecurity.FileSecurityInstance);
         }
@@ -208,34 +208,34 @@ namespace SystemWrapper.IO
             File.SetAttributes(path, fileAttributes);
         }
 
-        public void SetCreationTime(string path, IDateTimeWrap creationTime)
+        public void SetCreationTime(string path, DateTime creationTime)
         {
-            File.SetCreationTime(path, creationTime.DateTimeInstance);
+            File.SetCreationTime(path, creationTime);
         }
 
-        public void SetCreationTimeUtc(string path, IDateTimeWrap creationTimeUtc)
+        public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
         {
-            File.SetCreationTimeUtc(path, creationTimeUtc.DateTimeInstance);
+            File.SetCreationTimeUtc(path, creationTimeUtc);
         }
 
-        public void SetLastAccessTime(string path, IDateTimeWrap lastAccessTime)
+        public void SetLastAccessTime(string path, DateTime lastAccessTime)
         {
-            File.SetLastAccessTime(path, lastAccessTime.DateTimeInstance);
+            File.SetLastAccessTime(path, lastAccessTime);
         }
 
-        public void SetLastAccessTimeUtc(string path, IDateTimeWrap lastAccessTimeUtc)
+        public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
         {
-            File.SetLastAccessTimeUtc(path, lastAccessTimeUtc.DateTimeInstance);
+            File.SetLastAccessTimeUtc(path, lastAccessTimeUtc);
         }
 
-        public void SetLastWriteTime(string path, IDateTimeWrap lastWriteTime)
+        public void SetLastWriteTime(string path, DateTime lastWriteTime)
         {
-            File.SetLastWriteTime(path, lastWriteTime.DateTimeInstance);
+            File.SetLastWriteTime(path, lastWriteTime);
         }
 
-        public void SetLastWriteTimeUtc(string path, IDateTimeWrap lastWriteTimeUtc)
+        public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
         {
-            File.SetLastWriteTimeUtc(path, lastWriteTimeUtc.DateTimeInstance);
+            File.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
         }
 
         public void WriteAllBytes(string path, byte[] bytes)

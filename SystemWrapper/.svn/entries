@@ -31,7 +31,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:56.010531Z
 9d01a51efb4589cfa6fd87d5ed37db7c
 2011-07-11T20:27:39.933000Z
@@ -93,6 +93,29 @@ has-props
 
 
 596
+
+IConsole.cs
+file
+
+
+
+add
+
+a0f46f10a6c4f5af7bbd3710a4b8993b
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/IConsoleWrap.cs
+79982
 
 VersionWrap.cs
 file
@@ -162,12 +185,35 @@ unknown
 
 8116
 
+IAppDomain.cs
+file
+
+
+
+add
+
+9d01a51efb4589cfa6fd87d5ed37db7c
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/IAppDomainWrap.cs
+79982
+
 DateTimeWrap.cs
 file
 
 
 
-
+delete
 2011-09-15T08:24:55.978098Z
 14919cfba2a97d43ba38056dbab26ee9
 2011-07-11T20:27:39.933000Z
@@ -275,7 +321,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:56.094069Z
 6c2e2ebfce8da68ff9435c4df45a6e48
 2011-07-11T20:27:39.933000Z
@@ -361,7 +407,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:56.065567Z
 a0f46f10a6c4f5af7bbd3710a4b8993b
 2010-05-17T13:27:04.527000Z

@@ -13,7 +13,7 @@ namespace SystemWrapper.IO
 	/// </summary>
 	[Serializable]
 	[ComVisible(true)]
-	public class FileStreamWrap : IFileStreamWrap
+	public class FileStreamWrap : IFileStream
 	{
 		#region Constructors and Initializers
 
@@ -58,7 +58,7 @@ namespace SystemWrapper.IO
 		/// </summary>
 		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
 		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
-		public FileStreamWrap(ISafeFileHandleWrap handle, FileAccess access)
+		public FileStreamWrap(ISafeFileHandle handle, FileAccess access)
 		{
 			Initialize(handle, access);
 		}
@@ -68,7 +68,7 @@ namespace SystemWrapper.IO
 		/// </summary>
 		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
 		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
-		public void Initialize(ISafeFileHandleWrap handle, FileAccess access)
+		public void Initialize(ISafeFileHandle handle, FileAccess access)
 		{
 			FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access);
 		}
@@ -99,7 +99,7 @@ namespace SystemWrapper.IO
 		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
 		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
 		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-		public FileStreamWrap(ISafeFileHandleWrap handle, FileAccess access, int bufferSize)
+		public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize)
 		{
 			Initialize(handle, access, bufferSize);
 		}
@@ -110,7 +110,7 @@ namespace SystemWrapper.IO
 		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
 		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
 		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-		public void Initialize(ISafeFileHandleWrap handle, FileAccess access, int bufferSize)
+		public void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize)
 		{
 			FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access, bufferSize);
 		}
@@ -145,7 +145,7 @@ namespace SystemWrapper.IO
 		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
 		/// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
 		[SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-		public FileStreamWrap(ISafeFileHandleWrap handle, FileAccess access, int bufferSize, bool isAsync)
+		public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
 		{
 			Initialize(handle, access, bufferSize, isAsync);
 		}
@@ -158,7 +158,7 @@ namespace SystemWrapper.IO
 		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
 		/// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
 		[SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-		public void Initialize(ISafeFileHandleWrap handle, FileAccess access, int bufferSize, bool isAsync)
+		public void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
 		{
 			FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access, bufferSize, isAsync);
 		}
@@ -405,7 +405,7 @@ namespace SystemWrapper.IO
 			set { FileStreamInstance.Position = value; }
 		}
 
-		public ISafeFileHandleWrap SafeFileHandle
+		public ISafeFileHandle SafeFileHandle
 		{
 			get { return new SafeFileHandleWrap(FileStreamInstance.SafeFileHandle); }
 		}
@@ -474,7 +474,7 @@ namespace SystemWrapper.IO
 			FileStreamInstance.Flush();
 		}
 
-		public IFileSecurityWrap GetAccessControl()
+		public IFileSecurity GetAccessControl()
 		{
 			return new FileSecurityWrap(FileStreamInstance.GetAccessControl());
 		}
@@ -516,7 +516,7 @@ namespace SystemWrapper.IO
 			return FileStreamInstance.Seek(offset, origin);
 		}
 
-		public void SetAccessControl(IFileSecurityWrap fileSecurity)
+		public void SetAccessControl(IFileSecurity fileSecurity)
 		{
 			FileStreamInstance.SetAccessControl(fileSecurity.FileSecurityInstance);
 		}
@@ -531,7 +531,7 @@ namespace SystemWrapper.IO
 		}
 
 		[HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
-		public IStreamWrap Synchronized(IStreamWrap stream)
+		public IStream Synchronized(IStream stream)
 		{
 			return new FileStreamWrap(Stream.Synchronized(stream.StreamInstance));
 		}
@@ -571,7 +571,7 @@ namespace SystemWrapper.IO
 			FileStreamInstance.WriteByte(value);
 		}
 
-		internal static IFileStreamWrap[] ConvertFileStreamArrayIntoIFileStreamWrapArray(FileStream[] fileStreams)
+		internal static IFileStream[] ConvertFileStreamArrayIntoIFileStreamWrapArray(FileStream[] fileStreams)
 		{
 			var fileStreamWraps = new FileStreamWrap[fileStreams.Length];
 			for (int i = 0; i < fileStreams.Length; i++)

@@ -6,7 +6,7 @@ namespace SystemWrapper.Configuration
     /// <summary>
     /// Wrapper for <see cref="T:System.Configuration.ConfigurationManager"/> class.
     /// </summary>
-    public class ConfigurationManagerWrap : IConfigurationManagerWrap
+    public class ConfigurationManagerWrap : IConfigurationManager
     {
         /// <inheritdoc />
         public NameValueCollection AppSettings

@@ -6,9 +6,9 @@ namespace SystemWrapper.Samples.IO
 {
     public class FileInfoSample
     {
-        public void CreateAndDeleteFile(IFileInfoWrap fi)
+        public void CreateAndDeleteFile(IFileInfo fi)
         {
-            IFileStreamWrap fs = fi.Create();
+            IFileStream fs = fi.Create();
             fs.Close();
             fi.Delete();
         }
@@ -20,8 +20,8 @@ namespace SystemWrapper.Samples.IO
         public void Check_that_FileInfo_methods_Create_and_Delete_are_called()
         {
             // Add mock repository.
-            IFileInfoWrap fileInfoRepository = MockRepository.GenerateMock<IFileInfoWrap>();
-            IFileStreamWrap fileStreamRepository = MockRepository.GenerateMock<IFileStreamWrap>();
+            IFileInfo fileInfoRepository = MockRepository.GenerateMock<IFileInfo>();
+            IFileStream fileStreamRepository = MockRepository.GenerateMock<IFileStream>();
 
             // Create expectations
             fileInfoRepository.Expect(x => x.Create()).Return(fileStreamRepository);

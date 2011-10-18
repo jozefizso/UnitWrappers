@@ -31,7 +31,7 @@ file
 
 
 
-
+delete
 2011-09-15T08:24:53.189895Z
 8e9bd93fe32a5f70fed22697690f88a1
 2011-07-11T20:27:39.933000Z
@@ -59,6 +59,29 @@ unknown
 
 
 474
+
+IDeflateStream.cs
+file
+
+
+
+add
+
+8e9bd93fe32a5f70fed22697690f88a1
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/IO/Compression/IDeflateStreamWrap.cs
+79982
 
 DeflateStreamWrap.cs
 file

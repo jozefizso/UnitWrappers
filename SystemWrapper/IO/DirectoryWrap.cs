@@ -10,15 +10,15 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.Directory"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class DirectoryWrap : IDirectoryWrap
+    public class DirectoryWrap : IDirectory
     {
-        public IDirectoryInfoWrap CreateDirectory(string path)
+        public IDirectoryInfo CreateDirectory(string path)
         {
             DirectoryInfo di = Directory.CreateDirectory(path);
             return new DirectoryInfoWrap(di);
         }
 
-        public IDirectoryInfoWrap CreateDirectory(string path, IDirectorySecurityWrap directorySecurity)
+        public IDirectoryInfo CreateDirectory(string path, IDirectorySecurity directorySecurity)
         {
             if (directorySecurity == null)
                 throw new ArgumentNullException("directorySecurity");
@@ -41,24 +41,24 @@ namespace SystemWrapper.IO
             return Directory.Exists(path);
         }
 
-        public IDirectorySecurityWrap GetAccessControl(string path)
+        public IDirectorySecurity GetAccessControl(string path)
         {
             return new DirectorySecurityWrap(Directory.GetAccessControl(path));
         }
 
-        public IDirectorySecurityWrap GetAccessControl(string path, AccessControlSections includeSections)
+        public IDirectorySecurity GetAccessControl(string path, AccessControlSections includeSections)
         {
             return new DirectorySecurityWrap(Directory.GetAccessControl(path, includeSections));
         }
 
-        public IDateTimeWrap GetCreationTime(string path)
+        public DateTime GetCreationTime(string path)
         {
-            return new DateTimeWrap(Directory.GetCreationTime(path));
+            return Directory.GetCreationTime(path);
         }
 
-        public IDateTimeWrap GetCreationTimeUtc(string path)
+        public DateTime GetCreationTimeUtc(string path)
         {
-            return new DateTimeWrap(Directory.GetCreationTimeUtc(path));
+            return Directory.GetCreationTimeUtc(path);
         }
 
         public string GetCurrentDirectory()
@@ -111,24 +111,24 @@ namespace SystemWrapper.IO
             return Directory.GetFileSystemEntries(path, searchPattern);
         }
 
-        public IDateTimeWrap GetLastAccessTime(string path)
+        public DateTime GetLastAccessTime(string path)
         {
-            return new DateTimeWrap(Directory.GetLastAccessTime(path));
+            return Directory.GetLastAccessTime(path);
         }
 
-        public IDateTimeWrap GetLastAccessTimeUtc(string path)
+        public DateTime GetLastAccessTimeUtc(string path)
         {
-            return new DateTimeWrap(Directory.GetLastAccessTimeUtc(path));
+            return Directory.GetLastAccessTimeUtc(path);
         }
 
-        public IDateTimeWrap GetLastWriteTime(string path)
+        public DateTime GetLastWriteTime(string path)
         {
-            return new DateTimeWrap(Directory.GetLastWriteTime(path));
+            return Directory.GetLastWriteTime(path);
         }
 
-        public IDateTimeWrap GetLastWriteTimeUtc(string path)
+        public DateTime GetLastWriteTimeUtc(string path)
         {
-            return new DateTimeWrap(Directory.GetLastWriteTimeUtc(path));
+            return Directory.GetLastWriteTimeUtc(path);
         }
 
         public string[] GetLogicalDrives()
@@ -136,7 +136,7 @@ namespace SystemWrapper.IO
             return Directory.GetLogicalDrives();
         }
 
-        public IDirectoryInfoWrap GetParent(string path)
+        public IDirectoryInfo GetParent(string path)
         {
             DirectoryInfo di = Directory.GetParent(path);
             return new DirectoryInfoWrap(di);
@@ -147,21 +147,21 @@ namespace SystemWrapper.IO
             Directory.Move(sourceDirName, destDirName);
         }
 
-        public void SetAccessControl(string path, IDirectorySecurityWrap directorySecurity)
+        public void SetAccessControl(string path, IDirectorySecurity directorySecurity)
         {
             if (directorySecurity == null)
                 throw new ArgumentNullException("directorySecurity");
             Directory.SetAccessControl(path, directorySecurity.DirectorySecurityInstance);
         }
 
-        public void SetCreationTime(string path, IDateTimeWrap creationTime)
+        public void SetCreationTime(string path, DateTime creationTime)
         {
-            Directory.SetCreationTime(path, creationTime.DateTimeInstance);
+            Directory.SetCreationTime(path, creationTime);
         }
 
-        public void SetCreationTimeUtc(string path, IDateTimeWrap creationTimeUtc)
+        public void SetCreationTimeUtc(string path, DateTime creationTimeUtc)
         {
-            Directory.SetCreationTimeUtc(path, creationTimeUtc.DateTimeInstance);
+            Directory.SetCreationTimeUtc(path, creationTimeUtc);
         }
 
         public void SetCurrentDirectory(string path)
@@ -169,24 +169,24 @@ namespace SystemWrapper.IO
             Directory.SetCurrentDirectory(path);
         }
 
-        public void SetLastAccessTime(string path, IDateTimeWrap lastAccessTime)
+        public void SetLastAccessTime(string path, DateTime lastAccessTime)
         {
-            Directory.SetLastAccessTime(path, lastAccessTime.DateTimeInstance);
+            Directory.SetLastAccessTime(path, lastAccessTime);
         }
 
-        public void SetLastAccessTimeUtc(string path, IDateTimeWrap lastAccessTimeUtc)
+        public void SetLastAccessTimeUtc(string path, DateTime lastAccessTimeUtc)
         {
-            Directory.SetLastAccessTimeUtc(path, lastAccessTimeUtc.DateTimeInstance);
+            Directory.SetLastAccessTimeUtc(path, lastAccessTimeUtc);
         }
 
-        public void SetLastWriteTime(string path, IDateTimeWrap lastWriteTime)
+        public void SetLastWriteTime(string path, DateTime lastWriteTime)
         {
-            Directory.SetLastWriteTime(path, lastWriteTime.DateTimeInstance);
+            Directory.SetLastWriteTime(path, lastWriteTime);
         }
 
-        public void SetLastWriteTimeUtc(string path, IDateTimeWrap lastWriteTimeUtc)
+        public void SetLastWriteTimeUtc(string path, DateTime lastWriteTimeUtc)
         {
-            Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc.DateTimeInstance);
+            Directory.SetLastWriteTimeUtc(path, lastWriteTimeUtc);
         }
     }
 }

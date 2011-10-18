@@ -12,7 +12,7 @@ namespace SystemWrapper.Reflection
     /// </summary>
     [Serializable]
     [ComVisible(true)]
-    public class AssemblyNameWrap : IAssemblyNameWrap
+    public class AssemblyNameWrap : IAssemblyName
 	{
 		#region Constructors and Initializers
 
@@ -124,10 +124,10 @@ namespace SystemWrapper.Reflection
             set { AssemblyNameInstance.ProcessorArchitecture = value; }
         }
 
-        public IVersionWrap Version
+        public Version Version
         {
-            get { return new VersionWrap(AssemblyNameInstance.Version); }
-            set { AssemblyNameInstance.Version = value.VersionInstance; }
+            get { return AssemblyNameInstance.Version; }
+            set { AssemblyNameInstance.Version = value; }
         }
 
         public AssemblyVersionCompatibility VersionCompatibility
@@ -141,7 +141,7 @@ namespace SystemWrapper.Reflection
             return AssemblyNameInstance.Clone();
         }
 
-        public IAssemblyNameWrap GetAssemblyName(string assemblyFile)
+        public IAssemblyName GetAssemblyName(string assemblyFile)
         {
             return new AssemblyNameWrap(AssemblyName.GetAssemblyName(assemblyFile));
         }
@@ -166,7 +166,7 @@ namespace SystemWrapper.Reflection
             AssemblyNameInstance.OnDeserialization(sender);
         }
 
-        public bool ReferenceMatchesDefinition(IAssemblyNameWrap reference, IAssemblyNameWrap definition)
+        public bool ReferenceMatchesDefinition(IAssemblyName reference, IAssemblyName definition)
         {
             return AssemblyName.ReferenceMatchesDefinition(reference.AssemblyNameInstance, definition.AssemblyNameInstance);
         }
@@ -186,7 +186,7 @@ namespace SystemWrapper.Reflection
             return AssemblyNameInstance.ToString();
         }
 
-        internal static IAssemblyNameWrap[] ConvertFileInfoArrayIntoIFileInfoWrapArray(AssemblyName[] assemblyNames)
+        internal static IAssemblyName[] ConvertFileInfoArrayIntoIFileInfoWrapArray(AssemblyName[] assemblyNames)
         {
             AssemblyNameWrap[] wrapAssemblyNames = new AssemblyNameWrap[assemblyNames.Length];
             for (int i = 0; i < assemblyNames.Length; i++)

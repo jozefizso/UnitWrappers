@@ -9,7 +9,7 @@ namespace SystemWrapper
     /// </summary>
     [ComVisible(true)] 
     [Serializable]
-    public class AppDomainWrap : IAppDomainWrap
+    public class AppDomainWrap : IAppDomain
 	{
 		#region Constructors and Initializers
 
@@ -53,7 +53,7 @@ namespace SystemWrapper
 		
 		public AppDomain AppDomainInstance { get; private set; }
 
-        public IAppDomainWrap CurrentDomain
+        public IAppDomain CurrentDomain
         {
             get { return new AppDomainWrap(AppDomain.CurrentDomain); }
         }
@@ -63,7 +63,7 @@ namespace SystemWrapper
             return AppDomainInstance.GetData(name);
         }
 
-        public IAssemblyWrap Load(IAssemblyNameWrap assemblyRef)
+        public IAssembly Load(IAssemblyName assemblyRef)
         {
             return new AssemblyWrap(AppDomainInstance.Load(assemblyRef.AssemblyNameInstance));
         }
@@ -73,12 +73,12 @@ namespace SystemWrapper
             AppDomainInstance.SetData(name, data);
         }
 
-        public void Unload(IAppDomainWrap domain)
+        public void Unload(IAppDomain domain)
         {
             AppDomain.Unload(domain.AppDomainInstance);
         }
 
-        event ResolveEventHandler IAppDomainWrap.AssemblyResolve
+        event ResolveEventHandler IAppDomain.AssemblyResolve
         {
             add { AppDomainInstance.AssemblyResolve += value; }
             remove { AppDomainInstance.AssemblyResolve -= value; }

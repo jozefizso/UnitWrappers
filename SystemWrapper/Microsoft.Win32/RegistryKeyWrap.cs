@@ -6,7 +6,7 @@ namespace SystemWrapper.Microsoft.Win32
     /// <summary>
     /// 
     /// </summary>
-    public class RegistryKeyWrap : IRegistryKeyWrap
+    public class RegistryKeyWrap : IRegistryKey
     {
         private RegistryKey _registryKeyInstance;
 
@@ -34,12 +34,12 @@ namespace SystemWrapper.Microsoft.Win32
             return _registryKeyInstance.GetValue(name);
         }
 
-        public IRegistryKeyWrap OpenSubKey(string name)
+        public IRegistryKey OpenSubKey(string name)
         {
             return new RegistryKeyWrap(_registryKeyInstance.OpenSubKey(name));
         }
 
-        public IRegistryKeyWrap OpenSubKey(string name, bool writable)
+        public IRegistryKey OpenSubKey(string name, bool writable)
         {
             return new RegistryKeyWrap(_registryKeyInstance.OpenSubKey(name, writable));
         }

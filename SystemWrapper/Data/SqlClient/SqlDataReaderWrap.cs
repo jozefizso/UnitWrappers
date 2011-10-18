@@ -5,7 +5,7 @@ namespace SystemWrapper.Data.SqlClient
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlDataReader"/> class.
     /// </summary>
-    public class SqlDataReaderWrap : ISqlDataReaderWrap
+    public class SqlDataReaderWrap : ISqlDataReader
 		{
 			#region Constructors
 			/// <summary>
@@ -36,12 +36,12 @@ namespace SystemWrapper.Data.SqlClient
 
 			#endregion
 				
-			object ISqlDataReaderWrap.this[int i]
+			object ISqlDataReader.this[int i]
         {
             get { return SqlDataReaderInstance[i]; }
         }
 
-        object ISqlDataReaderWrap.this[string name]
+        object ISqlDataReader.this[string name]
         {
             get { return SqlDataReaderInstance[name]; }
         }

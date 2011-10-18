@@ -8,7 +8,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.Path"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class PathWrap : IPathWrap
+    public class PathWrap : IPath
     {
         public char AltDirectorySeparatorChar
         {

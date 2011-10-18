@@ -9,7 +9,7 @@ namespace SystemWrapper.IO
     /// Wrapper for <see cref="T:System.IO.StreamReader"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class StreamReaderWrap : IStreamReaderWrap
+    public class StreamReaderWrap : IStreamReader
 	{
 		#region Constructors and Initializers
 
@@ -71,7 +71,7 @@ namespace SystemWrapper.IO
 		/// Initializes a new instance of the <see cref="T:System.IO.StreamReader"/> class for the specified stream.
 		/// </summary>
 		/// <param name="stream">The stream wrapper to write to.</param>
-		public StreamReaderWrap(IStreamWrap stream)
+		public StreamReaderWrap(IStream stream)
 		{
 			Initialize(stream);
 		}
@@ -80,7 +80,7 @@ namespace SystemWrapper.IO
 		/// Initializes a new instance of the <see cref="T:System.IO.StreamReader"/> class for the specified stream.
 		/// </summary>
 		/// <param name="stream">The stream wrapper to write to.</param>
-		public void Initialize(IStreamWrap stream)
+		public void Initialize(IStream stream)
 		{
 			StreamReaderInstance = new StreamReader(stream.StreamInstance);
 		}
@@ -351,7 +351,7 @@ namespace SystemWrapper.IO
             return StreamReaderInstance.ReadToEnd();
         }
 
-        public ITextReaderWrap Synchronized(ITextReaderWrap reader)
+        public ITextReader Synchronized(ITextReader reader)
         {
             return new StreamReaderWrap(TextReader.Synchronized(reader.TextReaderInstance));
         }

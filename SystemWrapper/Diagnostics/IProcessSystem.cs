@@ -1,9 +1,12 @@
-using SystemWrapper.Diagnostics;
+using System.Diagnostics;
 
-namespace ThomsonReuters.CommonOffice.Presentation.Views.Services
+namespace SystemWrapper.Diagnostics
 {
+    /// <summary>
+    /// Wraps static memebers of <see cref="Process"/>.
+    /// </summary>
     public interface IProcessSystem
     {
-        IProcessWrap Start(string fileName);
+        IProcess Start(string fileName);
     }
 }

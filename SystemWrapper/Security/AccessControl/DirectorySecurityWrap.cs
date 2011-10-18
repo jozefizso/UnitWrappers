@@ -5,7 +5,7 @@ namespace SystemWrapper.Security.AccessControl
     /// <summary>
     /// Wrapper for <see cref="T:System.Security.AccessControl.DirectorySecurity"/> class.
     /// </summary>
-    public class DirectorySecurityWrap : IDirectorySecurityWrap
+    public class DirectorySecurityWrap : IDirectorySecurity
     {
         private DirectorySecurity _directorySecurity;
 

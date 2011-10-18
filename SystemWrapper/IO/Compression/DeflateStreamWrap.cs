@@ -6,7 +6,7 @@ namespace SystemWrapper.IO.Compression
 	/// <summary>
 	/// Description of DeflateStreamWrap.
 	/// </summary>
-	public class DeflateStreamWrap : IDeflateStreamWrap
+	public class DeflateStreamWrap : IDeflateStream
 	{
 		#region Constructors and Initializers
 
@@ -18,12 +18,12 @@ namespace SystemWrapper.IO.Compression
 			//this constructor assumes caller will make a subsequent call to Initialize
 		}
 
-		public DeflateStreamWrap(IStreamWrap stream, CompressionMode mode)
+		public DeflateStreamWrap(IStream stream, CompressionMode mode)
 		{
 			Initialize(stream, mode);
 		}
 
-		public void Initialize(IStreamWrap stream, CompressionMode mode)
+		public void Initialize(IStream stream, CompressionMode mode)
 		{
 			DeflateStreamInstance = new DeflateStream(stream.StreamInstance, mode);
 		}

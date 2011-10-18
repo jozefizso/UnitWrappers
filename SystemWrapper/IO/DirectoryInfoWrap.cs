@@ -11,7 +11,7 @@ namespace SystemWrapper.IO
 	/// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
 	/// </summary>
 	[Serializable, ComVisible(true)]
-	public class DirectoryInfoWrap : IDirectoryInfoWrap
+	public class DirectoryInfoWrap : IDirectoryInfo
 	{
 		#region Constructors and Initializers
 
@@ -59,16 +59,16 @@ namespace SystemWrapper.IO
 			set { DirectoryInfo.Attributes = value; }
 		}
 
-		public IDateTimeWrap CreationTime
+		public DateTime CreationTime
 		{
-			get { return new DateTimeWrap(DirectoryInfo.CreationTime); }
-			set { DirectoryInfo.CreationTime = value.DateTimeInstance; }
+			get { return DirectoryInfo.CreationTime; }
+			set { DirectoryInfo.CreationTime = value; }
 		}
 
-		public IDateTimeWrap CreationTimeUtc
+		public DateTime CreationTimeUtc
 		{
-			get { return new DateTimeWrap(DirectoryInfo.CreationTimeUtc); }
-			set { DirectoryInfo.CreationTimeUtc = value.DateTimeInstance; }
+			get { return DirectoryInfo.CreationTimeUtc; }
+			set { DirectoryInfo.CreationTimeUtc = value; }
 		}
 
 		public DirectoryInfo DirectoryInfo { get; private set; }
@@ -88,28 +88,28 @@ namespace SystemWrapper.IO
 			get { return DirectoryInfo.FullName; }
 		}
 
-		public IDateTimeWrap LastAccessTime
+		public DateTime LastAccessTime
 		{
-			get { return new DateTimeWrap(DirectoryInfo.LastAccessTime); }
-			set { DirectoryInfo.LastAccessTime = value.DateTimeInstance; }
+			get { return DirectoryInfo.LastAccessTime; }
+			set { DirectoryInfo.LastAccessTime = value; }
 		}
 
-		public IDateTimeWrap LastAccessTimeUtc
+		public DateTime LastAccessTimeUtc
 		{
-			get { return new DateTimeWrap(DirectoryInfo.LastAccessTimeUtc); }
-			set { DirectoryInfo.LastAccessTimeUtc = value.DateTimeInstance; }
+			get { return DirectoryInfo.LastAccessTimeUtc; }
+			set { DirectoryInfo.LastAccessTimeUtc = value; }
 		}
 
-		public IDateTimeWrap LastWriteTime
+		public DateTime LastWriteTime
 		{
-			get { return new DateTimeWrap(DirectoryInfo.LastWriteTime); }
-			set { DirectoryInfo.LastWriteTime = value.DateTimeInstance; }
+			get { return DirectoryInfo.LastWriteTime; }
+			set { DirectoryInfo.LastWriteTime = value; }
 		}
 
-		public IDateTimeWrap LastWriteTimeUtc
+		public DateTime LastWriteTimeUtc
 		{
-			get { return new DateTimeWrap(DirectoryInfo.LastWriteTimeUtc); }
-			set { DirectoryInfo.LastWriteTimeUtc = value.DateTimeInstance; }
+			get { return DirectoryInfo.LastWriteTimeUtc; }
+			set { DirectoryInfo.LastWriteTimeUtc = value; }
 		}
 
 		public string Name
@@ -117,12 +117,12 @@ namespace SystemWrapper.IO
 			get { return DirectoryInfo.Name; }
 		}
 
-		public IDirectoryInfoWrap Parent
+		public IDirectoryInfo Parent
 		{
 			get { return new DirectoryInfoWrap(DirectoryInfo.Parent); }
 		}
 
-		public IDirectoryInfoWrap Root
+		public IDirectoryInfo Root
 		{
 			get { return new DirectoryInfoWrap(DirectoryInfo.Root); }
 		}
@@ -132,7 +132,7 @@ namespace SystemWrapper.IO
 			DirectoryInfo.Create();
 		}
 
-		public void Create(IDirectorySecurityWrap directorySecurity)
+		public void Create(IDirectorySecurity directorySecurity)
 		{
 			DirectoryInfo.Create(directorySecurity.DirectorySecurityInstance);
 		}
@@ -142,12 +142,12 @@ namespace SystemWrapper.IO
 			return DirectoryInfo.CreateObjRef(requestedType);
 		}
 
-		public IDirectoryInfoWrap CreateSubdirectory(string path)
+		public IDirectoryInfo CreateSubdirectory(string path)
 		{
 			return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path));
 		}
 
-		public IDirectoryInfoWrap CreateSubdirectory(string path, IDirectorySecurityWrap directorySecurity)
+		public IDirectoryInfo CreateSubdirectory(string path, IDirectorySecurity directorySecurity)
 		{
 			return new DirectoryInfoWrap(DirectoryInfo.CreateSubdirectory(path, directorySecurity.DirectorySecurityInstance));
 		}
@@ -162,47 +162,47 @@ namespace SystemWrapper.IO
 			DirectoryInfo.Delete(recursive);
 		}
 
-		public IDirectorySecurityWrap GetAccessControl()
+		public IDirectorySecurity GetAccessControl()
 		{
 			return new DirectorySecurityWrap(DirectoryInfo.GetAccessControl());
 		}
 
-		public IDirectorySecurityWrap GetAccessControl(AccessControlSections includeSections)
+		public IDirectorySecurity GetAccessControl(AccessControlSections includeSections)
 		{
 			return new DirectorySecurityWrap(DirectoryInfo.GetAccessControl(includeSections));
 		}
 
-		public IDirectoryInfoWrap[] GetDirectories()
+		public IDirectoryInfo[] GetDirectories()
 		{
 			DirectoryInfo[] directoryInfos = DirectoryInfo.GetDirectories();
 			return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
 		}
 
-		public IDirectoryInfoWrap[] GetDirectories(string searchPattern)
+		public IDirectoryInfo[] GetDirectories(string searchPattern)
 		{
 			DirectoryInfo[] directoryInfos = DirectoryInfo.GetDirectories(searchPattern);
 			return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
 		}
 
-		public IDirectoryInfoWrap[] GetDirectories(string searchPattern, SearchOption searchOption)
+		public IDirectoryInfo[] GetDirectories(string searchPattern, SearchOption searchOption)
 		{
 			DirectoryInfo[] directoryInfos = DirectoryInfo.GetDirectories(searchPattern, searchOption);
 			return ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(directoryInfos);
 		}
 
-		public IFileInfoWrap[] GetFiles()
+		public IFileInfo[] GetFiles()
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles();
 			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
 		}
 
-		public IFileInfoWrap[] GetFiles(string searchPattern)
+		public IFileInfo[] GetFiles(string searchPattern)
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles(searchPattern);
 			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
 		}
 
-		public IFileInfoWrap[] GetFiles(string searchPattern, SearchOption searchOption)
+		public IFileInfo[] GetFiles(string searchPattern, SearchOption searchOption)
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles(searchPattern, searchOption);
 			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
@@ -238,7 +238,7 @@ namespace SystemWrapper.IO
 			DirectoryInfo.Refresh();
 		}
 
-		public void SetAccessControl(IDirectorySecurityWrap directorySecurity)
+		public void SetAccessControl(IDirectorySecurity directorySecurity)
 		{
 			DirectoryInfo.SetAccessControl(directorySecurity.DirectorySecurityInstance);
 		}
@@ -248,9 +248,9 @@ namespace SystemWrapper.IO
 			return DirectoryInfo.ToString();
 		}
 
-		private static IDirectoryInfoWrap[] ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(DirectoryInfo[] directoryInfos)
+		private static IDirectoryInfo[] ConvertDirectoryInfoArrayIntoIDirectoryInfoWrapArray(DirectoryInfo[] directoryInfos)
 		{
-			IDirectoryInfoWrap[] directoryInfoWraps = new DirectoryInfoWrap[directoryInfos.Length];
+			IDirectoryInfo[] directoryInfoWraps = new DirectoryInfoWrap[directoryInfos.Length];
 			for (int i = 0; i < directoryInfos.Length; i++)
 				directoryInfoWraps[i] = new DirectoryInfoWrap(directoryInfos[i]);
 			return directoryInfoWraps;

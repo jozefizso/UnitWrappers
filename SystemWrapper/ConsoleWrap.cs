@@ -6,7 +6,7 @@ namespace SystemWrapper
     /// <summary>
     /// Wrapper for <see cref="System.Console"/> class.
     /// </summary>
-    public class ConsoleWrap : IConsoleWrap
+    public class ConsoleWrap : IConsole
     {
         /// <inheritdoc />
         public ConsoleColor ForegroundColor

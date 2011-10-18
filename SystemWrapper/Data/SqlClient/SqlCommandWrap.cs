@@ -5,7 +5,7 @@ namespace SystemWrapper.Data.SqlClient
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlCommand"/> class.
     /// </summary>
-    public class SqlCommandWrap : ISqlCommandWrap
+    public class SqlCommandWrap : ISqlCommand
 		{
 			#region Constructors
 
@@ -64,21 +64,21 @@ namespace SystemWrapper.Data.SqlClient
 				}
 
 				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+				/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnection. 
 				/// </summary>
 				/// <param name="cmdText">The text of the query.</param>
-				/// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-				public SqlCommandWrap(string cmdText, ISqlConnectionWrap connection)
+				/// <param name="connection">A ISqlConnection that represents the connection to an instance of SQL Server.</param>
+				public SqlCommandWrap(string cmdText, ISqlConnection connection)
 				{
 					Initialize(cmdText, connection);
 				}
 
 				/// <summary>
-				/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnectionWrap. 
+				/// Initializes a new instance of the SqlCommandWrap class with the text of the query and a ISqlConnection. 
 				/// </summary>
 				/// <param name="cmdText">The text of the query.</param>
-				/// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
-				public void Initialize(string cmdText, ISqlConnectionWrap connection)
+				/// <param name="connection">A ISqlConnection that represents the connection to an instance of SQL Server.</param>
+				public void Initialize(string cmdText, ISqlConnection connection)
 				{
 					SqlCommandInstance = new SqlCommand(cmdText, connection.SqlConnectionInstance);
 				}
@@ -89,7 +89,7 @@ namespace SystemWrapper.Data.SqlClient
 
 				public SqlCommand SqlCommandInstance { get; private set; }
 
-        public ISqlDataReaderWrap ExecuteReader()
+        public ISqlDataReader ExecuteReader()
         {
             return new SqlDataReaderWrap(SqlCommandInstance.ExecuteReader());
         }

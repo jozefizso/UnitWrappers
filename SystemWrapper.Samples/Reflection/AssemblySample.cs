@@ -1,4 +1,5 @@
-﻿using SystemWrapper.Reflection;
+﻿using System;
+using SystemWrapper.Reflection;
 using MbUnit.Framework;
 using Rhino.Mocks;
 
@@ -6,11 +7,11 @@ namespace SystemWrapper.Samples
 {
     public class AssemblySample
     {
-        private IAssemblyWrap _assembly;
+        private IAssembly _assembly;
 
-        public AssemblySample(IAssemblyWrap assemblyWrap)
+        public AssemblySample(IAssembly assembly)
         {
-            _assembly = assemblyWrap;
+            _assembly = assembly;
         }
 
         public string GetAssemblyVersion()
@@ -25,12 +26,12 @@ namespace SystemWrapper.Samples
         [Test]
         public void GetAssemblyVersion_test()
         {
-            IAssemblyWrap assemblyStub = MockRepository.GenerateStub<IAssemblyWrap>();
-            IAssemblyNameWrap assemblyNameStub = MockRepository.GenerateStub<IAssemblyNameWrap>();
+            IAssembly assemblyStub = MockRepository.GenerateStub<IAssembly>();
+            IAssemblyName assemblyNameStub = MockRepository.GenerateStub<IAssemblyName>();
 
             assemblyStub.Stub(x => x.GetExecutingAssembly()).Return(assemblyStub);
             assemblyStub.Stub(x => x.GetName()).Return(assemblyNameStub);
-            assemblyNameStub.Version = new VersionWrap(1, 2, 3, 4);
+            assemblyNameStub.Version = new Version(1, 2, 3, 4);
 
             Assert.AreEqual("1.2.3.4", new AssemblySample(assemblyStub).GetAssemblyVersion());
         }

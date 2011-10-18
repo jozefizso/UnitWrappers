@@ -2,6 +2,6 @@ namespace SystemWrapper.IO
 {
     public interface IFileInfoSystem
     {
-        IFileInfoWrap GetFileInfo(string fileName);
+        IFileInfo GetFileInfo(string fileName);
     }
 }

@@ -6,7 +6,7 @@ namespace SystemWrapper.Threading
     /// <summary>
     /// Wrapper for <see cref="System.Threading.Thread"/> class.
     /// </summary>
-    public class ThreadWrap : IThreadWrap
+    public class ThreadWrap : IThread
     {
         private global::System.Threading.Thread _thread;
 

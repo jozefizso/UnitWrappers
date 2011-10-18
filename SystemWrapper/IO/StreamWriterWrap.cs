@@ -6,7 +6,7 @@ namespace SystemWrapper.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
     /// </summary>
-    public class StreamWriterWrap : TextWriter, IStreamWriterWrap
+    public class StreamWriterWrap : TextWriter, IStreamWriter
 	{
 
 		#region Constructors and Initializers

@@ -8,7 +8,7 @@ namespace SystemWrapper.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.MemoryStream"/> class.
     /// </summary>
-    public class MemoryStreamWrap : IMemoryStreamWrap
+    public class MemoryStreamWrap : IMemoryStream
 	{
 
 		#region Constructors and Initializers
@@ -341,7 +341,7 @@ namespace SystemWrapper.IO
         }
 
         [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
-        public IStreamWrap Synchronized(IStreamWrap stream)
+        public IStream Synchronized(IStream stream)
         {
             return new MemoryStreamWrap(Stream.Synchronized(stream.StreamInstance));
         }
@@ -376,7 +376,7 @@ namespace SystemWrapper.IO
             return MemoryStreamInstance.ToArray();
         }
 
-        public void WriteTo(IStreamWrap stream)
+        public void WriteTo(IStream stream)
         {
             MemoryStreamInstance.WriteTo(stream.StreamInstance);
         }

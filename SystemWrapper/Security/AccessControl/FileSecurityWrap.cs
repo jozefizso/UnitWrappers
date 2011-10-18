@@ -5,7 +5,7 @@ namespace SystemWrapper.Security.AccessControl
     /// <summary>
     /// Wrapper for <see cref="T:System.Security.AccessControl.FileSecurity"/> class.
     /// </summary>
-    public class FileSecurityWrap : IFileSecurityWrap
+    public class FileSecurityWrap : IFileSecurity
     {
         internal FileSecurity _fileSecurity;
 

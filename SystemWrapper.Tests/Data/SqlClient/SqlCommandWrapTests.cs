@@ -42,7 +42,7 @@ namespace SystemWrapper.Tests.IO
 		[Test]
 		public void Constructor_4_Sets_Command_Instance()
 		{
-			var mockConnWrap = _mockRepository.Stub<ISqlConnectionWrap>();
+			var mockConnWrap = _mockRepository.Stub<ISqlConnection>();
 			var instance = new SqlCommandWrap("command text string", mockConnWrap);
 			Assert.IsNotNull(instance.SqlCommandInstance);
 		}
@@ -77,7 +77,7 @@ namespace SystemWrapper.Tests.IO
 		public void Initialize_4_Sets_Command_Instance()
 		{
 			var instance = new SqlCommandWrap();
-			var mockConnWrap = _mockRepository.Stub<ISqlConnectionWrap>();
+			var mockConnWrap = _mockRepository.Stub<ISqlConnection>();
 			instance.Initialize("command text string", mockConnWrap);
 			Assert.IsNotNull(instance.SqlCommandInstance);
 		}

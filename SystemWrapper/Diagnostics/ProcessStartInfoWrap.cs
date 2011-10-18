@@ -5,7 +5,7 @@ namespace SystemWrapper.Diagnostics
 	///<summary>
 	/// Wrapper for <see cref="T:System.Diagnostics.ProcessStartInfo"/> class.
 	///</summary>
-	public class ProcessStartInfoWrap : IProcessStartInfoWrap
+	public class ProcessStartInfoWrap : IProcessStartInfo
 	{
 		#region Constructors and Initializers
 
