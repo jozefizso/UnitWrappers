@@ -15,16 +15,7 @@ namespace SystemWrapper.Security.AccessControl
 		/// <param name="fileSecurity">A FileSecurity object.</param>
 		public FileSecurityWrap(FileSecurity fileSecurity)
 		{
-			Initialize(fileSecurity);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="fileSecurity">A FileSecurity object.</param>
-		public void Initialize(FileSecurity fileSecurity)
-		{
-			_fileSecurity = fileSecurity;
+            _fileSecurity = fileSecurity;
 		}
 
 		/// <summary>
@@ -32,15 +23,7 @@ namespace SystemWrapper.Security.AccessControl
 		/// </summary>
 		public FileSecurityWrap()
 		{
-			Initialize();
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.FileSecurityWrap"/> class on the specified path. 
-		/// </summary>
-		public void Initialize()
-		{
-			_fileSecurity = new FileSecurity();
+            _fileSecurity = new FileSecurity();
 		}
 
 		public FileSecurity FileSecurityInstance

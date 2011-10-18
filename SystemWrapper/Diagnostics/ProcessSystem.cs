@@ -1,7 +1,6 @@
 using System.Diagnostics;
-using SystemWrapper.Diagnostics;
 
-namespace ThomsonReuters.CommonOffice.Presentation.Views.Services
+namespace SystemWrapper.Diagnostics
 {
     public class ProcessSystem : IProcessSystem
     {

@@ -10,8 +10,6 @@ namespace SystemWrapper.Diagnostics
 	{
 		private IProcessStartInfo startInfo;
 
-		#region Constructors and Initializers
-
         /// <summary>
         /// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class from framework <see cref="Process"/> class.
         /// </summary>
@@ -26,18 +24,8 @@ namespace SystemWrapper.Diagnostics
 		/// </summary>
 		public ProcessWrap()
 		{
-			Initialize();
+            ProcessInstance = new Process();
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
-		/// </summary>
-		public void Initialize()
-		{
-			ProcessInstance = new Process();
-		}
-
-		#endregion
 		
 		public int ExitCode
 		{

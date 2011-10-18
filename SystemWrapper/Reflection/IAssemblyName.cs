@@ -13,24 +13,6 @@ namespace SystemWrapper.Reflection
     public interface IAssemblyName
     {
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-    	/// </summary>
-    	void Initialize();
-
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-    	/// </summary>
-    	/// <param name="assemblyName">AssemblyName object.</param>
-    	void Initialize(AssemblyName assemblyName);
-
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyNameWrap"/> class. 
-    	/// </summary>
-    	/// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
-    	void Initialize(string assemblyName);
-
-
 
         // Properties
 

@@ -9,11 +9,6 @@ namespace SystemWrapper.Diagnostics
     public interface IProcess
     {
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemWrapper.Diagnostics.ProcessWrap"/> class.
-    	/// </summary>
-    	void Initialize();
-
         // Properties
 
         /// <summary>

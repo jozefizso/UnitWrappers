@@ -7,15 +7,6 @@ namespace SystemWrapper.Data.SqlClient
     /// </summary>
     public interface ISqlDataReader
     {
-
-
-    	/// <summary>
-    	/// Initializes a new instance of the SqlDataReaderWrap class. 
-    	/// </summary>
-    	/// <param name="dataReader">SqlDataReader object.</param>
-    	void Initialize(SqlDataReader dataReader);
-
-
         // Properties
 
         /// <summary>

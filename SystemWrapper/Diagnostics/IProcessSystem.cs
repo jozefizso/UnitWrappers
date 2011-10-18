@@ -3,7 +3,7 @@ using System.Diagnostics;
 namespace SystemWrapper.Diagnostics
 {
     /// <summary>
-    /// Wraps static memebers of <see cref="Process"/>.
+    /// Wraps static members of <see cref="Process"/>.
     /// </summary>
     public interface IProcessSystem
     {

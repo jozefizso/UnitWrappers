@@ -15,12 +15,6 @@ namespace SystemWrapper.Reflection
     public interface IAssembly : IEvidenceFactory, ICustomAttributeProvider, ISerializable
     {
 
-    	/// <summary>
-    	/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
-    	/// </summary>
-    	/// <param name="assembly">Assembly object.</param>
-    	void Initialize(Assembly assembly);
-
         // Properties
 
         /// <summary>
@@ -99,43 +93,15 @@ namespace SystemWrapper.Reflection
         /// <param name="activationAttributes">An array of one or more attributes that can participate in activation. Typically, an array that contains a single UrlAttribute object. The UrlAttribute specifies the URL that is required to activate a remote object.</param>
         /// <returns>An instance of Object representing the type and matching the specified criteria, or nullNothingnullptra null reference (Nothing in Visual Basic) if typeName is not found.</returns>
         object CreateInstance(string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes);
-        /// <summary>
-        /// Creates the name of a type qualified by the display name of its assembly.
-        /// </summary>
-        /// <param name="assemblyName">The display name of an assembly.</param>
-        /// <param name="typeName">The full name of a type.</param>
-        /// <returns>A String that is the full name of the type qualified by the display name of the assembly.</returns>
-        [MethodImpl(MethodImplOptions.InternalCall)]
-        string CreateQualifiedName(string assemblyName, string typeName);
+
         /// <summary>
         /// Determines whether this assembly and the specified object are equal.
         /// </summary>
         /// <param name="o">The object to compare with this instance.</param>
         /// <returns> true if o is equal to this instance; otherwise, false.</returns>
         bool Equals(object o);
-        /// <summary>
-        /// Gets the currently loaded assembly in which the specified class is defined. 
-        /// </summary>
-        /// <param name="type">A Type object representing a class in the assembly that will be returned.</param>
-        /// <returns>The assembly in which the specified class is defined.</returns>
-        IAssembly GetAssembly(Type type);
-        /// <summary>
-        /// Returns the IAssembly of the method that invoked the currently executing method. 
-        /// </summary>
-        /// <returns>The Assembly object of the method that invoked the currently executing method.</returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        IAssembly GetCallingAssembly();
-        /// <summary>
-        /// Gets the process executable in the default application domain. In other application domains, this is the first executable that was executed by AppDomain.ExecuteAssembly.
-        /// </summary>
-        /// <returns>The Assembly that is the process executable in the default application domain, or the first executable that was executed by AppDomain.ExecuteAssembly. Can return nullNothingnullptra null reference (Nothing in Visual Basic) when called from unmanaged code. </returns>
-        IAssembly GetEntryAssembly();
-        /// <summary>
-        /// Gets the assembly that contains the code that is currently executing.
-        /// </summary>
-        /// <returns>A IAssembly representing the assembly that contains the code that is currently executing. </returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        IAssembly GetExecutingAssembly();
+
+
         /// <summary>
         /// Gets the public types defined in this assembly that are visible outside the assembly.
         /// </summary>
@@ -173,13 +139,7 @@ namespace SystemWrapper.Reflection
         /// </summary>
         /// <returns>An array of type <see cref="T:SystemWrapper.Reflection.IAssemblyName"/> containing all the assemblies referenced by this assembly.</returns>
         IAssemblyName[] GetReferencedAssemblies();
-        /// <summary>
-        /// Loads an assembly given its file name or path. 
-        /// </summary>
-        /// <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
-        /// <returns>The loaded assembly. </returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        IAssembly LoadFrom(string assemblyFile);
+
 
         /*
             public Module[] GetLoadedModules();

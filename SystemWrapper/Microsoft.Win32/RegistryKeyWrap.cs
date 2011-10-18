@@ -10,23 +10,15 @@ namespace SystemWrapper.Microsoft.Win32
     {
         private RegistryKey _registryKeyInstance;
 
-		#region Constructors and Initializers
-
-		public RegistryKeyWrap(RegistryKey registryKey)
-		{
-			Initialize(registryKey);
-		}
-
-		public void Initialize(RegistryKey registryKey)
-		{
-			_registryKeyInstance = registryKey;
-		}
-
-		#endregion Constructors and Initializers
-		
-		public void Close()
+        public RegistryKeyWrap(RegistryKey registryKey)
         {
-            throw new NotImplementedException();
+            _registryKeyInstance = registryKey;
+        }
+
+
+        public void Close()
+        {
+           _registryKeyInstance.Close();
         }
 
         public object GetValue(string name)

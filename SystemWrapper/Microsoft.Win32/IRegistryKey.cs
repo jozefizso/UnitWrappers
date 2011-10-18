@@ -8,8 +8,6 @@ namespace SystemWrapper.Microsoft.Win32
     public interface IRegistryKey
     {
 
-    	void Initialize(RegistryKey registryKey);
-
         // Methods
 
         /// <summary>

@@ -20,29 +20,14 @@ namespace SystemWrapper.Reflection
 		#region Constructors and Initializers
 
 		/// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
-        /// </summary>
-        public AssemblyWrap()
-        {}
-
-		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
 		/// </summary>
 		/// <param name="assembly">Assembly object.</param>
 		public AssemblyWrap(Assembly assembly)
 		{
-			Initialize(assembly);
+            _assembly = assembly;
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Reflection.AssemblyWrap"/> class. 
-		/// </summary>
-		/// <param name="assembly">Assembly object.</param>
-		public void Initialize(Assembly assembly)
-		{
-			_assembly = assembly;
-		}
-
+        
 		#endregion Constructors and Initializers
 		
 		public Assembly AssemblyInstance
@@ -125,25 +110,13 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.CreateInstance(typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes);
         }
 
-        public string CreateQualifiedName(string assemblyName, string typeName)
-        {
-            return Assembly.CreateQualifiedName(assemblyName, typeName);
-        }
 
         public override bool Equals(object obj)
         {
             return AssemblyInstance.Equals(obj);
         }
 
-        public IAssembly GetAssembly(Type type)
-        {
-            return new AssemblyWrap(Assembly.GetAssembly(type));
-        }
-
-        public IAssembly GetCallingAssembly()
-        {
-            return new AssemblyWrap(Assembly.GetCallingAssembly());
-        }
+ 
 
         public virtual object[] GetCustomAttributes(bool inherit)
         {
@@ -155,15 +128,7 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.GetCustomAttributes(attributeType, inherit);
         }
 
-        public IAssembly GetEntryAssembly()
-        {
-            return new AssemblyWrap(Assembly.GetEntryAssembly());
-        }
 
-        public IAssembly GetExecutingAssembly()
-        {
-            return new AssemblyWrap(Assembly.GetExecutingAssembly());
-        }
 
         public virtual Type[] GetExportedTypes()
         {
@@ -211,9 +176,6 @@ namespace SystemWrapper.Reflection
             return AssemblyInstance.IsDefined(attributeType, inherit);
         }
 
-        public IAssembly LoadFrom(string assemblyFile)
-        {
-            return new AssemblyWrap(Assembly.LoadFrom(assemblyFile));
-        }
+
     }
 }

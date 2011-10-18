@@ -15,17 +15,9 @@ namespace SystemWrapper.Security.AccessControl
 		/// <param name="directorySecurity">A <see cref="T:System.Security.AccessControl.DirectorySecurity"/> object.</param>
 		public DirectorySecurityWrap(DirectorySecurity directorySecurity)
 		{
-			Initialize(directorySecurity);
+            _directorySecurity = directorySecurity;
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.Security.AccessControl.DirectorySecurityWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="directorySecurity">A <see cref="T:System.Security.AccessControl.DirectorySecurity"/> object.</param>
-		public void Initialize(DirectorySecurity directorySecurity)
-		{
-			_directorySecurity = directorySecurity;
-		}
 
 		public DirectorySecurity DirectorySecurityInstance
         {

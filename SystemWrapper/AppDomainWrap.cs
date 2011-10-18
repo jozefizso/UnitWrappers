@@ -19,45 +19,13 @@ namespace SystemWrapper
 		/// <param name="appDomain">AppDomain object.</param>
 		public AppDomainWrap(AppDomain appDomain)
 		{
-			Initialize(appDomain);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class. 
-		/// </summary>
-		/// <param name="appDomain">AppDomain object.</param>
-		public void Initialize(AppDomain appDomain)
-		{
-			AppDomainInstance = appDomain;
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class and creates a new application domain with the specified name.
-		/// </summary>
-		/// <param name="friendlyName">The friendly name of the domain.</param>
-		public AppDomainWrap(string friendlyName)
-		{
-			Initialize(friendlyName);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.AppDomainWrap"/> class and creates a new application domain with the specified name.
-		/// </summary>
-		/// <param name="friendlyName">The friendly name of the domain.</param>
-		public void Initialize(string friendlyName)
-		{
-			AppDomainInstance = AppDomain.CreateDomain(friendlyName);
+            AppDomainInstance = appDomain;
 		}
 
     	#endregion Constructors and Initializers
 		
 		public AppDomain AppDomainInstance { get; private set; }
-
-        public IAppDomain CurrentDomain
-        {
-            get { return new AppDomainWrap(AppDomain.CurrentDomain); }
-        }
-
+        
         public object GetData(string name)
         {
             return AppDomainInstance.GetData(name);
@@ -73,10 +41,7 @@ namespace SystemWrapper
             AppDomainInstance.SetData(name, data);
         }
 
-        public void Unload(IAppDomain domain)
-        {
-            AppDomain.Unload(domain.AppDomainInstance);
-        }
+
 
         event ResolveEventHandler IAppDomain.AssemblyResolve
         {
