@@ -9,38 +9,6 @@ namespace SystemWrapper.IO
 	/// </summary>
 	public interface IBinaryWriter : IDisposable
 	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
-		void Initialize(BinaryWriter writer);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-		/// </summary>
-		/// <param name="output">The output stream.</param>
-		void Initialize(Stream output);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-		/// </summary>
-		/// <param name="output">The output stream.</param>
-		void Initialize(IStream output);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="output">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		void Initialize(Stream output, Encoding encoding);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="output">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		void Initialize(IStream output, Encoding encoding);
-
 
 		// Properties
 

@@ -12,24 +12,13 @@ namespace SystemWrapper.IO
 	[Serializable, ComVisible(true)]
 	public class FileInfoWrap : IFileInfo
 	{
-		#region Constructors and Initializers
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
 		/// </summary>
 		/// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
 		public FileInfoWrap(FileInfo fileInfo)
 		{
-			Initialize(fileInfo);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
-		public void Initialize(FileInfo fileInfo)
-		{
-			FileInfoInstance = fileInfo;
+            FileInfoInstance = fileInfo;
 		}
 
 		/// <summary>
@@ -38,19 +27,9 @@ namespace SystemWrapper.IO
 		/// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
 		public FileInfoWrap(string fileName)
 		{
-			Initialize(fileName);
+            FileInfoInstance = new FileInfo(fileName);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileInfoWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
-		public void Initialize(string fileName)
-		{
-			FileInfoInstance = new FileInfo(fileName);
-		}
-
-		#endregion
 
 		public FileAttributes Attributes
 		{

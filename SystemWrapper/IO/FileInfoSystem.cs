@@ -2,11 +2,11 @@
 
 namespace SystemWrapper.IO
 {
-    public class FileInfoSystem: IFileInfoSystem
+    public class FileInfoSystem : IFileInfoSystem
     {
-        public IFileInfo GetFileInfo(string fileName)
+        public IFileInfo CreateFileInfo(string fileName)
         {
-            return  new FileInfoWrap(fileName);
+            return new FileInfoWrap(fileName);
         }
     }
 }

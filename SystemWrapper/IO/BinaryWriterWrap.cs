@@ -11,7 +11,6 @@ namespace SystemWrapper.IO
 	[Serializable, ComVisible(true)]
 	public class BinaryWriterWrap :IBinaryWriter
 	{
-		#region Constructors and Initializers
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
@@ -19,16 +18,7 @@ namespace SystemWrapper.IO
 		/// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
 		public BinaryWriterWrap(BinaryWriter writer)
 		{
-			Initialize(writer);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryWriterWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="writer">The <see cref="T:System.IO.BinaryWriter"/> object.</param>
-		public void Initialize(BinaryWriter writer)
-		{
-			BinaryWriterInstance = writer;
+            BinaryWriterInstance = writer;
 		}
 
 		/// <summary>
@@ -37,16 +27,7 @@ namespace SystemWrapper.IO
 		/// <param name="output">The output stream.</param>
 		public BinaryWriterWrap(Stream output)
 		{
-			Initialize(output);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-		/// </summary>
-		/// <param name="output">The output stream.</param>
-		public void Initialize(Stream output)
-		{
-			BinaryWriterInstance = new BinaryWriter(output);
+            BinaryWriterInstance = new BinaryWriter(output);
 		}
 
 		/// <summary>
@@ -55,16 +36,7 @@ namespace SystemWrapper.IO
 		/// <param name="output">The output stream.</param>
 		public BinaryWriterWrap(IStream output)
 		{
-			Initialize(output.StreamInstance);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-		/// </summary>
-		/// <param name="output">The output stream.</param>
-		public void Initialize(IStream output)
-		{
-			BinaryWriterInstance = new BinaryWriter(output.StreamInstance);
+            BinaryWriterInstance = new BinaryWriter(output.StreamInstance);
 		}
 
 		/// <summary>
@@ -74,17 +46,7 @@ namespace SystemWrapper.IO
 		/// <param name="encoding">The character encoding.</param>
 		public BinaryWriterWrap(Stream output, Encoding encoding)
 		{
-			Initialize(output, encoding);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="output">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		public void Initialize(Stream output, Encoding encoding)
-		{
-			BinaryWriterInstance = new BinaryWriter(output, encoding);
+            BinaryWriterInstance = new BinaryWriter(output, encoding);
 		}
 
 		/// <summary>
@@ -94,20 +56,8 @@ namespace SystemWrapper.IO
 		/// <param name="encoding">The character encoding.</param>
 		public BinaryWriterWrap(IStream output, Encoding encoding)
 		{
-			Initialize(output.StreamInstance, encoding);
+            BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="output">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		public void Initialize(IStream output, Encoding encoding)
-		{
-			BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
-		}
-
-		#endregion
 
 		public Stream BaseStream
 		{

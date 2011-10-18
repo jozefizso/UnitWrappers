@@ -11,36 +11,19 @@ namespace SystemWrapper.IO
     public class MemoryStreamWrap : IMemoryStream
 	{
 
-		#region Constructors and Initializers
-
 		/// <summary>
 		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
 		/// </summary>
 		public MemoryStreamWrap()
 		{
-			Initialize();
+         MemoryStreamInstance = new MemoryStream();
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
-		/// </summary>
-		public void Initialize()
-		{
-			MemoryStreamInstance = new MemoryStream();
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
 		/// </summary>
 		public MemoryStreamWrap(Stream stream)
-		{
-			Initialize(stream );
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
-		/// </summary>
-		public void Initialize(Stream stream)
 		{
 			MemoryStreamInstance = stream as MemoryStream;
 		}
@@ -51,15 +34,6 @@ namespace SystemWrapper.IO
 		/// <param name="memoryStream">A <see cref="T:System.IO.MemoryStream"/> object.</param>
 		public MemoryStreamWrap(MemoryStream memoryStream)
 		{
-			Initialize(memoryStream);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.MemoryStreamWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="memoryStream">A <see cref="T:System.IO.MemoryStream"/> object.</param>
-		public void Initialize(MemoryStream memoryStream)
-		{
 			MemoryStreamInstance = memoryStream;
 		}
 
@@ -69,17 +43,9 @@ namespace SystemWrapper.IO
 		/// <param name="buffer">The array of unsigned bytes from which to create the current stream. </param>
 		public MemoryStreamWrap(byte[] buffer)
 		{
-			Initialize(buffer);
-		}
-
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create the current stream. </param>
-		public void Initialize(byte[] buffer)
-		{
 			MemoryStreamInstance = new MemoryStream(buffer);
 		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized as specified. 
@@ -87,17 +53,9 @@ namespace SystemWrapper.IO
 		/// <param name="capacity"></param>
 		public MemoryStreamWrap(int capacity)
 		{
-			Initialize(capacity);
+	MemoryStreamInstance = new MemoryStream(capacity);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized as specified. 
-		/// </summary>
-		/// <param name="capacity"></param>
-		public void Initialize(int capacity)
-		{
-			MemoryStreamInstance = new MemoryStream(capacity);
-		}
 
 		/// <summary>
 		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array with the CanWrite property set as specified. 
@@ -106,18 +64,10 @@ namespace SystemWrapper.IO
 		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
 		public MemoryStreamWrap(byte[] buffer, bool writable)
 		{
-			Initialize(buffer, writable);
-		}
-
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array with the CanWrite property set as specified. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-		public void Initialize(byte[] buffer, bool writable)
-		{
 			MemoryStreamInstance = new MemoryStream(buffer, writable);
 		}
+
+
 
 		/// <summary>
 		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region (index) of a byte array. 
@@ -127,19 +77,10 @@ namespace SystemWrapper.IO
 		/// <param name="count">The length of the stream in bytes. </param>
 		public MemoryStreamWrap(byte[] buffer, int index, int count)
 		{
-			Initialize(buffer, index, count);
-		}
-
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region (index) of a byte array. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="index">The index into buffer at which the stream begins.</param>
-		/// <param name="count">The length of the stream in bytes. </param>
-		public void Initialize(byte[] buffer, int index, int count)
-		{
 			MemoryStreamInstance = new MemoryStream(buffer, index, count);
 		}
+
+
 
 		/// <summary>
 		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified. 
@@ -150,20 +91,9 @@ namespace SystemWrapper.IO
 		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
 		public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable)
 		{
-			Initialize(buffer, index, count, writable);
-		}
-
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="index">The index into buffer at which the stream begins.</param>
-		/// <param name="count">The length of the stream in bytes. </param>
-		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-		public void Initialize(byte[] buffer, int index, int count, bool writable)
-		{
 			MemoryStreamInstance = new MemoryStream(buffer, index, count, writable);
 		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified, and the ability to call GetBuffer set as specified. 
@@ -175,23 +105,8 @@ namespace SystemWrapper.IO
 		/// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
 		public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
 		{
-			Initialize(buffer, index, count, writable, publiclyVisible);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified, and the ability to call GetBuffer set as specified. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="index">The index into buffer at which the stream begins.</param>
-		/// <param name="count">The length of the stream in bytes.</param>
-		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-		/// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
-		public void Initialize(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
-		{
 			MemoryStreamInstance = new MemoryStream(buffer, index, count, writable, publiclyVisible);
 		}
-
-		#endregion Constructors and Initializers
 		
 		/// <summary>
 		/// Gets a value indicating whether the current stream supports reading.

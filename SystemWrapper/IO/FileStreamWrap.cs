@@ -15,24 +15,13 @@ namespace SystemWrapper.IO
 	[ComVisible(true)]
 	public class FileStreamWrap : IFileStream
 	{
-		#region Constructors and Initializers
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
 		/// </summary>
 		/// <param name="stream">A <see cref="T:System.IO.Stream"/> object.</param>
 		public FileStreamWrap(Stream stream)
 		{
-			Initialize(stream );
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="stream">A <see cref="T:System.IO.Stream"/> object.</param>
-		public void Initialize(Stream stream)
-		{
-			FileStreamInstance = stream as FileStream;
+            FileStreamInstance = stream as FileStream;
 		}
 
 		/// <summary>
@@ -41,16 +30,7 @@ namespace SystemWrapper.IO
 		/// <param name="fileStream">A <see cref="T:System.IO.FileStream"/> object.</param>
 		public FileStreamWrap(FileStream fileStream)
 		{
-			Initialize(fileStream);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="fileStream">A <see cref="T:System.IO.FileStream"/> object.</param>
-		public void Initialize(FileStream fileStream)
-		{
-			FileStreamInstance = fileStream;
+            FileStreamInstance = fileStream;
 		}
 
 		/// <summary>
@@ -60,37 +40,17 @@ namespace SystemWrapper.IO
 		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
 		public FileStreamWrap(ISafeFileHandle handle, FileAccess access)
 		{
-			Initialize(handle, access);
+            FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission. 
-		/// </summary>
-		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
-		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
-		public void Initialize(ISafeFileHandle handle, FileAccess access)
-		{
-			FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access);
-		}
-
-		/// <summary>
+    	/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
 		/// </summary>
 		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
 		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
 		public FileStreamWrap(string path, FileMode mode)
 		{
-			Initialize(path, mode);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		public void Initialize(string path, FileMode mode)
-		{
-			FileStreamInstance = new FileStream(path, mode);
+            FileStreamInstance = new FileStream(path, mode);
 		}
 
 		/// <summary>
@@ -101,19 +61,10 @@ namespace SystemWrapper.IO
 		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
 		public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize)
 		{
-			Initialize(handle, access, bufferSize);
+            FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access, bufferSize);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size. 
-		/// </summary>
-		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
-		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-		public void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize)
-		{
-			FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access, bufferSize);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
@@ -123,19 +74,10 @@ namespace SystemWrapper.IO
 		/// <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
 		public FileStreamWrap(string path, FileMode mode, FileAccess access)
 		{
-			Initialize(path, mode, access);
+            FileStreamInstance = new FileStream(path, mode, access);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path and creation mode. 
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
-		public void Initialize(string path, FileMode mode, FileAccess access)
-		{
-			FileStreamInstance = new FileStream(path, mode, access);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state. 
@@ -147,21 +89,10 @@ namespace SystemWrapper.IO
 		[SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 		public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
 		{
-			Initialize(handle, access, bufferSize, isAsync);
+            FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access, bufferSize, isAsync);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size, and synchronous or asynchronous state. 
-		/// </summary>
-		/// <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
-		/// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-		/// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
-		[SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-		public void Initialize(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
-		{
-			FileStreamInstance = new FileStream(handle.SafeFileHandleInstance, access, bufferSize, isAsync);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write permission, and sharing permission.
@@ -172,20 +103,10 @@ namespace SystemWrapper.IO
 		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
 		public FileStreamWrap(string path, FileMode mode, FileAccess access, FileShare share)
 		{
-			Initialize(path, mode, access, share);
+            FileStreamInstance = new FileStream(path, mode, access, share);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write permission, and sharing permission.
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
-		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
-		public void Initialize(string path, FileMode mode, FileAccess access, FileShare share)
-		{
-			FileStreamInstance = new FileStream(path, mode, access, share);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write permission, and sharing permission, and buffer size.
@@ -197,21 +118,10 @@ namespace SystemWrapper.IO
 		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
 		public FileStreamWrap(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize)
 		{
-			Initialize(path, mode, access, share, bufferSize);
+            FileStreamInstance = new FileStream(path, mode, access, share, bufferSize);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write permission, and sharing permission, and buffer size.
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
-		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-		public void Initialize(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize)
-		{
-			FileStreamInstance = new FileStream(path, mode, access, share, bufferSize);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write permission, and sharing permission, and buffer size.
@@ -224,22 +134,10 @@ namespace SystemWrapper.IO
 		/// <param name="useAsync">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes.</param>
 		public FileStreamWrap(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, bool useAsync)
 		{
-			Initialize(path, mode, access, share, bufferSize, useAsync);
+            FileStreamInstance = new FileStream(path, mode, access, share, bufferSize, useAsync);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write permission, and sharing permission, and buffer size.
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
-		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes.</param>
-		/// <param name="useAsync">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes.</param>
-		public void Initialize(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, bool useAsync)
-		{
-			FileStreamInstance = new FileStream(path, mode, access, share, bufferSize, useAsync);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write and sharing permission, the access other FileStreams can have to the same file, the buffer size, and additional file options.
@@ -252,23 +150,11 @@ namespace SystemWrapper.IO
 		/// <param name="options">A FileOptions value that specifies additional file options.</param>
 		public FileStreamWrap(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, FileOptions options)
 		{
-			Initialize(path, mode, access, share, bufferSize, options);
+            FileStreamInstance = new FileStream(path, mode, access, share, bufferSize, options);
 		}
 
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, read/write and sharing permission, the access other FileStreams can have to the same file, the buffer size, and additional file options.
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
-		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes.</param>
-		/// <param name="options">A FileOptions value that specifies additional file options.</param>
-		public void Initialize(string path, FileMode mode, FileAccess access, FileShare share, int bufferSize, FileOptions options)
-		{
-			FileStreamInstance = new FileStream(path, mode, access, share, bufferSize, options);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, access rights and sharing permission, the buffer size, and additional file options.
@@ -281,22 +167,10 @@ namespace SystemWrapper.IO
 		/// <param name="options">A FileOptions value that specifies additional file options.</param>
 		public FileStreamWrap(string path, FileMode mode, FileSystemRights rights, FileShare share, int bufferSize, FileOptions options)
 		{
-			Initialize(path, mode, rights, share, bufferSize, options);
+            FileStreamInstance = new FileStream(path, mode, rights, share, bufferSize, options);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, access rights and sharing permission, the buffer size, and additional file options.
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="rights">A FileSystemRights constant that determines the access rights to use when creating access and audit rules for the file.</param>
-		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes.</param>
-		/// <param name="options">A FileOptions value that specifies additional file options.</param>
-		public void Initialize(string path, FileMode mode, FileSystemRights rights, FileShare share, int bufferSize, FileOptions options)
-		{
-			FileStreamInstance = new FileStream(path, mode, rights, share, bufferSize, options);
-		}
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, access rights and sharing permission, the buffer size, additional file options, access control and audit security.
@@ -310,25 +184,12 @@ namespace SystemWrapper.IO
 		/// <param name="fileSecurity">A FileSecurity constant that determines the access control and audit security for the file.</param>
 		public FileStreamWrap(string path, FileMode mode, FileSystemRights rights, FileShare share, int bufferSize, FileOptions options, FileSecurity fileSecurity)
 		{
-			Initialize(path, mode, rights, share, bufferSize, options, fileSecurity);
+            FileStreamInstance = new FileStream(path, mode, rights, share, bufferSize, options, fileSecurity);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileStreamWrap"/> class with the specified path, creation mode, access rights and sharing permission, the buffer size, additional file options, access control and audit security.
-		/// </summary>
-		/// <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-		/// <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-		/// <param name="rights">A FileSystemRights constant that determines the access rights to use when creating access and audit rules for the file.</param>
-		/// <param name="share">A FileShare constant that determines how the file will be shared by processes. </param>
-		/// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes.</param>
-		/// <param name="options">A FileOptions value that specifies additional file options.</param>
-		/// <param name="fileSecurity">A FileSecurity constant that determines the access control and audit security for the file.</param>
-		public void Initialize(string path, FileMode mode, FileSystemRights rights, FileShare share, int bufferSize, FileOptions options, FileSecurity fileSecurity)
-		{
-			FileStreamInstance = new FileStream(path, mode, rights, share, bufferSize, options, fileSecurity);
-		}
 
-		#endregion
+
+	
 		
 		/// <summary>
 		/// Gets a value indicating whether the current stream supports reading.

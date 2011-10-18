@@ -1,7 +1,15 @@
 namespace SystemWrapper.IO
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IFileInfoSystem
     {
-        IFileInfo GetFileInfo(string fileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        IFileInfo CreateFileInfo(string fileName);
     }
 }

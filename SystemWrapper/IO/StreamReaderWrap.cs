@@ -11,7 +11,6 @@ namespace SystemWrapper.IO
     [Serializable, ComVisible(true)]
     public class StreamReaderWrap : IStreamReader
 	{
-		#region Constructors and Initializers
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
@@ -19,16 +18,7 @@ namespace SystemWrapper.IO
 		/// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
 		public StreamReaderWrap(TextReader textReader)
 		{
-			Initialize(textReader);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
-		public void Initialize(TextReader textReader)
-		{
-			StreamReaderInstance = textReader as StreamReader;
+            StreamReaderInstance = textReader as StreamReader;
 		}
 
 		/// <summary>
@@ -37,16 +27,7 @@ namespace SystemWrapper.IO
 		/// <param name="streamReader">A <see cref="T:System.IO.StreamReader"/> object.</param>
 		public StreamReaderWrap(StreamReader streamReader)
 		{
-			Initialize(streamReader);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.StreamReaderWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="streamReader">A <see cref="T:System.IO.StreamReader"/> object.</param>
-		public void Initialize(StreamReader streamReader)
-		{
-			StreamReaderInstance = streamReader;
+            StreamReaderInstance = streamReader;
 		}
 
 		/// <summary>
@@ -55,16 +36,7 @@ namespace SystemWrapper.IO
 		/// <param name="stream">The stream to write to.</param>
 		public StreamReaderWrap(Stream stream)
 		{
-			Initialize(stream);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:System.IO.StreamReader"/> class for the specified stream.
-		/// </summary>
-		/// <param name="stream">The stream to write to.</param>
-		public void Initialize(Stream stream)
-		{
-			StreamReaderInstance = new StreamReader(stream);
+            StreamReaderInstance = new StreamReader(stream);
 		}
 
 		/// <summary>
@@ -73,16 +45,7 @@ namespace SystemWrapper.IO
 		/// <param name="stream">The stream wrapper to write to.</param>
 		public StreamReaderWrap(IStream stream)
 		{
-			Initialize(stream);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:System.IO.StreamReader"/> class for the specified stream.
-		/// </summary>
-		/// <param name="stream">The stream wrapper to write to.</param>
-		public void Initialize(IStream stream)
-		{
-			StreamReaderInstance = new StreamReader(stream.StreamInstance);
+            StreamReaderInstance = new StreamReader(stream.StreamInstance);
 		}
 
 		/// <summary>
@@ -91,16 +54,7 @@ namespace SystemWrapper.IO
 		/// <param name="path">The complete file path to be read.</param>
 		public StreamReaderWrap(string path)
 		{
-			Initialize(path);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified file name.
-		/// </summary>
-		/// <param name="path">The complete file path to be read.</param>
-		public void Initialize(string path)
-		{
-			StreamReaderInstance = new StreamReader(path);
+            StreamReaderInstance = new StreamReader(path);
 		}
 
 		/// <summary>
@@ -110,17 +64,7 @@ namespace SystemWrapper.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(Stream stream, bool detectEncodingFromByteOrderMarks)
 		{
-			Initialize(stream, detectEncodingFromByteOrderMarks);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified stream, with the specified byte order mark detection option.
-		/// </summary>
-		/// <param name="stream">The stream to be read. </param>
-		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
-		public void Initialize(Stream stream, bool detectEncodingFromByteOrderMarks)
-		{
-			StreamReaderInstance = new StreamReader(stream, detectEncodingFromByteOrderMarks);
+            StreamReaderInstance = new StreamReader(stream, detectEncodingFromByteOrderMarks);
 		}
 
 		/// <summary>
@@ -130,17 +74,7 @@ namespace SystemWrapper.IO
 		/// <param name="encoding">The character encoding to use.</param>
 		public StreamReaderWrap(Stream stream, Encoding encoding)
 		{
-			Initialize(stream, encoding);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified stream, with the specified character encoding.
-		/// </summary>
-		/// <param name="stream">The stream to be read.</param>
-		/// <param name="encoding">The character encoding to use.</param>
-		public void Initialize(Stream stream, Encoding encoding)
-		{
-			StreamReaderInstance = new StreamReader(stream, encoding);
+            StreamReaderInstance = new StreamReader(stream, encoding);
 		}
 
 		/// <summary>
@@ -150,17 +84,7 @@ namespace SystemWrapper.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(string path, bool detectEncodingFromByteOrderMarks)
 		{
-			Initialize(path, detectEncodingFromByteOrderMarks);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified file name, with the specified byte order mark detection option.
-		/// </summary>
-		/// <param name="path">The complete file path to be read. </param>
-		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
-		public void Initialize(string path, bool detectEncodingFromByteOrderMarks)
-		{
-			StreamReaderInstance = new StreamReader(path, detectEncodingFromByteOrderMarks);
+            StreamReaderInstance = new StreamReader(path, detectEncodingFromByteOrderMarks);
 		}
 
 		/// <summary>
@@ -170,17 +94,7 @@ namespace SystemWrapper.IO
 		/// <param name="encoding">The character encoding to use.</param>
 		public StreamReaderWrap(string path, Encoding encoding)
 		{
-			Initialize(path, encoding);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding.
-		/// </summary>
-		/// <param name="path">The complete file path to be read.</param>
-		/// <param name="encoding">The character encoding to use.</param>
-		public void Initialize(string path, Encoding encoding)
-		{
-			StreamReaderInstance = new StreamReader(path, encoding);
+            StreamReaderInstance = new StreamReader(path, encoding);
 		}
 
 		/// <summary>
@@ -191,21 +105,10 @@ namespace SystemWrapper.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)
 		{
-			Initialize(stream, encoding, detectEncodingFromByteOrderMarks);
+            StreamReaderInstance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified stream, with the specified character encoding and byte order mark detection option.
-		/// </summary>
-		/// <param name="stream">The stream to be read. </param>
-		/// <param name="encoding">The character encoding to use. </param>
-		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
-		public void Initialize(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)
-		{
-			StreamReaderInstance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks);
-		}
-
-		/// <summary>
+     	/// <summary>
 		/// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
 		/// </summary>
 		/// <param name="path">The complete file path to be read.</param>
@@ -213,18 +116,7 @@ namespace SystemWrapper.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)
 		{
-			Initialize(path, encoding, detectEncodingFromByteOrderMarks);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
-		/// </summary>
-		/// <param name="path">The complete file path to be read.</param>
-		/// <param name="encoding">The character encoding to use. </param>
-		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
-		public void Initialize(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)
-		{
-			StreamReaderInstance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks);
+            StreamReaderInstance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks);
 		}
 
 		/// <summary>
@@ -236,19 +128,7 @@ namespace SystemWrapper.IO
 		/// <param name="bufferSize">The minimum buffer size. </param>
 		public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
 		{
-			Initialize(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified stream, with the specified character encoding and byte order mark detection option, and buffer size.
-		/// </summary>
-		/// <param name="stream">The stream to be read. </param>
-		/// <param name="encoding">The character encoding to use. </param>
-		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
-		/// <param name="bufferSize">The minimum buffer size. </param>
-		public void Initialize(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
-		{
-			StreamReaderInstance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize);
+            StreamReaderInstance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize);
 		}
 
 		/// <summary>
@@ -260,23 +140,9 @@ namespace SystemWrapper.IO
 		/// <param name="bufferSize">The minimum buffer size, in number of 16-bit characters.</param>
 		public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
 		{
-			Initialize(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
+            StreamReaderInstance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the StreamReader class for the specified file name, with the specified character encoding and byte order mark detection option. 
-		/// </summary>
-		/// <param name="path">The complete file path to be read.</param>
-		/// <param name="encoding">The character encoding to use. </param>
-		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
-		/// <param name="bufferSize">The minimum buffer size, in number of 16-bit characters.</param>
-		public void Initialize(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
-		{
-			StreamReaderInstance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
-		}
-
-		#endregion Constructors and Initializers
-		
+	
 		public Stream BaseStream
         {
             get { return StreamReaderInstance.BaseStream; }

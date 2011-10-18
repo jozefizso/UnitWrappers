@@ -6,14 +6,13 @@ namespace SystemWrapper.IO
 {
     public class FileSystemWatcherWrap : IFileSystemWatcher
     {
-        #region Constructors and Initializers
 
         /// <summary> 
         /// Initializes a new instance of the <see cref='System.IO.FileSystemWatcher'/> class. 
         /// </summary>
         public FileSystemWatcherWrap()
         {
-            Initialize();
+            FileSystemWatcherInstance = new FileSystemWatcher();
         }
 
         /// <summary>
@@ -32,20 +31,8 @@ namespace SystemWrapper.IO
         /// </summary> 
         public FileSystemWatcherWrap(string path, string filter)
         {
-            Initialize(path, filter);
-        }
-
-        public void Initialize()
-        {
-            FileSystemWatcherInstance = new FileSystemWatcher();
-        }
-
-        public void Initialize(string path, string filter)
-        {
             FileSystemWatcherInstance = new FileSystemWatcher(path, filter);
         }
-
-        #endregion
 
         #region IFileSystemWatcher Members
 

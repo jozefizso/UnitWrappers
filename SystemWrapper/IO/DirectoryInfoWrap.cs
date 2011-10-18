@@ -13,7 +13,6 @@ namespace SystemWrapper.IO
 	[Serializable, ComVisible(true)]
 	public class DirectoryInfoWrap : IDirectoryInfo
 	{
-		#region Constructors and Initializers
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
@@ -21,38 +20,18 @@ namespace SystemWrapper.IO
 		/// <param name="directoryInfo">A <see cref="T:System.IO.DirectoryInfo"/> object.</param>
 		public DirectoryInfoWrap(DirectoryInfo directoryInfo)
 		{
-			Initialize(directoryInfo);
+            DirectoryInfo = directoryInfo;
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="directoryInfo">A <see cref="T:System.IO.DirectoryInfo"/> object.</param>
-		public void Initialize(DirectoryInfo directoryInfo)
-		{
-			DirectoryInfo = directoryInfo;
-		}
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
 		/// </summary>
 		/// <param name="path">A string specifying the path on which to create the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/>. </param>
 		public DirectoryInfoWrap(string path)
 		{
-			Initialize(path);
+            DirectoryInfo = new DirectoryInfo(path);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="path">A string specifying the path on which to create the <see cref="T:SystemWrapper.IO.DirectoryInfoWrap"/>. </param>
-		public void Initialize(string path)
-		{
-			DirectoryInfo = new DirectoryInfo(path);
-		}
 
-		#endregion
-		
 		public FileAttributes Attributes
 		{
 			get { return DirectoryInfo.Attributes; }

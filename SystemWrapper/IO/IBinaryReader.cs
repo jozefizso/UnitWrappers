@@ -9,38 +9,6 @@ namespace SystemWrapper.IO
 	/// </summary>
 	public interface IBinaryReader : IDisposable
 	{
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:SystemWrapper.IO.BinaryReaderWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="reader">The <see cref="T:System.IO.BinaryReader"/> object.</param>
-		void Initialize(BinaryReader reader);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
-		/// </summary>
-		/// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
-		void Initialize(Stream input);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
-		/// </summary>
-		/// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
-		void Initialize(IStream input);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryReader class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="stream">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		void Initialize(Stream stream, Encoding encoding);
-
-		/// <summary>
-		/// Initializes a new instance of the BinaryReader class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="stream">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		void Initialize(IStream stream, Encoding encoding);
-
 
 		// Properties
 

@@ -10,18 +10,7 @@ namespace SystemWrapper.IO
     /// </summary>
     public interface IFileSystemWatcher : ISupportInitialize, IDisposable
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileSystemWatcherWrap"/> class on the specified path. 
-        /// </summary>
-        void Initialize();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:SystemWrapper.IO.FileSystemWatcherWrap"/> class on the specified path. 
-        /// </summary>
-        /// <param name="path">The directory to monitor, in standard or Universal Naming Convention (UNC) notation.</param>
-        /// <param name="filter">The type of files to watch. For example, "*.txt" watches for changes to all text files.</param>
-        void Initialize(string path, string filter);
-
+ 
         /// <summary>
         /// Gets instance of FileSystemWatcher object.
         /// </summary>

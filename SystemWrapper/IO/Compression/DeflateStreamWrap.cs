@@ -8,27 +8,11 @@ namespace SystemWrapper.IO.Compression
 	/// </summary>
 	public class DeflateStreamWrap : IDeflateStream
 	{
-		#region Constructors and Initializers
-
-		/// <summary>
-		/// Creates an uninitialized version of DeflateStreamWrap
-		/// </summary>
-		public DeflateStreamWrap()
-		{
-			//this constructor assumes caller will make a subsequent call to Initialize
-		}
 
 		public DeflateStreamWrap(IStream stream, CompressionMode mode)
 		{
-			Initialize(stream, mode);
+            DeflateStreamInstance = new DeflateStream(stream.StreamInstance, mode);
 		}
-
-		public void Initialize(IStream stream, CompressionMode mode)
-		{
-			DeflateStreamInstance = new DeflateStream(stream.StreamInstance, mode);
-		}
-
-		#endregion Constructors and Initializers
 
 		public int Read(byte[] array, int offset, int count)
 		{
