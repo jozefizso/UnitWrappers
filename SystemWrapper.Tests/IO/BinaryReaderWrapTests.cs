@@ -38,9 +38,8 @@ namespace SystemWrapper.Tests.IO
 		[Test]
 		public void Initialize_1_Sets_BinaryReaderInstance()
 		{
-			var instance = new BinaryReaderWrap();
-			var bReader = new BinaryReader(_fileStream);
-			instance.Initialize(bReader);
+            var bReader = new BinaryReader(_fileStream);
+            var instance = new BinaryReaderWrap(bReader);
 			Assert.AreSame(bReader, instance.BinaryReaderInstance);
 		}
 
@@ -54,8 +53,7 @@ namespace SystemWrapper.Tests.IO
 		[Test]
 		public void Initialize_2_Sets_BinaryReaderInstance()
 		{
-			var instance = new BinaryReaderWrap();
-			instance.Initialize(_fileStream);
+            var instance = new BinaryReaderWrap(_fileStream);
 			Assert.IsNotNull(instance.BinaryReaderInstance);
 		}
 

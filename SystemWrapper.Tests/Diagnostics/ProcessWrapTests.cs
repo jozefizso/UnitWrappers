@@ -26,7 +26,6 @@ namespace SystemWrapper.Tests.IO
 			{
 				var instance = new ProcessWrap();
 				var origInfo = instance.ProcessInstance;
-				instance.Initialize();
 				Assert.AreNotSame(origInfo, instance.ProcessInstance);
 				Assert.IsNotNull(instance.ProcessInstance);
 			}

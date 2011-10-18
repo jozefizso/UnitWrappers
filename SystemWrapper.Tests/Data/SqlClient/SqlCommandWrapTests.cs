@@ -52,33 +52,29 @@ namespace SystemWrapper.Tests.IO
 		public void Initialize_1_Sets_Command_Instance()
 		{
 			var instance = new SqlCommandWrap();
-			instance.Initialize();
 			Assert.IsNotNull(instance.SqlCommandInstance);
 		}
 
 		[Test]
 		public void Initialize_2_Sets_Command_Instance()
 		{
-			var instance = new SqlCommandWrap();
-			var newCmd = new SqlCommand();
-			instance.Initialize(newCmd);
+            var newCmd = new SqlCommand();
+            var instance = new SqlCommandWrap(newCmd);
 			Assert.AreSame(newCmd, instance.SqlCommandInstance);
 		}
 
 		[Test]
 		public void Initialize_3_Sets_Command_Instance()
 		{
-			var instance = new SqlCommandWrap();
-			instance.Initialize("command text string");
+            var instance = new SqlCommandWrap("command text string");
 			Assert.IsNotNull(instance.SqlCommandInstance);
 		}
 
 		[Test]
 		public void Initialize_4_Sets_Command_Instance()
 		{
-			var instance = new SqlCommandWrap();
-			var mockConnWrap = _mockRepository.Stub<ISqlConnection>();
-			instance.Initialize("command text string", mockConnWrap);
+            var mockConnWrap = _mockRepository.Stub<ISqlConnection>();
+            var instance = new SqlCommandWrap("command text string", mockConnWrap);
 			Assert.IsNotNull(instance.SqlCommandInstance);
 		}
 

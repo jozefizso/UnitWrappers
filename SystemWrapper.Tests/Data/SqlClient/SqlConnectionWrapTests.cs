@@ -44,24 +44,21 @@ namespace SystemWrapper.Tests.IO
 			public void Initialize_1_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
-				instance.Initialize();
 				Assert.IsNotNull(instance.SqlConnectionInstance);
 			}
 
 			[Test]
 			public void Initialize_2_Sets_SqlConnectionInstance()
 			{
-				var instance = new SqlConnectionWrap();
-				var newCmd = new SqlConnection();
-				instance.Initialize(newCmd);
+                var newCmd = new SqlConnection();
+                var instance = new SqlConnectionWrap(newCmd);
 				Assert.AreSame(newCmd, instance.SqlConnectionInstance);
 			}
 
 			[Test]
 			public void Initialize_3_Sets_SqlConnectionInstance()
 			{
-				var instance = new SqlConnectionWrap();
-				instance.Initialize("Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;");
+                var instance = new SqlConnectionWrap("Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;");
 				Assert.IsNotNull(instance.SqlConnectionInstance);
 			}
     }

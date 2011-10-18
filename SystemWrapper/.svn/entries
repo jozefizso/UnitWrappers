@@ -26,17 +26,14 @@ unknown
 
 2327b42d-5241-43d6-9e2a-de5ac946f064
 
-IAppDomainWrap.cs
+IConsole.cs
 file
 
 
 
-delete
-2011-09-15T08:24:56.010531Z
-9d01a51efb4589cfa6fd87d5ed37db7c
-2011-07-11T20:27:39.933000Z
-76779
-unknown
+add
+
+a0f46f10a6c4f5af7bbd3710a4b8993b
 
 
 
@@ -48,17 +45,9 @@ unknown
 
 
 
-
-
-
-
-
-
-
-
-
-
-12826
+copied
+https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/IConsoleWrap.cs
+79982
 
 SystemWrapper.snk
 file
@@ -94,28 +83,39 @@ has-props
 
 596
 
-IConsole.cs
+IAppDomainWrap.cs
 file
 
 
 
-add
-
-a0f46f10a6c4f5af7bbd3710a4b8993b
-
-
-
-
-
+delete
+2011-09-15T08:24:56.010531Z
+9d01a51efb4589cfa6fd87d5ed37db7c
+2011-07-11T20:27:39.933000Z
+76779
+unknown
 
 
 
 
 
 
-copied
-https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/IConsoleWrap.cs
-79982
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12826
 
 VersionWrap.cs
 file
@@ -208,6 +208,9 @@ copied
 https://systemwrapper.svn.codeplex.com/svn/SystemWrapper/IAppDomainWrap.cs
 79982
 
+Reflection
+dir
+
 DateTimeWrap.cs
 file
 
@@ -242,12 +245,6 @@ unknown
 
 29466
 
-Reflection
-dir
-
-Properties
-dir
-
 IVersionWrap.cs
 file
 
@@ -281,6 +278,9 @@ unknown
 
 
 5745
+
+Properties
+dir
 
 ConsoleWrap.cs
 file
@@ -353,6 +353,9 @@ unknown
 Threading
 dir
 
+Microsoft.Win32
+dir
+
 AppDomainWrap.cs
 file
 
@@ -386,9 +389,6 @@ unknown
 
 
 2691
-
-Microsoft.Win32
-dir
 
 Security
 dir
@@ -444,8 +444,8 @@ file
 
 
 
-
-2011-09-15T08:24:55.928958Z
+delete
+2011-10-18T16:02:45.315215Z
 a3885cfd7fdbd0a9adb552b405f09db0
 2009-04-22T21:51:17.233000Z
 27027

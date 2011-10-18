@@ -103,6 +103,13 @@ dir
 SystemWrapper.Samples
 dir
 
+SystemWrapper.CoverageCalculator
+dir
+
+
+
+add
+
 SystemWrapper.gallio
 file
 

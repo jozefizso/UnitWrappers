@@ -45,8 +45,7 @@ namespace SystemWrapper.Tests.IO
 		{
 			var mockStream = MockRepository.GenerateMock<IStream>();
 			mockStream.Stub(mo => mo.StreamInstance).Return(_fileStream);
-			var instance = new DeflateStreamWrap();
-			instance.Initialize(mockStream, CompressionMode.Compress);
+            var instance = new DeflateStreamWrap(mockStream, CompressionMode.Compress);
 			Assert.IsNotNull(instance.DeflateStreamInstance);
 		}
 

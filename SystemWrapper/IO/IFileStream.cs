@@ -14,12 +14,8 @@ namespace SystemWrapper.IO
     public interface IFileStream : IStream
     {
 
-       // Properties
+        // Properties
 
-        /// <summary>
-        /// Gets <see cref="T:System.IO.FileStream"/> object.
-        /// </summary>
-        FileStream FileStreamInstance { get; }
         /// <summary>
         /// Gets a value indicating whether the FileStream was opened asynchronously or synchronously.
         /// </summary>
@@ -33,17 +29,17 @@ namespace SystemWrapper.IO
         /// </summary>
         ISafeFileHandle SafeFileHandle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
 
-         // Methods
+        // Methods
 
         /// <summary>
         /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.
         /// </summary>
-//        void Close();
+        //        void Close();
         /// <summary>
         /// Releases the unmanaged resources used by the FileStream and optionally releases the managed resources. 
         /// </summary>
         /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
-//        void Dispose(bool disposing);
+        //        void Dispose(bool disposing);
         /// <summary>
         /// Gets a IFileSecurity object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
         /// </summary>

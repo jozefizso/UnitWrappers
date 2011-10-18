@@ -11,8 +11,8 @@ namespace SystemWrapper.Tests.Reflection
         [Test]
         public void GetFiles_Test()
         {
-            IAssembly sampleAssembly = new AssemblyWrap();
-            sampleAssembly = sampleAssembly.GetAssembly(new Int32().GetType());
+            IAssemblySystem assemblySystem = new AssemblySystem();
+            IAssembly sampleAssembly = assemblySystem.GetAssembly(new Int32().GetType());
             IFileStream[] fileStreams = sampleAssembly.GetFiles();
             Assert.AreEqual(1, fileStreams.Length);
             Assert.EndsWith(fileStreams[0].Name, "mscorlib.dll");
