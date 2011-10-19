@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Security.Permissions;
-using SystemWrapper.Microsoft.Win32.SafeHandles;
+using MicrosoftWrapper.Win32.SafeHandles;
 using SystemWrapper.Security.AccessControl;
 
 namespace SystemWrapper.IO

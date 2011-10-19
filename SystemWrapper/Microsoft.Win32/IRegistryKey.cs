@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using Microsoft.Win32;
 
-namespace SystemWrapper.Microsoft.Win32
+namespace MicrosoftWrapper.Win32
 {
     public interface IRegistryKey
     {

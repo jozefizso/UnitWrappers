@@ -12,7 +12,7 @@ namespace SystemWrapper.IO
         /// </summary>
         public FileSystemWatcherWrap()
         {
-            FileSystemWatcherInstance = new FileSystemWatcher();
+            FileSystemWatcherInstance = new System.IO.FileSystemWatcher();
         }
 
         /// <summary>

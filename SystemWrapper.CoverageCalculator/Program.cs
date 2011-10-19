@@ -1,43 +1,112 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using SystemWrapper.Configuration;
+using SystemWrapper.Data.SqlClient;
 using SystemWrapper.IO;
 
 namespace SystemWrapper.CoverageCalculator
 {
+    
     class Program
     {
         static void Main(string[] args)
         {
+            var wrappers = typeof (IDateTimeSystem).Assembly;
+            var refrencedAssemblies =  wrappers.GetReferencedAssemblies().Select(Assembly.Load);
+            var allClasses =
+                from r in refrencedAssemblies
+                from t in r.GetExportedTypes()
+                orderby t.Name
+                select t;
+
+            var interfaces = wrappers.GetExportedTypes().Where(x => x.IsInterface);
+            var strippedNames = interfaces.Select(x => x.Name).Select(x =>
+                                                                          {
+                                                                              string name = x.Remove(0, 1); // remove I
+                                                                              int index = name.LastIndexOf("System");// static members and factories
+                                                                              if (index==name.Length-6)
+                                                                              {
+                                                                                  name = name.Remove(index, 6);
+                                                                              }
+                                                                              return name;
+                                                                              })
+                                                                             .Distinct().ToArray();
+
+            var combinedInterfaces = new Dictionary<string,Type[]>();
+            foreach (var n in strippedNames)
+            {
+                var wraps = new List<Type>();
+                foreach (var i in interfaces)
+                {
+                    if (i.Name.Equals("I" + n) || i.Name.Equals("I" + n + "System"))
+                    {
+                       wraps.Add(i); 
+                    }
+                }
+                combinedInterfaces.Add(n,wraps.ToArray());
+            }
+
+            var counterParts = new Dictionary<Type, Type[]>();
+            foreach (var wraps in combinedInterfaces)
+            {
+                string frameworkTypeName = wraps.Value[0].Namespace
+                    .Replace("SystemWrapper","System")
+                    .Replace("MicrosoftWrapper","Microsoft")+ "." + wraps.Key;
+                var type = allClasses.Where(x => x.FullName == frameworkTypeName).Single();
+                counterParts.Add(type, wraps.Value);
+            }
+
             using (var fileStream = new FileStreamWrap("Coverage.txt", FileMode.Create))
             {
                 using (var streamWriter = new StreamWriterWrap(fileStream.FileStreamInstance))
                 {
-                    var real = typeof(ConfigurationManager);
-                    var wraps = typeof(IConfigurationManager);
+                    foreach (var counterPart in counterParts)
+                    {
+                        string entry = CalculateEntry(counterPart.Key, counterPart.Value);
+                        streamWriter.WriteLine(entry);
+                        streamWriter.Flush();
+                    }
 
-                    var realMembers = real.GetMembers();
-                    var wrapsMembers = wraps.GetMembers();
-                    var realCount = realMembers.Length;
-                    var wrapsCount = wrapsMembers.Length;
-                    var coverage = 100 * wrapsCount / realCount;
-
-                    var newLine = Environment.NewLine;
-
-                    var entry = "--------------------------------------------------------------------------------------------------" + newLine
-                        + real.FullName + "->" + wraps.FullName + " : " + coverage + "%" +  newLine
-                        + "--------------------------------------------------------------------------------------------------" + newLine
-                        ;
-
-                    streamWriter.WriteLine(entry);
-                    streamWriter.Flush();
-                }   
+                }
             }
+        }
 
+        private static string CalculateEntry(Type real, Type[] wraps)
+        {
+            var realMembers = real.GetMembers().Where(x =>
+                                                          {
+                                                              if (x.DeclaringType == typeof(object))
+                                                              {
+                                                                  return false;
+                                                              }
+                                                              return true;
+                                                          }).ToArray();
+
+            var wrapsMembers =
+                (from w in wraps
+                 from m in w.GetMembers()
+                 select m).ToArray();
+
+            var realCount = realMembers.Length;
+            var wrapsCount = wrapsMembers.Length;
+            var coverage = 100 * wrapsCount / realCount;
+
+            var newLine = Environment.NewLine;
+            var wrapsFullName = wraps.Aggregate("", (x, y) => x + " " + y);
+            var entry = "--------------------------------------------------------------------------------------------------" +
+                        newLine
+                        + real.FullName + "->" + wrapsFullName + " : " + coverage + "%" + newLine
+                        + "--------------------------------------------------------------------------------------------------" +
+                        newLine
+                ;
+            return entry;
         }
     }
 }

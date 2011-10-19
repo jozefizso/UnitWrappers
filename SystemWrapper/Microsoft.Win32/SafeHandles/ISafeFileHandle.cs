@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Win32.SafeHandles;
 
-namespace SystemWrapper.Microsoft.Win32.SafeHandles
+namespace MicrosoftWrapper.Win32.SafeHandles
 {
     /// <summary>
     /// Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
