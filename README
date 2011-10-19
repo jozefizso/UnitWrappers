@@ -5,9 +5,18 @@ var service = IoC.Get<SomeService>();
 
 public class SomeService()
 {
+    ...
+
     public SomeService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
 	{
-	    if (file.Exists("Daemon.exe")
+	    _file = file;
+		_appDomainSystem = appDomainSystem;
+		_processSystem = processSystem;
+	}
+
+	public void Run()
+	{
+		if (file.Exists("Daemon.exe")
 		{
 		     processSystem.Start("Daemon.exe");
 		}
