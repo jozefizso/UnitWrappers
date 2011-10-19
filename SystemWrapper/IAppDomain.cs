@@ -39,6 +39,14 @@ namespace SystemWrapper
         void SetData(string name, object data);
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="assemblyName"></param>
+        /// <param name="typeName"></param>
+        /// <returns></returns>
+        object CreateInstanceAndUnwrap(string assemblyName, string typeName);
+
         // Events
 
         /// <summary>

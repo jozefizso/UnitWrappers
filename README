@@ -1,3 +1,26 @@
+
+Concept of usage *(building unit testable object graph)*:
+
+var service = IoC.Get<SomeService>();
+
+public class SomeService()
+{
+    public SomeService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
+	{
+	    if (file.Exists("Daemon.exe")
+		{
+		     processSystem.Start("Daemon.exe");
+		}
+		else if (file.Exists("Daemon.dll")
+		{
+		    var domain = appDomainSystem.CreateDomain("Daemon");
+			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
+			daemon.Start();
+		}
+		else new Daemon().Start();
+	}
+}
+
 --------------------------------------------------------------------------------------------------
 System.Configuration.ConfigurationManager->SystemWrapper.Configuration.IConfigurationManager : 73%
 --------------------------------------------------------------------------------------------------

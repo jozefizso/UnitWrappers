@@ -41,6 +41,10 @@ namespace SystemWrapper
             AppDomainInstance.SetData(name, data);
         }
 
+        public object CreateInstanceAndUnwrap(string assemblyName, string typeName)
+        {
+           return AppDomainInstance.CreateInstanceAndUnwrap(assemblyName, typeName);
+        }
 
 
         event ResolveEventHandler IAppDomain.AssemblyResolve
