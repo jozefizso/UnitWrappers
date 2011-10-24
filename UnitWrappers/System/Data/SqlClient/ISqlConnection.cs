@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,23 +8,11 @@ namespace UnitWrappers.System.Data.SqlClient
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlConnection"/> class.
     /// </summary>
-    public interface ISqlConnection
+    public interface ISqlConnection : IDbConnection, ICloneable
     {
 
         // Properties
 
-        /// <summary>
-        /// Gets or sets the string used to open a SQL Server database. 
-        /// </summary>
-        string ConnectionString { get; set; }
-        /// <summary>
-        /// Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
-        /// </summary>
-        int ConnectionTimeout { get; }
-        /// <summary>
-        /// Gets the name of the current database or the database to be used after a connection is opened.
-        /// </summary>
-        string Database { get; }
         /// <summary>
         /// Gets the name of the instance of SQL Server to which to connect. 
         /// </summary>
@@ -45,7 +34,7 @@ namespace UnitWrappers.System.Data.SqlClient
         /// <summary>
         /// Gets <see cref="T:System.Data.SqlClient.SqlConnection"/> object.
         /// </summary>
-        SqlConnection SqlConnectionInstance { get; }
+        SqlConnection UnderlyingObject { get; }
         /// <summary>
         /// Indicates the state of the SqlConnection.
         /// </summary>
@@ -61,16 +50,7 @@ namespace UnitWrappers.System.Data.SqlClient
         string WorkstationId { get; }
 
         // Methods
-
-        /// <summary>
-        /// Closes the connection to the database. This is the preferred method of closing any open connection.
-        /// </summary>
-        void Close();
-        /// <summary>
-        /// Opens a database connection with the property settings specified by the ConnectionString. 
-        /// </summary>
-        void Open();
-
+        
         /*
          * 
              // Events

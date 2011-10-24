@@ -42,9 +42,8 @@ namespace UnitWrappers.System.Data.SqlClient
         /// <param name="connection">A ISqlConnectionWrap that represents the connection to an instance of SQL Server.</param>
         public SqlCommandWrap(string cmdText, ISqlConnection connection)
         {
-            SqlCommandInstance = new SqlCommand(cmdText, connection.SqlConnectionInstance);
+            SqlCommandInstance = new SqlCommand(cmdText, connection.UnderlyingObject);
         }
-
 
         /// <inheritdoc />
         public SqlCommand SqlCommandInstance { get; private set; }

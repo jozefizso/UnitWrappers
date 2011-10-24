@@ -20,7 +20,7 @@ namespace UnitWrappers.Tests.System.Data.SqlClient
 			public void Constructor_1_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
-			Assert.IsNotNull(instance.SqlConnectionInstance);
+			Assert.IsNotNull(instance.UnderlyingObject);
 			}
 
 			[Test]
@@ -28,14 +28,14 @@ namespace UnitWrappers.Tests.System.Data.SqlClient
 			{
 				var newConn = new SqlConnection();
 				var instance = new SqlConnectionWrap(newConn);
-			Assert.AreSame(newConn, instance.SqlConnectionInstance);
+			Assert.AreSame(newConn, instance.UnderlyingObject);
 			}
 
 			[Test]
 			public void Constructor_3_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap("Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;");
-			Assert.IsNotNull(instance.SqlConnectionInstance);
+			Assert.IsNotNull(instance.UnderlyingObject);
 			}
 
 
@@ -43,7 +43,7 @@ namespace UnitWrappers.Tests.System.Data.SqlClient
 			public void Initialize_1_Sets_SqlConnectionInstance()
 			{
 				var instance = new SqlConnectionWrap();
-			Assert.IsNotNull(instance.SqlConnectionInstance);
+			Assert.IsNotNull(instance.UnderlyingObject);
 			}
 
 			[Test]
@@ -51,14 +51,14 @@ namespace UnitWrappers.Tests.System.Data.SqlClient
 			{
                 var newCmd = new SqlConnection();
                 var instance = new SqlConnectionWrap(newCmd);
-			Assert.AreSame(newCmd, instance.SqlConnectionInstance);
+			Assert.AreSame(newCmd, instance.UnderlyingObject);
 			}
 
 			[Test]
 			public void Initialize_3_Sets_SqlConnectionInstance()
 			{
                 var instance = new SqlConnectionWrap("Data Source=myServerAddress;Initial Catalog=myDataBase;Integrated Security=SSPI;");
-			Assert.IsNotNull(instance.SqlConnectionInstance);
+			Assert.IsNotNull(instance.UnderlyingObject);
 			}
     }
 }

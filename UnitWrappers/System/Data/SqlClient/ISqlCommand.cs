@@ -1,3 +1,4 @@
+using System.Data;
 using System.Data.SqlClient;
 
 namespace UnitWrappers.System.Data.SqlClient
@@ -5,7 +6,7 @@ namespace UnitWrappers.System.Data.SqlClient
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlCommand"/> class.
     /// </summary>
-    public interface ISqlCommand
+    public interface ISqlCommand// : IDbCommand
     {
         // Properties
 
