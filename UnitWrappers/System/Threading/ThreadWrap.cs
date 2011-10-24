@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Runtime.Remoting.Contexts;
 using System.Threading;
 
 namespace UnitWrappers.System.Threading
@@ -43,6 +44,13 @@ namespace UnitWrappers.System.Threading
         {
             get { return _thread.IsAlive; }
         }
+
+        /// <inheritdoc />
+        public bool IsThreadPoolThread
+        {
+            get { return _thread.IsThreadPoolThread; }
+        }
+
         /// <inheritdoc />
         public ThreadState ThreadState
         {

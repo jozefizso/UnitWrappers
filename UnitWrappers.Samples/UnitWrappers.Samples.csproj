@@ -82,7 +82,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnitWrappers\UnitWrappers.csproj">
+    <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET35.csproj">
       <Project>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</Project>
       <Name>UnitWrappers</Name>
     </ProjectReference>

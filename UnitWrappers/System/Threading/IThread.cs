@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Threading;
+using System.Runtime.Remoting.Contexts;
 
 namespace UnitWrappers.System.Threading
 {
@@ -8,13 +9,64 @@ namespace UnitWrappers.System.Threading
     /// </summary>
     public interface IThread
     {
-
+        /// <summary>
+        /// Gets or sets the culture for the current thread.
+        /// </summary>
+        /// <value>
+        /// A CultureInfo representing the culture for the current thread.
+        /// </value>
         CultureInfo CurrentCulture { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating the execution status of the current thread.
+        /// </summary>
+        /// <value>
+        /// true if this thread has been started and has not terminated normally or aborted; otherwise, false.
+        /// </value>
         bool IsAlive { get; }
+
+
+
+        /// <summary>
+        /// Gets a value indicating whether or not a thread belongs to the managed thread pool.
+        /// </summary>
+        /// <value>
+        /// true if this thread belongs to the managed thread pool; otherwise, false.
+        /// </value>
+        bool IsThreadPoolThread { get; }
+
+        /// <summary>
+        /// Gets a value containing the states of the current thread.
+        /// </summary>
+        /// <value>
+        /// One of the <see cref="global::System.Threading.ThreadState"/> values indicating the state of the current thread. The initial value is Unstarted.
+        /// </value>
         ThreadState ThreadState { get; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether or not a thread is a background thread.
+        /// </summary>
+        /// <value>
+        /// true if this thread is or is to become a background thread; otherwise, false.
+        /// </value>
         bool IsBackground { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating the scheduling priority of a thread.
+        /// </summary>
+        /// <value>
+        /// One of the <see cref="ThreadPriority"/> values. The default value is Normal.
+        /// </value>
         ThreadPriority Priority { get; set; }
+
+        /// <summary>
+        /// Gets a unique identifier for the current managed thread.
+        /// </summary>
+        /// <value>
+        /// An integer that represents a unique identifier for this managed thread.
+        /// </value>
         int ManagedThreadId { get; }
+
         void Abort();
         void SetApartmentState(ApartmentState state);
         void Start();
@@ -128,16 +180,9 @@ namespace UnitWrappers.System.Threading
             public static void VolatileWrite(ref UIntPtr address, UIntPtr value);
 
             // Properties
-            public ApartmentState ApartmentState { get; [HostProtection(SecurityAction.LinkDemand, Synchronization=true, SelfAffectingThreading=true)] set; }
-            public static Context CurrentContext { [SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.Infrastructure)] get; }
-            
             public static IPrincipal CurrentPrincipal { get; [SecurityPermission(SecurityAction.Demand, Flags=SecurityPermissionFlag.ControlPrincipal)] set; }
-            public static Thread CurrentThread { [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)] get; }
             public CultureInfo CurrentUICulture { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading=true)] set; }
             public ExecutionContext ExecutionContext { [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)] get; }
-
-            public bool IsThreadPoolThread { get; }
-
             public string Name { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading=true)] set; }
         */
     }

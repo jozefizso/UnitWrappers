@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.Remoting.Contexts;
 using System.Threading;
 
 namespace UnitWrappers.System.Threading
@@ -24,6 +25,12 @@ namespace UnitWrappers.System.Threading
         public void Sleep(TimeSpan timeout)
         {
             Thread.Sleep(timeout);
+        }
+
+        /// <inheritdoc />
+        public Context CurrentContext
+        {
+            get { return Thread.CurrentContext; }
         }
     }
 }
