@@ -204,31 +204,6 @@
             Wrapper for <see cref="T:System.Data.SqlClient.SqlConnection"/> class.
             </summary>
         </member>
-        <member name="M:UnitWrappers.System.Data.SqlClient.ISqlConnection.Close">
-            <summary>
-            Closes the connection to the database. This is the preferred method of closing any open connection.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.Data.SqlClient.ISqlConnection.Open">
-            <summary>
-            Opens a database connection with the property settings specified by the ConnectionString. 
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.ConnectionString">
-            <summary>
-            Gets or sets the string used to open a SQL Server database. 
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.ConnectionTimeout">
-            <summary>
-            Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.Database">
-            <summary>
-            Gets the name of the current database or the database to be used after a connection is opened.
-            </summary>
-        </member>
         <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.DataSource">
             <summary>
             Gets the name of the instance of SQL Server to which to connect. 
@@ -249,7 +224,7 @@
             Gets a string that contains the version of the instance of SQL Server to which the client is connected.
             </summary>
         </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.SqlConnectionInstance">
+        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.UnderlyingObject">
             <summary>
             Gets <see cref="T:System.Data.SqlClient.SqlConnection"/> object.
             </summary>
@@ -2305,6 +2280,31 @@
             </summary>
             <param name="connectionString">The connection used to open the SQL Server database.</param>
         </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlConnectionWrap.Close">
+            <summary>
+            Closes the connection to the database. This is the preferred method of closing any open connection.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlConnectionWrap.Open">
+            <summary>
+            Opens a database connection with the property settings specified by the ConnectionString. 
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlConnectionWrap.ConnectionString">
+            <summary>
+            Gets or sets the string used to open a SQL Server database. 
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlConnectionWrap.ConnectionTimeout">
+            <summary>
+            Gets the time to wait while trying to establish a connection before terminating the attempt and generating an error.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlConnectionWrap.Database">
+            <summary>
+            Gets the name of the current database or the database to be used after a connection is opened.
+            </summary>
+        </member>
         <member name="T:UnitWrappers.System.IO.IMemoryStream">
             <summary>
             Wrapper for <see cref="T:System.IO.MemoryStream"/> class.
@@ -2894,6 +2894,11 @@
             <param name="assemblyName">The display name of an assembly.</param>
             <param name="typeName">The full name of a type.</param>
             <returns>A String that is the full name of the type qualified by the display name of the assembly.</returns>
+        </member>
+        <member name="T:UnitWrappers.System.Net.SocketWrap">
+            <summary>
+            Wraps instance members of <see cref="T:System.Net.Sockets.Socket"/>
+            </summary>
         </member>
         <member name="T:UnitWrappers.System.IAppDomain">
             <summary>
@@ -4402,6 +4407,544 @@
             Initializes a new instance of the <see cref="T:UnitWrappers.System.AppDomainWrap"/> class. 
             </summary>
             <param name="appDomain">AppDomain object.</param>
+        </member>
+        <member name="T:UnitWrappers.System.ServiceModel.IOperationContextSystem">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.GetCallbackChannel``1">
+            <summary>
+            Gets a channel to the client instance that called the current operation.
+            </summary>
+            <typeparam name="T">The type of channel used to callback the client.</typeparam>
+            <returns>A channel to the client instance that called the operation of the type specified in the
+            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.SetTransactionComplete">
+            <summary>
+            Commits the current executing transaction.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Channel">
+            <summary>
+            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> for the endpoint to inspect.
+            </summary>
+            <value>The <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> to inspect.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Extensions">
+            <summary>
+            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.HasSupportingTokens">
+            <summary>
+            Gets a value indicating weather the incoming message has supporting tokens.
+            </summary>
+            <value>True if the incoming message has supporting tokents, else false.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Host">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> wrapper for the current service object.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> wrapper.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageHeaders">
+            <summary>
+            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageProperties">
+            <summary>
+            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
+            the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageVersion">
+            <summary>
+            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.InstanceContext">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageHeaders">
+            <summary>
+            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageProperties">
+            <summary>
+            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> implementation for the current executing method.
+            </summary>
+            <value>A <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> instance, or null if there is no request context.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SessionId">
+            <summary>
+            Gets a string used to identify the current session.
+            </summary>
+            <value>A string used to identify the current session.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SupportingTokens">
+            <summary>
+            Gets the collection of security tokens.
+            </summary>
+            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.#ctor(System.ServiceModel.OperationContext)">
+            <summary>
+            Default Constructor.
+            Creates a new instance of the <see cref="!:OperationContextWrapper"/> class.
+            </summary>
+            <param name="context">The <see cref="T:System.ServiceModel.OperationContext"/> to wrap.</param>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.GetCallbackChannel``1">
+            <summary>
+            Gets a channel to the client instance that called the current operation.
+            </summary>
+            <typeparam name="T">The type of channel used to callback the client.</typeparam>
+            <returns>A channel to the client instance that called the operation of the type specified in the
+            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.SetTransactionComplete">
+            <summary>
+            Commits the current executing transaction.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Channel">
+            <summary>
+            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> for the endpoint to inspect.
+            </summary>
+            <value>The <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> to inspect.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Extensions">
+            <summary>
+            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.HasSupportingTokens">
+            <summary>
+            Gets a value indicating weather the incoming message has supporting tokens.
+            </summary>
+            <value>True if the incoming message has supporting tokents, else false.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Host">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> wrapper for the current service object.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> wrapper.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageHeaders">
+            <summary>
+            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageProperties">
+            <summary>
+            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
+            the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageVersion">
+            <summary>
+            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.InstanceContext">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageHeaders">
+            <summary>
+            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageProperties">
+            <summary>
+            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> implementation for the current executing method.
+            </summary>
+            <value>A <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> instance, or null if there is no request context.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SessionId">
+            <summary>
+            Gets a string used to identify the current session.
+            </summary>
+            <value>A string used to identify the current session.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SupportingTokens">
+            <summary>
+            Gets the collection of security tokens.
+            </summary>
+            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
+        </member>
+        <member name="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost">
+            <summary>
+            Wrapper interface for <see cref="T:System.ServiceModel.ServiceHost"/>.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String,System.Uri)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri,System.Uri)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.Authorization">
+            <summary>
+            Gets the authorization behavior for the service.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Description.ServiceAuthorizationBehavior"/> for the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.BaseAddresses">
+            <summary>
+            Gets the base addresses used by the service host.
+            </summary>
+            <value>A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/> that contains the base addresses used by the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.ChannelDispatchers">
+            <summary>
+            Gets a collection of channel dispatchers used by he service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Dispatcher.ChannelDispatcherCollection"/> containing the channel dispatchers used by the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.CloseTimeout">
+            <summary>
+            Gets or sets the interval of time allowed for the service host to close.
+            </summary>
+            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to close.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.Credentials">
+            <summary>
+            Gets the crendentials for the service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Description.ServiceCredentials"/> instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.Description">
+            <summary>
+            Gets the description of the service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Description.ServiceDescription"/> instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.Extensions">
+            <summary>
+            Gets the extensions registered for the service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> contianing extensions registered for the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.ManualFlowControlLimit">
+            <summary>
+            Gets or sets the flow control limit for messages recieved by the service host.
+            </summary>
+            <value>int. The flow control limit for messages recieved by the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost.OpenTimeout">
+            <summary>
+            Gets or sets the interval of time allowed for the service host to open.
+            </summary>
+            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to open.</value>
+        </member>
+        <member name="T:UnitWrappers.System.ServiceModel.IInstanceContext">
+            <summary>
+            Interface wrapper that wraps a <see cref="T:System.ServiceModel.InstanceContext"/> instance.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IInstanceContext.IncrementManualFlowControlLimit(System.Int32)">
+            <summary>
+            Increments the manual control flow limit
+            </summary>
+            <param name="limit">int. The flow control limit to increment to.</param>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IInstanceContext.GetServiceInstance">
+            <summary>
+            Gets the service instance.
+            </summary>
+            <returns>object.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IInstanceContext.GetServiceInstance(System.ServiceModel.Channels.Message)">
+            <summary>
+            Gets the service instance for the specified <see cref="T:System.ServiceModel.Channels.Message"/>.
+            </summary>
+            <param name="message">A <see cref="T:System.ServiceModel.Channels.Message"/> instance.</param>
+            <returns>object.</returns>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.Extensions">
+            <summary>
+            Gets the underlying <see cref="T:System.ServiceModel.IExtensionCollection`1"/> from the underlying
+            <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.Host">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> instance that wraps the underlying <see cref="T:System.ServiceModel.ServiceHost"/>
+            from the InstanceContxt.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.IncomingChannels">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of incoming channels
+            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.ManualFlowControlLimit">
+            <summary>
+            Gets or sets the manual flow control limit on the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.OutgoinChannels">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of outgoing channels
+            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.SynchronizationContext">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IInstanceContext.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="T:UnitWrappers.System.ServiceModel.ServiceHostWrap">
+            <summary>
+            Default <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> wrapper.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostWrap.#ctor(System.ServiceModel.ServiceHostBase)">
+            <summary>
+            Default Constructor.
+            Creates a new instance of the <see cref="T:UnitWrappers.System.ServiceModel.ServiceHostWrap"/> class.
+            </summary>
+            <param name="underlyingObject">The <see cref="T:System.ServiceModel.ServiceHost"/> instance to wrap.</param>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String,System.Uri)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri,System.Uri)">
+            <summary>
+            Adds a service endpoint to the service host with the specified contract, binding and address.
+            </summary>
+            <param name="implementedContract">The contract implemented by the endpoint.</param>
+            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
+            <param name="address">The address for the endpoint.</param>
+            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
+            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.Authorization">
+            <summary>
+            Gets the authorization behavior for the service.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Description.ServiceAuthorizationBehavior"/> for the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.BaseAddresses">
+            <summary>
+            Gets the base addresses used by the service host.
+            </summary>
+            <value>A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/> that contains the base addresses used by the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.ChannelDispatchers">
+            <summary>
+            Gets a collection of channel dispatchers used by he service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Dispatcher.ChannelDispatcherCollection"/> containing the channel dispatchers used by the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.CloseTimeout">
+            <summary>
+            Gets or sets the interval of time allowed for the service host to close.
+            </summary>
+            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to close.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.Credentials">
+            <summary>
+            Gets the crendentials for the service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Description.ServiceCredentials"/> instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.Description">
+            <summary>
+            Gets the description of the service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Description.ServiceDescription"/> instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.Extensions">
+            <summary>
+            Gets the extensions registered for the service host.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> contianing extensions registered for the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.ManualFlowControlLimit">
+            <summary>
+            Gets or sets the flow control limit for messages recieved by the service host.
+            </summary>
+            <value>int. The flow control limit for messages recieved by the service host.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostWrap.OpenTimeout">
+            <summary>
+            Gets or sets the interval of time allowed for the service host to open.
+            </summary>
+            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to open.</value>
+        </member>
+        <member name="T:UnitWrappers.System.ServiceModel.InstanceContextWrap">
+            <summary>
+            Default implementation of <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/>
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.#ctor(System.ServiceModel.InstanceContext)">
+            <summary>
+            Default Constructor.
+            Creates a new instance of the <see cref="T:UnitWrappers.System.ServiceModel.InstanceContextWrap"/> class.
+            </summary>
+            <param name="underlyingObject">The <see cref="T:System.ServiceModel.InstanceContext"/> instance to wrap.</param>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.IncrementManualFlowControlLimit(System.Int32)">
+            <summary>
+            Increments the manual control flow limit
+            </summary>
+            <param name="limit">int. The flow control limit to increment to.</param>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.GetServiceInstance">
+            <summary>
+            Gets the service instance.
+            </summary>
+            <returns>object.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.GetServiceInstance(System.ServiceModel.Channels.Message)">
+            <summary>
+            Gets the service instance for the specified <see cref="T:System.ServiceModel.Channels.Message"/>.
+            </summary>
+            <param name="message">A <see cref="T:System.ServiceModel.Channels.Message"/> instance.</param>
+            <returns>object.</returns>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.Extensions">
+            <summary>
+            Gets the underlying <see cref="T:System.ServiceModel.IExtensionCollection`1"/> from the underlying
+            <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.Host">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.NCommon.Context.IServiceHost"/> instance that wraps the underlying <see cref="T:System.ServiceModel.ServiceHost"/>
+            from the InstanceContxt.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.IncomingChannels">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of incoming channels
+            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.ManualFlowControlLimit">
+            <summary>
+            Gets or sets the manual flow control limit on the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.OutgoinChannels">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of outgoing channels
+            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
         </member>
     </members>
 </doc>

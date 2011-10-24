@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,6 +108,8 @@
     <Compile Include="System\IO\PathWrap.cs" />
     <Compile Include="System\IO\StreamReaderWrap.cs" />
     <Compile Include="System\IO\StreamWriterWrap.cs" />
+    <Compile Include="System\Net\ISocket.cs" />
+    <Compile Include="System\Net\SocketWrap.cs" />
     <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
     <Compile Include="System\Reflection\AssemblySystem.cs" />
     <Compile Include="System\Reflection\AssemblyWrap.cs" />
@@ -117,6 +120,16 @@
     <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
     <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="System\ServiceModel\IInstanceContext.cs" />
+    <Compile Include="System\ServiceModel\InstanceContextWrap.cs" />
+    <Compile Include="System\ServiceModel\IOperationContext.cs" />
+    <Compile Include="System\ServiceModel\IOperationContextSystem.cs" />
+    <Compile Include="System\ServiceModel\IServiceHost.cs" />
+    <Compile Include="System\ServiceModel\OperationContextExtensionCollectionWrap.cs" />
+    <Compile Include="System\ServiceModel\OperationContextExtensionWrap.cs" />
+    <Compile Include="System\ServiceModel\OperationContextSystem.cs" />
+    <Compile Include="System\ServiceModel\OperationContextWrap.cs" />
+    <Compile Include="System\ServiceModel\ServiceHostWrap.cs" />
     <Compile Include="System\Threading\IThread.cs" />
     <Compile Include="System\Threading\IThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
