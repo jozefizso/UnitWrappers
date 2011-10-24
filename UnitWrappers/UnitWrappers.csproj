@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitWrappers</RootNamespace>
+    <AssemblyName>UnitWrappers</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ispro\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\UnitWrappers.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\CurrentVersions\NET35\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\CurrentVersions\NET35\UnitWrappers.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\CurrentVersions\NET35\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\CurrentVersions\NET35\UnitWrappers.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="System\AppDomainWrap.cs" />
+    <Compile Include="System\Configuration\ConfigurationManagerWrap.cs" />
+    <Compile Include="System\Configuration\IConfigurationManager.cs" />
+    <Compile Include="System\ConsoleWrap.cs" />
+    <Compile Include="System\AppDomainSystem.cs" />
+    <Compile Include="System\Data\SqlClient\ISqlCommand.cs" />
+    <Compile Include="System\Data\SqlClient\ISqlConnection.cs" />
+    <Compile Include="System\Data\SqlClient\ISqlDataReader.cs" />
+    <Compile Include="System\Data\SqlClient\SqlCommandWrap.cs" />
+    <Compile Include="System\Data\SqlClient\SqlConnectionWrap.cs">
+    </Compile>
+    <Compile Include="System\Data\SqlClient\SqlDataReaderWrap.cs" />
+    <Compile Include="System\DateTimeSystem.cs" />
+    <Compile Include="System\Diagnostics\IProcessStartInfo.cs" />
+    <Compile Include="System\Diagnostics\IProcessSystem.cs" />
+    <Compile Include="System\Diagnostics\IProcess.cs" />
+    <Compile Include="System\Diagnostics\ProcessStartInfoWrap.cs" />
+    <Compile Include="System\Diagnostics\ProcessSystem.cs" />
+    <Compile Include="System\Diagnostics\ProcessWrap.cs" />
+    <Compile Include="System\IAppDomain.cs" />
+    <Compile Include="System\IAppDomainSystem.cs" />
+    <Compile Include="System\IConsole.cs" />
+    <Compile Include="System\IDateTimeSystem.cs" />
+    <Compile Include="System\IO\IFileSystemWatcher.cs" />
+    <Compile Include="System\IO\BinaryReaderWrap.cs" />
+    <Compile Include="System\IO\BinaryWriterWrap.cs" />
+    <Compile Include="System\IO\Compression\DeflateStreamWrap.cs" />
+    <Compile Include="System\IO\Compression\IDeflateStream.cs" />
+    <Compile Include="System\IO\DirectoryInfoWrap.cs" />
+    <Compile Include="System\IO\DirectoryWrap.cs" />
+    <Compile Include="System\IO\FileInfoSystem.cs" />
+    <Compile Include="System\IO\FileInfoWrap.cs" />
+    <Compile Include="System\IO\FileStreamWrap.cs" />
+    <Compile Include="System\IO\FileSystemWatcherWrap.cs" />
+    <Compile Include="System\IO\FileWrap.cs" />
+    <Compile Include="System\IO\IBinaryReader.cs" />
+    <Compile Include="System\IO\IBinaryWriter.cs" />
+    <Compile Include="System\IO\IDirectoryInfo.cs" />
+    <Compile Include="System\IO\IDirectory.cs" />
+    <Compile Include="System\IO\IFileInfoSystem.cs" />
+    <Compile Include="System\IO\IFileInfo.cs" />
+    <Compile Include="System\IO\IFileStream.cs" />
+    <Compile Include="System\IO\IFile.cs" />
+    <Compile Include="System\IO\IMemoryStream.cs" />
+    <Compile Include="System\IO\IPath.cs" />
+    <Compile Include="System\IO\IStreamReader.cs" />
+    <Compile Include="System\IO\IStream.cs" />
+    <Compile Include="System\IO\IStreamWriter.cs" />
+    <Compile Include="System\IO\ITextReader.cs" />
+    <Compile Include="System\IO\MemoryStreamWrap.cs" />
+    <Compile Include="System\IO\PathWrap.cs" />
+    <Compile Include="System\IO\StreamReaderWrap.cs" />
+    <Compile Include="System\IO\StreamWriterWrap.cs" />
+    <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
+    <Compile Include="Microsoft\Win32\IRegistry.cs" />
+    <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
+    <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
+    <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
+    <Compile Include="Microsoft\Win32\SafeHandles\SafeFileHandleWrap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
+    <Compile Include="System\Reflection\AssemblySystem.cs" />
+    <Compile Include="System\Reflection\AssemblyWrap.cs" />
+    <Compile Include="System\Reflection\IAssemblyName.cs" />
+    <Compile Include="System\Reflection\IAssembly.cs" />
+    <Compile Include="System\Reflection\IAssemblySystem.cs" />
+    <Compile Include="System\Security\AccessControl\DirectorySecurityWrap.cs" />
+    <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
+    <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
+    <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="System\Threading\IThreadSystem.cs" />
+    <Compile Include="System\Threading\IThread.cs" />
+    <Compile Include="System\Threading\ThreadSystem.cs" />
+    <Compile Include="System\Threading\ThreadWrap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
