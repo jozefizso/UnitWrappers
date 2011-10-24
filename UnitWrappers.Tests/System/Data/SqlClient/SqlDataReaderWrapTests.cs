@@ -22,7 +22,7 @@ namespace UnitWrappers.Tests.System.Data.SqlClient
 			//{
 			//  var mockReader = _mockRepository.Stub<SqlDataReader>();
 			//  var instance = new SqlDataReaderWrap(mockReader);
-			//  Assert.AreSame(mockReader, instance.SqlDataReaderInstance);
+			//  Assert.AreSame(mockReader, instance.UnderlyingObject);
 			//}
 
 
@@ -32,7 +32,7 @@ namespace UnitWrappers.Tests.System.Data.SqlClient
 			//  var mockReader = _mockRepository.Stub<SqlDataReader>();
 			//  var instance = new SqlDataReaderWrap();
 			//  instance.Initialize(mockReader);
-			//  Assert.AreSame(mockReader, instance.SqlDataReaderInstance);
+			//  Assert.AreSame(mockReader, instance.UnderlyingObject);
 			//}
 
     }

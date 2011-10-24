@@ -9,17 +9,10 @@ namespace UnitWrappers.System.IO
     /// Wrapper for <see cref="T:System.IO.StreamReader"/> class.
     /// </summary>
     [Serializable, ComVisible(true)]
-    public class StreamReaderWrap : IStreamReader
+    public class StreamReaderWrap : TextReader, IStreamReader
 	{
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.StreamReaderWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
-		public StreamReaderWrap(TextReader textReader)
-		{
-            StreamReaderInstance = textReader as StreamReader;
-		}
+        public StreamReader UnderlyingObject { get; private set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.StreamReaderWrap"/> class on the specified path. 
@@ -27,7 +20,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="streamReader">A <see cref="T:System.IO.StreamReader"/> object.</param>
 		public StreamReaderWrap(StreamReader streamReader)
 		{
-            StreamReaderInstance = streamReader;
+            UnderlyingObject = streamReader;
 		}
 
 		/// <summary>
@@ -36,7 +29,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="stream">The stream to write to.</param>
 		public StreamReaderWrap(Stream stream)
 		{
-            StreamReaderInstance = new StreamReader(stream);
+            UnderlyingObject = new StreamReader(stream);
 		}
 
 		/// <summary>
@@ -45,7 +38,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="stream">The stream wrapper to write to.</param>
 		public StreamReaderWrap(IStream stream)
 		{
-            StreamReaderInstance = new StreamReader(stream.StreamInstance);
+            UnderlyingObject = new StreamReader(stream.StreamInstance);
 		}
 
 		/// <summary>
@@ -54,7 +47,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="path">The complete file path to be read.</param>
 		public StreamReaderWrap(string path)
 		{
-            StreamReaderInstance = new StreamReader(path);
+            UnderlyingObject = new StreamReader(path);
 		}
 
 		/// <summary>
@@ -64,7 +57,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(Stream stream, bool detectEncodingFromByteOrderMarks)
 		{
-            StreamReaderInstance = new StreamReader(stream, detectEncodingFromByteOrderMarks);
+            UnderlyingObject = new StreamReader(stream, detectEncodingFromByteOrderMarks);
 		}
 
 		/// <summary>
@@ -74,7 +67,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="encoding">The character encoding to use.</param>
 		public StreamReaderWrap(Stream stream, Encoding encoding)
 		{
-            StreamReaderInstance = new StreamReader(stream, encoding);
+            UnderlyingObject = new StreamReader(stream, encoding);
 		}
 
 		/// <summary>
@@ -84,7 +77,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(string path, bool detectEncodingFromByteOrderMarks)
 		{
-            StreamReaderInstance = new StreamReader(path, detectEncodingFromByteOrderMarks);
+            UnderlyingObject = new StreamReader(path, detectEncodingFromByteOrderMarks);
 		}
 
 		/// <summary>
@@ -94,7 +87,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="encoding">The character encoding to use.</param>
 		public StreamReaderWrap(string path, Encoding encoding)
 		{
-            StreamReaderInstance = new StreamReader(path, encoding);
+            UnderlyingObject = new StreamReader(path, encoding);
 		}
 
 		/// <summary>
@@ -105,7 +98,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks)
 		{
-            StreamReaderInstance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks);
+            UnderlyingObject = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks);
 		}
 
      	/// <summary>
@@ -116,7 +109,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
 		public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)
 		{
-            StreamReaderInstance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks);
+            UnderlyingObject = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks);
 		}
 
 		/// <summary>
@@ -128,7 +121,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="bufferSize">The minimum buffer size. </param>
 		public StreamReaderWrap(Stream stream, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
 		{
-            StreamReaderInstance = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize);
+            UnderlyingObject = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize);
 		}
 
 		/// <summary>
@@ -140,36 +133,37 @@ namespace UnitWrappers.System.IO
 		/// <param name="bufferSize">The minimum buffer size, in number of 16-bit characters.</param>
 		public StreamReaderWrap(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
 		{
-            StreamReaderInstance = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
+            UnderlyingObject = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
 		}
-	
+
+        /// <inheritdoc />
 		public Stream BaseStream
         {
-            get { return StreamReaderInstance.BaseStream; }
+            get { return UnderlyingObject.BaseStream; }
         }
-
+        /// <inheritdoc />
         public Encoding CurrentEncoding
         {
-            get { return StreamReaderInstance.CurrentEncoding; }
+            get { return UnderlyingObject.CurrentEncoding; }
         }
-
+        /// <inheritdoc />
         public bool EndOfStream
         {
-            get { return StreamReaderInstance.EndOfStream; }
+            get { return UnderlyingObject.EndOfStream; }
         }
 
-        public StreamReader StreamReaderInstance { get; private set; }
 
-        public TextReader TextReaderInstance{ get{ return StreamReaderInstance; } }
 
+
+        /// <inheritdoc />
         public void Close()
         {
-            StreamReaderInstance.Close();
+            UnderlyingObject.Close();
         }
-
+        /// <inheritdoc />
         public void DiscardBufferedData()
         {
-            StreamReaderInstance.DiscardBufferedData();
+            UnderlyingObject.DiscardBufferedData();
         }
 
         /// <summary>
@@ -178,12 +172,12 @@ namespace UnitWrappers.System.IO
         /// <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
         public int Peek()
         {
-            return StreamReaderInstance.Peek();
+            return UnderlyingObject.Peek();
         }
-
+        /// <inheritdoc />
         public int Read()
         {
-            return StreamReaderInstance.Read();
+            return UnderlyingObject.Read();
         }
 
         /// <summary>
@@ -195,17 +189,17 @@ namespace UnitWrappers.System.IO
         /// <returns>The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the count parameter, depending on whether the data is available within the stream.</returns>
         public int Read(char[] buffer, int index, int count)
         {
-            return StreamReaderInstance.Read(buffer, index, count);
+            return UnderlyingObject.Read(buffer, index, count);
         }
-
-        public int ReadBlock(char[] buffer, int index, int count)
+        /// <inheritdoc />
+        public override int ReadBlock(char[] buffer, int index, int count)
         {
-            return StreamReaderInstance.ReadBlock(buffer, index, count);
+            return UnderlyingObject.ReadBlock(buffer, index, count);
         }
-
-        public string ReadLine()
+        /// <inheritdoc />
+        public override string ReadLine()
         {
-            return StreamReaderInstance.ReadLine();
+            return UnderlyingObject.ReadLine();
         }
 
         /// <summary>
@@ -214,17 +208,12 @@ namespace UnitWrappers.System.IO
         /// <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns the empty string("").</returns>
         public string ReadToEnd()
         {
-            return StreamReaderInstance.ReadToEnd();
+            return UnderlyingObject.ReadToEnd();
         }
-
-        public ITextReader Synchronized(ITextReader reader)
-        {
-            return new StreamReaderWrap(TextReader.Synchronized(reader.TextReaderInstance));
-        }
-
+        /// <inheritdoc />
         public void Dispose()
         {
-            StreamReaderInstance.Dispose();
+            UnderlyingObject.Dispose();
         }
     }
 }

@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace UnitWrappers.System.IO
@@ -6,6 +8,8 @@ namespace UnitWrappers.System.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
     /// </summary>
+    [Serializable]
+    [ComVisible(true)]
     public class StreamWriterWrap : TextWriter, IStreamWriter
     {
 

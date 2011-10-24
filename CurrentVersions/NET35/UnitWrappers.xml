@@ -490,18 +490,6 @@
             </summary>
             <returns>A string containing all characters from the current position to the end of the ITextReader.</returns>
         </member>
-        <member name="M:UnitWrappers.System.IO.ITextReader.Synchronized(UnitWrappers.System.IO.ITextReader)">
-            <summary>
-            Creates a thread-safe wrapper around the specified ITextReader. 
-            </summary>
-            <param name="reader">The ITextReader to synchronize.</param>
-            <returns>A thread-safe ITextReader.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.IO.ITextReader.TextReaderInstance">
-            <summary>
-            Gets <see cref="T:System.IO.TextReader"/> object.
-            </summary>
-        </member>
         <member name="M:UnitWrappers.System.IO.IStreamReader.DiscardBufferedData">
             <summary>
             Allows a IStreamReader object to discard its current data. 
@@ -525,7 +513,7 @@
             </summary>
             <value> true if the current stream position is at the end of the stream; otherwise false. </value>
         </member>
-        <member name="P:UnitWrappers.System.IO.IStreamReader.StreamReaderInstance">
+        <member name="P:UnitWrappers.System.IO.IStreamReader.UnderlyingObject">
             <summary>
             Gets <see cref="T:System.IO.StreamReader"/> object.
             </summary>
@@ -1710,7 +1698,7 @@
             <param name="name">The column name.</param>
             <returns>The value of the specified column in its native format.</returns>
         </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlDataReader.SqlDataReaderInstance">
+        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlDataReader.UnderlyingObject">
             <summary>
             Gets <see cref="T:System.Data.SqlClient.SqlDataReader"/> object.
             </summary>
@@ -1720,6 +1708,111 @@
             Initializes a new instance of the SqlDataReaderWrap class. 
             </summary>
             <param name="dataReader">SqlDataReader object.</param>
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetName(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetDataTypeName(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetFieldType(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetValue(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetValues(System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetOrdinal(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetBoolean(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetByte(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetBytes(System.Int32,System.Int64,System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetChar(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetChars(System.Int32,System.Int64,System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetGuid(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetInt16(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetInt32(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetInt64(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetFloat(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetDouble(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetString(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetDecimal(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetDateTime(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetData(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.IsDBNull(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.GetSchemaTable">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.NextResult">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.Read">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.FieldCount">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.System#Data#IDataRecord#Item(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.System#Data#IDataRecord#Item(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.UnitWrappers#System#Data#SqlClient#ISqlDataReader#Item(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.UnitWrappers#System#Data#SqlClient#ISqlDataReader#Item(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.Depth">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.IsClosed">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.RecordsAffected">
+            <inheritdoc />
         </member>
         <member name="T:UnitWrappers.System.Security.AccessControl.IFileSecurity">
             <summary>
@@ -4028,12 +4121,6 @@
             Wrapper for <see cref="T:System.IO.StreamReader"/> class.
             </summary>
         </member>
-        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.#ctor(System.IO.TextReader)">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.StreamReaderWrap"/> class on the specified path. 
-            </summary>
-            <param name="textReader">A <see cref="T:System.IO.TextReader"/> object.</param>
-        </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.#ctor(System.IO.StreamReader)">
             <summary>
             Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.StreamReaderWrap"/> class on the specified path. 
@@ -4120,11 +4207,20 @@
             <param name="detectEncodingFromByteOrderMarks">Indicates whether to look for byte order marks at the beginning of the file.</param>
             <param name="bufferSize">The minimum buffer size, in number of 16-bit characters.</param>
         </member>
+        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Close">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.DiscardBufferedData">
+            <inheritdoc />
+        </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Peek">
             <summary>
             Returns the next available character but does not consume it. 
             </summary>
             <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Read">
+            <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Read(System.Char[],System.Int32,System.Int32)">
             <summary>
@@ -4135,11 +4231,29 @@
             <param name="count">The maximum number of characters to read. </param>
             <returns>The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the count parameter, depending on whether the data is available within the stream.</returns>
         </member>
+        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.ReadBlock(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.ReadLine">
+            <inheritdoc />
+        </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.ReadToEnd">
             <summary>
             Reads the stream from the current position to the end of the stream.
             </summary>
             <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns the empty string("").</returns>
+        </member>
+        <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IO.StreamReaderWrap.BaseStream">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IO.StreamReaderWrap.CurrentEncoding">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IO.StreamReaderWrap.EndOfStream">
+            <inheritdoc />
         </member>
         <member name="T:UnitWrappers.System.IO.Compression.DeflateStreamWrap">
             <summary>

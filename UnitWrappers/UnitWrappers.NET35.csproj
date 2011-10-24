@@ -60,9 +60,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -133,6 +130,8 @@
     <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
     <Compile Include="Microsoft\Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Net\ISocket.cs" />
+    <Compile Include="System\Net\SocketWrap.cs" />
     <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
     <Compile Include="System\Reflection\AssemblySystem.cs" />
     <Compile Include="System\Reflection\AssemblyWrap.cs" />

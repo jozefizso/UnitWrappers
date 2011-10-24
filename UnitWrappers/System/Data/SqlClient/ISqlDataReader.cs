@@ -1,3 +1,5 @@
+using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace UnitWrappers.System.Data.SqlClient
@@ -5,7 +7,7 @@ namespace UnitWrappers.System.Data.SqlClient
     /// <summary>
     /// Wrapper for <see cref="T:System.Data.SqlClient.SqlDataReader"/> class.
     /// </summary>
-    public interface ISqlDataReader
+    public interface ISqlDataReader:  IDataReader
     {
         // Properties
 
@@ -24,7 +26,7 @@ namespace UnitWrappers.System.Data.SqlClient
         /// <summary>
         /// Gets <see cref="T:System.Data.SqlClient.SqlDataReader"/> object.
         /// </summary>
-        SqlDataReader SqlDataReaderInstance { get; }
+        SqlDataReader UnderlyingObject { get; }
 
         // Methods
 

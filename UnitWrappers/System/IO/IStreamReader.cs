@@ -28,7 +28,7 @@ namespace UnitWrappers.System.IO
         /// <summary>
         /// Gets <see cref="T:System.IO.StreamReader"/> object.
         /// </summary>
-        StreamReader StreamReaderInstance { get; }
+        StreamReader UnderlyingObject { get; }
 
         // Methods
         

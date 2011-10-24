@@ -10,11 +10,7 @@ namespace UnitWrappers.System.IO
 	/// </summary>
 	public interface ITextReader : IDisposable
 	{
-        /// <summary>
-        /// Gets <see cref="T:System.IO.TextReader"/> object.
-        /// </summary>
-        TextReader TextReaderInstance { get; }
-        
+       
         /// <summary>
         /// Closes the IStreamReader object and the underlying stream, and releases any system resources associated with the reader.
         /// </summary>
@@ -56,12 +52,13 @@ namespace UnitWrappers.System.IO
         /// </summary>
         /// <returns>A string containing all characters from the current position to the end of the ITextReader.</returns>
         string ReadToEnd();
-        /// <summary>
-        /// Creates a thread-safe wrapper around the specified ITextReader. 
-        /// </summary>
-        /// <param name="reader">The ITextReader to synchronize.</param>
-        /// <returns>A thread-safe ITextReader.</returns>
-        [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
-        ITextReader Synchronized(ITextReader reader);
+
+        ///// <summary>
+        ///// Creates a thread-safe wrapper around the specified ITextReader. 
+        ///// </summary>
+        ///// <param name="reader">The ITextReader to synchronize.</param>
+        ///// <returns>A thread-safe ITextReader.</returns>
+        //[HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
+        //ITextReader Synchronized(ITextReader reader);
 	}
 }
