@@ -4,8 +4,6 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Security;
-using UnitWrappers.System.ServiceModel.NCommon.Context;
-
 namespace UnitWrappers.System.ServiceModel
 {
     public interface IOperationContext : IExtensibleObject<IOperationContext>

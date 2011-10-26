@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
-using UnitWrappers.System.ServiceModel.NCommon.Context;
 
 namespace UnitWrappers.System.ServiceModel
 {
@@ -44,7 +43,7 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public IServiceHost Host
         {
-            get { return new ServiceHostWrap(UnderlyingObject.Host); }
+            get { return new ServiceHostBaseWrap(UnderlyingObject.Host); }
         }
 
         /// <summary>

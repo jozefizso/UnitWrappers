@@ -7,22 +7,14 @@ namespace UnitWrappers.System.Diagnostics
 	///</summary>
 	public class ProcessStartInfoWrap : IProcessStartInfo
 	{
-		#region Constructors and Initializers
+		public ProcessStartInfo UnderlyingObject { get; internal set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process. 
 		/// </summary>
 		public ProcessStartInfoWrap()
 		{
-			Initialize();
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessStartInfoWrap"/> class without specifying a file name with which to start the process. 
-		/// </summary>
-		public void Initialize()
-		{
-			ProcessStartInfoInstance = new ProcessStartInfo();
+            UnderlyingObject = new ProcessStartInfo();
 		}
 
 		/// <summary>
@@ -30,15 +22,7 @@ namespace UnitWrappers.System.Diagnostics
 		/// </summary>
 		public ProcessStartInfoWrap(string fileName)
 		{
-			Initialize(fileName);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessStartInfoWrap"/> class and specifies a file name such as an application or document with which to start the process.
-		/// </summary>
-		public void Initialize(string fileName)
-		{
-			ProcessStartInfoInstance = new ProcessStartInfo(fileName);
+            UnderlyingObject = new ProcessStartInfo(fileName);
 		}
 
 		/// <summary>
@@ -46,15 +30,7 @@ namespace UnitWrappers.System.Diagnostics
 		/// </summary>
 		public ProcessStartInfoWrap(string fileName, string arguments)
 		{
-			Initialize(fileName, arguments);
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessStartInfoWrap"/> class, specifies an application file name with which to start the process, and specifies a set of command-line arguments to pass to the application.
-		/// </summary>
-		public void Initialize(string fileName, string arguments)
-		{
-			ProcessStartInfoInstance = new ProcessStartInfo(fileName, arguments);
+            UnderlyingObject = new ProcessStartInfo(fileName, arguments);
 		}
 
 		/// <summary>
@@ -63,38 +39,25 @@ namespace UnitWrappers.System.Diagnostics
 		/// <param name="processStartInfo">ProcessStartInfo instance</param>
 		public ProcessStartInfoWrap(ProcessStartInfo processStartInfo)
 		{
-			Initialize(processStartInfo);
+            UnderlyingObject = processStartInfo;
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessStartInfoWrap"/> class with providing ProcessStartInfo instance. 
-		/// </summary>
-		/// <param name="processStartInfo">ProcessStartInfo instance</param>
-		public void Initialize(ProcessStartInfo processStartInfo)
-		{
-			ProcessStartInfoInstance = processStartInfo;
-		}
-
-		#endregion
-		
+	
 		public string Arguments
 		{
-			get { return ProcessStartInfoInstance.Arguments; }
-			set { ProcessStartInfoInstance.Arguments = value; }
+			get { return UnderlyingObject.Arguments; }
+			set { UnderlyingObject.Arguments = value; }
 		}
 
 		public string FileName
 		{
-			get { return ProcessStartInfoInstance.FileName; }
-			set { ProcessStartInfoInstance.FileName = value; }
+			get { return UnderlyingObject.FileName; }
+			set { UnderlyingObject.FileName = value; }
 		}
-
-		public ProcessStartInfo ProcessStartInfoInstance { get; internal set; }
 
 		public bool UseShellExecute
 		{
-			get { return ProcessStartInfoInstance.UseShellExecute; }
-			set { ProcessStartInfoInstance.UseShellExecute = value; }
+			get { return UnderlyingObject.UseShellExecute; }
+			set { UnderlyingObject.UseShellExecute = value; }
 		}
 	}
 }

@@ -152,7 +152,7 @@
     <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
     <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
-    <Compile Include="System\ServiceModel\ServiceHostWrap.cs" />
+    <Compile Include="System\ServiceModel\ServiceHostBaseWrap.cs" />
     <Compile Include="System\Threading\IThreadSystem.cs" />
     <Compile Include="System\Threading\IThread.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />

@@ -4,23 +4,22 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.ServiceModel.Dispatcher;
-using UnitWrappers.System.ServiceModel.NCommon.Context;
 
 namespace UnitWrappers.System.ServiceModel
 {
     /// <summary>
     /// Default <see cref="IServiceHost"/> wrapper.
     /// </summary>
-    public class ServiceHostWrap : IServiceHost
+    public class ServiceHostBaseWrap : IServiceHost
     {
         readonly ServiceHostBase UnderlyingObject;
 
         /// <summary>
         /// Default Constructor.
-        /// Creates a new instance of the <see cref="ServiceHostWrap"/> class.
+        /// Creates a new instance of the <see cref="ServiceHostBaseWrap"/> class.
         /// </summary>
         /// <param name="underlyingObject">The <see cref="ServiceHost"/> instance to wrap.</param>
-        public ServiceHostWrap(ServiceHostBase underlyingObject)
+        public ServiceHostBaseWrap(ServiceHostBase underlyingObject)
         {
             UnderlyingObject = underlyingObject;
         }

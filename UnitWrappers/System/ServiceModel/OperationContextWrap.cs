@@ -5,11 +5,10 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Dispatcher;
 using System.ServiceModel.Security;
-using UnitWrappers.System.ServiceModel.NCommon.Context;
 
 namespace UnitWrappers.System.ServiceModel
 {
-    public class OperationContextWrap:IOperationContext
+    public class OperationContextWrap : IOperationContext
     {
         private InstanceContextWrap _instanceContext;
         public OperationContext UnderlyingObject { get; private set; }
@@ -75,7 +74,7 @@ namespace UnitWrappers.System.ServiceModel
         /// <value>A <see cref="IServiceHost"/> wrapper.</value>
         public IServiceHost Host
         {
-            get { return new ServiceHostWrap(UnderlyingObject.Host); }
+            get { return new ServiceHostBaseWrap(UnderlyingObject.Host); }
         }
 
         /// <summary>

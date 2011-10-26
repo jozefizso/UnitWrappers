@@ -7,8 +7,6 @@ using System.ServiceModel.Dispatcher;
 
 namespace UnitWrappers.System.ServiceModel
 {
-    namespace NCommon.Context
-    {
         /// <summary>
         /// Wrapper interface for <see cref="ServiceHost"/>.
         /// </summary>
@@ -108,4 +106,3 @@ namespace UnitWrappers.System.ServiceModel
             ServiceEndpoint AddServiceEndpoint(string implementedContract, Binding binding, Uri address, Uri listenUri);
         }
     }
-}

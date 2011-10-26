@@ -129,7 +129,7 @@
     <Compile Include="System\ServiceModel\OperationContextExtensionWrap.cs" />
     <Compile Include="System\ServiceModel\OperationContextSystem.cs" />
     <Compile Include="System\ServiceModel\OperationContextWrap.cs" />
-    <Compile Include="System\ServiceModel\ServiceHostWrap.cs" />
+    <Compile Include="System\ServiceModel\ServiceHostBaseWrap.cs" />
     <Compile Include="System\Threading\IThread.cs" />
     <Compile Include="System\Threading\IThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
