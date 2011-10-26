@@ -4535,11 +4535,6 @@
             Wraps static members of <see cref="T:System.Reflection.Assembly"/>
             </summary>
         </member>
-        <member name="T:UnitWrappers.System.Net.SocketWrap">
-            <summary>
-            Wraps instance members of <see cref="T:System.Net.Sockets.Socket"/>
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.IO.FileInfoWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.FileInfo"/> class.
@@ -4973,6 +4968,11 @@
             Gets or sets the interval of time allowed for the service host to open.
             </summary>
             <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to open.</value>
+        </member>
+        <member name="T:UnitWrappers.System.Net.Sockets.SocketWrap">
+            <summary>
+            Wraps instance members of <see cref="T:System.Net.Sockets.Socket"/>
+            </summary>
         </member>
     </members>
 </doc>

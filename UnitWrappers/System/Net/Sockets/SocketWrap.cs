@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
 
-namespace UnitWrappers.System.Net
+namespace UnitWrappers.System.Net.Sockets
 {
     /// <summary>
     /// Wraps instance members of <see cref="Socket"/>

@@ -108,8 +108,8 @@
     <Compile Include="System\IO\PathWrap.cs" />
     <Compile Include="System\IO\StreamReaderWrap.cs" />
     <Compile Include="System\IO\StreamWriterWrap.cs" />
-    <Compile Include="System\Net\ISocket.cs" />
-    <Compile Include="System\Net\SocketWrap.cs" />
+    <Compile Include="System\Net\Sockets\ISocket.cs" />
+    <Compile Include="System\Net\Sockets\SocketWrap.cs" />
     <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
     <Compile Include="System\Reflection\AssemblySystem.cs" />
     <Compile Include="System\Reflection\AssemblyWrap.cs" />

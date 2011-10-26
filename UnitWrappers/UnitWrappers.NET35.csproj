@@ -140,8 +140,8 @@
     <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
     <Compile Include="Microsoft\Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\Net\ISocket.cs" />
-    <Compile Include="System\Net\SocketWrap.cs" />
+    <Compile Include="System\Net\Sockets\ISocket.cs" />
+    <Compile Include="System\Net\Sockets\SocketWrap.cs" />
     <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
     <Compile Include="System\Reflection\AssemblySystem.cs" />
     <Compile Include="System\Reflection\AssemblyWrap.cs" />

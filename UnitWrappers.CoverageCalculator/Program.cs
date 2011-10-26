@@ -21,7 +21,7 @@ namespace UnitWrappers.CoverageCalculator
             var allClasses =
                 from r in refrencedAssemblies
                 from t in r.GetExportedTypes()
-                orderby t.Name
+                orderby t.FullName
                 select t;
 
             var interfaces = wrappers.GetExportedTypes().Where(x => x.IsInterface);
