@@ -130,8 +130,13 @@
     <Compile Include="System\ServiceModel\OperationContextSystem.cs" />
     <Compile Include="System\ServiceModel\OperationContextWrap.cs" />
     <Compile Include="System\ServiceModel\ServiceHostBaseWrap.cs" />
+    <Compile Include="System\Threading\IMutex.cs" />
+    <Compile Include="System\Threading\Mutex.cs" />
+    <Compile Include="System\Threading\MutexSystem.cs" />
+    <Compile Include="System\Threading\Tasks\ITask.cs" />
     <Compile Include="System\Threading\IThread.cs" />
     <Compile Include="System\Threading\IThreadSystem.cs" />
+    <Compile Include="System\Threading\Tasks\TaskWrap.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadWrap.cs" />
   </ItemGroup>
