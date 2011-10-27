@@ -1,5 +1,7 @@
 using System;
+#if !PORTABLE
 using System.Runtime.Remoting.Contexts;
+#endif
 using System.Threading;
 
 namespace UnitWrappers.System.Threading
@@ -14,7 +16,7 @@ namespace UnitWrappers.System.Threading
         {
             get { return new ThreadWrap(Thread.CurrentThread); }
         }
-
+#if !PORTABLE
         /// <inheritdoc />
         public void Sleep(int millisecondsTimeout)
         {
@@ -32,5 +34,6 @@ namespace UnitWrappers.System.Threading
         {
             get { return Thread.CurrentContext; }
         }
+#endif
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+#if !PORTABLE
 using System.Runtime.Remoting.Contexts;
+#endif
 
 namespace UnitWrappers.System.Threading
 {
@@ -9,7 +11,7 @@ namespace UnitWrappers.System.Threading
         /// Gets the currently running thread.
         /// </summary>
         IThread CurrentThread { get; }
-
+        #if !PORTABLE
         /// <summary>
         /// Suspends the current thread for a specified time.
         /// </summary>
@@ -29,5 +31,6 @@ namespace UnitWrappers.System.Threading
         /// A <see cref="Context"/> representing the current thread context
         /// </value>
         Context CurrentContext { get; }
+#endif
     }
 }

@@ -50,6 +50,7 @@ namespace UnitWrappers.System
         /// <param name="t2">The second DateTime instance. </param>
         /// <returns> true if the two DateTime values are equal; otherwise, false.</returns>
         bool Equals(DateTime t1, DateTime t2);
+#if !PORTABLE
         /// <summary>
         /// Deserializes a 64-bit binary value and recreates an original serialized DateTime object.
         /// </summary>
@@ -74,7 +75,7 @@ namespace UnitWrappers.System
         /// <param name="d">An OLE Automation Date value. </param>
         /// <returns>A DateTime that represents the same date and time as d.</returns>
         DateTime FromOADate(double d);
-
+#endif
         /// <summary>
         /// Returns an indication whether the specified year is a leap year.
         /// </summary>

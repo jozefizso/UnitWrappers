@@ -1,5 +1,7 @@
 using System.Globalization;
+#if !PORTABLE
 using System.Runtime.Remoting.Contexts;
+#endif
 using System.Threading;
 
 namespace UnitWrappers.System.Threading
@@ -15,7 +17,7 @@ namespace UnitWrappers.System.Threading
         {
             _thread = thread;
         }
-
+        #if !PORTABLE
         public ThreadWrap(ThreadStart threadStart)
         {
             _thread = new global::System.Threading.Thread(threadStart);
@@ -25,7 +27,7 @@ namespace UnitWrappers.System.Threading
         {
             _thread = new global::System.Threading.Thread(parameterizedThreadStart);
         }
-
+#endif
         /// <inheritdoc />
         public CultureInfo CurrentCulture
         {
@@ -38,6 +40,21 @@ namespace UnitWrappers.System.Threading
                 _thread.CurrentCulture = value;
             }
         }
+
+        /// <inheritdoc />
+        public CultureInfo CurrentUICulture
+        {
+            get
+            {
+                return _thread.CurrentUICulture;
+            }
+            set
+            {
+                _thread.CurrentUICulture = value;
+            }
+        }
+
+#if !PORTABLE
 
         /// <inheritdoc />
         public bool IsAlive
@@ -56,6 +73,7 @@ namespace UnitWrappers.System.Threading
         {
             get { return _thread.ThreadState; }
         }
+
         /// <inheritdoc />
         public bool IsBackground
         {
@@ -68,16 +86,13 @@ namespace UnitWrappers.System.Threading
             get { return _thread.Priority; }
             set { _thread.Priority = value; }
         }
-        /// <inheritdoc />
-        public int ManagedThreadId
-        {
-            get { return _thread.ManagedThreadId; }
-        }
-        /// <inheritdoc />
+
+                /// <inheritdoc />
         public void Abort()
         {
             _thread.Abort();
         }
+
         /// <inheritdoc />
         public void SetApartmentState(ApartmentState state)
         {
@@ -98,5 +113,14 @@ namespace UnitWrappers.System.Threading
         {
             _thread.Join();
         }
+
+#endif
+        /// <inheritdoc />
+        public int ManagedThreadId
+        {
+            get { return _thread.ManagedThreadId; }
+        }
+
+
     }
 }

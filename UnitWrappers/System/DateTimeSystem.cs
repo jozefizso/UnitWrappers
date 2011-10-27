@@ -24,7 +24,7 @@ namespace UnitWrappers.System
         {
             return DateTime.Equals(t1, t2);
         }
-
+#if !PORTABLE
         public DateTime FromBinary(long dateData)
         {
             return DateTime.FromBinary(dateData);
@@ -44,7 +44,7 @@ namespace UnitWrappers.System
         {
             return DateTime.FromOADate(d);
         }
-
+#endif
         public int Compare(DateTime t1, DateTime t2)
         {
             return DateTime.Compare(t1, t2);

@@ -1,17 +1,14 @@
 ﻿using System;
+using System.Configuration.Assemblies;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Security;
 
 namespace UnitWrappers.System.Reflection
 {
     public interface IAssemblySystem
     {
-        /// <summary>
-        /// Loads an assembly given its file name or path. 
-        /// </summary>
-        /// <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
-        /// <returns>The loaded assembly. </returns>
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        IAssembly LoadFrom(string assemblyFile);
+
 
         /// <summary>
         /// Gets the currently loaded assembly in which the specified class is defined. 
@@ -46,5 +43,38 @@ namespace UnitWrappers.System.Reflection
         /// <returns>A String that is the full name of the type qualified by the display name of the assembly.</returns>
         [MethodImpl(MethodImplOptions.InternalCall)]
         string CreateQualifiedName(string assemblyName, string typeName);
+
+        /// <summary>
+        /// Loads an assembly given its file name or path. 
+        /// </summary>
+        /// <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
+        /// <returns>The loaded assembly. </returns>
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        IAssembly LoadFrom(string assemblyFile);
+
+        IAssembly Load(IAssemblyName assemblyRef);
+        IAssembly Load(byte[] rawAssembly);
+
+        IAssembly Load(string assemblyString);
+        IAssembly Load(byte[] rawAssembly, byte[] rawSymbolStore);
+
+        IAssembly LoadFile(string path);
+
+        
+
+        IAssembly ReflectionOnlyLoad(byte[] rawAssembly);
+
+        IAssembly ReflectionOnlyLoadFrom(string assemblyFile);
+
+
+
+#if !NET35
+        IAssembly Load(byte[] rawAssembly,byte[] rawSymbolStore,SecurityContextSource securityContextSource);
+
+        IAssembly UnsafeLoadFrom(string assemblyFile);
+
+        IAssembly LoadFrom(string assemblyFile, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm);
+#endif
+
     }
 }

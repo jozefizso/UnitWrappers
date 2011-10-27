@@ -18,6 +18,18 @@ namespace UnitWrappers.System.Threading
         CultureInfo CurrentCulture { get; set; }
 
         /// <summary>
+        /// Gets a unique identifier for the current managed thread.
+        /// </summary>
+        /// <value>
+        /// An integer that represents a unique identifier for this managed thread.
+        /// </value>
+        int ManagedThreadId { get; }
+
+        CultureInfo CurrentUICulture { get; set; }
+
+#if !PORTABLE
+
+        /// <summary>
         /// Gets a value indicating the execution status of the current thread.
         /// </summary>
         /// <value>
@@ -59,20 +71,12 @@ namespace UnitWrappers.System.Threading
         /// </value>
         ThreadPriority Priority { get; set; }
 
-        /// <summary>
-        /// Gets a unique identifier for the current managed thread.
-        /// </summary>
-        /// <value>
-        /// An integer that represents a unique identifier for this managed thread.
-        /// </value>
-        int ManagedThreadId { get; }
-
-        void Abort();
+         void Abort();
         void SetApartmentState(ApartmentState state);
-        void Start();
+         void Start();
         void Start(object parameter);
-        void Join();
-
+         void Join();
+#endif
         /*
                 // Methods
             public Thread(ParameterizedThreadStart start);

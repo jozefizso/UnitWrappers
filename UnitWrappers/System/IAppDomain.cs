@@ -1,4 +1,8 @@
 using System;
+using System.Globalization;
+using System.Reflection;
+using System.Security.Permissions;
+using System.Security.Policy;
 using UnitWrappers.System.Reflection;
 
 namespace UnitWrappers.System
@@ -47,6 +51,15 @@ namespace UnitWrappers.System
         /// <returns></returns>
         object CreateInstanceAndUnwrap(string assemblyName, string typeName);
 
+         object CreateInstanceAndUnwrap(string assemblyName, string typeName, object[] activationAttributes);
+         object CreateInstanceAndUnwrap(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes);
+         object CreateInstanceFromAndUnwrap(string assemblyName, string typeName);
+         object CreateInstanceFromAndUnwrap(string assemblyName, string typeName, object[] activationAttributes);
+         object CreateInstanceFromAndUnwrap(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes);
+
+         void DoCallBack(CrossAppDomainDelegate callBackDelegate);
+
+        
         // Events
 
         /// <summary>
@@ -54,40 +67,38 @@ namespace UnitWrappers.System
         /// </summary>
         event ResolveEventHandler AssemblyResolve;
 
+        event AssemblyLoadEventHandler AssemblyLoad;
+        event EventHandler DomainUnload;
+        event EventHandler ProcessExit;
+        event ResolveEventHandler ReflectionOnlyAssemblyResolve;
+        event ResolveEventHandler ResourceResolve;
+        event ResolveEventHandler TypeResolve;
+        event UnhandledExceptionEventHandler UnhandledException;
+
+        // Properties
+        AppDomainManager DomainManager { [SecurityPermission(SecurityAction.LinkDemand, ControlDomainPolicy = true)] get; }
+        Evidence Evidence { [SecurityPermission(SecurityAction.Demand, ControlEvidence = true)] get; }
+        AppDomainSetup SetupInformation { get; }
+        string BaseDirectory { get; }
+        string DynamicDirectory { get; }
+        string FriendlyName { get; }
 /*
            // Events
-    public event AssemblyLoadEventHandler AssemblyLoad;
-    public event EventHandler DomainUnload;
-    public event EventHandler ProcessExit;
-    public event ResolveEventHandler ReflectionOnlyAssemblyResolve;
-    public event ResolveEventHandler ResourceResolve;
-    public event ResolveEventHandler TypeResolve;
-    public event UnhandledExceptionEventHandler UnhandledException;
+
 
     // Methods
     [ComVisible(false)]
     public string ApplyPolicy(string assemblyName);
     public ObjectHandle CreateComInstanceFrom(string assemblyName, string typeName);
     public ObjectHandle CreateComInstanceFrom(string assemblyFile, string typeName, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm);
-    public static AppDomain CreateDomain(string friendlyName);
-    public static AppDomain CreateDomain(string friendlyName, Evidence securityInfo);
-    [SecurityPermission(SecurityAction.Demand, ControlAppDomain=true)]
-    public static AppDomain CreateDomain(string friendlyName, Evidence securityInfo, AppDomainSetup info);
-    public static AppDomain CreateDomain(string friendlyName, Evidence securityInfo, AppDomainSetup info, PermissionSet grantSet, params StrongName[] fullTrustAssemblies);
-    public static AppDomain CreateDomain(string friendlyName, Evidence securityInfo, string appBasePath, string appRelativeSearchPath, bool shadowCopyFiles);
-    public static AppDomain CreateDomain(string friendlyName, Evidence securityInfo, string appBasePath, string appRelativeSearchPath, bool shadowCopyFiles, AppDomainInitializer adInit, string[] adInitArgs);
     public ObjectHandle CreateInstance(string assemblyName, string typeName);
     public ObjectHandle CreateInstance(string assemblyName, string typeName, object[] activationAttributes);
     public ObjectHandle CreateInstance(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes);
-    public object CreateInstanceAndUnwrap(string assemblyName, string typeName);
-    public object CreateInstanceAndUnwrap(string assemblyName, string typeName, object[] activationAttributes);
-    public object CreateInstanceAndUnwrap(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes);
+    
     public ObjectHandle CreateInstanceFrom(string assemblyFile, string typeName);
     public ObjectHandle CreateInstanceFrom(string assemblyFile, string typeName, object[] activationAttributes);
     public ObjectHandle CreateInstanceFrom(string assemblyFile, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes);
-    public object CreateInstanceFromAndUnwrap(string assemblyName, string typeName);
-    public object CreateInstanceFromAndUnwrap(string assemblyName, string typeName, object[] activationAttributes);
-    public object CreateInstanceFromAndUnwrap(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes);
+    
     public AssemblyBuilder DefineDynamicAssembly(AssemblyName name, AssemblyBuilderAccess access);
     [MethodImpl(MethodImplOptions.NoInlining)]
     public AssemblyBuilder DefineDynamicAssembly(AssemblyName name, AssemblyBuilderAccess access, IEnumerable<CustomAttributeBuilder> assemblyAttributes);
@@ -109,7 +120,7 @@ namespace UnitWrappers.System
     public AssemblyBuilder DefineDynamicAssembly(AssemblyName name, AssemblyBuilderAccess access, string dir, Evidence evidence, PermissionSet requiredPermissions, PermissionSet optionalPermissions, PermissionSet refusedPermissions, bool isSynchronized);
     [MethodImpl(MethodImplOptions.NoInlining)]
     public AssemblyBuilder DefineDynamicAssembly(AssemblyName name, AssemblyBuilderAccess access, string dir, Evidence evidence, PermissionSet requiredPermissions, PermissionSet optionalPermissions, PermissionSet refusedPermissions, bool isSynchronized, IEnumerable<CustomAttributeBuilder> assemblyAttributes);
-    public void DoCallBack(CrossAppDomainDelegate callBackDelegate);
+
     public int ExecuteAssembly(string assemblyFile);
     public int ExecuteAssembly(string assemblyFile, Evidence assemblySecurity);
     public int ExecuteAssembly(string assemblyFile, Evidence assemblySecurity, string[] args);
@@ -120,9 +131,7 @@ namespace UnitWrappers.System
     public int ExecuteAssemblyByName(string assemblyName, Evidence assemblySecurity, params string[] args);
     [MethodImpl(MethodImplOptions.InternalCall)]
     public Assembly[] GetAssemblies();
-    [Obsolete("AppDomain.GetCurrentThreadId has been deprecated because it does not provide a stable Id when managed threads are running on fibers (aka lightweight threads). To get a stable identifier for a managed thread, use the ManagedThreadId property on Thread.  http://go.microsoft.com/fwlink/?linkid=14202", false), DllImport("kernel32.dll")]
-    public static extern int GetCurrentThreadId();
-    public Type GetType();
+
     public override object InitializeLifetimeService();
     public bool IsDefaultAppDomain();
     [MethodImpl(MethodImplOptions.InternalCall), ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
@@ -148,22 +157,14 @@ namespace UnitWrappers.System
     public void SetPrincipalPolicy(PrincipalPolicy policy);
     [SecurityPermission(SecurityAction.Demand, Flags=SecurityPermissionFlag.ControlPrincipal)]
     public void SetThreadPrincipal(IPrincipal principal);
-    public override string ToString();
-    [ReliabilityContract(Consistency.MayCorruptAppDomain, Cer.MayFail), SecurityPermission(SecurityAction.Demand, ControlAppDomain=true)]
-    public static void Unload(AppDomain domain);
 
     // Properties
     public ActivationContext ActivationContext { [SecurityPermission(SecurityAction.LinkDemand, ControlDomainPolicy=true)] get; }
     public ApplicationIdentity ApplicationIdentity { [SecurityPermission(SecurityAction.LinkDemand, ControlDomainPolicy=true)] get; }
     public ApplicationTrust ApplicationTrust { [SecurityPermission(SecurityAction.LinkDemand, ControlDomainPolicy=true)] get; }
-    public string BaseDirectory { get; }
-    public AppDomainManager DomainManager { [SecurityPermission(SecurityAction.LinkDemand, ControlDomainPolicy=true)] get; }
-    public string DynamicDirectory { get; }
-    public Evidence Evidence { [SecurityPermission(SecurityAction.Demand, ControlEvidence=true)] get; }
-    public string FriendlyName { get; }
     public int Id { [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)] get; }
     public string RelativeSearchPath { get; }
-    public AppDomainSetup SetupInformation { get; }
+
     public bool ShadowCopyFiles { get; }
 */
 
