@@ -16,7 +16,7 @@ namespace UnitWrappers.Tests.System.Diagnostics
         public void Constructor_Sets_ProcessInstance()
         {
             var instance = new ProcessWrap();
-            Assert.IsNotNull(instance.ProcessInstance);
+            Assert.IsNotNull(instance.UnderlyingObject);
         }
     }
 }

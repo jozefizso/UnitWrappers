@@ -153,13 +153,20 @@
     <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
     <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
     <Compile Include="System\ServiceModel\ServiceHostBaseWrap.cs" />
+    <Compile Include="System\Threading\AutoResetEventSystem.cs" />
+    <Compile Include="System\Threading\AutoResetEventWrap.cs" />
+    <Compile Include="System\Threading\IAutoResetEvent.cs" />
     <Compile Include="System\Threading\IMutex.cs" />
     <Compile Include="System\Threading\IThreadSystem.cs" />
     <Compile Include="System\Threading\IThread.cs" />
-    <Compile Include="System\Threading\Mutex.cs" />
+    <Compile Include="System\Threading\IWaitHandle.cs" />
+    <Compile Include="System\Threading\IWaitHandleSystem.cs" />
     <Compile Include="System\Threading\MutexSystem.cs" />
+    <Compile Include="System\Threading\MutexWrap.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadWrap.cs" />
+    <Compile Include="System\Threading\WaitHandleSystem.cs" />
+    <Compile Include="System\Threading\WaitHandleWrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -5,7 +5,7 @@ using System.Runtime.Remoting.Contexts;
 namespace UnitWrappers.System.Threading
 {
     /// <summary>
-    /// Wrapper for <see cref="Thread"/> class.
+    /// 
     /// </summary>
     public interface IThread
     {

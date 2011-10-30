@@ -1,3 +1,4 @@
+using System.Security.AccessControl;
 using System.Threading;
 
 namespace UnitWrappers.System.Threading
@@ -9,9 +10,9 @@ namespace UnitWrappers.System.Threading
             return new MutexWrap(Mutex.OpenExisting(name));
         }
 
-        public bool SignalAndWait(WaitHandle toSignal, WaitHandle toWaitOn)
+        public IMutex OpenExisting(string name, MutexRights rights)
         {
-            return Mutex.SignalAndWait(toSignal, toWaitOn);
+            return new MutexWrap(Mutex.OpenExisting(name,rights));
         }
     }
 }

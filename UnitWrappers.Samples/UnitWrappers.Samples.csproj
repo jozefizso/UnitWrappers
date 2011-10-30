@@ -80,6 +80,8 @@
     <Compile Include="System\Reflection\AssemblySample.cs" />
     <Compile Include="System\IO\FileInfoSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Threading\WaithHandles.cs" />
+    <Compile Include="TodoClasses.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET35.csproj">
