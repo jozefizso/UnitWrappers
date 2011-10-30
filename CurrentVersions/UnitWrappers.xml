@@ -1189,6 +1189,16 @@
             Gets the <see cref="P:UnitWrappers.System.ServiceModel.IInstanceContext.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
             </summary>
         </member>
+        <member name="T:UnitWrappers.System.Threading.IWaitHandle">
+            <summary>
+            Wraps instance of <see cref="T:System.Threading.WaitHandle"/>
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.Threading.IWaitHandle.UnderlyingObject">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:UnitWrappers.System.Diagnostics.IProcessSystem">
             <summary>
             Wraps static members of <see cref="T:System.Diagnostics.Process"/>.
@@ -1231,6 +1241,11 @@
             <remarks>
              Some operating system processes run in a special mode. Attempting to read properties of or attach to these processes is not possible unless you have called <see cref="M:UnitWrappers.System.Diagnostics.IProcessSystem.EnterDebugMode"/> on the component. Call LeaveDebugMode when you no longer need access to these processes that run in special mode.
              </remarks>
+        </member>
+        <member name="T:UnitWrappers.System.Threading.WaitHandleWrap">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:UnitWrappers.System.Security.AccessControl.IDirectorySecurity">
             <summary>
@@ -3853,17 +3868,12 @@
         <member name="P:UnitWrappers.System.Threading.ThreadWrap.ManagedThreadId">
             <inheritdoc />
         </member>
-        <member name="T:UnitWrappers.System.Threading.IWaitHandle">
-            <summary>
-            Wraps instance of <see cref="T:System.Threading.WaitHandle"/>
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Threading.IWaitHandle.UnderlyingObject">
+        <member name="P:UnitWrappers.System.Threading.IMutex.UnderlyingObject">
             <summary>
             
             </summary>
         </member>
-        <member name="P:UnitWrappers.System.Threading.IMutex.UnderlyingObject">
+        <member name="P:UnitWrappers.System.Threading.MutexWrap.UnderlyingObject">
             <summary>
             
             </summary>
@@ -4079,6 +4089,16 @@
         <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.WorkstationId">
             <summary>
             Gets a string that identifies the database client.
+            </summary>
+        </member>
+        <member name="T:UnitWrappers.System.Threading.IAutoResetEvent">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.System.Threading.IAutoResetEvent.UnderlyingObject">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:UnitWrappers.System.IO.DirectoryWrap">
@@ -4769,6 +4789,11 @@
             Gets the <see cref="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
             </summary>
         </member>
+        <member name="T:UnitWrappers.System.Threading.AutoResetEventSystem">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:UnitWrappers.System.IO.StreamWriterWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
@@ -5012,31 +5037,6 @@
             </summary>
             <param name="output">The supplied stream.</param>
             <param name="encoding">The character encoding.</param>
-        </member>
-        <member name="T:UnitWrappers.System.Threading.AutoResetEventSystem">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.Threading.IAutoResetEvent">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Threading.IAutoResetEvent.UnderlyingObject">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Threading.MutexWrap.UnderlyingObject">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.Threading.WaitHandleWrap">
-            <summary>
-            
-            </summary>
         </member>
     </members>
 </doc>

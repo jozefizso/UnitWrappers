@@ -59,7 +59,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -69,9 +68,12 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="System\AppDomainWrap.cs" />
+    <Compile Include="System\EnvironmentSystem.cs" />
+    <Compile Include="System\IEnvironmentSystem.cs" />
     <Compile Include="System\ServiceModel\IInstanceContext.cs" />
     <Compile Include="System\ServiceModel\InstanceContextWrap.cs" />
     <Compile Include="System\ServiceModel\IOperationContextSystem.cs" />

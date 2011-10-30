@@ -10,7 +10,6 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnitWrappers</RootNamespace>
     <AssemblyName>UnitWrappers</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,7 +38,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +45,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Microsoft\Win32\IRegistry.cs" />
@@ -74,10 +73,12 @@
     <Compile Include="System\Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="System\Diagnostics\ProcessSystem.cs" />
     <Compile Include="System\Diagnostics\ProcessWrap.cs" />
+    <Compile Include="System\EnvironmentSystem.cs" />
     <Compile Include="System\IAppDomain.cs" />
     <Compile Include="System\IAppDomainSystem.cs" />
     <Compile Include="System\IConsole.cs" />
     <Compile Include="System\IDateTimeSystem.cs" />
+    <Compile Include="System\IEnvironmentSystem.cs" />
     <Compile Include="System\IO\BinaryReaderWrap.cs" />
     <Compile Include="System\IO\BinaryWriterWrap.cs" />
     <Compile Include="System\IO\Compression\DeflateStreamWrap.cs" />
