@@ -409,71 +409,6 @@
             <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
             <returns>The loaded assembly. </returns>
         </member>
-        <member name="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap">
-            <summary>
-            Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle">
-            <summary>
-            Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.Close">
-            <summary>
-            Marks the handle for releasing and freeing resources.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousAddRef(System.Boolean@)">
-            <summary>
-            Manually increments the reference counter on SafeHandle instances.
-            </summary>
-            <param name="success">true if the reference counter was successfully incremented; otherwise, false.</param>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousGetHandle">
-            <summary>
-            Returns the value of the handle field. 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousRelease">
-            <summary>
-            Manually decrements the reference counter on a SafeHandle instance.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.SetHandleAsInvalid">
-            <summary>
-            Marks a handle as no longer used.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.IsClosed">
-            <summary>
-            Gets a value indicating whether the handle is closed.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.IsInvalid">
-            <summary>
-            Gets a value that indicates whether the handle is invalid.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.SafeFileHandleInstance">
-            <summary>
-            Gets <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
-            </summary>
-            <param name="safeFileHandle">A <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.</param>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap.#ctor(System.IntPtr,System.Boolean)">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
-            </summary>
-            <param name="preexistingHandle">An IntPtr object that represents the pre-existing handle to use.</param>
-            <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
-        </member>
         <member name="T:UnitWrappers.System.IO.DirectoryWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.Directory"/> class.
@@ -752,6 +687,71 @@
             Gets or sets a value indicating whether to use the operating system shell to start the process.
             </summary>
         </member>
+        <member name="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap">
+            <summary>
+            Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
+            </summary>
+        </member>
+        <member name="T:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle">
+            <summary>
+            Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.Close">
+            <summary>
+            Marks the handle for releasing and freeing resources.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousAddRef(System.Boolean@)">
+            <summary>
+            Manually increments the reference counter on SafeHandle instances.
+            </summary>
+            <param name="success">true if the reference counter was successfully incremented; otherwise, false.</param>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousGetHandle">
+            <summary>
+            Returns the value of the handle field. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousRelease">
+            <summary>
+            Manually decrements the reference counter on a SafeHandle instance.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.SetHandleAsInvalid">
+            <summary>
+            Marks a handle as no longer used.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.IsClosed">
+            <summary>
+            Gets a value indicating whether the handle is closed.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.IsInvalid">
+            <summary>
+            Gets a value that indicates whether the handle is invalid.
+            </summary>
+        </member>
+        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.SafeFileHandleInstance">
+            <summary>
+            Gets <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+            <summary>
+            Initializes a new instance of the <see cref="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
+            </summary>
+            <param name="safeFileHandle">A <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.</param>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap.#ctor(System.IntPtr,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
+            </summary>
+            <param name="preexistingHandle">An IntPtr object that represents the pre-existing handle to use.</param>
+            <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
+        </member>
         <member name="T:UnitWrappers.System.Threading.WaitHandleWrap">
             <summary>
             
@@ -894,11 +894,6 @@
         <member name="P:UnitWrappers.System.Reflection.IAssembly.ReflectionOnly">
             <summary>
             Gets a <see cref="T:System.Boolean"/> value indicating whether this assembly was loaded into the reflection-only context. 
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.IRegistryKey.Close">
-            <summary>
-            Closes the key and flushes it to disk if its contents have been modified.
             </summary>
         </member>
         <member name="T:UnitWrappers.System.IO.IFileSystemWatcher">
@@ -1127,6 +1122,11 @@
         <member name="P:UnitWrappers.System.Configuration.IConfigurationManager.ConnectionStrings">
             <summary>
             Gets the ConnectionStringsSection  data for the current application's default configuration.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.Microsoft.Win32.IRegistryKey.Close">
+            <summary>
+            Closes the key and flushes it to disk if its contents have been modified.
             </summary>
         </member>
         <member name="T:UnitWrappers.System.Threading.ThreadSystem">
@@ -1874,6 +1874,25 @@
             Gets the current application domain for the current Thread.
             </summary>
         </member>
+        <member name="P:UnitWrappers.System.IAppDomainSystem.MonitoringIsEnabled">
+            <summary>
+            Gets or sets a value that indicates whether CPU and memory monitoring of application domains is enabled for the current process. Once monitoring is enabled for a process, it cannot be disabled.
+            </summary>
+            <value>true if monitoring is enabled; otherwise false.</value>
+        </member>
+        <member name="P:UnitWrappers.System.IAppDomainSystem.MonitoringSurvivedProcessMemorySize">
+            <summary>
+            Gets the total bytes that survived from the last full, blocking collection for all application domains in the process
+            </summary>
+            <value>The total number of surviving bytes for the process</value>
+            <exception cref="T:System.InvalidOperationException">
+            The <see cref="P:UnitWrappers.System.IAppDomainSystem.MonitoringIsEnabled"/> property is set to false.
+            </exception>
+            <remarks>
+            After a full, blocking collection, this number represents the number of bytes currently held on the managed heap. It should be close to the number reported by the <see cref="M:System.GC.GetTotalMemory(System.Boolean)"/> method.
+            Statistics are updated only after a full, blocking collection; that is, a collection that includes all generations and that stops the application while collection occurs. For example, the <see cref="M:System.GC.Collect"/> method overload performs a full, blocking collection. (Concurrent collection occurs in the background and does not block the application.)
+            </remarks>
+        </member>
         <member name="M:UnitWrappers.System.AppDomainSystem.Unload(UnitWrappers.System.IAppDomain)">
             <inheritdoc />
         </member>
@@ -1896,6 +1915,12 @@
             <inheritdoc />
         </member>
         <member name="P:UnitWrappers.System.AppDomainSystem.CurrentDomain">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.AppDomainSystem.MonitoringIsEnabled">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.AppDomainSystem.MonitoringSurvivedProcessMemorySize">
             <inheritdoc />
         </member>
         <member name="T:UnitWrappers.System.IO.PathWrap">
@@ -2695,11 +2720,6 @@
         <member name="P:UnitWrappers.System.Threading.ThreadWrap.ManagedThreadId">
             <inheritdoc />
         </member>
-        <member name="T:UnitWrappers.Microsoft.Win32.RegistryKeyWrap">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.IO.StreamReaderWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.StreamReader"/> class.
@@ -3465,6 +3485,11 @@
         <member name="P:UnitWrappers.System.AppDomainWrap.FriendlyName">
             <inheritdoc />
         </member>
+        <member name="T:UnitWrappers.Microsoft.Win32.RegistryKeyWrap">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:UnitWrappers.System.Threading.IAutoResetEvent">
             <summary>
             
@@ -3479,6 +3504,215 @@
             <summary>
             
             </summary>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.GetCallbackChannel``1">
+            <summary>
+            Gets a channel to the client instance that called the current operation.
+            </summary>
+            <typeparam name="T">The type of channel used to callback the client.</typeparam>
+            <returns>A channel to the client instance that called the operation of the type specified in the
+            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.SetTransactionComplete">
+            <summary>
+            Commits the current executing transaction.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Channel">
+            <summary>
+            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> for the endpoint to inspect.
+            </summary>
+            <value>The <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> to inspect.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Extensions">
+            <summary>
+            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.HasSupportingTokens">
+            <summary>
+            Gets a value indicating weather the incoming message has supporting tokens.
+            </summary>
+            <value>True if the incoming message has supporting tokents, else false.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Host">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper for the current service object.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageHeaders">
+            <summary>
+            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageProperties">
+            <summary>
+            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
+            the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageVersion">
+            <summary>
+            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.InstanceContext">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageHeaders">
+            <summary>
+            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageProperties">
+            <summary>
+            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> implementation for the current executing method.
+            </summary>
+            <value>A <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> instance, or null if there is no request context.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SessionId">
+            <summary>
+            Gets a string used to identify the current session.
+            </summary>
+            <value>A string used to identify the current session.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SupportingTokens">
+            <summary>
+            Gets the collection of security tokens.
+            </summary>
+            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.#ctor(System.ServiceModel.OperationContext)">
+            <summary>
+            Default Constructor.
+            Creates a new instance of the <see cref="!:OperationContextWrapper"/> class.
+            </summary>
+            <param name="context">The <see cref="T:System.ServiceModel.OperationContext"/> to wrap.</param>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.GetCallbackChannel``1">
+            <summary>
+            Gets a channel to the client instance that called the current operation.
+            </summary>
+            <typeparam name="T">The type of channel used to callback the client.</typeparam>
+            <returns>A channel to the client instance that called the operation of the type specified in the
+            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
+        </member>
+        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.SetTransactionComplete">
+            <summary>
+            Commits the current executing transaction.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Channel">
+            <summary>
+            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> for the endpoint to inspect.
+            </summary>
+            <value>The <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> to inspect.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Extensions">
+            <summary>
+            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.HasSupportingTokens">
+            <summary>
+            Gets a value indicating weather the incoming message has supporting tokens.
+            </summary>
+            <value>True if the incoming message has supporting tokents, else false.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Host">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper for the current service object.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageHeaders">
+            <summary>
+            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageProperties">
+            <summary>
+            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
+            the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageVersion">
+            <summary>
+            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.InstanceContext">
+            <summary>
+            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
+            </summary>
+            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageHeaders">
+            <summary>
+            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageProperties">
+            <summary>
+            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
+            </summary>
+            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
+            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext">
+            <summary>
+            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> implementation for the current executing method.
+            </summary>
+            <value>A <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> instance, or null if there is no request context.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SessionId">
+            <summary>
+            Gets a string used to identify the current session.
+            </summary>
+            <value>A string used to identify the current session.</value>
+        </member>
+        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SupportingTokens">
+            <summary>
+            Gets the collection of security tokens.
+            </summary>
+            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
         </member>
         <member name="T:UnitWrappers.System.Reflection.AssemblyWrap">
             <summary>
@@ -3690,215 +3924,6 @@
         </member>
         <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.RecordsAffected">
             <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.GetCallbackChannel``1">
-            <summary>
-            Gets a channel to the client instance that called the current operation.
-            </summary>
-            <typeparam name="T">The type of channel used to callback the client.</typeparam>
-            <returns>A channel to the client instance that called the operation of the type specified in the
-            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.SetTransactionComplete">
-            <summary>
-            Commits the current executing transaction.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Channel">
-            <summary>
-            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> for the endpoint to inspect.
-            </summary>
-            <value>The <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> to inspect.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Extensions">
-            <summary>
-            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.HasSupportingTokens">
-            <summary>
-            Gets a value indicating weather the incoming message has supporting tokens.
-            </summary>
-            <value>True if the incoming message has supporting tokents, else false.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Host">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper for the current service object.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageHeaders">
-            <summary>
-            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageProperties">
-            <summary>
-            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
-            the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageVersion">
-            <summary>
-            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.InstanceContext">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageHeaders">
-            <summary>
-            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageProperties">
-            <summary>
-            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> implementation for the current executing method.
-            </summary>
-            <value>A <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> instance, or null if there is no request context.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SessionId">
-            <summary>
-            Gets a string used to identify the current session.
-            </summary>
-            <value>A string used to identify the current session.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SupportingTokens">
-            <summary>
-            Gets the collection of security tokens.
-            </summary>
-            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.#ctor(System.ServiceModel.OperationContext)">
-            <summary>
-            Default Constructor.
-            Creates a new instance of the <see cref="!:OperationContextWrapper"/> class.
-            </summary>
-            <param name="context">The <see cref="T:System.ServiceModel.OperationContext"/> to wrap.</param>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.GetCallbackChannel``1">
-            <summary>
-            Gets a channel to the client instance that called the current operation.
-            </summary>
-            <typeparam name="T">The type of channel used to callback the client.</typeparam>
-            <returns>A channel to the client instance that called the operation of the type specified in the
-            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.SetTransactionComplete">
-            <summary>
-            Commits the current executing transaction.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Channel">
-            <summary>
-            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> for the endpoint to inspect.
-            </summary>
-            <value>The <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> to inspect.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Extensions">
-            <summary>
-            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.HasSupportingTokens">
-            <summary>
-            Gets a value indicating weather the incoming message has supporting tokens.
-            </summary>
-            <value>True if the incoming message has supporting tokents, else false.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Host">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper for the current service object.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageHeaders">
-            <summary>
-            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageProperties">
-            <summary>
-            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
-            the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageVersion">
-            <summary>
-            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.InstanceContext">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageHeaders">
-            <summary>
-            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageProperties">
-            <summary>
-            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> implementation for the current executing method.
-            </summary>
-            <value>A <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> instance, or null if there is no request context.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SessionId">
-            <summary>
-            Gets a string used to identify the current session.
-            </summary>
-            <value>A string used to identify the current session.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SupportingTokens">
-            <summary>
-            Gets the collection of security tokens.
-            </summary>
-            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
         </member>
         <member name="T:UnitWrappers.System.IO.FileStreamWrap">
             <summary>
@@ -4633,22 +4658,6 @@
             Gets the name of the current database or the database to be used after a connection is opened.
             </summary>
         </member>
-        <member name="T:UnitWrappers.System.Diagnostics.ProcessWrap">
-            <summary>
-             Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.Diagnostics.ProcessWrap.#ctor(System.Diagnostics.Process)">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessWrap"/> class from framework <see cref="T:System.Diagnostics.Process"/> class.
-            </summary>
-            <param name="process"></param>
-        </member>
-        <member name="M:UnitWrappers.System.Diagnostics.ProcessWrap.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessWrap"/> class.
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.ServiceModel.InstanceContextWrap">
             <summary>
             Default implementation of <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/>
@@ -4770,6 +4779,22 @@
         <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext">
             <summary>
             Gets the <see cref="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
+            </summary>
+        </member>
+        <member name="T:UnitWrappers.System.Diagnostics.ProcessWrap">
+            <summary>
+             Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.Diagnostics.ProcessWrap.#ctor(System.Diagnostics.Process)">
+            <summary>
+            Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessWrap"/> class from framework <see cref="T:System.Diagnostics.Process"/> class.
+            </summary>
+            <param name="process"></param>
+        </member>
+        <member name="M:UnitWrappers.System.Diagnostics.ProcessWrap.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessWrap"/> class.
             </summary>
         </member>
         <member name="T:UnitWrappers.System.Reflection.AssemblySystem">
@@ -5174,6 +5199,15 @@
         <member name="P:UnitWrappers.System.IEnvironment.HasShutdownStarted">
             <inheritdoc />
         </member>
+        <member name="P:UnitWrappers.System.IEnvironment.Is64BitOperatingSystem">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.Is64BitProcess">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.SystemPageSize">
+            <inheritdoc />
+        </member>
         <member name="P:UnitWrappers.System.IEnvironment.MachineName">
             <inheritdoc />
         </member>
@@ -5256,6 +5290,15 @@
             <inheritdoc />
         </member>
         <member name="P:UnitWrappers.System.EnvironmentWrap.HasShutdownStarted">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.Is64BitOperatingSystem">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.Is64BitProcess">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.SystemPageSize">
             <inheritdoc />
         </member>
         <member name="P:UnitWrappers.System.EnvironmentWrap.MachineName">

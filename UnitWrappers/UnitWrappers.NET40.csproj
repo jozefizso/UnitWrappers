@@ -135,6 +135,7 @@
     <Compile Include="System\Threading\AutoResetEventWrap.cs" />
     <Compile Include="System\Threading\IAutoResetEvent.cs" />
     <Compile Include="System\Threading\IMutex.cs" />
+    <Compile Include="System\Threading\IMutexSystem.cs" />
     <Compile Include="System\Threading\IWaitHandle.cs" />
     <Compile Include="System\Threading\IWaitHandleSystem.cs" />
     <Compile Include="System\Threading\MutexWrap.cs" />

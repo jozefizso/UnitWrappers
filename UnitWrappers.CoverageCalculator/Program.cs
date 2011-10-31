@@ -8,7 +8,7 @@ using UnitWrappers.System.IO;
 
 namespace UnitWrappers.CoverageCalculator
 {
-    
+
     class Program
     {
         static void Main(string[] args)
@@ -16,8 +16,8 @@ namespace UnitWrappers.CoverageCalculator
 
             var staticMembers = "System";// static members and factories
 
-            var wrappers = typeof (IDateTimeSystem).Assembly;
-            var refrencedAssemblies =  wrappers.GetReferencedAssemblies().Select(Assembly.Load);
+            var wrappers = typeof(IDateTimeSystem).Assembly;
+            var refrencedAssemblies = wrappers.GetReferencedAssemblies().Select(Assembly.Load);
             var allClasses =
                 from r in refrencedAssemblies
                 from t in r.GetExportedTypes()
@@ -29,15 +29,15 @@ namespace UnitWrappers.CoverageCalculator
                                                                           {
                                                                               string name = x.Remove(0, 1); // remove I
                                                                               int index = name.LastIndexOf(staticMembers);
-                                                                              if (index==name.Length-6)
+                                                                              if (index == name.Length - 6 && index > 0)
                                                                               {
                                                                                   name = name.Remove(index, 6);
                                                                               }
                                                                               return name;
-                                                                              })
+                                                                          })
                                                                              .Distinct().ToArray();
 
-            var combinedInterfaces = new Dictionary<string,Type[]>();
+            var combinedInterfaces = new Dictionary<string, Type[]>();
             foreach (var n in strippedNames)
             {
                 var wraps = new List<Type>();
@@ -45,18 +45,18 @@ namespace UnitWrappers.CoverageCalculator
                 {
                     if (i.Name.Equals("I" + n) || i.Name.Equals("I" + n + staticMembers))
                     {
-                       wraps.Add(i); 
+                        wraps.Add(i);
                     }
                 }
-                combinedInterfaces.Add(n,wraps.ToArray());
+                combinedInterfaces.Add(n, wraps.ToArray());
             }
 
             var counterParts = new Dictionary<Type, Type[]>();
             foreach (var wraps in combinedInterfaces)
             {
                 string frameworkTypeName = wraps.Value[0].Namespace
-                    .Replace("UnitWrappers.","")
-                    +"."+ wraps.Key;
+                    .Replace("UnitWrappers.", "")
+                    + "." + wraps.Key;
                 var type = allClasses.Where(x => x.FullName == frameworkTypeName).Single();
                 counterParts.Add(type, wraps.Value);
             }
@@ -65,6 +65,7 @@ namespace UnitWrappers.CoverageCalculator
             {
                 using (var streamWriter = new StreamWriterWrap(fileStream.FileStreamInstance))
                 {
+                    streamWriter.WriteLine("Total number of wraps: " + counterParts.Count);
                     foreach (var counterPart in counterParts)
                     {
                         string entry = CalculateEntry(counterPart.Key, counterPart.Value);
@@ -96,14 +97,8 @@ namespace UnitWrappers.CoverageCalculator
             var wrapsCount = wrapsMembers.Length;
             var coverage = 100 * wrapsCount / realCount;
 
-            var newLine = Environment.NewLine;
             var wrapsFullName = wraps.Aggregate("", (x, y) => x + " " + y);
-            var entry = "--------------------------------------------------------------------------------------------------" +
-                        newLine
-                        + real.FullName + "->" + wrapsFullName + " : " + coverage + "%" + newLine
-                        + "--------------------------------------------------------------------------------------------------" +
-                        newLine
-                ;
+            var entry = real.FullName + "->" + wrapsFullName + " : " + coverage + "%" ;
             return entry;
         }
     }
