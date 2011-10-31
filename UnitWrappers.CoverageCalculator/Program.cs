@@ -98,7 +98,7 @@ namespace UnitWrappers.CoverageCalculator
             var coverage = 100 * wrapsCount / realCount;
 
             var wrapsFullName = wraps.Aggregate("", (x, y) => x + " " + y);
-            var entry = real.FullName + "->" + wrapsFullName + " : " + coverage + "%" ;
+            var entry = real.FullName + "->" + wrapsFullName + " : " + coverage + "%";
             return entry;
         }
     }

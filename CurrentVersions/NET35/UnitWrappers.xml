@@ -752,6 +752,104 @@
             Gets or sets a value indicating whether to use the operating system shell to start the process.
             </summary>
         </member>
+        <member name="T:UnitWrappers.System.IEnvironment">
+            <summary>
+            Provides information about, and means to manipulate, the current environment and platform. 
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.Exit(System.Int32)">
+            <summary>
+            Terminates this process and gives the underlying operating system the specified exit code.
+            </summary>
+            <param name="exitCode">Exit code to be given to the operating system.</param>
+            <exception cref="T:System.Security.SecurityException">The caller does not have sufficient security permission to perform this function.</exception>
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.FailFast(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.ExpandEnvironmentVariables(System.String)">
+            <summary>
+            Replaces the name of each environment variable embedded in the specified string with the string equivalent of the value of the variable, then returns the resulting string
+            </summary>
+            <param name="name">A string containing the names of zero or more environment variables. Each environment variable is quoted with the percent sign character (%).</param>
+            <returns>A string with each environment variable replaced by its value.</returns>
+            <exception cref="T:System.ArgumentNullException">name is null</exception>
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetCommandLineArgs">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariable(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariable(System.String,System.EnvironmentVariableTarget)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariables">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariables(System.EnvironmentVariableTarget)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetFolderPath(System.Environment.SpecialFolder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.GetLogicalDrives">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.SetEnvironmentVariable(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.IEnvironment.SetEnvironmentVariable(System.String,System.String,System.EnvironmentVariableTarget)">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.CommandLine">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.CurrentDirectory">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.ExitCode">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.HasShutdownStarted">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.MachineName">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.NewLine">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.OSVersion">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.ProcessorCount">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.StackTrace">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.SystemDirectory">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.TickCount">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.UserDomainName">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.UserInteractive">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.UserName">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.IEnvironment.WorkingSet">
+            <inheritdoc />
+        </member>
         <member name="T:UnitWrappers.System.Threading.WaitHandleWrap">
             <summary>
             
@@ -1128,6 +1226,95 @@
             <summary>
             Gets the ConnectionStringsSection  data for the current application's default configuration.
             </summary>
+        </member>
+        <member name="T:UnitWrappers.System.EnvironmentWrap">
+            <summary>
+            Wraps <see cref="T:System.Environment"/>
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.Exit(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.FailFast(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.ExpandEnvironmentVariables(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetCommandLineArgs">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariable(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariable(System.String,System.EnvironmentVariableTarget)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariables">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariables(System.EnvironmentVariableTarget)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetFolderPath(System.Environment.SpecialFolder)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.GetLogicalDrives">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.SetEnvironmentVariable(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.EnvironmentWrap.SetEnvironmentVariable(System.String,System.String,System.EnvironmentVariableTarget)">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.CommandLine">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.CurrentDirectory">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.ExitCode">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.HasShutdownStarted">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.MachineName">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.NewLine">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.OSVersion">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.ProcessorCount">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.StackTrace">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.SystemDirectory">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.TickCount">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.UserDomainName">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.UserInteractive">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.UserName">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.Version">
+            <inheritdoc />
+        </member>
+        <member name="P:UnitWrappers.System.EnvironmentWrap.WorkingSet">
+            <inheritdoc />
         </member>
         <member name="T:UnitWrappers.System.Threading.ThreadSystem">
             <summary>
@@ -5105,193 +5292,6 @@
             <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.Diagnostics.ProcessSystem.LeaveDebugMode">
-            <inheritdoc />
-        </member>
-        <member name="T:UnitWrappers.System.EnvironmentWrap">
-            <summary>
-            Wraps <see cref="T:System.Environment"/>
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.IEnvironment">
-            <summary>
-            Provides information about, and means to manipulate, the current environment and platform. 
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.Exit(System.Int32)">
-            <summary>
-            Terminates this process and gives the underlying operating system the specified exit code.
-            </summary>
-            <param name="exitCode">Exit code to be given to the operating system.</param>
-            <exception cref="T:System.Security.SecurityException">The caller does not have sufficient security permission to perform this function.</exception>
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.FailFast(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.ExpandEnvironmentVariables(System.String)">
-            <summary>
-            Replaces the name of each environment variable embedded in the specified string with the string equivalent of the value of the variable, then returns the resulting string
-            </summary>
-            <param name="name">A string containing the names of zero or more environment variables. Each environment variable is quoted with the percent sign character (%).</param>
-            <returns>A string with each environment variable replaced by its value.</returns>
-            <exception cref="T:System.ArgumentNullException">name is null</exception>
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetCommandLineArgs">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariable(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariable(System.String,System.EnvironmentVariableTarget)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariables">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetEnvironmentVariables(System.EnvironmentVariableTarget)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetFolderPath(System.Environment.SpecialFolder)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.GetLogicalDrives">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.SetEnvironmentVariable(System.String,System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.IEnvironment.SetEnvironmentVariable(System.String,System.String,System.EnvironmentVariableTarget)">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.CommandLine">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.CurrentDirectory">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.ExitCode">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.HasShutdownStarted">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.MachineName">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.NewLine">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.OSVersion">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.ProcessorCount">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.StackTrace">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.SystemDirectory">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.TickCount">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.UserDomainName">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.UserInteractive">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.UserName">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.Version">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.IEnvironment.WorkingSet">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.Exit(System.Int32)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.FailFast(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.ExpandEnvironmentVariables(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetCommandLineArgs">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariable(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariable(System.String,System.EnvironmentVariableTarget)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariables">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetEnvironmentVariables(System.EnvironmentVariableTarget)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetFolderPath(System.Environment.SpecialFolder)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.GetLogicalDrives">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.SetEnvironmentVariable(System.String,System.String)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.EnvironmentWrap.SetEnvironmentVariable(System.String,System.String,System.EnvironmentVariableTarget)">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.CommandLine">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.CurrentDirectory">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.ExitCode">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.HasShutdownStarted">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.MachineName">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.NewLine">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.OSVersion">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.ProcessorCount">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.StackTrace">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.SystemDirectory">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.TickCount">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.UserDomainName">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.UserInteractive">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.UserName">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.Version">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.EnvironmentWrap.WorkingSet">
             <inheritdoc />
         </member>
     </members>

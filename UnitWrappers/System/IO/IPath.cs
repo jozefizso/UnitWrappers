@@ -1,5 +1,13 @@
+#if !NET35
+using System.Diagnostics.Contracts;
+#endif
+
 namespace UnitWrappers.System.IO
 {
+
+#if !NET35
+    [ContractClass(typeof(PathContracts))]
+#endif
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.Path"/> class.
     /// </summary>
