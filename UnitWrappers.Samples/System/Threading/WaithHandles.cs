@@ -15,7 +15,7 @@ namespace UnitWrappers.Samples.System.Threading
         MockRepository _mockRepository = new MockRepository();
 
         [Test]
-        public void DesignTest()
+        public void WaitAll_MutexAndAutoResetEvent_runs()
         {
             IAutoResetEvent autoResetEvent = new AutoResetEventWrap(false);
             IMutex mutex = new MutexWrap(false);

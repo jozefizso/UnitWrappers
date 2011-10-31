@@ -73,12 +73,12 @@
     <Compile Include="System\Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="System\Diagnostics\ProcessSystem.cs" />
     <Compile Include="System\Diagnostics\ProcessWrap.cs" />
-    <Compile Include="System\EnvironmentSystem.cs" />
+    <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IAppDomain.cs" />
     <Compile Include="System\IAppDomainSystem.cs" />
     <Compile Include="System\IConsole.cs" />
     <Compile Include="System\IDateTimeSystem.cs" />
-    <Compile Include="System\IEnvironmentSystem.cs" />
+    <Compile Include="System\IEnvironment.cs" />
     <Compile Include="System\IO\BinaryReaderWrap.cs" />
     <Compile Include="System\IO\BinaryWriterWrap.cs" />
     <Compile Include="System\IO\Compression\DeflateStreamWrap.cs" />

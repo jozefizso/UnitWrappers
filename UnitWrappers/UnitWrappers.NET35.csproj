@@ -72,8 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="System\AppDomainWrap.cs" />
-    <Compile Include="System\EnvironmentSystem.cs" />
-    <Compile Include="System\IEnvironmentSystem.cs" />
+    <Compile Include="System\EnvironmentWrap.cs" />
+    <Compile Include="System\IEnvironment.cs" />
     <Compile Include="System\ServiceModel\IInstanceContext.cs" />
     <Compile Include="System\ServiceModel\InstanceContextWrap.cs" />
     <Compile Include="System\ServiceModel\IOperationContextSystem.cs" />
