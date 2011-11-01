@@ -27,9 +27,9 @@ namespace UnitWrappers.System.Configuration
 		}
 
 		/// <inheritdoc />
-		public global::System.Configuration.Configuration OpenExeConfiguration(string pExePath)
+		public global::System.Configuration.Configuration OpenExeConfiguration(string exePath)
 		{
-			return ConfigurationManager.OpenExeConfiguration(pExePath);
+            return ConfigurationManager.OpenExeConfiguration(exePath);
 		}
 
 		/// <inheritdoc />
@@ -53,6 +53,7 @@ namespace UnitWrappers.System.Configuration
 		/// <inheritdoc />
 		public global::System.Configuration.Configuration OpenMappedMachineConfiguration(ConfigurationFileMap pConfigurationFileMap)
 		{
+
 			return ConfigurationManager.OpenMappedMachineConfiguration(pConfigurationFileMap);
 		}
 

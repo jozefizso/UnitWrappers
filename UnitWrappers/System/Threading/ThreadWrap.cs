@@ -1,5 +1,8 @@
+using System;
 using System.Globalization;
 #if !PORTABLE
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Contexts;
 #endif
 using System.Threading;
@@ -11,21 +14,46 @@ namespace UnitWrappers.System.Threading
     /// </summary>
     public class ThreadWrap : IThread
     {
-        private global::System.Threading.Thread _thread;
+        private readonly global::System.Threading.Thread _thread;
 
         public ThreadWrap(Thread thread)
         {
             _thread = thread;
         }
-        #if !PORTABLE
-        public ThreadWrap(ThreadStart threadStart)
+        public ExecutionContext ExecutionContext
         {
-            _thread = new global::System.Threading.Thread(threadStart);
+            get
+            {
+                return _thread.ExecutionContext;
+            }
         }
 
-        public ThreadWrap(ParameterizedThreadStart parameterizedThreadStart)
+        public string Name
         {
-            _thread = new global::System.Threading.Thread(parameterizedThreadStart);
+            get { return _thread.Name; }
+            set { _thread.Name = Name; }
+        }
+
+#if !PORTABLE
+        public ThreadWrap(ThreadStart start)
+        {
+            _thread = new global::System.Threading.Thread(start);
+        }
+
+        public ThreadWrap(ParameterizedThreadStart start)
+        {
+            _thread = new global::System.Threading.Thread(start);
+        }
+
+
+        public ThreadWrap(ParameterizedThreadStart start, int maxStackSize)
+        {
+            _thread = new global::System.Threading.Thread(start, maxStackSize);
+        }
+
+        public ThreadWrap(ThreadStart start, int maxStackSize)
+        {
+            _thread = new global::System.Threading.Thread(start, maxStackSize);
         }
 #endif
         /// <inheritdoc />
@@ -53,6 +81,8 @@ namespace UnitWrappers.System.Threading
                 _thread.CurrentUICulture = value;
             }
         }
+
+
 
 #if !PORTABLE
 
@@ -87,10 +117,20 @@ namespace UnitWrappers.System.Threading
             set { _thread.Priority = value; }
         }
 
-                /// <inheritdoc />
+        /// <inheritdoc />
         public void Abort()
         {
             _thread.Abort();
+        }
+
+        public void Abort(object stateInfo)
+        {
+           _thread.Abort(stateInfo);
+        }
+
+        public ApartmentState GetApartmentState()
+        {
+            return _thread.GetApartmentState();
         }
 
         /// <inheritdoc />
@@ -114,6 +154,26 @@ namespace UnitWrappers.System.Threading
             _thread.Join();
         }
 
+        public bool Join(int millisecondsTimeout)
+        {
+          return  _thread.Join(millisecondsTimeout);
+        }
+
+        public bool Join(TimeSpan timeout)
+        {
+            return _thread.Join(timeout);
+        }
+
+        public void Interrupt()
+        {
+            _thread.Interrupt();
+        }
+
+        public bool TrySetApartmentState(ApartmentState state)
+        {
+            return _thread.TrySetApartmentState(state);
+        }
+
 #endif
         /// <inheritdoc />
         public int ManagedThreadId
@@ -121,6 +181,9 @@ namespace UnitWrappers.System.Threading
             get { return _thread.ManagedThreadId; }
         }
 
-
+        public override  int GetHashCode()
+        {
+            return _thread.GetHashCode();
+        }
     }
 }

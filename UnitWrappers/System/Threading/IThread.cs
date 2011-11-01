@@ -1,4 +1,8 @@
+using System;
 using System.Globalization;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Permissions;
+using System.Security.Principal;
 using System.Threading;
 using System.Runtime.Remoting.Contexts;
 
@@ -25,7 +29,11 @@ namespace UnitWrappers.System.Threading
         /// </value>
         int ManagedThreadId { get; }
 
-        CultureInfo CurrentUICulture { get; set; }
+        CultureInfo CurrentUICulture { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)] set; }
+
+        ExecutionContext ExecutionContext { [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)] get; }
+
+        string Name { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)] set; }
 
 #if !PORTABLE
 
@@ -71,21 +79,34 @@ namespace UnitWrappers.System.Threading
         /// </value>
         ThreadPriority Priority { get; set; }
 
-         void Abort();
+
+
+        void Abort();
+
+        [SecurityPermission(SecurityAction.Demand, ControlThread = true)]
+        void Abort(object stateInfo);
+        ApartmentState GetApartmentState();
         void SetApartmentState(ApartmentState state);
-         void Start();
+        void Start();
         void Start(object parameter);
-         void Join();
+        void Join();
+
+        [HostProtection(SecurityAction.LinkDemand, Synchronization = true, ExternalThreading = true)]
+        bool Join(int millisecondsTimeout);
+        [HostProtection(SecurityAction.LinkDemand, Synchronization = true, ExternalThreading = true)]
+        bool Join(TimeSpan timeout);
+
+
+        [SecurityPermission(SecurityAction.Demand, ControlThread = true)]
+        void Interrupt();
+        [HostProtection(SecurityAction.LinkDemand, Synchronization = true, SelfAffectingThreading = true)]
+        bool TrySetApartmentState(ApartmentState state);
 #endif
         /*
                 // Methods
-            public Thread(ParameterizedThreadStart start);
-            public Thread(ThreadStart start);
-            public Thread(ParameterizedThreadStart start, int maxStackSize);
-            public Thread(ThreadStart start, int maxStackSize);
 
-            [SecurityPermission(SecurityAction.Demand, ControlThread=true)]
-            public void Abort(object stateInfo);
+
+
             [HostProtection(SecurityAction.LinkDemand, SharedState=true, ExternalThreading=true)]
             public static LocalDataStoreSlot AllocateDataSlot();
             [HostProtection(SecurityAction.LinkDemand, SharedState=true, ExternalThreading=true)]
@@ -102,34 +123,17 @@ namespace UnitWrappers.System.Threading
             protected override void Finalize();
             [HostProtection(SecurityAction.LinkDemand, SharedState=true, ExternalThreading=true)]
             public static void FreeNamedDataSlot(string name);
-            public ApartmentState GetApartmentState();
+
             [HostProtection(SecurityAction.LinkDemand, SharedState=true, ExternalThreading=true)]
             public static object GetData(LocalDataStoreSlot slot);
             public static AppDomain GetDomain();
             public static int GetDomainID();
-            [MethodImpl(MethodImplOptions.InternalCall), ComVisible(false)]
-            public override extern int GetHashCode();
+
             [HostProtection(SecurityAction.LinkDemand, SharedState=true, ExternalThreading=true)]
             public static LocalDataStoreSlot GetNamedDataSlot(string name);
-            [SecurityPermission(SecurityAction.Demand, ControlThread=true)]
-            public void Interrupt();
 
-            [HostProtection(SecurityAction.LinkDemand, Synchronization=true, ExternalThreading=true)]
-            public bool Join(int millisecondsTimeout);
-            [HostProtection(SecurityAction.LinkDemand, Synchronization=true, ExternalThreading=true)]
-            public bool Join(TimeSpan timeout);
-            [MethodImpl(MethodImplOptions.InternalCall)]
-            public static extern void MemoryBarrier();
-            [SecurityPermission(SecurityAction.Demand, ControlThread=true)]
-            public static void ResetAbort();
-            
-            [HostProtection(SecurityAction.LinkDemand, SharedState=true, ExternalThreading=true)]
-            public static void SetData(LocalDataStoreSlot slot, object data);
-            [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success), HostProtection(SecurityAction.LinkDemand, Synchronization=true, ExternalThreading=true)]
-            public static void SpinWait(int iterations);
 
-            [HostProtection(SecurityAction.LinkDemand, Synchronization=true, SelfAffectingThreading=true)]
-            public bool TrySetApartmentState(ApartmentState state);
+
             [MethodImpl(MethodImplOptions.NoInlining)]
             public static byte VolatileRead(ref byte address);
             [MethodImpl(MethodImplOptions.NoInlining)]
@@ -183,11 +187,7 @@ namespace UnitWrappers.System.Threading
             [MethodImpl(MethodImplOptions.NoInlining), CLSCompliant(false)]
             public static void VolatileWrite(ref UIntPtr address, UIntPtr value);
 
-            // Properties
-            public static IPrincipal CurrentPrincipal { get; [SecurityPermission(SecurityAction.Demand, Flags=SecurityPermissionFlag.ControlPrincipal)] set; }
-            public CultureInfo CurrentUICulture { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading=true)] set; }
-            public ExecutionContext ExecutionContext { [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)] get; }
-            public string Name { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading=true)] set; }
+
         */
     }
 

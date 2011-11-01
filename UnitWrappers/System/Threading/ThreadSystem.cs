@@ -2,6 +2,7 @@ using System;
 #if !PORTABLE
 using System.Runtime.Remoting.Contexts;
 #endif
+using System.Security.Principal;
 using System.Threading;
 
 namespace UnitWrappers.System.Threading
@@ -16,6 +17,13 @@ namespace UnitWrappers.System.Threading
         {
             get { return new ThreadWrap(Thread.CurrentThread); }
         }
+
+        public IPrincipal CurrentPrincipal
+        {
+            get { return Thread.CurrentPrincipal; }
+            set { Thread.CurrentPrincipal = value; }
+        }
+
 #if !PORTABLE
         /// <inheritdoc />
         public void Sleep(int millisecondsTimeout)
@@ -33,6 +41,36 @@ namespace UnitWrappers.System.Threading
         public Context CurrentContext
         {
             get { return Thread.CurrentContext; }
+        }
+
+        public IThread CreateThread(ThreadStart start)
+        {
+            return new ThreadWrap(start);
+        }
+
+        public IThread CreateThread(ParameterizedThreadStart start)
+        {
+            return new ThreadWrap(start);
+        }
+
+        public void MemoryBarrier()
+        {
+            Thread.MemoryBarrier();
+        }
+
+        public void ResetAbort()
+        {
+            Thread.ResetAbort();
+        }
+
+        public void SetData(LocalDataStoreSlot slot, object data)
+        {
+            Thread.SetData(slot,data);
+        }
+
+        public void SpinWait(int iterations)
+        {
+            Thread.SpinWait(iterations);
         }
 #endif
     }

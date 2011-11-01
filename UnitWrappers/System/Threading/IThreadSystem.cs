@@ -1,17 +1,25 @@
 ﻿using System;
 #if !PORTABLE
+using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.Remoting.Contexts;
+using System.Security.Permissions;
+using System.Security.Principal;
+using System.Threading;
+
 #endif
 
 namespace UnitWrappers.System.Threading
 {
     public interface IThreadSystem
-    {  
+    {
         /// <summary>
         /// Gets the currently running thread.
         /// </summary>
         IThread CurrentThread { get; }
-        #if !PORTABLE
+
+        IPrincipal CurrentPrincipal { get; [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.ControlPrincipal)] set; }
+#if !PORTABLE
         /// <summary>
         /// Suspends the current thread for a specified time.
         /// </summary>
@@ -31,6 +39,20 @@ namespace UnitWrappers.System.Threading
         /// A <see cref="Context"/> representing the current thread context
         /// </value>
         Context CurrentContext { get; }
+
+        IThread CreateThread(ThreadStart start);
+
+        IThread CreateThread(ParameterizedThreadStart start);
 #endif
+
+        [MethodImpl(MethodImplOptions.InternalCall)]
+        void MemoryBarrier();
+        [SecurityPermission(SecurityAction.Demand, ControlThread = true)]
+        void ResetAbort();
+
+        [HostProtection(SecurityAction.LinkDemand, SharedState = true, ExternalThreading = true)]
+        void SetData(LocalDataStoreSlot slot, object data);
+        [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success), HostProtection(SecurityAction.LinkDemand, Synchronization = true, ExternalThreading = true)]
+        void SpinWait(int iterations);
     }
 }
