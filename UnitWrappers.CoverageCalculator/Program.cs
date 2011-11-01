@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -15,7 +16,7 @@ namespace UnitWrappers.CoverageCalculator
         {
 
             var staticMembers = "System";// static members and factories
-
+            string factory = "Factory"; // namespace wide factories
             var wrappers = typeof(IDateTimeSystem).Assembly;
             var refrencedAssemblies = wrappers.GetReferencedAssemblies().Select(Assembly.Load);
             var allClasses =
@@ -54,9 +55,15 @@ namespace UnitWrappers.CoverageCalculator
             var counterParts = new Dictionary<Type, Type[]>();
             foreach (var wraps in combinedInterfaces)
             {
-                string frameworkTypeName = wraps.Value[0].Namespace
-                    .Replace("UnitWrappers.", "")
-                    + "." + wraps.Key;
+                string frameworkNameSpace = wraps.Value[0].Namespace.Replace("UnitWrappers.", "");
+                string frameworkTypeName = frameworkNameSpace + "." + wraps.Key;
+
+                // exclude namespace wide factories
+                if (wraps.Key.EndsWith(factory)
+                    && frameworkNameSpace.EndsWith(wraps.Key.Replace(factory, "")))
+                {
+                    continue;
+                }
                 var type = allClasses.Where(x => x.FullName == frameworkTypeName).Single();
                 counterParts.Add(type, wraps.Value);
             }
@@ -88,10 +95,21 @@ namespace UnitWrappers.CoverageCalculator
                                                               return true;
                                                           }).ToArray();
 
+
+            var wrapsIntefaces =
+                (from w in wraps
+                 from i in w.GetInterfaces()
+                 select i).ToArray();
+
+            var wrapsIntefacesMembers =
+                (from wi in wrapsIntefaces
+                 from mi in wi.GetMembers()
+                 select mi).ToArray();
+
             var wrapsMembers =
                 (from w in wraps
                  from m in w.GetMembers()
-                 select m).ToArray();
+                 select m).Concat(wrapsIntefacesMembers).ToArray();
 
             var realCount = realMembers.Length;
             var wrapsCount = wrapsMembers.Length;

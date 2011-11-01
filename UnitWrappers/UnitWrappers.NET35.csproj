@@ -74,6 +74,14 @@
     <Compile Include="System\AppDomainWrap.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IEnvironment.cs" />
+    <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />
+    <Compile Include="System\Net\IWebClient.cs" />
+    <Compile Include="System\Net\WebClientWrap.cs" />
+    <Compile Include="System\Security\Permissions\PermissionsFactory.cs" />
+    <Compile Include="System\Security\Permissions\IFileIOPermission.cs" />
+    <Compile Include="System\Security\Permissions\FileIOPermissionWrap.cs" />
+    <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />
+    <Compile Include="System\Security\Principal\WindowsIdentityWrap.cs" />
     <Compile Include="System\ServiceModel\IInstanceContext.cs" />
     <Compile Include="System\ServiceModel\InstanceContextWrap.cs" />
     <Compile Include="System\ServiceModel\IOperationContextSystem.cs" />
