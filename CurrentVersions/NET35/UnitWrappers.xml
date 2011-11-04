@@ -2455,6 +2455,11 @@
         <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.RecordsAffected">
             <inheritdoc />
         </member>
+        <member name="T:UnitWrappers.System.Security.Permissions.IPermissionsFactory">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle">
             <summary>
             Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
@@ -2830,6 +2835,44 @@
                   is renamed.
             </summary>
         </member>
+        <member name="T:UnitWrappers.System.Security.Permissions.IFileIOPermission">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Union(System.Security.IPermission)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.IsSubsetOf(System.Security.IPermission)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Assert">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Demand">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Deny">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.PermitOnly">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.ToXml">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.FromXml(System.Security.SecurityElement)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Copy">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Intersect(System.Security.IPermission)">
+            <inheritdoc />
+        </member>
+        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.IsUnrestricted">
+            <inheritdoc />
+        </member>
         <member name="T:UnitWrappers.System.Threading.WaitHandleWrap">
             <summary>
             
@@ -3068,6 +3111,11 @@
         <member name="P:UnitWrappers.System.Data.SqlClient.SqlConnectionWrap.Database">
             <summary>
             Gets the name of the current database or the database to be used after a connection is opened.
+            </summary>
+        </member>
+        <member name="T:UnitWrappers.System.Security.Permissions.PermissionsFactory">
+            <summary>
+            
             </summary>
         </member>
         <member name="T:UnitWrappers.System.AppDomainWrap">
@@ -5517,6 +5565,11 @@
         <member name="P:UnitWrappers.System.AppDomainSystem.CurrentDomain">
             <inheritdoc />
         </member>
+        <member name="T:UnitWrappers.System.Security.Principal.WindowsIdentityWrap">
+            <summary>
+            Wraps instance members of <see cref="T:System.Security.Principal.WindowsIdentity"/>
+            </summary>
+        </member>
         <member name="T:UnitWrappers.System.IO.FileStreamWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.FileStream"/> class.
@@ -5759,59 +5812,6 @@
         <member name="T:UnitWrappers.System.IO.PathWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.Path"/> class.
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.Security.Principal.WindowsIdentityWrap">
-            <summary>
-            Wraps instance members of <see cref="T:System.Security.Principal.WindowsIdentity"/>
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.Security.Permissions.IFileIOPermission">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Union(System.Security.IPermission)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.IsSubsetOf(System.Security.IPermission)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Assert">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Demand">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Deny">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.PermitOnly">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.ToXml">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.FromXml(System.Security.SecurityElement)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Copy">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.Intersect(System.Security.IPermission)">
-            <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.Security.Permissions.FileIOPermissionWrap.IsUnrestricted">
-            <inheritdoc />
-        </member>
-        <member name="T:UnitWrappers.System.Security.Permissions.IPermissionsFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.Security.Permissions.PermissionsFactory">
-            <summary>
-            
             </summary>
         </member>
     </members>

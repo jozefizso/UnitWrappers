@@ -1,53 +1,54 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 
 namespace UnitWrappers.System.Net.Sockets
 {
 
-    public interface ISocket:IDisposable
+    public interface ISocket : IDisposable
     {
 
-         int Available { get; }
-         EndPoint LocalEndPoint { get; }
-         EndPoint RemoteEndPoint { get; }
-         IntPtr Handle { get; }
-         bool Blocking { get; set; }
-         bool UseOnlyOverlappedIO { get; set; }
-         bool Connected { get; }
-         AddressFamily AddressFamily { get; }
-         SocketType SocketType { get; }
-         ProtocolType ProtocolType { get; }
-         //bool IsBound { get; }
-         //bool ExclusiveAddressUse { get; set; }
-         //int ReceiveBufferSize { get; set; }
-         //int SendBufferSize { get; set; }
-         //int ReceiveTimeout { get; set; }
-         //int SendTimeout { get; set; }
-         //LingerOption LingerState { get; set; }
-         //bool NoDelay { get; set; }
-         //short Ttl { get; set; }
-         //bool DontFragment { get; set; }
-         //bool MulticastLoopback { get; set; }
-         //bool EnableBroadcast { get; set; }
+        int Available { get; }
+        EndPoint LocalEndPoint { get; }
+        EndPoint RemoteEndPoint { get; }
+        IntPtr Handle { get; }
+        bool Blocking { get; set; }
+        bool UseOnlyOverlappedIO { get; set; }
+        bool Connected { get; }
+        AddressFamily AddressFamily { get; }
+        SocketType SocketType { get; }
+        ProtocolType ProtocolType { get; }
+        bool IsBound { get; }
+        bool ExclusiveAddressUse { get; set; }
+        int ReceiveBufferSize { get; set; }
+        int SendBufferSize { get; set; }
+        int ReceiveTimeout { get; set; }
+        int SendTimeout { get; set; }
+        LingerOption LingerState { get; set; }
+        bool NoDelay { get; set; }
+        short Ttl { get; set; }
+        bool DontFragment { get; set; }
+        bool MulticastLoopback { get; set; }
+        bool EnableBroadcast { get; set; }
 
-        //public void Bind(EndPoint localEP);
-          void Connect(EndPoint remoteEP);
-          void Connect(IPAddress address, int port);
-          void Connect(string host, int port);
-          void Connect(IPAddress[] addresses, int port);
-          void Close();
-          void Close(int timeout);
-          void Listen(int backlog);
-          ISocket Accept();
-        //public int Send(byte[] buffer, int size, SocketFlags socketFlags);
-        //public int Send(byte[] buffer, SocketFlags socketFlags);
-        //public int Send(byte[] buffer);
-        //public int Send(IList<ArraySegment<byte>> buffers);
-        //public int Send(IList<ArraySegment<byte>> buffers, SocketFlags socketFlags);
-        //public int Send(IList<ArraySegment<byte>> buffers, SocketFlags socketFlags, out SocketError errorCode);
-        //public void SendFile(string fileName);
-        //public void SendFile(string fileName, byte[] preBuffer, byte[] postBuffer, TransmitFileOptions flags);
+        void Bind(EndPoint localEP);
+        void Connect(EndPoint remoteEP);
+        void Connect(IPAddress address, int port);
+        void Connect(string host, int port);
+        void Connect(IPAddress[] addresses, int port);
+        void Close();
+        void Close(int timeout);
+        void Listen(int backlog);
+        ISocket Accept();
+        int Send(byte[] buffer, int size, SocketFlags socketFlags);
+        int Send(byte[] buffer, SocketFlags socketFlags);
+        int Send(byte[] buffer);
+        int Send(IList<ArraySegment<byte>> buffers);
+        int Send(IList<ArraySegment<byte>> buffers, SocketFlags socketFlags);
+        int Send(IList<ArraySegment<byte>> buffers, SocketFlags socketFlags, out SocketError errorCode);
+        void SendFile(string fileName);
+        void SendFile(string fileName, byte[] preBuffer, byte[] postBuffer, TransmitFileOptions flags);
         //public int Send(byte[] buffer, int offset, int size, SocketFlags socketFlags);
         //public int Send(byte[] buffer, int offset, int size, SocketFlags socketFlags, out SocketError errorCode);
         //public int SendTo(byte[] buffer, int offset, int size, SocketFlags socketFlags, EndPoint remoteEP);
@@ -56,7 +57,7 @@ namespace UnitWrappers.System.Net.Sockets
         //public int SendTo(byte[] buffer, EndPoint remoteEP);
         //public int Receive(byte[] buffer, int size, SocketFlags socketFlags);
         //public int Receive(byte[] buffer, SocketFlags socketFlags);
-        //public int Receive(byte[] buffer);
+        int Receive(byte[] buffer);
         //public int Receive(byte[] buffer, int offset, int size, SocketFlags socketFlags);
         //public int Receive(byte[] buffer, int offset, int size, SocketFlags socketFlags, out SocketError errorCode);
         //public int Receive(IList<ArraySegment<byte>> buffers);
@@ -163,8 +164,8 @@ namespace UnitWrappers.System.Net.Sockets
         //public Socket EndAccept(out byte[] buffer, out int bytesTransferred, IAsyncResult asyncResult);
         //public void Shutdown(SocketShutdown how);
         //protected virtual void Dispose(bool disposing);
-        //~Socket();
-        //public bool AcceptAsync(SocketAsyncEventArgs e);
+
+        bool AcceptAsync(SocketAsyncEventArgs e);
         //public bool ConnectAsync(SocketAsyncEventArgs e);
         //public bool DisconnectAsync(SocketAsyncEventArgs e);
         //public bool ReceiveAsync(SocketAsyncEventArgs e);
