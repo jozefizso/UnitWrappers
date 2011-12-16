@@ -72,6 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="System\AppDomainWrap.cs" />
+    <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
+    <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IEnvironment.cs" />
     <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />
@@ -203,6 +205,7 @@
       <Link>UnitWrappers.snk</Link>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
