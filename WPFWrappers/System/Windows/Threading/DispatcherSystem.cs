@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows.Threading;
 using UnitWrappers.System.Threading;
 
+
 namespace UnitWrappers.System.Windows.Threading
 {
     public class DispatcherSystem : IDispatcherSystem
@@ -23,9 +24,11 @@ namespace UnitWrappers.System.Windows.Threading
         }
 
         /// <inheritdoc />
-        public IDispatcher FromThread(Thread thread)
+        public IDispatcher FromThread(IThread thread)
         {
-            return new DispatcherWrap(Dispatcher.FromThread(thread));
+            var wrap = (thread as ThreadWrap);
+            if (wrap == null) throw new ArgumentException("Thread should wrap CLR thread","thread");
+            return new DispatcherWrap(Dispatcher.FromThread(wrap.UnderlyingObject));
         }
 
         /// <inheritdoc />

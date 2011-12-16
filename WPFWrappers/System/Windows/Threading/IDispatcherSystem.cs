@@ -4,6 +4,7 @@ using System.Security;
 using System.Security.Permissions;
 using System.Threading;
 using System.Windows.Threading;
+using UnitWrappers.System.Threading;
 
 namespace UnitWrappers.System.Windows.Threading
 {
@@ -27,8 +28,7 @@ namespace UnitWrappers.System.Windows.Threading
         /// </remarks> 
         /// <param name="thread">The thread to obtain the <see cref="DispatcherSystem"/> from.</param>
         /// <value>The dispatcher for thread.</value>
-        //TODO: make UnitWrappers internals visible to and use IThread
-        IDispatcher FromThread(Thread thread);
+        IDispatcher FromThread(IThread thread);
 
         /// <summary> 
         ///    Pushes the main execution frame on the event queue of the The <see cref="IDispatcher"/>. 

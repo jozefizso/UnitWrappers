@@ -7,7 +7,7 @@ using System.Text;
 
 namespace UnitWrappers.System.Net
 {
-    public class WebRequestSystem : IWebRequestSytem
+    public class WebRequestSystem : IWebRequestSystem
     {
         public WebRequest Create(Uri requestUri)
         {

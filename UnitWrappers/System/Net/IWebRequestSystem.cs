@@ -4,7 +4,7 @@ using System.Net.Cache;
 
 namespace UnitWrappers.System.Net
 {
-    public interface IWebRequestSytem
+    public interface IWebRequestSystem
     {
         WebRequest Create(Uri requestUri);
 

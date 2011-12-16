@@ -52,6 +52,10 @@
       <Project>{A00B02B8-6875-45D4-910A-0D7C1F0A2311}</Project>
       <Name>UnitWrappers.NET40</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WPFWrappers\WPFWrappers.NET40.csproj">
+      <Project>{633688C2-496A-4BE8-A4FC-935B5657CD16}</Project>
+      <Name>WPFWrappers.NET40</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

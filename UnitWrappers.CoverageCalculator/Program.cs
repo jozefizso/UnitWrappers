@@ -6,53 +6,81 @@ using System.Linq;
 using System.Reflection;
 using UnitWrappers.System;
 using UnitWrappers.System.IO;
+using UnitWrappers.System.Windows.Threading;
 
 namespace UnitWrappers.CoverageCalculator
 {
 
     class Program
     {
+        //TODO: add extensions methods calculator
         static void Main(string[] args)
         {
+            // stripped out interface version of some framework class with less control above underlying instance
+            // no corresponding direct implementation
+            var serviceMembers = "Service";
 
-            var staticMembers = "System";// static members and factories
-            string factory = "Factory"; // namespace wide factories
-            var wrappers = typeof(IDateTimeSystem).Assembly;
-            var refrencedAssemblies = wrappers.GetReferencedAssemblies().Select(Assembly.Load);
-            var allClasses =
-                from r in refrencedAssemblies
+            // static members and constuctors of class
+            var staticMembers = "System";
+
+            // namespace wide factories
+            string factory = "Factory";
+
+
+            Assembly unitWrappers = typeof(IDateTimeSystem).Assembly;
+            Assembly wpfWrappers = typeof(IDispatcher).Assembly;
+
+            IEnumerable<Assembly> unitRefrencedAssemblies = unitWrappers.GetReferencedAssemblies().Select(Assembly.Load);
+            IEnumerable<Assembly> wpfRefrencedAssemblies = wpfWrappers.GetReferencedAssemblies().Select(Assembly.Load);
+
+            var unitClasses =
+                from r in unitRefrencedAssemblies
                 from t in r.GetExportedTypes()
                 orderby t.FullName
                 select t;
 
-            var interfaces = wrappers.GetExportedTypes().Where(x => x.IsInterface);
-            var strippedNames = interfaces.Select(x => x.Name).Select(x =>
+            var wpfClasses =
+    from r in wpfRefrencedAssemblies
+    from t in r.GetExportedTypes()
+    orderby t.FullName
+    select t;
+
+            var wrapClasses = unitClasses.Union(wpfClasses);
+
+            var unitInterfaces = unitWrappers.GetExportedTypes().Where(x => x.IsInterface);
+            var wpfInterfaces = wpfWrappers.GetExportedTypes().Where(x => x.IsInterface);
+
+            var wrapInterfaces = unitInterfaces.Union(wpfInterfaces);
+
+            var strippedInterfaceNames = wrapInterfaces.Select(x => x.Name).Select(x =>
                                                                           {
                                                                               string name = x.Remove(0, 1); // remove I
-                                                                              int index = name.LastIndexOf(staticMembers);
-                                                                              if (index == name.Length - 6 && index > 0)
-                                                                              {
-                                                                                  name = name.Remove(index, 6);
-                                                                              }
+                                                                              name = cutEnd(name, staticMembers);
+                                                                              name = cutEnd(name, serviceMembers);
                                                                               return name;
                                                                           })
-                                                                             .Distinct().ToArray();
-
+                                                                             .Distinct()
+                                                                           
+                                                                             .ToArray();
+            // next dictionary should be 
+            // framework type short name = collection of correspoding wrap interfaces
             var combinedInterfaces = new Dictionary<string, Type[]>();
-            foreach (var n in strippedNames)
+            foreach (var name in strippedInterfaceNames)
             {
                 var wraps = new List<Type>();
-                foreach (var i in interfaces)
+                foreach (var i in wrapInterfaces)
                 {
-                    if (i.Name.Equals("I" + n) || i.Name.Equals("I" + n + staticMembers))
+                    if (i.Name.Equals("I" + name) || i.Name.Equals("I" + name + staticMembers))
                     {
                         wraps.Add(i);
                     }
                 }
-                combinedInterfaces.Add(n, wraps.ToArray());
+                combinedInterfaces.Add(name, wraps.ToArray());
             }
 
-            var counterParts = new Dictionary<Type, Type[]>();
+            // next dictionary should be 
+            // framework type= collection of correspoding wrap classes
+            var counterParts = new List<FrameworkWrapsMap>();
             foreach (var wraps in combinedInterfaces)
             {
                 string frameworkNameSpace = wraps.Value[0].Namespace.Replace("UnitWrappers.", "");
@@ -64,10 +92,13 @@ namespace UnitWrappers.CoverageCalculator
                 {
                     continue;
                 }
-                var type = allClasses.Where(x => x.FullName == frameworkTypeName).Single();
-                counterParts.Add(type, wraps.Value);
+                var type = wrapClasses.Where(x => x.FullName == frameworkTypeName).Single();
+                counterParts.Add(new FrameworkWrapsMap(type, wraps.Value));
             }
 
+            counterParts = counterParts.OrderBy(x => x.Wrapped.FullName).ToList();
+            
+            
             using (var fileStream = new FileStreamWrap("Coverage.txt", FileMode.Create))
             {
                 using (var streamWriter = new StreamWriterWrap(fileStream.FileStreamInstance))
@@ -75,7 +106,7 @@ namespace UnitWrappers.CoverageCalculator
                     streamWriter.WriteLine("Total number of wraps: " + counterParts.Count);
                     foreach (var counterPart in counterParts)
                     {
-                        string entry = CalculateEntry(counterPart.Key, counterPart.Value);
+                        string entry = CalculateEntry(counterPart.Wrapped, counterPart.Wraps);
                         streamWriter.WriteLine(entry);
                         streamWriter.Flush();
                     }
@@ -84,11 +115,28 @@ namespace UnitWrappers.CoverageCalculator
             }
         }
 
+        private static string cutEnd(string value, string pattern)
+        {
+            int index = value.LastIndexOf(pattern);
+            int lenght = pattern.Length;
+            if (index == value.Length - lenght && index > 0)
+            {
+                value = value.Remove(index, lenght);
+            }
+            return value;
+        }
+
         private static string CalculateEntry(Type real, Type[] wraps)
         {
             var realMembers = real.GetMembers().Where(x =>
                                                           {
+                                                              // do not count object's not overriden members
                                                               if (x.DeclaringType == typeof(object))
+                                                              {
+                                                                  return false;
+                                                              }
+                                                              // do not count obsolete members
+                                                              if (x.GetCustomAttributes(typeof(ObsoleteAttribute), false).Count() != 0)
                                                               {
                                                                   return false;
                                                               }
@@ -118,6 +166,18 @@ namespace UnitWrappers.CoverageCalculator
             var wrapsFullName = wraps.Aggregate("", (x, y) => x + " " + y);
             var entry = real.FullName + "->" + wrapsFullName + " : " + coverage + "%";
             return entry;
+        }
+    }
+
+    internal class FrameworkWrapsMap
+    {
+        public Type Wrapped { get; set; }
+        public Type[] Wraps { get; set; }
+
+        public FrameworkWrapsMap(Type wrapped, Type[] wraps)
+        {
+            Wrapped = wrapped;
+            Wraps = wraps;
         }
     }
 }

@@ -14,46 +14,47 @@ namespace UnitWrappers.System.Threading
     /// </summary>
     public class ThreadWrap : IThread
     {
-        private readonly global::System.Threading.Thread _thread;
+        public Thread UnderlyingObject { get; private set; }
 
         public ThreadWrap(Thread thread)
         {
-            _thread = thread;
+            UnderlyingObject = thread;
         }
+
         public ExecutionContext ExecutionContext
         {
             get
             {
-                return _thread.ExecutionContext;
+                return UnderlyingObject.ExecutionContext;
             }
         }
 
         public string Name
         {
-            get { return _thread.Name; }
-            set { _thread.Name = Name; }
+            get { return UnderlyingObject.Name; }
+            set { UnderlyingObject.Name = Name; }
         }
 
 #if !PORTABLE
         public ThreadWrap(ThreadStart start)
         {
-            _thread = new global::System.Threading.Thread(start);
+            UnderlyingObject = new global::System.Threading.Thread(start);
         }
 
         public ThreadWrap(ParameterizedThreadStart start)
         {
-            _thread = new global::System.Threading.Thread(start);
+            UnderlyingObject = new global::System.Threading.Thread(start);
         }
 
 
         public ThreadWrap(ParameterizedThreadStart start, int maxStackSize)
         {
-            _thread = new global::System.Threading.Thread(start, maxStackSize);
+            UnderlyingObject = new global::System.Threading.Thread(start, maxStackSize);
         }
 
         public ThreadWrap(ThreadStart start, int maxStackSize)
         {
-            _thread = new global::System.Threading.Thread(start, maxStackSize);
+            UnderlyingObject = new global::System.Threading.Thread(start, maxStackSize);
         }
 #endif
         /// <inheritdoc />
@@ -61,11 +62,11 @@ namespace UnitWrappers.System.Threading
         {
             get
             {
-                return _thread.CurrentCulture;
+                return UnderlyingObject.CurrentCulture;
             }
             set
             {
-                _thread.CurrentCulture = value;
+                UnderlyingObject.CurrentCulture = value;
             }
         }
 
@@ -74,11 +75,11 @@ namespace UnitWrappers.System.Threading
         {
             get
             {
-                return _thread.CurrentUICulture;
+                return UnderlyingObject.CurrentUICulture;
             }
             set
             {
-                _thread.CurrentUICulture = value;
+                UnderlyingObject.CurrentUICulture = value;
             }
         }
 
@@ -89,101 +90,101 @@ namespace UnitWrappers.System.Threading
         /// <inheritdoc />
         public bool IsAlive
         {
-            get { return _thread.IsAlive; }
+            get { return UnderlyingObject.IsAlive; }
         }
 
         /// <inheritdoc />
         public bool IsThreadPoolThread
         {
-            get { return _thread.IsThreadPoolThread; }
+            get { return UnderlyingObject.IsThreadPoolThread; }
         }
 
         /// <inheritdoc />
         public ThreadState ThreadState
         {
-            get { return _thread.ThreadState; }
+            get { return UnderlyingObject.ThreadState; }
         }
 
         /// <inheritdoc />
         public bool IsBackground
         {
-            get { return _thread.IsBackground; }
-            set { _thread.IsBackground = value; }
+            get { return UnderlyingObject.IsBackground; }
+            set { UnderlyingObject.IsBackground = value; }
         }
         /// <inheritdoc />
         public ThreadPriority Priority
         {
-            get { return _thread.Priority; }
-            set { _thread.Priority = value; }
+            get { return UnderlyingObject.Priority; }
+            set { UnderlyingObject.Priority = value; }
         }
 
         /// <inheritdoc />
         public void Abort()
         {
-            _thread.Abort();
+            UnderlyingObject.Abort();
         }
 
         public void Abort(object stateInfo)
         {
-           _thread.Abort(stateInfo);
+           UnderlyingObject.Abort(stateInfo);
         }
 
         public ApartmentState GetApartmentState()
         {
-            return _thread.GetApartmentState();
+            return UnderlyingObject.GetApartmentState();
         }
 
         /// <inheritdoc />
         public void SetApartmentState(ApartmentState state)
         {
-            _thread.SetApartmentState(state);
+            UnderlyingObject.SetApartmentState(state);
         }
         /// <inheritdoc />
         public void Start()
         {
-            _thread.Start();
+            UnderlyingObject.Start();
         }
         /// <inheritdoc />
         public void Start(object parameter)
         {
-            _thread.Start(parameter);
+            UnderlyingObject.Start(parameter);
         }
         /// <inheritdoc />
         public void Join()
         {
-            _thread.Join();
+            UnderlyingObject.Join();
         }
 
         public bool Join(int millisecondsTimeout)
         {
-          return  _thread.Join(millisecondsTimeout);
+          return  UnderlyingObject.Join(millisecondsTimeout);
         }
 
         public bool Join(TimeSpan timeout)
         {
-            return _thread.Join(timeout);
+            return UnderlyingObject.Join(timeout);
         }
 
         public void Interrupt()
         {
-            _thread.Interrupt();
+            UnderlyingObject.Interrupt();
         }
 
         public bool TrySetApartmentState(ApartmentState state)
         {
-            return _thread.TrySetApartmentState(state);
+            return UnderlyingObject.TrySetApartmentState(state);
         }
 
 #endif
         /// <inheritdoc />
         public int ManagedThreadId
         {
-            get { return _thread.ManagedThreadId; }
+            get { return UnderlyingObject.ManagedThreadId; }
         }
 
         public override  int GetHashCode()
         {
-            return _thread.GetHashCode();
+            return UnderlyingObject.GetHashCode();
         }
     }
 }

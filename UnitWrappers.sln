@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Converter", "U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET35", "WPFWrappers\WPFWrappers.NET35.csproj", "{1C5FB667-50DF-49AF-8314-25F418E45448}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET40", "WPFWrappers\WPFWrappers.NET40.csproj", "{633688C2-496A-4BE8-A4FC-935B5657CD16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,16 @@ Global
 		{1C5FB667-50DF-49AF-8314-25F418E45448}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{1C5FB667-50DF-49AF-8314-25F418E45448}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{1C5FB667-50DF-49AF-8314-25F418E45448}.Release|x86.ActiveCfg = Release|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{633688C2-496A-4BE8-A4FC-935B5657CD16}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
