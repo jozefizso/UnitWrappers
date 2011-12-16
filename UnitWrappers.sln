@@ -18,7 +18,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40", "UnitW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Converter", "UnitWrappers.Converter\UnitWrappers.Converter.csproj", "{D482FFEF-D41B-4366-933D-69C18C45DC75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET35", "WPFWrappers.NET35\WPFWrappers.NET35.csproj", "{1C5FB667-50DF-49AF-8314-25F418E45448}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET35", "WPFWrappers\WPFWrappers.NET35.csproj", "{1C5FB667-50DF-49AF-8314-25F418E45448}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

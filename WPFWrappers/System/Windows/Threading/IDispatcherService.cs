@@ -5,7 +5,7 @@ using System.Windows.Threading;
 namespace UnitWrappers.System.Windows.Threading
 {
     /// <summary> 
-    ///     Provides UI services for a thread. 
+    ///  Provides services to queue items for a thread. 
     /// </summary>
     public interface IDispatcherService
     {
@@ -55,6 +55,27 @@ namespace UnitWrappers.System.Windows.Threading
         ///     Raised when the dispatcher is shut down.
         /// </summary> 
         event EventHandler ShutdownFinished;
+
+        /// <summary> 
+        ///     Occurs when an untrapped thread exception is thrown.
+        /// </summary> 
+        /// <remarks> 
+        ///     Raised during the filter stage for an exception raised during
+        ///     execution of a delegate via Invoke or BeginInvoke. 
+        ///     <P/>
+        ///     The callstack is not unwound at this time (first-chance exception).
+        ///     <P/>
+        ///     Listeners to this event must be written with care to avoid 
+        ///     creating secondary exceptions and to catch any that occur.
+        ///     It is recommended to avoid allocating memory or doing any 
+        ///     heavylifting if possible. 
+        ///     Callers must have UIPermission(PermissionState.Unrestricted) to call this API.
+        /// </remarks> 
+        /// <SecurityNote>
+        ///     Critical: partially-trusted code is not allowed to access our exception filter.
+        ///     TreatAsSafe: link-demands
+        /// </SecurityNote> 
+        event DispatcherUnhandledExceptionFilterEventHandler UnhandledExceptionFilter;
 
         /// <summary>
         ///     Executes the specified delegate asynchronously on the thread that 

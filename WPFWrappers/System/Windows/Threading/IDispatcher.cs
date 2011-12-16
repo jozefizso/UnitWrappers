@@ -9,8 +9,10 @@ using UnitWrappers.System.Threading;
 
 namespace UnitWrappers.System.Windows.Threading
 {
-
-    public interface IDispatcherManager
+    /// <summary>
+    /// Provides services for managing the queue of work items for a thread.
+    /// </summary>
+    public interface IDispatcher:IDispatcherService
     {
         /// <summary> 
         /// Gets the thread this <see cref="IDispatcher"/> is associated with.
@@ -45,27 +47,6 @@ namespace UnitWrappers.System.Windows.Threading
 
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         DispatcherHooks Hooks { get; }
-
-        /// <summary> 
-        ///     Occurs when an untrapped thread exception is thrown.
-        /// </summary> 
-        /// <remarks> 
-        ///     Raised during the filter stage for an exception raised during
-        ///     execution of a delegate via Invoke or BeginInvoke. 
-        ///     <P/>
-        ///     The callstack is not unwound at this time (first-chance exception).
-        ///     <P/>
-        ///     Listeners to this event must be written with care to avoid 
-        ///     creating secondary exceptions and to catch any that occur.
-        ///     It is recommended to avoid allocating memory or doing any 
-        ///     heavylifting if possible. 
-        ///     Callers must have UIPermission(PermissionState.Unrestricted) to call this API.
-        /// </remarks> 
-        /// <SecurityNote>
-        ///     Critical: partially-trusted code is not allowed to access our exception filter.
-        ///     TreatAsSafe: link-demands
-        /// </SecurityNote> 
-        event DispatcherUnhandledExceptionFilterEventHandler UnhandledExceptionFilter;
 
         /// <summary>
         ///     Occurs when an untrapped thread exception is thrown. 
