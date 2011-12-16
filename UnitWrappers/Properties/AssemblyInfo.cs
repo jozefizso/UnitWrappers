@@ -7,13 +7,15 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("UnitWrappers")]
-[assembly: AssemblyDescription("Wraps .NET system resources.")]
+[assembly: AssemblyDescription("Wraps .NET classes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct(".NET UnitWrappers")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
+[assembly: AssemblyProduct("UnitWrappers")]
+[assembly: AssemblyCopyright("Copyright © Codeplex 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+
+//TODO: make it compilation symbol dependant
 [assembly: CLSCompliant(true)]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -34,5 +36,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.5.*")]
-[assembly: AssemblyFileVersion("0.5.0.0")]
+[assembly: AssemblyVersion("0.5.1.0")]
+[assembly: AssemblyFileVersion("0.5.1.0")]
