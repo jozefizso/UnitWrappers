@@ -71,6 +71,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="System\AppDomainWrap.cs" />
     <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
     <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />

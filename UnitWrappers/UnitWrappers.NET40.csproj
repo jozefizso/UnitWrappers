@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Microsoft\Win32\IRegistry.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
+    <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
     <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
