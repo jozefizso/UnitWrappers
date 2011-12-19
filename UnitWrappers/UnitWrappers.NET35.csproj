@@ -71,6 +71,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="System\AppDomainWrap.cs" />
     <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="System\Net\IWebRequestSystem.cs" />
     <Compile Include="System\Net\WebClientWrap.cs" />
     <Compile Include="System\Net\WebRequestSystem.cs" />
+    <Compile Include="System\Runtime\InteropServices\ISafeHandle.cs" />
     <Compile Include="System\Security\Permissions\PermissionsFactory.cs" />
     <Compile Include="System\Security\Permissions\IFileIOPermission.cs" />
     <Compile Include="System\Security\Permissions\FileIOPermissionWrap.cs" />

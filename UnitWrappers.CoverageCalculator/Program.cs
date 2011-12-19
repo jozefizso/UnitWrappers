@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using UnitWrappers.Microsoft.Win32;
 using UnitWrappers.System;
 using UnitWrappers.System.IO;
 using UnitWrappers.System.Windows.Threading;
@@ -26,7 +27,6 @@ namespace UnitWrappers.CoverageCalculator
             // namespace wide factories
             string factory = "Factory";
 
-
             Assembly unitWrappers = typeof(IDateTimeSystem).Assembly;
             Assembly wpfWrappers = typeof(IDispatcher).Assembly;
 
@@ -45,7 +45,7 @@ namespace UnitWrappers.CoverageCalculator
     orderby t.FullName
     select t;
 
-            var wrapClasses = unitClasses.Union(wpfClasses);
+            var frameworkClasses = unitClasses.Union(wpfClasses).ToArray();
 
             var unitInterfaces = unitWrappers.GetExportedTypes().Where(x => x.IsInterface);
             var wpfInterfaces = wpfWrappers.GetExportedTypes().Where(x => x.IsInterface);
@@ -92,7 +92,7 @@ namespace UnitWrappers.CoverageCalculator
                 {
                     continue;
                 }
-                var type = wrapClasses.Where(x => x.FullName == frameworkTypeName).Single();
+                var type = frameworkClasses.Where(x => x.FullName == frameworkTypeName).Single();
                 counterParts.Add(new FrameworkWrapsMap(type, wraps.Value));
             }
 
@@ -163,6 +163,10 @@ namespace UnitWrappers.CoverageCalculator
             var wrapsCount = wrapsMembers.Length;
             var coverage = 100 * wrapsCount / realCount;
 
+            if (coverage>100)
+            {
+                Debugger.Break();
+            }
             var wrapsFullName = wraps.Aggregate("", (x, y) => x + " " + y);
             var entry = real.FullName + "->" + wrapsFullName + " : " + coverage + "%";
             return entry;

@@ -16,7 +16,7 @@ namespace UnitWrappers.Microsoft.Win32.SafeHandles
 		/// <param name="safeFileHandle">A <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.</param>
 		public SafeFileHandleWrap(SafeFileHandle safeFileHandle)
 		{
-            SafeFileHandleInstance = safeFileHandle;
+            UnderlyingObject = safeFileHandle;
 		}
 
 		/// <summary>
@@ -26,46 +26,46 @@ namespace UnitWrappers.Microsoft.Win32.SafeHandles
 		/// <param name="ownsHandle"> true to reliably release the handle during the finalization phase; false to prevent reliable release (not recommended).</param>
 		public SafeFileHandleWrap(IntPtr preexistingHandle, bool ownsHandle)
 		{
-			SafeFileHandleInstance = new SafeFileHandle(preexistingHandle, ownsHandle);
+			UnderlyingObject = new SafeFileHandle(preexistingHandle, ownsHandle);
 		}
 
 
 
 		public bool IsClosed
         {
-            get { return SafeFileHandleInstance.IsClosed; }
+            get { return UnderlyingObject.IsClosed; }
         }
 
         public bool IsInvalid
         {
-            get { return SafeFileHandleInstance.IsInvalid; }
+            get { return UnderlyingObject.IsInvalid; }
         }
 
-        public SafeFileHandle SafeFileHandleInstance { get; private set; }
+        public SafeFileHandle UnderlyingObject { get; private set; }
 
         public void Close()
         {
-            SafeFileHandleInstance.Close();
+            UnderlyingObject.Close();
         }
 
         public void DangerousAddRef(ref bool success)
         {
-            SafeFileHandleInstance.DangerousAddRef(ref success);
+            UnderlyingObject.DangerousAddRef(ref success);
         }
 
         public IntPtr DangerousGetHandle()
         {
-            return SafeFileHandleInstance.DangerousGetHandle();
+            return UnderlyingObject.DangerousGetHandle();
         }
 
         public void DangerousRelease()
         {
-            SafeFileHandleInstance.DangerousRelease();
+            UnderlyingObject.DangerousRelease();
         }
 
         public void SetHandleAsInvalid()
         {
-            SafeFileHandleInstance.SetHandleAsInvalid();
+            UnderlyingObject.SetHandleAsInvalid();
         }
     }
 }

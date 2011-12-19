@@ -5,7 +5,12 @@ namespace UnitWrappers.Microsoft.Win32
 {
     public interface IRegistryKey
     {
+        RegistryKey UnderlyingObject { get; }
 
+        string Name { get; }
+
+        int SubKeyCount { get; }
+        int ValueCount { get; }
 
         /// <summary>
         /// Closes the key and flushes it to disk if its contents have been modified.
@@ -39,15 +44,12 @@ namespace UnitWrappers.Microsoft.Win32
         IRegistryKey OpenSubKey(string name, bool writable);
         // [ComVisible(false)]
         //RegistryKey OpenSubKey(string name, RegistryKeyPermissionCheck permissionCheck, RegistryRights rights);
-        //        void SetAccessControl(RegistrySecurity registrySecurity);
+        // void SetAccessControl(RegistrySecurity registrySecurity);
         void SetValue(string name, object value);
         [ComVisible(false)]
         void SetValue(string name, object value, RegistryValueKind valueKind);
 
 
-        string Name { get; }
-        RegistryKey UnderlyingObject { get; }
-        int SubKeyCount { get; }
-        int ValueCount { get; }
+
     }
 }

@@ -2,6 +2,9 @@ using Microsoft.Win32;
 
 namespace UnitWrappers.Microsoft.Win32
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface IRegistry
     {
 

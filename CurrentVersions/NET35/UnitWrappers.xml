@@ -1418,6 +1418,11 @@
             
             </summary>
         </member>
+        <member name="T:UnitWrappers.Microsoft.Win32.IRegistry">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:UnitWrappers.System.IO.IStream">
             <summary>
             Description of IStream.
@@ -3055,44 +3060,49 @@
             Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
             </summary>
         </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.Close">
+        <member name="T:UnitWrappers.System.Runtime.InteropServices.ISafeHandle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.Close">
             <summary>
             Marks the handle for releasing and freeing resources.
             </summary>
         </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousAddRef(System.Boolean@)">
+        <member name="M:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.DangerousAddRef(System.Boolean@)">
             <summary>
             Manually increments the reference counter on SafeHandle instances.
             </summary>
             <param name="success">true if the reference counter was successfully incremented; otherwise, false.</param>
         </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousGetHandle">
+        <member name="M:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.DangerousGetHandle">
             <summary>
             Returns the value of the handle field. 
             </summary>
             <returns></returns>
         </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.DangerousRelease">
+        <member name="M:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.DangerousRelease">
             <summary>
             Manually decrements the reference counter on a SafeHandle instance.
             </summary>
         </member>
-        <member name="M:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.SetHandleAsInvalid">
+        <member name="M:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.SetHandleAsInvalid">
             <summary>
             Marks a handle as no longer used.
             </summary>
         </member>
-        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.IsClosed">
+        <member name="P:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.IsClosed">
             <summary>
             Gets a value indicating whether the handle is closed.
             </summary>
         </member>
-        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.IsInvalid">
+        <member name="P:UnitWrappers.System.Runtime.InteropServices.ISafeHandle.IsInvalid">
             <summary>
             Gets a value that indicates whether the handle is invalid.
             </summary>
         </member>
-        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.SafeFileHandleInstance">
+        <member name="P:UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle.UnderlyingObject">
             <summary>
             Gets <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.
             </summary>
@@ -4165,6 +4175,11 @@
             </summary>
             <param name="stream">The supplied stream.</param>
             <param name="encoding">The character encoding.</param>
+        </member>
+        <member name="T:UnitWrappers.Microsoft.Win32.RegistryKeySystem">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:UnitWrappers.System.IO.StreamReaderWrap">
             <summary>
