@@ -2,7 +2,6 @@ using System;
 using System.ComponentModel;
 using System.Security;
 using System.Security.Permissions;
-using System.Threading;
 using System.Windows.Threading;
 using UnitWrappers.System.Threading;
 

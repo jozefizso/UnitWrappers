@@ -48,6 +48,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="System\Windows\ClipboardWrap.cs" />
+    <Compile Include="System\Windows\IClipboard.cs" />
     <Compile Include="System\Windows\IMessageBox.cs" />
     <Compile Include="System\Windows\MessageBoxWrap.cs" />
     <Compile Include="System\Windows\Threading\DispatcherSystem.cs" />

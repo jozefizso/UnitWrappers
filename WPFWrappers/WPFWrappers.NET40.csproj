@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Windows\ClipboardWrap.cs" />
+    <Compile Include="System\Windows\IClipboard.cs" />
     <Compile Include="System\Windows\IMessageBox.cs" />
     <Compile Include="System\Windows\Threading\DispatcherServiceExtensions.cs" />
     <Compile Include="System\Windows\Threading\DispatcherSystem.cs" />

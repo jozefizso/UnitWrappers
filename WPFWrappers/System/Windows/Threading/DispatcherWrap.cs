@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Security;
-using System.Security.Permissions;
-using System.Threading;
 using System.Windows.Threading;
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using UnitWrappers.System.Threading;
 
 namespace UnitWrappers.System.Windows.Threading
