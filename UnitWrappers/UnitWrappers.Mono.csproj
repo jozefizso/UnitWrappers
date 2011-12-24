@@ -5,16 +5,18 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A13D8E38-A343-4445-828E-E59FF9473097}</ProjectGuid>
+    <ProjectGuid>{F4634152-9E51-47A8-B1A1-AAF34F551633}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>UnitWrappers.Mono</RootNamespace>
-    <AssemblyName>UnitWrappers.Mono</AssemblyName>
+    <RootNamespace>UnitWrappers.Mono.sln</RootNamespace>
+    <AssemblyName>UnitWrappers.Mono.sln</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
     <OutputPath>..\CurrentVersions\Mono</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG, MONO</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -26,6 +28,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <DefineConstants>MONO</DefineConstants>
   </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="System\IConsole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="System\Reflection\IAssembly.cs" />
+    <None Include="System\Reflection\IAssemblyName.cs" />
+    <None Include="System\Reflection\IAssemblySystem.cs" />
+    <None Include="System\IAppDomain.cs" />
+  </ItemGroup>
 </Project>
