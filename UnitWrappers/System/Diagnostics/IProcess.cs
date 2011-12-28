@@ -7,7 +7,7 @@ namespace UnitWrappers.System.Diagnostics
     /// <summary>
     /// Description of IProcess
     /// </summary>
-    public interface IProcess
+    public interface IProcess : IComponent
     {
 
         // Properties
@@ -60,119 +60,109 @@ namespace UnitWrappers.System.Diagnostics
         [MonitoringDescription("ProcessMainWindowHandle"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         IntPtr MainWindowHandle { get; }
 
-        /*
-            // Events
-            [Browsable(true), MonitoringDescription("ProcessAssociated")]
-            public event DataReceivedEventHandler ErrorDataReceived;
-            [Category("Behavior"), MonitoringDescription("ProcessExited")]
-            public event EventHandler Exited;
-            [Browsable(true), MonitoringDescription("ProcessAssociated")]
-            public event DataReceivedEventHandler OutputDataReceived;
 
-            // Methods
-            public ProcessInstance();
-            [ComVisible(false)]
-            public void BeginErrorReadLine();
-            [ComVisible(false)]
-            public void BeginOutputReadLine();
-            [ComVisible(false)]
-            public void CancelErrorRead();
-            [ComVisible(false)]
-            public void CancelOutputRead();
-    
-            protected override void Dispose(bool disposing);
-            public static void EnterDebugMode();
-            public static ProcessInstance GetCurrentProcess();
-            public static ProcessInstance GetProcessById(int processId);
-            public static ProcessInstance GetProcessById(int processId, string machineName);
-            public static ProcessInstance[] GetProcesses();
-            public static ProcessInstance[] GetProcesses(string machineName);
-            public static ProcessInstance[] GetProcessesByName(string processName);
-            public static ProcessInstance[] GetProcessesByName(string processName, string machineName);
-            public static void LeaveDebugMode();
-            protected void OnExited();
-            public void Refresh();
+        [Browsable(true), MonitoringDescription("ProcessAssociated")]
+        event DataReceivedEventHandler ErrorDataReceived;
+        [Category("Behavior"), MonitoringDescription("ProcessExited")]
+        event EventHandler Exited;
+        [Browsable(true), MonitoringDescription("ProcessAssociated")]
+        event DataReceivedEventHandler OutputDataReceived;
 
-            public override string ToString();
-            public bool WaitForInputIdle(int milliseconds);
+        //// Methods
+        //public ProcessInstance();
+        //[ComVisible(false)]
+        //public void BeginErrorReadLine();
+        //[ComVisible(false)]
+        //public void BeginOutputReadLine();
+        //[ComVisible(false)]
+        //public void CancelErrorRead();
+        //[ComVisible(false)]
+        //public void CancelOutputRead();
 
-            // Properties
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessBasePriority")]
-            public int BasePriority { get; }
-            [MonitoringDescription("ProcessEnableRaisingEvents"), Browsable(false), DefaultValue(false)]
-            public bool EnableRaisingEvents { get; set; }
-            [MonitoringDescription("ProcessExitTime"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public DateTime ExitTime { get; }
-            [MonitoringDescription("ProcessHandle"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public IntPtr Handle { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessHandleCount")]
-            public int HandleCount { get; }
-            [Browsable(false), MonitoringDescription("ProcessTerminated"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public bool HasExited { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessId")]
-            public int Id { get; }
-            [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMachineName")]
-            public string MachineName { get; }
-            [MonitoringDescription("ProcessMainModule"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public ProcessModule MainModule { get; }
+ 
 
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMainWindowTitle")]
-            public string MainWindowTitle { get; }
-            [MonitoringDescription("ProcessMaxWorkingSet"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public IntPtr MaxWorkingSet { get; set; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMinWorkingSet")]
-            public IntPtr MinWorkingSet { get; set; }
-            [Browsable(false), MonitoringDescription("ProcessModules"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public ProcessModuleCollection Modules { get; }
-            [ComVisible(false), MonitoringDescription("ProcessNonpagedSystemMemorySize"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public long NonpagedSystemMemorySize64 { get; }
-            [ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPagedMemorySize")]
-            public long PagedMemorySize64 { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPagedSystemMemorySize"), ComVisible(false)]
-            public long PagedSystemMemorySize64 { get; }
-            [MonitoringDescription("ProcessPeakPagedMemorySize"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), ComVisible(false)]
-            public long PeakPagedMemorySize64 { get; }
-            [ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPeakVirtualMemorySize")]
-            public long PeakVirtualMemorySize64 { get; }
-            [ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPeakWorkingSet")]
-            public long PeakWorkingSet64 { get; }
-            [MonitoringDescription("ProcessPriorityBoostEnabled"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public bool PriorityBoostEnabled { get; set; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPriorityClass")]
-            public ProcessPriorityClass PriorityClass { get; set; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPrivilegedProcessorTime")]
-            public TimeSpan PrivilegedProcessorTime { get; }
-            [MonitoringDescription("ProcessProcessName"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public string ProcessName { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessProcessorAffinity")]
-            public IntPtr ProcessorAffinity { get; set; }
-            [MonitoringDescription("ProcessResponding"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public bool Responding { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessSessionId")]
-            public int SessionId { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessStandardError"), Browsable(false)]
-            public StreamReader StandardError { get; }
-            [MonitoringDescription("ProcessStandardInput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
-            public StreamWriter StandardInput { get; }
-            [MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
-            public StreamReader StandardOutput { get; }
-            [MonitoringDescription("ProcessStartTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public DateTime StartTime { get; }
-            [MonitoringDescription("ProcessSynchronizingObject"), Browsable(false), DefaultValue((string) null)]
-            public ISynchronizeInvoke SynchronizingObject { get; set; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false), MonitoringDescription("ProcessThreads")]
-            public ProcessThreadCollection Threads { get; }
-            [MonitoringDescription("ProcessTotalProcessorTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public TimeSpan TotalProcessorTime { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessUserProcessorTime")]
-            public TimeSpan UserProcessorTime { get; }
-            [MonitoringDescription("ProcessVirtualMemorySize"), ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-            public long VirtualMemorySize64 { get; }
-            [Obsolete("This property has been deprecated.  Please use System.Diagnostics.ProcessInstance.WorkingSet64 instead.  http://go.microsoft.com/fwlink/?linkid=14202"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessWorkingSet")]
-            public int WorkingSet { get; }
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), ComVisible(false), MonitoringDescription("ProcessWorkingSet")]
-            public long WorkingSet64 { get; }
-        */
+
+        void Refresh();
+
+        //public bool WaitForInputIdle(int milliseconds);
+
+        //// Properties
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessBasePriority")]
+        //public int BasePriority { get; }
+        [MonitoringDescription("ProcessEnableRaisingEvents"), Browsable(false), DefaultValue(false)]
+        bool EnableRaisingEvents { get; set; }
+        [MonitoringDescription("ProcessExitTime"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        DateTime ExitTime { get; }
+        [MonitoringDescription("ProcessHandle"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        IntPtr Handle { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessHandleCount")]
+        int HandleCount { get; }
+        [Browsable(false), MonitoringDescription("ProcessTerminated"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        bool HasExited { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessId")]
+        int Id { get; }
+        [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMachineName")]
+        string MachineName { get; }
+        [MonitoringDescription("ProcessMainModule"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        ProcessModule MainModule { get; }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMainWindowTitle")]
+        string MainWindowTitle { get; }
+        //[MonitoringDescription("ProcessMaxWorkingSet"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public IntPtr MaxWorkingSet { get; set; }
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMinWorkingSet")]
+        //public IntPtr MinWorkingSet { get; set; }
+        //[Browsable(false), MonitoringDescription("ProcessModules"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public ProcessModuleCollection Modules { get; }
+        //[ComVisible(false), MonitoringDescription("ProcessNonpagedSystemMemorySize"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public long NonpagedSystemMemorySize64 { get; }
+        //[ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPagedMemorySize")]
+        //public long PagedMemorySize64 { get; }
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPagedSystemMemorySize"), ComVisible(false)]
+        //public long PagedSystemMemorySize64 { get; }
+        //[MonitoringDescription("ProcessPeakPagedMemorySize"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), ComVisible(false)]
+        //public long PeakPagedMemorySize64 { get; }
+        //[ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPeakVirtualMemorySize")]
+        //public long PeakVirtualMemorySize64 { get; }
+        //[ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPeakWorkingSet")]
+        //public long PeakWorkingSet64 { get; }
+        //[MonitoringDescription("ProcessPriorityBoostEnabled"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public bool PriorityBoostEnabled { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPriorityClass")]
+        ProcessPriorityClass PriorityClass { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessPrivilegedProcessorTime")]
+        TimeSpan PrivilegedProcessorTime { get; }
+        [MonitoringDescription("ProcessProcessName"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        string ProcessName { get; }
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessProcessorAffinity")]
+        //public IntPtr ProcessorAffinity { get; set; }
+        //[MonitoringDescription("ProcessResponding"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public bool Responding { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessSessionId")]
+        int SessionId { get; }
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessStandardError"), Browsable(false)]
+        //public StreamReader StandardError { get; }
+        //[MonitoringDescription("ProcessStandardInput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
+        //public StreamWriter StandardInput { get; }
+        //[MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
+        //public StreamReader StandardOutput { get; }
+        [MonitoringDescription("ProcessStartTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        DateTime StartTime { get; }
+        [MonitoringDescription("ProcessSynchronizingObject"), Browsable(false), DefaultValue((string)null)]
+        ISynchronizeInvoke SynchronizingObject { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false), MonitoringDescription("ProcessThreads")]
+        ProcessThreadCollection Threads { get; }
+        [MonitoringDescription("ProcessTotalProcessorTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        TimeSpan TotalProcessorTime { get; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessUserProcessorTime")]
+        TimeSpan UserProcessorTime { get; }
+        //[MonitoringDescription("ProcessVirtualMemorySize"), ComVisible(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        //public long VirtualMemorySize64 { get; }
+        //[Obsolete("This property has been deprecated.  Please use System.Diagnostics.ProcessInstance.WorkingSet64 instead.  http://go.microsoft.com/fwlink/?linkid=14202"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessWorkingSet")]
+        //public int WorkingSet { get; }
+        //[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), ComVisible(false), MonitoringDescription("ProcessWorkingSet")]
+        //public long WorkingSet64 { get; }
+
 
     }
 }

@@ -53,12 +53,14 @@
     <Compile Include="System\Windows\IMessageBox.cs" />
     <Compile Include="System\Windows\MessageBoxWrap.cs" />
     <Compile Include="System\Windows\Threading\DispatcherSystem.cs" />
+    <Compile Include="System\Windows\Threading\DispatcherTimerWrap.cs" />
     <Compile Include="System\Windows\Threading\DispatcherWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Windows\Threading\IDispatcher.cs" />
     <Compile Include="System\Windows\Threading\DispatcherServiceExtensions.cs" />
     <Compile Include="System\Windows\Threading\IDispatcherService.cs" />
     <Compile Include="System\Windows\Threading\IDispatcherSystem.cs" />
+    <Compile Include="System\Windows\Threading\IDispatcherTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\UnitWrappers.snk">

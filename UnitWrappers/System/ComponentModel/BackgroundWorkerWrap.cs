@@ -124,5 +124,22 @@ namespace UnitWrappers.System.ComponentModel
         {
             UnderlyingObject.RunWorkerAsync(argument);
         }
+
+        public void Dispose()
+        {
+            UnderlyingObject.Dispose();
+        }
+
+        public ISite Site
+        {
+            get { return UnderlyingObject.Site; }
+            set {  UnderlyingObject.Site = value; }
+        }
+
+        public event EventHandler Disposed
+        {
+            add { UnderlyingObject.Disposed += value; }
+            remove { UnderlyingObject.Disposed -= value; }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security;
-using System.Windows.Threading;
 using System.ComponentModel;
+using System.Windows.Threading;
 using UnitWrappers.System.Threading;
 
 namespace UnitWrappers.System.Windows.Threading
@@ -10,7 +10,7 @@ namespace UnitWrappers.System.Windows.Threading
     public class DispatcherWrap : IDispatcher
     {
 
-        internal Dispatcher UnderlyingObject { get; set; }
+        public Dispatcher UnderlyingObject { get; set; }
 
         public DispatcherWrap(Dispatcher dispatcher)
         {

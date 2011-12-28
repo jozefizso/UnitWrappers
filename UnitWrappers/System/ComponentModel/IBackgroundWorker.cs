@@ -2,7 +2,7 @@ using System.ComponentModel;
 
 namespace UnitWrappers.System.ComponentModel
 {
-    public interface IBackgroundWorker
+    public interface IBackgroundWorker : IComponent
     {
         [Browsable(false)]
         bool CancellationPending { get; }

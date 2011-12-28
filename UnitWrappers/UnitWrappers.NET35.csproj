@@ -60,6 +60,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading">
+      <HintPath>..\Components\System.Threading.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -182,6 +185,8 @@
     <Compile Include="System\Threading\IWaitHandleSystem.cs" />
     <Compile Include="System\Threading\MutexSystem.cs" />
     <Compile Include="System\Threading\MutexWrap.cs" />
+    <Compile Include="System\Threading\Tasks\ITask.cs" />
+    <Compile Include="System\Threading\Tasks\TaskWrap.cs" />
     <Compile Include="System\Threading\ThreadPoolWrap.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadWrap.cs" />
