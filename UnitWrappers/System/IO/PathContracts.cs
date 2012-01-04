@@ -25,6 +25,10 @@ namespace UnitWrappers.System.IO
             Contract.Requires(path2 != null);
             return default(string);
         }
+
+        public abstract string Combine(string path1, string path2, string path3);
+        public abstract string Combine(string path1, string path2, string path3, string path4);
+        public abstract string Combine(params string[] paths);
         public abstract string GetDirectoryName(string path);
         public abstract string GetExtension(string path);
         public abstract string GetFileName(string path);

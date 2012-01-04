@@ -1,6 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace UnitWrappers.System.IO
 {
@@ -39,6 +42,112 @@ namespace UnitWrappers.System.IO
         {
             return Path.Combine(path1, path2);
         }
+
+        public string Combine(string path1, string path2, string path3)
+        {
+#if NET35
+            if (path1 == null || path2 == null || path3 == null)
+                throw new ArgumentNullException((path1 == null) ? "path1" : (path2 == null) ? "path2" : "path3");
+            CheckInvalidPathChars(path1);
+            CheckInvalidPathChars(path2);
+            CheckInvalidPathChars(path3);
+
+            return CombineNoChecks(CombineNoChecks(path1, path2), path3);
+#else
+            return Path.Combine(path1, path2, path3);
+#endif
+        }
+
+
+
+        public string Combine(string path1, string path2, string path3, string path4)
+        {
+#if NET35
+            if (path1 == null || path2 == null || path3 == null || path4 == null)
+                throw new ArgumentNullException((path1 == null) ? "path1" : (path2 == null) ? "path2" : (path3 == null) ? "path3" : "path4");
+            CheckInvalidPathChars(path1);
+            CheckInvalidPathChars(path2);
+            CheckInvalidPathChars(path3);
+            CheckInvalidPathChars(path4);
+            return CombineNoChecks(CombineNoChecks(CombineNoChecks(path1, path2), path3), path4);
+#else
+            return Path.Combine(path1, path2, path3,path4);
+#endif
+        }
+
+        public string Combine(params string[] paths)
+        {
+#if NET35
+            if (paths == null)
+                throw new ArgumentNullException("paths");
+            int capacity = 0;
+            int num = 0;
+            for (int index = 0; index < paths.Length; ++index)
+            {
+                if (paths[index] == null)
+                    throw new ArgumentNullException("paths");
+                if (paths[index].Length != 0)
+                {
+                    CheckInvalidPathChars(paths[index]);
+                    if (Path.IsPathRooted(paths[index]))
+                    {
+                        num = index;
+                        capacity = paths[index].Length;
+                    }
+                    else
+                        capacity += paths[index].Length;
+                    char ch = paths[index][paths[index].Length - 1];
+                    if ((int)ch != (int)Path.DirectorySeparatorChar && (int)ch != (int)Path.AltDirectorySeparatorChar && (int)ch != (int)Path.VolumeSeparatorChar)
+                        ++capacity;
+                }
+            }
+            StringBuilder stringBuilder = new StringBuilder(capacity);
+            for (int index = num; index < paths.Length; ++index)
+            {
+                if (paths[index].Length != 0)
+                {
+                    if (stringBuilder.Length == 0)
+                    {
+                        stringBuilder.Append(paths[index]);
+                    }
+                    else
+                    {
+                        char ch = stringBuilder[stringBuilder.Length - 1];
+                        if ((int)ch != (int)Path.DirectorySeparatorChar && (int)ch != (int)Path.AltDirectorySeparatorChar && (int)ch != (int)Path.VolumeSeparatorChar)
+                            stringBuilder.Append(Path.DirectorySeparatorChar);
+                        stringBuilder.Append(paths[index]);
+                    }
+                }
+            }
+            return ((object)stringBuilder).ToString();
+#else
+            return Path.Combine(paths);
+#endif
+        }
+
+#if NET35
+
+        private string CombineNoChecks(string path1, string path2)
+        {
+            if (path2.Length == 0)
+                return path1;
+            if (path1.Length == 0 || Path.IsPathRooted(path2))
+                return path2;
+            char ch = path1[path1.Length - 1];
+            if ((int)ch != (int)Path.DirectorySeparatorChar && (int)ch != (int)Path.AltDirectorySeparatorChar && (int)ch != (int)Path.VolumeSeparatorChar)
+                return path1 + (object)Path.DirectorySeparatorChar + path2;
+            else
+                return path1 + path2;
+        }
+
+        private static void CheckInvalidPathChars(String path)
+        {
+            var validation = typeof (Path).GetMember("CheckInvalidPathChars")[0] as MethodInfo;
+            Debug.Assert(validation!=null);
+            validation.Invoke(null, new object[]{path});
+        }
+
+#endif
 
         public string GetDirectoryName(string path)
         {

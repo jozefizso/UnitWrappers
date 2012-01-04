@@ -49,6 +49,30 @@ namespace UnitWrappers.System.IO
         /// <returns>A string containing the combined paths. If one of the specified paths is a zero-length string, this method returns the other path. If path2 contains an absolute path, this method returns path2.</returns>
         string Combine(string path1, string path2);
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path1"></param>
+        /// <param name="path2"></param>
+        /// <param name="path3"></param>
+        /// <returns></returns>
+        string Combine(string path1, string path2,string path3);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path1"></param>
+        /// <param name="path2"></param>
+        /// <param name="path3"></param>
+        /// <param name="path4"></param>
+        /// <returns></returns>
+        string Combine(string path1, string path2, string path3,string path4);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paths"></param>
+        /// <returns></returns>
+        string Combine(params  string[] paths);
+
+        /// <summary>
         /// Returns the directory information for the specified path string.
         /// </summary>
         /// <param name="path">The path of a file or directory.</param>
