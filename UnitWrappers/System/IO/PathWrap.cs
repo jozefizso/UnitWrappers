@@ -142,7 +142,8 @@ namespace UnitWrappers.System.IO
 
         private static void CheckInvalidPathChars(String path)
         {
-            var validation = typeof (Path).GetMember("CheckInvalidPathChars")[0] as MethodInfo;
+            var validation = typeof(Path).GetMember("CheckInvalidPathChars", MemberTypes.Method,
+                BindingFlags.Static | BindingFlags.InvokeMethod | BindingFlags.NonPublic)[0] as MethodInfo;
             Debug.Assert(validation!=null);
             validation.Invoke(null, new object[]{path});
         }
