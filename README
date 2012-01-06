@@ -33,15 +33,20 @@ public class SomeService()
 {code}
 
 * Develop
-
-All projects and solution should run when using
+SystemWrapper.sln:
 Visual Studio 2010
 Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version
 ReSharper(or other test runner) - to run unit tests(NUnit)
 
-* Obsolete
+
+SystemWrapper.Mono.sln:
+Linux
+MonoDevelop
+
+* Obsolete and new methods
 
 Methods obsolete in .NET 4.0 or .NET 3.5 are not implemented.
+New .NET methods sometimes backported to 3.5 wrappers.
 
 
 * Coverage
