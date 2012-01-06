@@ -5,12 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}</ProjectGuid>
+    <ProjectGuid>{977D8BEB-334E-4938-BAE0-CB75698B1255}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitWrappers.Samples</RootNamespace>
-    <AssemblyName>UnitWrappers.Samples</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>UnitWrappers.NET40.Tests</RootNamespace>
+    <AssemblyName>UnitWrappers.NET40.Tests</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -31,62 +30,38 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
-    <CodeContractsAssemblyMode>0</CodeContractsAssemblyMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\CurrentVersions\</OutputPath>
+    <OutputPath>..\CurrentVersions\NET40\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
-    <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
-    <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
-    <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
-    <CodeContractsRuntimeCallSiteRequires>False</CodeContractsRuntimeCallSiteRequires>
-    <CodeContractsRuntimeSkipQuantifiers>False</CodeContractsRuntimeSkipQuantifiers>
-    <CodeContractsRunCodeAnalysis>False</CodeContractsRunCodeAnalysis>
-    <CodeContractsNonNullObligations>False</CodeContractsNonNullObligations>
-    <CodeContractsBoundsObligations>False</CodeContractsBoundsObligations>
-    <CodeContractsArithmeticObligations>False</CodeContractsArithmeticObligations>
-    <CodeContractsEnumObligations>False</CodeContractsEnumObligations>
-    <CodeContractsRedundantAssumptions>False</CodeContractsRedundantAssumptions>
-    <CodeContractsRunInBackground>True</CodeContractsRunInBackground>
-    <CodeContractsShowSquigglies>False</CodeContractsShowSquigglies>
-    <CodeContractsUseBaseLine>False</CodeContractsUseBaseLine>
-    <CodeContractsEmitXMLDocs>False</CodeContractsEmitXMLDocs>
-    <CodeContractsCustomRewriterAssembly />
-    <CodeContractsCustomRewriterClass />
-    <CodeContractsLibPaths />
-    <CodeContractsExtraRewriteOptions />
-    <CodeContractsExtraAnalysisOptions />
-    <CodeContractsBaseLineFile />
-    <CodeContractsCacheAnalysisResults>False</CodeContractsCacheAnalysisResults>
-    <CodeContractsRuntimeCheckingLevel>Full</CodeContractsRuntimeCheckingLevel>
-    <CodeContractsReferenceAssembly>%28none%29</CodeContractsReferenceAssembly>
-    <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\CurrentVersions\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\CurrentVersions\NET40\</OutputPath>
+    <DefineConstants>TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.5.10.11092, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Components\NUnit\bin\net-2.0\framework\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>..\Components\NUnit\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Should.Fluent">
+      <HintPath>..\Components\Should.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -98,17 +73,30 @@
     <Reference Include="Rhino.Mocks">
       <HintPath>..\Components\RhinoMocks\Rhino.Mocks.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="System\Data\SqlClient\SqlConnectionSample.cs" />
-    <Compile Include="System\Data\SqlClient\SqlDataReaderSample.cs" />
-    <Compile Include="System\IO\DirectoryInfoSample.cs" />
-    <Compile Include="System\IO\PathSample.cs" />
-    <Compile Include="System\Reflection\AssemblySample.cs" />
-    <Compile Include="System\IO\FileInfoSample.cs" />
+    <Compile Include="System\Configuration\ConfigurationManagerWrapTests.cs" />
+    <Compile Include="System\Data\SqlClient\SqlDataReaderWrapTests.cs" />
+    <Compile Include="System\Data\SqlClient\SqlConnectionWrapTests.cs" />
+    <Compile Include="System\Data\SqlClient\SqlCommandWrapTests.cs" />
+    <Compile Include="System\Diagnostics\ProcessWrapTests.cs" />
+    <Compile Include="System\Diagnostics\ProcessStartInfoWrapTests.cs" />
+    <Compile Include="System\IO\Compression\DeflateStreamWrapTests.cs" />
+    <Compile Include="System\IO\BinaryReaderWrapTests.cs" />
+    <Compile Include="System\Reflection\AssemblyWrapTests.cs" />
+    <Compile Include="System\IO\DirectoryInfoWrapTests.cs" />
+    <Compile Include="System\IO\DirectoryWrapTests.cs" />
+    <Compile Include="System\IO\FileInfoWrapTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\Threading\WaithHandles.cs" />
-    <Compile Include="TodoClasses.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\BinaryReaderWrapTestData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\DeflateStreamWrapTestData.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F4634152-9E51-47A8-B1A1-AAF34F551633}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>UnitWrappers.Mono.sln</RootNamespace>
-    <AssemblyName>UnitWrappers.Mono.sln</AssemblyName>
+    <RootNamespace>UnitWrappers</RootNamespace>
+    <AssemblyName>UnitWrappers</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -36,11 +36,5 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="System\IConsole.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="System\Reflection\IAssembly.cs" />
-    <None Include="System\Reflection\IAssemblyName.cs" />
-    <None Include="System\Reflection\IAssemblySystem.cs" />
-    <None Include="System\IAppDomain.cs" />
   </ItemGroup>
 </Project>

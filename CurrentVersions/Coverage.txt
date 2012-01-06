@@ -1,2 +1,0 @@
-Total number of wraps: 49
-Microsoft.Win32.Registry-> UnitWrappers.Microsoft.Win32.IRegistry : 188%

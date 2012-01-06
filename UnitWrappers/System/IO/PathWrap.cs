@@ -142,10 +142,20 @@ namespace UnitWrappers.System.IO
 
         private static void CheckInvalidPathChars(String path)
         {
-            var validation = typeof(Path).GetMember("CheckInvalidPathChars", MemberTypes.Method,
-                BindingFlags.Static | BindingFlags.InvokeMethod | BindingFlags.NonPublic)[0] as MethodInfo;
-            Debug.Assert(validation!=null);
-            validation.Invoke(null, new object[]{path});
+            //do not use reflection of internal because it can fail
+            //var validation = typeof(Path).GetMember("CheckInvalidPathChars", MemberTypes.Method,
+            //    BindingFlags.Static | BindingFlags.InvokeMethod | BindingFlags.NonPublic)[0] as MethodInfo;
+            //Debug.Assert(validation!=null);
+            //validation.Invoke(null, new object[]{path});
+
+            // adapted from sources of .NET
+            for (int i = 0; i < path.Length; i++)
+            {
+                int c = path[i];
+                // Note: This list is duplicated in static char[] InvalidPathChars
+                if (c == '\"' || c == '<' || c == '>' || c == '|' || c < 32)
+                    throw new ArgumentException("Illegal characters in path.");
+            }
         }
 
 #endif

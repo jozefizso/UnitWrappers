@@ -60,7 +60,7 @@ namespace UnitWrappers.Tests.System.IO
         public void GetParent_test()
         {
             IDirectoryInfo di = _directoryWrap.GetParent(path);
-            Assert.AreEqual("CurrentVersions", di.Name);
+            Assert.AreEqual("NET40", di.Name);
         }
     }
 }
