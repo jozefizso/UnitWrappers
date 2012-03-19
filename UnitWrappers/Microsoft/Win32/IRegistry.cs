@@ -11,7 +11,6 @@ namespace UnitWrappers.Microsoft.Win32
         IRegistryKey ClassesRoot { get; }
         IRegistryKey CurrentConfig { get; }
         IRegistryKey CurrentUser { get; }
-        IRegistryKey DynData { get; }
         IRegistryKey LocalMachine { get; }
         IRegistryKey PerformanceData { get; }
         IRegistryKey Users { get; }

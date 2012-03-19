@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using UnitWrappers.Microsoft.Win32;
 using UnitWrappers.System;
+using UnitWrappers.System.Diagnostics;
 using UnitWrappers.System.IO;
 using UnitWrappers.System.Windows.Threading;
 
@@ -19,7 +20,7 @@ namespace UnitWrappers.CoverageCalculator
         {
             // stripped out interface version of some framework class with less control above underlying instance
             // no corresponding direct implementation
-            var serviceMembers = "Service";
+            var narrowMembers = new[] { typeof(IDispatcherService).FullName, typeof(ILocalProcessSystem).FullName };
 
             // static members and constuctors of class
             var staticMembers = "System";
@@ -52,11 +53,13 @@ namespace UnitWrappers.CoverageCalculator
 
             var wrapInterfaces = unitInterfaces.Union(wpfInterfaces);
 
-            var strippedInterfaceNames = wrapInterfaces.Select(x => x.Name).Select(x =>
+            var strippedInterfaceNames = wrapInterfaces
+                                        .Where(x => !narrowMembers.Contains(x.FullName))
+                                        .Select(x => x.Name)
+                                        .Select(x =>
                                                                           {
                                                                               string name = x.Remove(0, 1); // remove I
                                                                               name = cutEnd(name, staticMembers);
-                                                                              name = cutEnd(name, serviceMembers);
                                                                               return name;
                                                                           })
                                                                              .Distinct()
@@ -128,6 +131,7 @@ namespace UnitWrappers.CoverageCalculator
 
         private static string CalculateEntry(Type real, Type[] wraps)
         {
+           
             var realMembers = real.GetMembers().Where(x =>
                                                           {
                                                               // do not count object's not overriden members
@@ -157,10 +161,13 @@ namespace UnitWrappers.CoverageCalculator
             var wrapsMembers =
                 (from w in wraps
                  from m in w.GetMembers()
-                 select m).Concat(wrapsIntefacesMembers).ToArray();
+                 where !(m.Name.Contains("get_") ||  m.Name.Contains("set_")) // fixes strange issue with IRegistry when properties and getters counted
+                 select m).ToArray();
+            
+            var includedWrapsMembers = wrapsIntefacesMembers.Concat(wrapsMembers).ToArray();
 
             var realCount = realMembers.Length;
-            var wrapsCount = wrapsMembers.Length;
+            var wrapsCount = includedWrapsMembers.Length;
             var coverage = 100 * wrapsCount / realCount;
 
             if (coverage>100)

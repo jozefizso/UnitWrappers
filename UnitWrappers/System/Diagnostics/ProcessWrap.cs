@@ -1,13 +1,14 @@
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 
 namespace UnitWrappers.System.Diagnostics
 {
     ///<summary>
     /// Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
     ///</summary>
-    public class ProcessWrap : MarshalByRefObject, IProcess
+    public class ProcessWrap :  IProcess
     {
         private IProcessStartInfo startInfo;
 
@@ -99,9 +100,39 @@ namespace UnitWrappers.System.Diagnostics
             remove { UnderlyingObject.OutputDataReceived -= value; }
         }
 
+        public void BeginErrorReadLine()
+        {
+            UnderlyingObject.BeginErrorReadLine();
+        }
+
+        public void BeginOutputReadLine()
+        {
+            UnderlyingObject.BeginOutputReadLine();
+        }
+
+        public void CancelErrorRead()
+        {
+            UnderlyingObject.CancelErrorRead();
+        }
+
+        public void CancelOutputRead()
+        {
+            UnderlyingObject.CancelOutputRead();
+        }
+
         public void Refresh()
         {
             UnderlyingObject.Refresh();
+        }
+
+        public bool WaitForInputIdle(int milliseconds)
+        {
+          return  UnderlyingObject.WaitForInputIdle();
+        }
+
+        public int BasePriority
+        {
+            get { return UnderlyingObject.BasePriority; }
         }
 
         public bool EnableRaisingEvents
@@ -150,10 +181,63 @@ namespace UnitWrappers.System.Diagnostics
             get { return UnderlyingObject.MainWindowTitle; }
         }
 
+        public IntPtr MaxWorkingSet
+        {
+            get { return UnderlyingObject.MaxWorkingSet; }
+            set { UnderlyingObject.MaxWorkingSet = value; }
+        }
+
+        public IntPtr MinWorkingSet
+        {
+            get { return UnderlyingObject.MinWorkingSet; }
+            set { UnderlyingObject.MinWorkingSet = value; }
+        }
+
+        public ProcessModuleCollection Modules
+        {
+            get { return UnderlyingObject.Modules; }
+        }
+
+        public long NonpagedSystemMemorySize64
+        {
+            get { return UnderlyingObject.NonpagedSystemMemorySize64; }
+        }
+
+        public long PagedMemorySize64
+        {
+            get { return UnderlyingObject.PagedMemorySize64; }
+        }
+
+        public long PagedSystemMemorySize64
+        {
+            get { return UnderlyingObject.PagedSystemMemorySize64; }
+        }
+
+        public long PeakPagedMemorySize64
+        {
+            get { return UnderlyingObject.PeakPagedMemorySize64; }
+        }
+
+        public long PeakVirtualMemorySize64
+        {
+            get { return UnderlyingObject.PeakVirtualMemorySize64; }
+        }
+
+        public long PeakWorkingSet64
+        {
+            get { return UnderlyingObject.PeakWorkingSet64; }
+        }
+
+        public bool PriorityBoostEnabled
+        {
+            get { return UnderlyingObject.PriorityBoostEnabled; }
+            set { UnderlyingObject.PriorityBoostEnabled = value; }
+        }
+
         public ProcessPriorityClass PriorityClass
         {
             get { return UnderlyingObject.PriorityClass ; }
-            set { throw new NotImplementedException(); }
+            set { UnderlyingObject.PriorityClass = value; }
         }
 
         public TimeSpan PrivilegedProcessorTime
@@ -166,9 +250,35 @@ namespace UnitWrappers.System.Diagnostics
             get { return UnderlyingObject.ProcessName ; }
         }
 
+        public IntPtr ProcessorAffinity
+        {
+            get { return UnderlyingObject.ProcessorAffinity; }
+            set { UnderlyingObject.ProcessorAffinity = value; }
+        }
+
+        public bool Responding
+        {
+            get { return UnderlyingObject.Responding; }
+        }
+
         public int SessionId
         {
             get { return UnderlyingObject.SessionId ; }
+        }
+
+        public StreamReader StandardError
+        {
+            get { return UnderlyingObject.StandardError; }
+        }
+
+        public StreamWriter StandardInput
+        {
+            get { return UnderlyingObject.StandardInput; }
+        }
+
+        public StreamReader StandardOutput
+        {
+            get { return UnderlyingObject.StandardOutput; }
         }
 
         public DateTime StartTime
@@ -179,7 +289,7 @@ namespace UnitWrappers.System.Diagnostics
         public ISynchronizeInvoke SynchronizingObject
         {
             get { return UnderlyingObject.SynchronizingObject; }
-            set { throw new NotImplementedException(); }
+            set { UnderlyingObject.SynchronizingObject = value; }
         }
 
         public ProcessThreadCollection Threads
@@ -195,6 +305,16 @@ namespace UnitWrappers.System.Diagnostics
         public TimeSpan UserProcessorTime
         {
             get { return UnderlyingObject.UserProcessorTime; }
+        }
+
+        public long VirtualMemorySize64
+        {
+            get { return UnderlyingObject.VirtualMemorySize64; }
+        }
+
+        public long WorkingSet64
+        {
+            get { return UnderlyingObject.WorkingSet64; }
         }
 
         public override string ToString()

@@ -80,6 +80,7 @@
     <Compile Include="System\AppDomainWrap.cs" />
     <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
     <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />
+    <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IEnvironment.cs" />
     <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />

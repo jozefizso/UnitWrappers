@@ -19,11 +19,6 @@ namespace UnitWrappers.Microsoft.Win32
             get { return new RegistryKeyWrap(Registry.CurrentUser); }
         }
 
-        public IRegistryKey DynData
-        {
-            get { return new RegistryKeyWrap(Registry.DynData); }
-        }
-
         public IRegistryKey LocalMachine
         {
             get { return new RegistryKeyWrap(Registry.LocalMachine); }

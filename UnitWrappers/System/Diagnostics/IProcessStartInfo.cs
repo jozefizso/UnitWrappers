@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Security;
+using System.Text;
 
 namespace UnitWrappers.System.Diagnostics
 {
@@ -27,26 +31,29 @@ namespace UnitWrappers.System.Diagnostics
         /// </summary>
         bool UseShellExecute { get; set; }
 
-        /*
-            // Properties
-            public bool CreateNoWindow { get; set; }
-            public string Domain { get; set; }
-            public StringDictionary EnvironmentVariables { get; }
-            public bool ErrorDialog { get; set; }
-            public IntPtr ErrorDialogParentHandle { get; set; }
-            public bool LoadUserProfile { get; set; }
-            public SecureString Password { get; set; }
-            public bool RedirectStandardError { get; set; }
-            public bool RedirectStandardInput { get; set; }
-            public bool RedirectStandardOutput { get; set; }
-            public Encoding StandardErrorEncoding { get; set; }
-            public Encoding StandardOutputEncoding { get; set; }
-            public string UserName { get; set; }
-            public string Verb { get; set; }
-            public string[] Verbs { get; }
-            public ProcessWindowStyle WindowStyle { get; set; }
-            public string WorkingDirectory { get; set; }
-        */
+
+        bool CreateNoWindow { get; set; }
+
+        string Domain { get; set; }
+        StringDictionary EnvironmentVariables { get; }
+        bool ErrorDialog { get; set; }
+        IntPtr ErrorDialogParentHandle { get; set; }
+        bool LoadUserProfile { get; set; }
+        SecureString Password { get; set; }
+        bool RedirectStandardError { get; set; }
+        bool RedirectStandardInput { get; set; }
+        bool RedirectStandardOutput { get; set; }
+        Encoding StandardErrorEncoding { get; set; }
+        Encoding StandardOutputEncoding { get; set; }
+        string UserName { get; set; }
+        /// <summary>
+        /// Gets or sets the verb to use when opening the application or document specified by the FileName property.
+        /// </summary>
+        string Verb { get; set; }
+        string[] Verbs { get; }
+        ProcessWindowStyle WindowStyle { get; set; }
+        string WorkingDirectory { get; set; }
+
 
     }
 }
