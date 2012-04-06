@@ -198,6 +198,8 @@
     <Compile Include="System\Threading\ThreadWrap.cs" />
     <Compile Include="System\Threading\WaitHandleSystem.cs" />
     <Compile Include="System\Threading\WaitHandleWrap.cs" />
+    <Compile Include="System\Timers\ITimer.cs" />
+    <Compile Include="System\Timers\TimerWrap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\UnitWrappers.snk">

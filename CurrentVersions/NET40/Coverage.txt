@@ -1,4 +1,4 @@
-Total number of wraps: 52
+Total number of wraps: 53
 Microsoft.Win32.Registry-> UnitWrappers.Microsoft.Win32.IRegistry : 100%
 Microsoft.Win32.RegistryKey-> UnitWrappers.Microsoft.Win32.IRegistryKeySystem UnitWrappers.Microsoft.Win32.IRegistryKey : 60%
 Microsoft.Win32.SafeHandles.SafeFileHandle-> UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle : 90%
@@ -10,7 +10,7 @@ System.Data.SqlClient.SqlCommand-> UnitWrappers.System.Data.SqlClient.ISqlComman
 System.Data.SqlClient.SqlConnection-> UnitWrappers.System.Data.SqlClient.ISqlConnection : 38%
 System.Data.SqlClient.SqlDataReader-> UnitWrappers.System.Data.SqlClient.ISqlDataReader : 62%
 System.DateTime-> UnitWrappers.System.IDateTimeSystem : 20%
-System.Diagnostics.Process-> UnitWrappers.System.Diagnostics.IProcess UnitWrappers.System.Diagnostics.IProcessSystem : 56%
+System.Diagnostics.Process-> UnitWrappers.System.Diagnostics.IProcessSystem UnitWrappers.System.Diagnostics.IProcess : 56%
 System.Diagnostics.ProcessStartInfo-> UnitWrappers.System.Diagnostics.IProcessStartInfo : 34%
 System.Environment-> UnitWrappers.System.IEnvironment : 55%
 System.IO.BinaryReader-> UnitWrappers.System.IO.IBinaryReader : 92%
@@ -32,21 +32,22 @@ System.Management.ManagementObjectSearcher-> UnitWrappers.System.Management.IMan
 System.Net.Sockets.Socket-> UnitWrappers.System.Net.Sockets.ISocket : 26%
 System.Net.WebClient-> UnitWrappers.System.Net.IWebClient : 83%
 System.Net.WebRequest-> UnitWrappers.System.Net.IWebRequestSystem : 9%
-System.Reflection.Assembly-> UnitWrappers.System.Reflection.IAssemblySystem UnitWrappers.System.Reflection.IAssembly : 50%
+System.Reflection.Assembly-> UnitWrappers.System.Reflection.IAssembly UnitWrappers.System.Reflection.IAssemblySystem : 50%
 System.Reflection.AssemblyName-> UnitWrappers.System.Reflection.IAssemblyName : 51%
 System.Runtime.InteropServices.SafeHandle-> UnitWrappers.System.Runtime.InteropServices.ISafeHandle : 70%
 System.Security.AccessControl.DirectorySecurity-> UnitWrappers.System.Security.AccessControl.IDirectorySecurity : 2%
 System.Security.AccessControl.FileSecurity-> UnitWrappers.System.Security.AccessControl.IFileSecurity : 2%
 System.Security.Permissions.FileIOPermission-> UnitWrappers.System.Security.Permissions.IFileIOPermission : 41%
 System.ServiceModel.InstanceContext-> UnitWrappers.System.ServiceModel.IInstanceContext : 18%
-System.ServiceModel.OperationContext-> UnitWrappers.System.ServiceModel.IOperationContext UnitWrappers.System.ServiceModel.IOperationContextSystem : 44%
+System.ServiceModel.OperationContext-> UnitWrappers.System.ServiceModel.IOperationContextSystem UnitWrappers.System.ServiceModel.IOperationContext : 44%
 System.ServiceModel.ServiceHost-> UnitWrappers.System.ServiceModel.IServiceHost : 18%
 System.Threading.AutoResetEvent-> UnitWrappers.System.Threading.IAutoResetEvent : 30%
-System.Threading.Mutex-> UnitWrappers.System.Threading.IMutexSystem UnitWrappers.System.Threading.IMutex : 32%
+System.Threading.Mutex-> UnitWrappers.System.Threading.IMutex UnitWrappers.System.Threading.IMutexSystem : 32%
 System.Threading.Tasks.Task-> UnitWrappers.System.Threading.Tasks.ITask : 18%
-System.Threading.Thread-> UnitWrappers.System.Threading.IThread UnitWrappers.System.Threading.IThreadSystem : 33%
+System.Threading.Thread-> UnitWrappers.System.Threading.IThreadSystem UnitWrappers.System.Threading.IThread : 33%
 System.Threading.ThreadPool-> UnitWrappers.System.Threading.IThreadPool : 44%
-System.Threading.WaitHandle-> UnitWrappers.System.Threading.IWaitHandle UnitWrappers.System.Threading.IWaitHandleSystem : 17%
+System.Threading.WaitHandle-> UnitWrappers.System.Threading.IWaitHandleSystem UnitWrappers.System.Threading.IWaitHandle : 17%
+System.Timers.Timer-> UnitWrappers.System.Timers.ITimer : 28%
 System.Windows.Clipboard-> UnitWrappers.System.Windows.IClipboard : 100%
 System.Windows.MessageBox-> UnitWrappers.System.Windows.IMessageBox : 100%
 System.Windows.Threading.Dispatcher-> UnitWrappers.System.Windows.Threading.IDispatcherSystem UnitWrappers.System.Windows.Threading.IDispatcher : 97%
