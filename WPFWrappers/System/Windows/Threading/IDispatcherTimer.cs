@@ -5,7 +5,7 @@ namespace UnitWrappers.System.Windows.Threading
 {
     public interface IDispatcherTimer
     {
-        DispatcherTimer UnderlyingObject { get; }
+     
 
         /// <summary>
         ///     Gets the dispatcher this timer is associated with. 

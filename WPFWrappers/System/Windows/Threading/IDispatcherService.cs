@@ -9,7 +9,7 @@ namespace UnitWrappers.System.Windows.Threading
     /// </summary>
     public interface IDispatcherService
     {
-        Dispatcher UnderlyingObject { get; set; }
+ 
 
         /// <summary>
         ///     Checks that the calling thread has access to this object. 

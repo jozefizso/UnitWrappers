@@ -7,7 +7,7 @@ using UnitWrappers.System.Threading;
 namespace UnitWrappers.System.Windows.Threading
 {
 
-    public class DispatcherWrap : IDispatcher
+    public class DispatcherWrap : IDispatcher, IWrap<Dispatcher>
     {
 
         public Dispatcher UnderlyingObject { get; set; }

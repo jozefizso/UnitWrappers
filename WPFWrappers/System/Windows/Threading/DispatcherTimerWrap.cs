@@ -7,10 +7,14 @@ namespace UnitWrappers.System.Windows.Threading
     ///     A timer that is integrated into the Dispatcher queues, and will
     ///     be processed after a given amount of time at a specified priority.
     /// </summary>
-    public class DispatcherTimerWrap : IDispatcherTimer
+    public class DispatcherTimerWrap : IDispatcherTimer,IWrap<DispatcherTimer>
     {
-
-        public DispatcherTimer UnderlyingObject { get; private set; }
+        private DispatcherTimer _underlyingObject;
+         DispatcherTimer IWrap<DispatcherTimer>.UnderlyingObject
+        {
+            get { return _underlyingObject; }
+     
+        }
 
         /// <summary> 
         ///     Creates a timer that uses the current thread's Dispatcher to 
@@ -18,7 +22,7 @@ namespace UnitWrappers.System.Windows.Threading
         /// </summary> 
         public DispatcherTimerWrap()
         {
-            UnderlyingObject = new DispatcherTimer();
+            _underlyingObject = new DispatcherTimer();
         }
 
         /// <summary>
@@ -30,7 +34,7 @@ namespace UnitWrappers.System.Windows.Threading
         /// </param>
         public DispatcherTimerWrap(DispatcherPriority priority)
         {
-            UnderlyingObject = new DispatcherTimer(priority);
+            _underlyingObject = new DispatcherTimer(priority);
         }
 
         /// <summary>
@@ -45,12 +49,12 @@ namespace UnitWrappers.System.Windows.Threading
         /// </param>
         public DispatcherTimerWrap(DispatcherPriority priority, IDispatcherService dispatcher)
         {
-            UnderlyingObject = new DispatcherTimer(priority, dispatcher.UnderlyingObject);
+            _underlyingObject = new DispatcherTimer(priority, ((IWrap<Dispatcher>)dispatcher).UnderlyingObject);
         }
 
         public DispatcherTimerWrap(DispatcherPriority priority, Dispatcher dispatcher)
         {
-            UnderlyingObject = new DispatcherTimer(priority, dispatcher);
+            _underlyingObject = new DispatcherTimer(priority, dispatcher);
         }
 
         /// <summary>
@@ -73,62 +77,62 @@ namespace UnitWrappers.System.Windows.Threading
         public DispatcherTimerWrap(TimeSpan interval, DispatcherPriority priority, EventHandler callback,
                                    IDispatcherService dispatcher)
         {
-            UnderlyingObject = new DispatcherTimer(interval, priority, callback, dispatcher.UnderlyingObject);
+            _underlyingObject = new DispatcherTimer(interval, priority, callback, ((IWrap<Dispatcher>)dispatcher).UnderlyingObject);
         }
 
         public DispatcherTimerWrap(TimeSpan interval, DispatcherPriority priority, EventHandler callback,
                            Dispatcher dispatcher)
         {
-            UnderlyingObject = new DispatcherTimer(interval, priority, callback, dispatcher);
+            _underlyingObject = new DispatcherTimer(interval, priority, callback, dispatcher);
         }
 
         /// <inheritdoc />
         public IDispatcherService Dispatcher
         {
-            get { return new DispatcherWrap(UnderlyingObject.Dispatcher); }
+            get { return new DispatcherWrap(_underlyingObject.Dispatcher); }
         }
 
         /// <inheritdoc />
         public bool IsEnabled
         {
-            get { return UnderlyingObject.IsEnabled; }
+            get { return _underlyingObject.IsEnabled; }
 
-            set { UnderlyingObject.IsEnabled = value; }
+            set { _underlyingObject.IsEnabled = value; }
         }
 
         /// <inheritdoc />
         public TimeSpan Interval
         {
-            get { return UnderlyingObject.Interval; }
+            get { return _underlyingObject.Interval; }
 
-            set { UnderlyingObject.Interval = value; }
+            set { _underlyingObject.Interval = value; }
         }
 
         /// <inheritdoc />
         public void Start()
         {
-            UnderlyingObject.Start();
+            _underlyingObject.Start();
         }
 
         /// <inheritdoc />
         public void Stop()
         {
-            UnderlyingObject.Stop();
+            _underlyingObject.Stop();
         }
 
         /// <inheritdoc />
         public event EventHandler Tick
         {
-            add { UnderlyingObject.Tick += value; }
-            remove { UnderlyingObject.Tick -= value; }
+            add { _underlyingObject.Tick += value; }
+            remove { _underlyingObject.Tick -= value; }
         }
 
         /// <inheritdoc />
         public object Tag
         {
-            get { return UnderlyingObject.Tag; }
+            get { return _underlyingObject.Tag; }
 
-            set { UnderlyingObject.Tag = value; }
+            set { _underlyingObject.Tag = value; }
         }
     }
 

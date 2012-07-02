@@ -75,6 +75,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWrap.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="System\AppDomainWrap.cs" />

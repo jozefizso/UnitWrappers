@@ -77,6 +77,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWrap.cs" />
     <Compile Include="Microsoft\Win32\IRegistry.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
