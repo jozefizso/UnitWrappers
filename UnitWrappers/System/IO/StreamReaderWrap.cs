@@ -156,7 +156,7 @@ namespace UnitWrappers.System.IO
 
 
         /// <inheritdoc />
-        public void Close()
+        public override void Close()
         {
             UnderlyingObject.Close();
         }
@@ -170,12 +170,12 @@ namespace UnitWrappers.System.IO
         /// Returns the next available character but does not consume it. 
         /// </summary>
         /// <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
-        public int Peek()
+        public override int Peek()
         {
             return UnderlyingObject.Peek();
         }
         /// <inheritdoc />
-        public int Read()
+        public override int Read()
         {
             return UnderlyingObject.Read();
         }
@@ -187,7 +187,7 @@ namespace UnitWrappers.System.IO
         /// <param name="index">The index of buffer at which to begin writing.</param>
         /// <param name="count">The maximum number of characters to read. </param>
         /// <returns>The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the count parameter, depending on whether the data is available within the stream.</returns>
-        public int Read(char[] buffer, int index, int count)
+        public override int Read(char[] buffer, int index, int count)
         {
             return UnderlyingObject.Read(buffer, index, count);
         }
@@ -206,12 +206,12 @@ namespace UnitWrappers.System.IO
         /// Reads the stream from the current position to the end of the stream.
         /// </summary>
         /// <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns the empty string("").</returns>
-        public string ReadToEnd()
+        public override string ReadToEnd()
         {
             return UnderlyingObject.ReadToEnd();
         }
         /// <inheritdoc />
-        public void Dispose()
+        public new  void Dispose()
         {
             UnderlyingObject.Dispose();
         }

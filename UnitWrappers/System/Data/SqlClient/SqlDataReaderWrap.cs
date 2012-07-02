@@ -146,16 +146,8 @@ namespace UnitWrappers.System.Data.SqlClient
         {
             get { return (IDataRecord)UnderlyingObject[name]; }
         }
-        /// <inheritdoc />
-        object ISqlDataReader.this[int i]
-        {
-            get { return (ISqlDataReader)UnderlyingObject[i]; }
-        }
-        /// <inheritdoc />
-        object ISqlDataReader.this[string name]
-        {
-            get { return (ISqlDataReader)UnderlyingObject[name]; }
-        }
+      
+
 
         /// <inheritdoc />
         public void Close()

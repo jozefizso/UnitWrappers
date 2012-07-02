@@ -12,7 +12,7 @@ namespace UnitWrappers.System
         /// <inheritdoc />
         public void Unload(IAppDomain domain)
         {
-            AppDomain.Unload(domain.AppDomainInstance);
+            AppDomain.Unload(((IWrap<AppDomain>)domain).UnderlyingObject);
         }
 
         /// <inheritdoc />

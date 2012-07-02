@@ -9,37 +9,14 @@ namespace UnitWrappers.System.Data.SqlClient
     /// </summary>
     public interface ISqlDataReader:  IDataReader
     {
-        // Properties
 
-        /// <summary>
-        /// Gets the value of the specified column in its native format given the column ordinal.
-        /// </summary>
-        /// <param name="i">The zero-based column ordinal.</param>
-        /// <returns>The value of the specified column in its native format.</returns>
-        object this[int i] { get; }
-        /// <summary>
-        /// Gets the value of the specified column in its native format given the column name.
-        /// </summary>
-        /// <param name="name">The column name.</param>
-        /// <returns>The value of the specified column in its native format.</returns>
-        object this[string name] { get; }
         /// <summary>
         /// Gets <see cref="T:System.Data.SqlClient.SqlDataReader"/> object.
         /// </summary>
         SqlDataReader UnderlyingObject { get; }
 
-        // Methods
 
-        /// <summary>
-        /// Closes the SqlDataReader object. 
-        /// </summary>
-        void Close();
-        /// <summary>
-        /// Advances the SqlDataReader to the next record. 
-        /// </summary>
-        /// <returns> true if there are more rows; otherwise false.</returns>
-        bool Read();
-        
+ 
         /*
                  // Methods
             public override bool GetBoolean(int i);

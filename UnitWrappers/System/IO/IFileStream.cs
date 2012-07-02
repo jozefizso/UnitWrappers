@@ -1,5 +1,7 @@
 using System.Security.Permissions;
+#if !MONO && !PORTABLE
 using UnitWrappers.Microsoft.Win32.SafeHandles;
+#endif
 using UnitWrappers.System.Security.AccessControl;
 
 namespace UnitWrappers.System.IO
@@ -10,7 +12,6 @@ namespace UnitWrappers.System.IO
     public interface IFileStream : IStream
     {
 
-        // Properties
 
         /// <summary>
         /// Gets a value indicating whether the FileStream was opened asynchronously or synchronously.
@@ -20,12 +21,12 @@ namespace UnitWrappers.System.IO
         /// Gets the name of the IFileStream that was passed to the constructor.
         /// </summary>
         string Name { get; }
+#if !MONO && !PORTABLE
         /// <summary>
         /// Gets a ISafeFileHandle object that represents the operating system file handle for the file that the current FileStream object encapsulates. 
         /// </summary>
         ISafeFileHandle SafeFileHandle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
-
-        // Methods
+#endif
 
         /// <summary>
         /// Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream.

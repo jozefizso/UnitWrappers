@@ -17,12 +17,11 @@ namespace UnitWrappers.System.Threading
 
         void GetMinThreads(out int workerThreads, out int completionPortThreads);
         void GetAvailableThreads(out int workerThreads, out int completionPortThreads);
-#if !MONO
+#if !PORTABLE
         [CLSCompliant(false)]
-#endif
 		[MethodImpl(MethodImplOptions.NoInlining)]
         RegisteredWaitHandle RegisterWaitForSingleObject(WaitHandle waitObject, WaitOrTimerCallback callBack, object state, uint millisecondsTimeOutInterval, bool executeOnlyOnce);
-
+#endif
         [MethodImpl(MethodImplOptions.NoInlining)]
         bool QueueUserWorkItem(WaitCallback callBack, object state);
 

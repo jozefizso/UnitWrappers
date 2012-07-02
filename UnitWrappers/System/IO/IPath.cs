@@ -5,7 +5,7 @@ using System.Diagnostics.Contracts;
 namespace UnitWrappers.System.IO
 {
 
-#if !NET35
+#if !NET35 && !MONO
     [ContractClass(typeof(PathContracts))]
 #endif
     /// <summary>

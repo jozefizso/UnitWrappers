@@ -12,150 +12,153 @@ namespace UnitWrappers.System
     /// </summary>
     [ComVisible(true)]
     [Serializable]
-    public class AppDomainWrap : IAppDomain
+    public class AppDomainWrap : IAppDomain,IWrap<AppDomain>
     {
+		private AppDomain _underlyingObject;
+		
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UnitWrappers.System.AppDomainWrap"/> class. 
         /// </summary>
         /// <param name="appDomain">AppDomain object.</param>
         public AppDomainWrap(AppDomain appDomain)
         {
-            AppDomainInstance = appDomain;
+            _underlyingObject = appDomain;
         }
 
-        public AppDomain AppDomainInstance { get; private set; }
+         AppDomain IWrap<AppDomain>.UnderlyingObject { get{return _underlyingObject;}}
+		
         /// <inheritdoc />
         public object GetData(string name)
         {
-            return AppDomainInstance.GetData(name);
+            return _underlyingObject.GetData(name);
         }
         /// <inheritdoc />
         public override string ToString()
         {
-            return AppDomainInstance.ToString();
+            return _underlyingObject.ToString();
         }
         /// <inheritdoc />
         public IAssembly Load(IAssemblyName assemblyRef)
         {
-            return new AssemblyWrap(AppDomainInstance.Load(assemblyRef.AssemblyNameInstance));
+            return new AssemblyWrap(_underlyingObject.Load(assemblyRef.AssemblyNameInstance));
         }
         /// <inheritdoc />
         public void SetData(string name, object data)
         {
-            AppDomainInstance.SetData(name, data);
+            _underlyingObject.SetData(name, data);
         }
         /// <inheritdoc />
         public object CreateInstanceAndUnwrap(string assemblyName, string typeName)
         {
-            return AppDomainInstance.CreateInstanceAndUnwrap(assemblyName, typeName);
+            return _underlyingObject.CreateInstanceAndUnwrap(assemblyName, typeName);
         }
         /// <inheritdoc />
         public object CreateInstanceAndUnwrap(string assemblyName, string typeName, object[] activationAttributes)
         {
-            return AppDomainInstance.CreateInstanceAndUnwrap(assemblyName, typeName, activationAttributes);
+            return _underlyingObject.CreateInstanceAndUnwrap(assemblyName, typeName, activationAttributes);
         }
         /// <inheritdoc />
         public object CreateInstanceAndUnwrap(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes)
         {
-            return AppDomainInstance.CreateInstanceAndUnwrap(assemblyName, typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes, securityAttributes);
+            return _underlyingObject.CreateInstanceAndUnwrap(assemblyName, typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes, securityAttributes);
         }
         /// <inheritdoc />
         public object CreateInstanceFromAndUnwrap(string assemblyName, string typeName)
         {
-            return AppDomainInstance.CreateInstanceFromAndUnwrap(assemblyName, typeName);
+            return _underlyingObject.CreateInstanceFromAndUnwrap(assemblyName, typeName);
         }
         /// <inheritdoc />
         public object CreateInstanceFromAndUnwrap(string assemblyName, string typeName, object[] activationAttributes)
         {
-            return AppDomainInstance.CreateInstanceFromAndUnwrap(assemblyName, typeName, activationAttributes);
+            return _underlyingObject.CreateInstanceFromAndUnwrap(assemblyName, typeName, activationAttributes);
         }
         /// <inheritdoc />
         public object CreateInstanceFromAndUnwrap(string assemblyName, string typeName, bool ignoreCase, BindingFlags bindingAttr, Binder binder, object[] args, CultureInfo culture, object[] activationAttributes, Evidence securityAttributes)
         {
-            return AppDomainInstance.CreateInstanceFromAndUnwrap(assemblyName, typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes, securityAttributes);
+            return _underlyingObject.CreateInstanceFromAndUnwrap(assemblyName, typeName, ignoreCase, bindingAttr, binder, args, culture, activationAttributes, securityAttributes);
         }
         /// <inheritdoc />
         public void DoCallBack(CrossAppDomainDelegate callBackDelegate)
         {
-            AppDomainInstance.DoCallBack(callBackDelegate);
+            _underlyingObject.DoCallBack(callBackDelegate);
         }
         /// <inheritdoc />
         event ResolveEventHandler IAppDomain.AssemblyResolve
         {
-            add { AppDomainInstance.AssemblyResolve += value; }
-            remove { AppDomainInstance.AssemblyResolve -= value; }
+            add { _underlyingObject.AssemblyResolve += value; }
+            remove { _underlyingObject.AssemblyResolve -= value; }
         }
 
         public event AssemblyLoadEventHandler AssemblyLoad
         {
-            add { AppDomainInstance.AssemblyLoad += value; }
-            remove { AppDomainInstance.AssemblyLoad -= value; }
+            add { _underlyingObject.AssemblyLoad += value; }
+            remove { _underlyingObject.AssemblyLoad -= value; }
         }
         /// <inheritdoc />
         public event EventHandler DomainUnload
         {
-            add { AppDomainInstance.DomainUnload += value; }
-            remove { AppDomainInstance.DomainUnload -= value; }
+            add { _underlyingObject.DomainUnload += value; }
+            remove { _underlyingObject.DomainUnload -= value; }
         }
         /// <inheritdoc />
         public event EventHandler ProcessExit
         {
-            add { AppDomainInstance.ProcessExit += value; }
-            remove { AppDomainInstance.ProcessExit -= value; }
+            add { _underlyingObject.ProcessExit += value; }
+            remove { _underlyingObject.ProcessExit -= value; }
         }
         /// <inheritdoc />
         public event ResolveEventHandler ReflectionOnlyAssemblyResolve
         {
-            add { AppDomainInstance.ReflectionOnlyAssemblyResolve += value; }
-            remove { AppDomainInstance.ReflectionOnlyAssemblyResolve -= value; }
+            add { _underlyingObject.ReflectionOnlyAssemblyResolve += value; }
+            remove { _underlyingObject.ReflectionOnlyAssemblyResolve -= value; }
         }
         /// <inheritdoc />
         public event ResolveEventHandler ResourceResolve
         {
-            add { AppDomainInstance.ResourceResolve += value; }
-            remove { AppDomainInstance.ResourceResolve -= value; }
+            add { _underlyingObject.ResourceResolve += value; }
+            remove { _underlyingObject.ResourceResolve -= value; }
         }
         /// <inheritdoc />
         public event ResolveEventHandler TypeResolve
         {
-            add { AppDomainInstance.TypeResolve += value; }
-            remove { AppDomainInstance.TypeResolve -= value; }
+            add { _underlyingObject.TypeResolve += value; }
+            remove { _underlyingObject.TypeResolve -= value; }
         }
         /// <inheritdoc />
         public event UnhandledExceptionEventHandler UnhandledException
         {
-            add { AppDomainInstance.UnhandledException += value; }
-            remove { AppDomainInstance.UnhandledException -= value; }
+            add { _underlyingObject.UnhandledException += value; }
+            remove { _underlyingObject.UnhandledException -= value; }
         }
         /// <inheritdoc />
         public AppDomainManager DomainManager
         {
-            get { return AppDomainInstance.DomainManager; }
+            get { return _underlyingObject.DomainManager; }
         }
         /// <inheritdoc />
         public Evidence Evidence
         {
-            get { return AppDomainInstance.Evidence; }
+            get { return _underlyingObject.Evidence; }
         }
 
         public AppDomainSetup SetupInformation
         {
-            get { return AppDomainInstance.SetupInformation; }
+            get { return _underlyingObject.SetupInformation; }
         }
         /// <inheritdoc />
         public string BaseDirectory
         {
-            get { return AppDomainInstance.BaseDirectory; }
+            get { return _underlyingObject.BaseDirectory; }
         }
         /// <inheritdoc />
         public string DynamicDirectory
         {
-            get { return AppDomainInstance.DynamicDirectory; }
+            get { return _underlyingObject.DynamicDirectory; }
         }
         /// <inheritdoc />
         public string FriendlyName
         {
-            get { return AppDomainInstance.FriendlyName; }
+            get { return _underlyingObject.FriendlyName; }
         }
     }
 }

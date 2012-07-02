@@ -13,12 +13,7 @@ namespace UnitWrappers.System
     public interface IAppDomain
     {
 
-        // Properties
 
-        /// <summary>
-        /// Gets <see cref="T:System.AppDomain"/> object.
-        /// </summary>
-        AppDomain AppDomainInstance { get; }
 
 
         // Methods

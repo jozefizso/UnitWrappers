@@ -35,11 +35,7 @@ namespace UnitWrappers.System.Data.SqlClient
         /// Gets <see cref="T:System.Data.SqlClient.SqlConnection"/> object.
         /// </summary>
         SqlConnection UnderlyingObject { get; }
-        /// <summary>
-        /// Indicates the state of the SqlConnection.
-        /// </summary>
-        [Browsable(false)]
-        ConnectionState State { get; }
+ 
         /// <summary>
         /// When set to true, enables statistics gathering for the current connection.
         /// </summary>
