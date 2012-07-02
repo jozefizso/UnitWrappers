@@ -17,9 +17,10 @@ namespace UnitWrappers.System.Threading
 
         void GetMinThreads(out int workerThreads, out int completionPortThreads);
         void GetAvailableThreads(out int workerThreads, out int completionPortThreads);
-
+#if !MONO
         [CLSCompliant(false)]
-        [MethodImpl(MethodImplOptions.NoInlining)]
+#endif
+		[MethodImpl(MethodImplOptions.NoInlining)]
         RegisteredWaitHandle RegisterWaitForSingleObject(WaitHandle waitObject, WaitOrTimerCallback callBack, object state, uint millisecondsTimeOutInterval, bool executeOnlyOnce);
 
         [MethodImpl(MethodImplOptions.NoInlining)]

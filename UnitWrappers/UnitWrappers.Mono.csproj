@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>UnitWrappers</RootNamespace>
     <AssemblyName>UnitWrappers</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,5 +35,21 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Compile Include="System\IConsole.cs" />
+    <Compile Include="System\Reflection\IAssemblyName.cs" />
+    <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
+    <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
+    <Compile Include="System\Security\AccessControl\DirectorySecurityWrap.cs" />
+    <Compile Include="System\Threading\IThread.cs" />
+    <Compile Include="System\Threading\IThreadPool.cs" />
+    <Compile Include="System\Threading\IWaitHandle.cs" />
+    <Compile Include="System\Threading\IMutex.cs" />
+    <Compile Include="System\Threading\IMutexSystem.cs" />
+    <Compile Include="System\IEnvironment.cs" />
+    <Compile Include="System\IDateTimeSystem.cs" />
+    <Compile Include="System\DateTimeSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System\IO\" />
   </ItemGroup>
 </Project>
