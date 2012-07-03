@@ -9,58 +9,56 @@ namespace UnitWrappers.System.Threading
 {
     public class MutexWrap : IMutex
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public Mutex UnderlyingObject { get; private set; }
+
+        private Mutex _underlyingObject;
 
 
 
         public bool WaitOne()
         {
-            return UnderlyingObject.WaitOne();
+            return _underlyingObject.WaitOne();
         }
 
-        WaitHandle IWaitHandle.UnderlyingObject
+        WaitHandle IWrap<WaitHandle>.UnderlyingObject
         {
-            get { return UnderlyingObject; }
+            get { return _underlyingObject; }
 
         }
 
         public MutexWrap(Mutex mutex)
         {
-            UnderlyingObject = mutex;
+            _underlyingObject = mutex;
         }
 
         public MutexWrap(bool initiallyOwned)
         {
-            UnderlyingObject = new Mutex(initiallyOwned);
+            _underlyingObject = new Mutex(initiallyOwned);
         }
 
         public MutexWrap(bool initiallyOwned, string name)
         {
-            UnderlyingObject = new Mutex(initiallyOwned, name);
+            _underlyingObject = new Mutex(initiallyOwned, name);
         }
 
         public void Close()
         {
-            UnderlyingObject.Close();
+            _underlyingObject.Close();
         }
 
         public MutexWrap(bool initiallyOwned, string name, out bool createNew)
         {
-            UnderlyingObject = new Mutex(initiallyOwned, name, out createNew);
+            _underlyingObject = new Mutex(initiallyOwned, name, out createNew);
         }
 
         public MutexWrap(bool initiallyOwned, string name, out bool createNew, MutexSecurity mutexSecurity)
         {
-            UnderlyingObject = new Mutex(initiallyOwned, name, out createNew, mutexSecurity);
+            _underlyingObject = new Mutex(initiallyOwned, name, out createNew, mutexSecurity);
         }
 
 
          void IDisposable.Dispose()
         {
-            (UnderlyingObject as IDisposable).Dispose();
+            (_underlyingObject as IDisposable).Dispose();
         }
     }
 }

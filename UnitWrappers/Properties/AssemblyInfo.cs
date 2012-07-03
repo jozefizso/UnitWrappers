@@ -3,29 +3,23 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
 [assembly: AssemblyTitle("UnitWrappers")]
 [assembly: AssemblyDescription("Wraps .NET classes.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("UnitWrappers")]
-[assembly: AssemblyCopyright("Copyright © Codeplex 2011")]
+[assembly: AssemblyCopyright("Copyright © 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-#if PORTABLE
+#if PORTABLE 
 [assembly: CLSCompliant(true)]
 #endif
 
-// Setting ComVisible to false makes the types in this assembly not visible 
-// to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
+#if NET40 || NET35
 [assembly: ComVisible(false)]
-
-// The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("f50b78bf-5353-4df2-a4cc-536e5d05c823")]
+#endif
 
 // Version information for an assembly consists of the following four values:
 //
@@ -37,8 +31,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.5.7.0")]
-[assembly: AssemblyFileVersion("0.5.7.0")]
+[assembly: AssemblyVersion("0.5.8.0")]
+[assembly: AssemblyFileVersion("0.5.8.0")]
 #if NET35 || NET40
 [assembly: InternalsVisibleTo(@"WPFWrappers, PublicKey=00240000048000009400000006020000002400005253413100040000010001005d97ca4508432c
 2d4000fc39af5c546a0ef3a2268ecfefe2e0babee286d7393fb07110d9bc3186d4df5adb420929

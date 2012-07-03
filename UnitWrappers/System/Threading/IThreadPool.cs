@@ -16,7 +16,10 @@ namespace UnitWrappers.System.Threading
         bool SetMinThreads(int workerThreads, int completionPortThreads);
 
         void GetMinThreads(out int workerThreads, out int completionPortThreads);
+#if !ANDROID
         void GetAvailableThreads(out int workerThreads, out int completionPortThreads);
+#endif
+
 #if !PORTABLE
         [CLSCompliant(false)]
 		[MethodImpl(MethodImplOptions.NoInlining)]

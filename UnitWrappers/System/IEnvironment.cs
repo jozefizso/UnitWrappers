@@ -20,7 +20,7 @@ namespace UnitWrappers.System
 
         /// <inheritdoc />
         bool HasShutdownStarted { get; }
-#if !NET35
+#if !NET35 && !ANDROID
 
         /// <inheritdoc />
         bool Is64BitOperatingSystem { get; }
@@ -46,10 +46,10 @@ namespace UnitWrappers.System
 
         /// <inheritdoc />
         string StackTrace { get; }
-
+        #if !ANDROID
         /// <inheritdoc />
         string SystemDirectory { get; }
-
+#endif
 
 
         /// <inheritdoc />
@@ -94,25 +94,28 @@ namespace UnitWrappers.System
         /// <inheritdoc />
         string GetEnvironmentVariable(string variable);
 
+#if !ANDROID
         /// <inheritdoc />
         string GetEnvironmentVariable(string variable, EnvironmentVariableTarget target);
-
+#endif
         /// <inheritdoc />
         IDictionary GetEnvironmentVariables();
-
+        #if !ANDROID
         /// <inheritdoc />
         IDictionary GetEnvironmentVariables(EnvironmentVariableTarget target);
-
+#endif
         /// <inheritdoc />
         string GetFolderPath(global::System.Environment.SpecialFolder folder);
 
         /// <inheritdoc />
         string[] GetLogicalDrives();
 
+#if !ANDROID
         /// <inheritdoc />
         void SetEnvironmentVariable(string variable, string value);
 
         /// <inheritdoc />
         void SetEnvironmentVariable(string variable, string value, EnvironmentVariableTarget target);
+#endif
     }
 }

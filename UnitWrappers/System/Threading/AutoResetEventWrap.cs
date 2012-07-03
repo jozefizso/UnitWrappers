@@ -5,33 +5,33 @@ namespace UnitWrappers.System.Threading
 {
     public class AutoResetEventWrap : IAutoResetEvent
     {
-        public AutoResetEvent UnderlyingObject { get; private set; }
+        private AutoResetEvent _underlyingObject;
 
         public AutoResetEventWrap(AutoResetEvent eventWaitHandle)
         {
-            UnderlyingObject = eventWaitHandle;
+            _underlyingObject = eventWaitHandle;
         }
 
         public AutoResetEventWrap(bool initialState)
         {
-            UnderlyingObject = new AutoResetEvent(initialState);
+            _underlyingObject = new AutoResetEvent(initialState);
         }
 
-        WaitHandle IWaitHandle.UnderlyingObject { get { return UnderlyingObject; } }
+        WaitHandle IWrap<WaitHandle>.UnderlyingObject { get { return _underlyingObject; } }
 
         public void Close()
         {
-           UnderlyingObject.Close();
+            _underlyingObject.Close();
         }
 
         public bool WaitOne()
         {
-            return UnderlyingObject.WaitOne();
+            return _underlyingObject.WaitOne();
         }
 
         void IDisposable.Dispose()
         {
-            (UnderlyingObject as IDisposable).Dispose();
+            (_underlyingObject as IDisposable).Dispose();
         }
     }
 }

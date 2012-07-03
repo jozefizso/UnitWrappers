@@ -30,10 +30,14 @@ namespace UnitWrappers.System.Threading
             ThreadPool.GetMinThreads(out workerThreads, out completionPortThreads);
         }
 
+#if !ANDROID
+        /// <inheritdoc />
         public void GetAvailableThreads(out int workerThreads, out int completionPortThreads)
         {
             ThreadPool.GetAvailableThreads(out workerThreads, out completionPortThreads);
         }
+
+#endif
 
         [CLSCompliant(false)]
         [MethodImpl(MethodImplOptions.NoInlining)]
