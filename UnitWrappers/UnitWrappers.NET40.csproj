@@ -88,6 +88,12 @@
     <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
     <Compile Include="System\Management\IManagementObjectSearcher.cs" />
     <Compile Include="System\Management\ManagementObjectSearcherWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
+    <Compile Include="System\Net\NetworkInformation\INetworkInterface.cs" />
+    <Compile Include="System\Net\NetworkInformation\IPing.cs" />
+    <Compile Include="System\Net\NetworkInformation\NetworkChangeWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\NetworkInterfaceWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\PingWrap.cs" />
     <Compile Include="System\Runtime\InteropServices\ISafeHandle.cs" />
     <Compile Include="Microsoft\Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

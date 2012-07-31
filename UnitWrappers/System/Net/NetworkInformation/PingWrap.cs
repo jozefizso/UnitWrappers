@@ -21,6 +21,12 @@ namespace UnitWrappers.System.Net.NetworkInformation
 		{
 			_underlyingObject = ping;
 		}
+
+        /// <inheritdoc />
+        public PingReply Send(string hostNameOrAddress)
+        {
+            return _underlyingObject.Send(hostNameOrAddress);
+        }
 	}
 }
 

@@ -87,6 +87,12 @@
     <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />
     <Compile Include="System\Net\IWebClient.cs" />
     <Compile Include="System\Net\IWebRequestSystem.cs" />
+    <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
+    <Compile Include="System\Net\NetworkInformation\INetworkInterface.cs" />
+    <Compile Include="System\Net\NetworkInformation\IPing.cs" />
+    <Compile Include="System\Net\NetworkInformation\NetworkChangeWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\NetworkInterfaceWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\PingWrap.cs" />
     <Compile Include="System\Net\WebClientWrap.cs" />
     <Compile Include="System\Net\WebRequestSystem.cs" />
     <Compile Include="System\Runtime\InteropServices\ISafeHandle.cs" />
