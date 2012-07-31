@@ -125,6 +125,8 @@ namespace UnitWrappers.System.ComponentModel
             UnderlyingObject.RunWorkerAsync(argument);
         }
 
+#if !ANDROID
+
         public void Dispose()
         {
             UnderlyingObject.Dispose();
@@ -141,5 +143,6 @@ namespace UnitWrappers.System.ComponentModel
             add { UnderlyingObject.Disposed += value; }
             remove { UnderlyingObject.Disposed -= value; }
         }
+#endif
     }
 }

@@ -40,51 +40,25 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\DateTimeSystem.cs" />
-    <Compile Include="System\IDateTimeSystem.cs" />
-    <Compile Include="System\IO\BinaryReaderWrap.cs" />
-    <Compile Include="System\IO\BinaryWriterWrap.cs" />
-    <Compile Include="System\IO\Compression\DeflateStreamWrap.cs" />
-    <Compile Include="System\IO\Compression\IDeflateStream.cs" />
-    <Compile Include="System\IO\DirectoryInfoWrap.cs" />
-    <Compile Include="System\IO\DirectoryWrap.cs" />
-    <Compile Include="System\IO\FileInfoSystem.cs" />
-    <Compile Include="System\IO\FileInfoWrap.cs" />
-    <Compile Include="System\IO\FileStreamWrap.cs" />
-    <Compile Include="System\IO\FileSystemWatcherWrap.cs" />
-    <Compile Include="System\IO\FileWrap.cs" />
-    <Compile Include="System\IO\IBinaryReader.cs" />
-    <Compile Include="System\IO\IBinaryWriter.cs" />
-    <Compile Include="System\IO\IDirectory.cs" />
-    <Compile Include="System\IO\IDirectoryInfo.cs" />
-    <Compile Include="System\IO\IFile.cs" />
-    <Compile Include="System\IO\IFileInfo.cs" />
-    <Compile Include="System\IO\IFileInfoSystem.cs" />
-    <Compile Include="System\IO\IFileStream.cs" />
-    <Compile Include="System\IO\IFileSystemWatcher.cs" />
-    <Compile Include="System\IO\IMemoryStream.cs" />
-    <Compile Include="System\IO\IPath.cs" />
-    <Compile Include="System\IO\IStream.cs" />
-    <Compile Include="System\IO\IStreamReader.cs" />
-    <Compile Include="System\IO\IStreamWriter.cs" />
-    <Compile Include="System\IO\ITextReader.cs" />
-    <Compile Include="System\IO\MemoryStreamWrap.cs" />
-    <Compile Include="System\IO\PathWrap.cs" />
-    <Compile Include="System\IO\StreamReaderWrap.cs" />
-    <Compile Include="System\IO\StreamWriterWrap.cs" />
-    <Compile Include="System\Net\Sockets\ISocket.cs" />
-    <Compile Include="System\Net\Sockets\SocketWrap.cs" />
-    <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
-    <Compile Include="System\Reflection\AssemblySystem.cs" />
-    <Compile Include="System\Reflection\AssemblyWrap.cs" />
-    <Compile Include="System\Reflection\IAssembly.cs" />
-    <Compile Include="System\Reflection\IAssemblyName.cs" />
-    <Compile Include="System\Reflection\IAssemblySystem.cs" />
-    <Compile Include="System\Threading\IThread.cs" />
-    <Compile Include="System\Threading\IThreadSystem.cs" />
-    <Compile Include="System\Threading\ThreadSystem.cs" />
-    <Compile Include="System\Threading\ThreadWrap.cs" />
+    <Compile Include="System\DateTimeSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IDateTimeSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Threading\IThread.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\Threading\ThreadWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="System\ComponentModel\" />
+    <Folder Include="System\Configuration\" />
+    <Folder Include="System\Diagnostics\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

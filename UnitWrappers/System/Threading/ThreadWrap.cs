@@ -20,7 +20,7 @@ namespace UnitWrappers.System.Threading
         {
             UnderlyingObject = thread;
         }
-
+        #if !PORTABLE
         public ExecutionContext ExecutionContext
         {
             get
@@ -29,13 +29,13 @@ namespace UnitWrappers.System.Threading
             }
         }
 
+
         public string Name
         {
             get { return UnderlyingObject.Name; }
             set { UnderlyingObject.Name = Name; }
         }
 
-#if !PORTABLE
         public ThreadWrap(ThreadStart start)
         {
             UnderlyingObject = new global::System.Threading.Thread(start);

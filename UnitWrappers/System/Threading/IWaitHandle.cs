@@ -8,13 +8,8 @@ namespace UnitWrappers.System.Threading
     /// <summary>
     /// Wraps instance of <see cref="WaitHandle"/>
     /// </summary>
-    public interface IWaitHandle:IDisposable
+    public interface IWaitHandle:IDisposable,IWrap<WaitHandle>
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        WaitHandle UnderlyingObject { get; }
-
         void Close();
         bool WaitOne();
     }

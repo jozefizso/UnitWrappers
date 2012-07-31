@@ -14,11 +14,6 @@
             Wraps instance of <see cref="T:System.Threading.WaitHandle"/>
             </summary>
         </member>
-        <member name="P:UnitWrappers.System.Threading.IWaitHandle.UnderlyingObject">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.Threading.ThreadSystem">
             <summary>
             Wrapper for static members of <see cref="T:System.Threading.Thread"/> class.
@@ -61,17 +56,7 @@
         <member name="P:UnitWrappers.System.Threading.ThreadSystem.CurrentContext">
             <inheritdoc />
         </member>
-        <member name="P:UnitWrappers.System.Threading.IMutex.UnderlyingObject">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.Threading.IAutoResetEvent">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Threading.IAutoResetEvent.UnderlyingObject">
             <summary>
             
             </summary>
@@ -505,11 +490,6 @@
         <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.UnderlyingObject">
             <summary>
             Gets <see cref="T:System.Data.SqlClient.SqlConnection"/> object.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.State">
-            <summary>
-            Indicates the state of the SqlConnection.
             </summary>
         </member>
         <member name="P:UnitWrappers.System.Data.SqlClient.ISqlConnection.StatisticsEnabled">
@@ -2610,11 +2590,6 @@
             
             </summary>
         </member>
-        <member name="P:UnitWrappers.System.Threading.MutexWrap.UnderlyingObject">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.Reflection.AssemblyWrap">
             <summary>
             Wrapper for <see cref="T:System.Reflection.Assembly"/> class.
@@ -2989,13 +2964,6 @@
             <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
             <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         </member>
-        <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(System.String,System.IO.FileMode)">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileStreamWrap"/> class with the specified path and creation mode. 
-            </summary>
-            <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-            <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-        </member>
         <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle,System.IO.FileAccess,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileStreamWrap"/> class for the specified file handle, with the specified read/write permission, and buffer size. 
@@ -3003,14 +2971,6 @@
             <param name="handle">A file handle for the file that the current FileStream object will encapsulate. </param>
             <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
             <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">
-            <summary>
-            Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileStreamWrap"/> class with the specified path and creation mode. 
-            </summary>
-            <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
-            <param name="mode">A FileMode constant that determines how to open or create the file.</param>
-            <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
         </member>
         <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle,System.IO.FileAccess,System.Int32,System.Boolean)">
             <summary>
@@ -3020,6 +2980,21 @@
             <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
             <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
             <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
+        </member>
+        <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(System.String,System.IO.FileMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+            </summary>
+            <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
+            <param name="mode">A FileMode constant that determines how to open or create the file.</param>
+        </member>
+        <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileStreamWrap"/> class with the specified path and creation mode. 
+            </summary>
+            <param name="path">A relative or absolute path for the file that the current FileStream object will encapsulate.</param>
+            <param name="mode">A FileMode constant that determines how to open or create the file.</param>
+            <param name="access">A FileAccess constant that determines how the file can be accessed by the FileStream object. This gets the CanRead and CanWrite properties of the FileStream object. CanSeek is true if path specifies a disk file.</param>
         </member>
         <member name="M:UnitWrappers.System.IO.FileStreamWrap.#ctor(System.String,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)">
             <summary>
@@ -3242,6 +3217,9 @@
             Gets or sets the properties to pass to the Start  method of the Process.
             </summary>
         </member>
+        <member name="M:UnitWrappers.System.Threading.ThreadPoolWrap.GetAvailableThreads(System.Int32@,System.Int32@)">
+            <inheritdoc />
+        </member>
         <member name="T:UnitWrappers.System.IO.PathWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.Path"/> class.
@@ -3455,11 +3433,6 @@
             <param name="assemblyName"></param>
             <param name="typeName"></param>
             <returns></returns>
-        </member>
-        <member name="P:UnitWrappers.System.IAppDomain.AppDomainInstance">
-            <summary>
-            Gets <see cref="T:System.AppDomain"/> object.
-            </summary>
         </member>
         <member name="E:UnitWrappers.System.IAppDomain.AssemblyResolve">
             <summary>
@@ -5267,31 +5240,6 @@
             Wrapper for <see cref="T:System.Data.SqlClient.SqlDataReader"/> class.
             </summary>
         </member>
-        <member name="M:UnitWrappers.System.Data.SqlClient.ISqlDataReader.Close">
-            <summary>
-            Closes the SqlDataReader object. 
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.Data.SqlClient.ISqlDataReader.Read">
-            <summary>
-            Advances the SqlDataReader to the next record. 
-            </summary>
-            <returns> true if there are more rows; otherwise false.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlDataReader.Item(System.Int32)">
-            <summary>
-            Gets the value of the specified column in its native format given the column ordinal.
-            </summary>
-            <param name="i">The zero-based column ordinal.</param>
-            <returns>The value of the specified column in its native format.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.ISqlDataReader.Item(System.String)">
-            <summary>
-            Gets the value of the specified column in its native format given the column name.
-            </summary>
-            <param name="name">The column name.</param>
-            <returns>The value of the specified column in its native format.</returns>
-        </member>
         <member name="P:UnitWrappers.System.Data.SqlClient.ISqlDataReader.UnderlyingObject">
             <summary>
             Gets <see cref="T:System.Data.SqlClient.SqlDataReader"/> object.
@@ -5664,12 +5612,6 @@
             <inheritdoc />
         </member>
         <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.System#Data#IDataRecord#Item(System.String)">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.UnitWrappers#System#Data#SqlClient#ISqlDataReader#Item(System.Int32)">
-            <inheritdoc />
-        </member>
-        <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.UnitWrappers#System#Data#SqlClient#ISqlDataReader#Item(System.String)">
             <inheritdoc />
         </member>
         <member name="P:UnitWrappers.System.Data.SqlClient.SqlDataReaderWrap.Depth">

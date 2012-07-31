@@ -2,7 +2,10 @@ using System.ComponentModel;
 
 namespace UnitWrappers.System.ComponentModel
 {
-    public interface IBackgroundWorker : IComponent
+    public interface IBackgroundWorker
+#if !ANDROID
+        : IComponent
+#endif
     {
         [Browsable(false)]
         bool CancellationPending { get; }

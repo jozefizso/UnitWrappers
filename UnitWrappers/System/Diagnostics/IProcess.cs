@@ -9,7 +9,10 @@ namespace UnitWrappers.System.Diagnostics
     /// <summary>
     /// Description of IProcess
     /// </summary>
-    public interface IProcess : IComponent
+    public interface IProcess 
+
+        :IComponent
+
     {
 
         // Properties
@@ -17,7 +20,9 @@ namespace UnitWrappers.System.Diagnostics
         /// <summary>
         /// Gets the value that the associated process specified when it terminated.
         /// </summary>
+     
         [MonitoringDescription("ProcessExitCode"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+
         int ExitCode { get; }
 
         // Methods

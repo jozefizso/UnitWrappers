@@ -1,10 +1,12 @@
 using System;
 using System.Globalization;
-using System.Runtime.ConstrainedExecution;
-using System.Security.Permissions;
 using System.Security.Principal;
 using System.Threading;
+#if !PORTABLE
 using System.Runtime.Remoting.Contexts;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Permissions;
+#endif
 
 namespace UnitWrappers.System.Threading
 {
@@ -29,12 +31,24 @@ namespace UnitWrappers.System.Threading
         /// </value>
         int ManagedThreadId { get; }
 
-        CultureInfo CurrentUICulture { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)] set; }
-
+        CultureInfo CurrentUICulture { 
+            get;
+#if !PORTABLE
+            [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)] 
+#endif
+            set; }
+        #if !PORTABLE
         ExecutionContext ExecutionContext { [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)] get; }
+#endif
 
-        string Name { get; [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)] set; }
+#if !PORTABLE
+        string Name {
+            get;
+     
+            [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)] 
 
+            set; }
+#endif
 #if !PORTABLE
 
         /// <summary>
