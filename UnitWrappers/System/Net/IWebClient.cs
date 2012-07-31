@@ -12,7 +12,7 @@ using System.Text;
 
 namespace UnitWrappers.System.Net
 {
-#if !PORTABLE
+#if !PORTABLE && !MONO
     [ComVisible(true)]
 #endif
     public interface IWebClient : IComponent
