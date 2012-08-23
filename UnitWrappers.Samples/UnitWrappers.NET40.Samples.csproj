@@ -107,6 +107,7 @@
     <Compile Include="System\IO\FileInfoSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Threading\WaithHandles.cs" />
+    <Compile Include="System\Timers\TimerTests.cs" />
     <Compile Include="TodoClasses.cs" />
   </ItemGroup>
   <ItemGroup>
