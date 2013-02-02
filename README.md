@@ -1,4 +1,4 @@
-## Description 
+### Description 
 * Wraps classes into other classes with interfaces which are suitable for unit testing.
 * Designed to be used with dependency injection containers. 
 * Should be used with mocking libraries and correspondending automocking container extensions in tests.
@@ -22,21 +22,14 @@
 * Real world sample with IoC/DI + WCF, Net, IO, etc.
 * Semi-automatic migration, documenting, wrapping (using NRefactory)
 * Cover more of Mono, PortableLibrary, MonoDroid 
-* Performance and memory usage overhead evaluation
+* Performance(calls and object graph construction) and memory usage overhead evaluation
 * Support for code contracts and members' attributes defined on real .NET classes
 * Namespace wide factories
 * Tests which check method signatures (that wraps call right underlying methods) on code or IL level
 * Units.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
 
-## Performance
-
-### Calls
-
-### Object graph constuction
-
-
-## Sample of concept:
+### Sample of concept:
 > 
 > var service = IoC.Get<HostService>();
 > 
@@ -67,24 +60,24 @@
 > 	}
 > }
 
-## Develop
+### Develop
 SystemWrapper.sln:
 Visual Studio 2010
 Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version
 ReSharper(or other test runner) - to run unit tests(NUnit)
 
-
 SystemWrapper.Mono.sln:
 Linux
 MonoDevelop
 
-## Obsolete and new methods
+### Obsolete and new methods
 
 Methods obsolete in .NET 4.0 or .NET 3.5 are not implemented.
 New .NET methods sometimes backported to 3.5 wrappers.
 
 
-## Coverage
+### Coverage
+
 Total number of wraps: 52
 Microsoft.Win32.Registry-> UnitWrappers.Microsoft.Win32.IRegistry : 100%
 Microsoft.Win32.RegistryKey-> UnitWrappers.Microsoft.Win32.IRegistryKeySystem UnitWrappers.Microsoft.Win32.IRegistryKey : 60%
