@@ -30,36 +30,38 @@
 * Test helpers like in http://systemioabstractions.codeplex.com
 
 ### Sample of concept:
-> 
-> var service = IoC.Get<HostService>();
-> 
-> public class HostService()
-> {
->     ...
-> 
->   public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
-> 	{
-> 	    _file = file;
-> 		_appDomainSystem = appDomainSystem;
-> 		_processSystem = processSystem;
-> 	}
-> 
-> 	public void Run()
-> 	{
-> 		if (file.Exists("Daemon.exe")
-> 		{
-> 		     processSystem.Start("Daemon.exe");
-> 		}
-> 		else if (file.Exists("Daemon.dll")
-> 		{
-> 		    var domain = appDomainSystem.CreateDomain("Daemon");
-> 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
-> 			daemon.Start();
-> 		}
-> 		else new Daemon().Start();
-> 	}
-> }
 
+```csharp
+ var service = IoC.Get<HostService>();
+ 
+ public class HostService()
+ {
+    ...
+ 
+    public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
+ 	{
+ 	    _file = file;
+ 		_appDomainSystem = appDomainSystem;
+ 		_processSystem = processSystem;
+ 	}
+ 
+ 	public void Run()
+ 	{
+ 		if (file.Exists("Daemon.exe")
+ 		{
+ 		     processSystem.Start("Daemon.exe");
+ 		}
+ 		else if (file.Exists("Daemon.dll")
+ 		{
+ 		    var domain = appDomainSystem.CreateDomain("Daemon");
+ 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
+ 			daemon.Start();
+ 		}
+ 		else new Daemon().Start();
+ 	}
+ }
+```
+ 
 ### Develop
 SystemWrapper.sln:
 Visual Studio 2010
