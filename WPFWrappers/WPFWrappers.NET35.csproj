@@ -56,7 +56,7 @@
     <Compile Include="System\Windows\IWindowSystem.cs" />
     <Compile Include="System\Windows\MessageBoxWrap.cs" />
     <Compile Include="System\Windows\Threading\DispatcherSystem.cs" />
-    <Compile Include="System\Windows\Threading\DispatcherTimerFactory.cs" />
+    <Compile Include="System\Windows\Threading\DispatcherTimerSystem.cs" />
     <Compile Include="System\Windows\Threading\DispatcherTimerWrap.cs" />
     <Compile Include="System\Windows\Threading\DispatcherWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,7 +65,7 @@
     <Compile Include="System\Windows\Threading\IDispatcherService.cs" />
     <Compile Include="System\Windows\Threading\IDispatcherSystem.cs" />
     <Compile Include="System\Windows\Threading\IDispatcherTimer.cs" />
-    <Compile Include="System\Windows\Threading\IDispatcherTimerFactory.cs" />
+    <Compile Include="System\Windows\Threading\IDispatcherTimerSystem.cs" />
     <Compile Include="System\Windows\WindowWrap.cs" />
   </ItemGroup>
   <ItemGroup>

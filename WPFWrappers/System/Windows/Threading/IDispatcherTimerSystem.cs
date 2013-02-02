@@ -6,7 +6,7 @@ using System.Windows.Threading;
 
 namespace UnitWrappers.System.Windows.Threading
 {
-    public interface IDispatcherTimerFactory
+    public interface IDispatcherTimerSystem
     {
 
         /// <summary> 

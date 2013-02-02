@@ -1,6 +1,6 @@
-using System;
 using System.Net.NetworkInformation;
-namespace UnitWrappers.System.Net.NetworkInformations
+
+namespace UnitWrappers.System.Net.NetworkInformation
 {
 	public class NetworkChangeWrap:INetworkChange
 	{

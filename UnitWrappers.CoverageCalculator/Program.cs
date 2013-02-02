@@ -4,10 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using UnitWrappers.Microsoft.Win32;
+
 using UnitWrappers.System;
 using UnitWrappers.System.Diagnostics;
 using UnitWrappers.System.IO;
+using UnitWrappers.System.Windows;
 using UnitWrappers.System.Windows.Threading;
 
 namespace UnitWrappers.CoverageCalculator
@@ -20,7 +21,7 @@ namespace UnitWrappers.CoverageCalculator
         {
             // stripped out interface version of some framework class with less control above underlying instance
             // no corresponding direct implementation
-            var narrowMembers = new[] { typeof(IDispatcherService).FullName, typeof(ILocalProcessSystem).FullName };
+            var narrowMembers = new[] { typeof(IDispatcherService).FullName, typeof(ILocalProcessSystem).FullName,typeof(IWindowState).FullName };
 
             // static members and constuctors of class
             var staticMembers = "System";
@@ -95,6 +96,12 @@ namespace UnitWrappers.CoverageCalculator
                 {
                     continue;
                 }
+                // exclude utilitary types
+                var accessor = typeof (IWrap<>).Name.Remove(0, 1);
+                if (wraps.Key.StartsWith(accessor))
+                {
+                    continue;
+                }
                 var type = frameworkClasses.Where(x => x.FullName == frameworkTypeName).Single();
                 counterParts.Add(new FrameworkWrapsMap(type, wraps.Value));
             }
@@ -111,6 +118,7 @@ namespace UnitWrappers.CoverageCalculator
                     {
                         string entry = CalculateEntry(counterPart.Wrapped, counterPart.Wraps);
                         streamWriter.WriteLine(entry);
+                        streamWriter.WriteLine();
                         streamWriter.Flush();
                     }
 

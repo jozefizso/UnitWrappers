@@ -3,7 +3,7 @@ using System.Windows.Threading;
 
 namespace UnitWrappers.System.Windows.Threading
 {
-    class DispatcherTimerFactory : IDispatcherTimerFactory
+    public class DispatcherTimerSystem : IDispatcherTimerSystem
     {
         /// <inheritdoc />
         public IDispatcherTimer CreateDispatcherTimer()

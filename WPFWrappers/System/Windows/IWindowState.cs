@@ -6,15 +6,17 @@ using System.Security;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
+
 #if NET40
+using System.Windows;
+using System.Windows.Media;
 using System.Windows.Shell;
 #endif
 
 namespace UnitWrappers.System.Windows
 {
-    public interface IWindowState
+    public  interface IWindowState
     {
-
 #if NET40
         /// <summary> 
         /// Get or set the TaskbarItemInfo associated with this Window.
@@ -59,8 +61,12 @@ namespace UnitWrappers.System.Windows
         ///               which will access unsafe native methods. 
         ///     PublicOK: There exists a demand , safe to expose
         /// </SecurityNote> 
-        ImageSource Icon { get; [SecurityCritical]
-        set; }
+        ImageSource Icon
+        {
+            get;
+            [SecurityCritical]
+            set;
+        }
 
         /// <summary>
         /// Auto size Window to its content's size
@@ -121,10 +127,13 @@ namespace UnitWrappers.System.Windows
         ///     PublicOK: This code only works under RBW code path , this operation is ok since
         ///     RBW window is bound to the restrictions of its parent window which is the browser
         /// </SecurityNote> 
-        Rect RestoreBounds { [SecurityCritical]
-        get; }
+        Rect RestoreBounds
+        {
+            [SecurityCritical]
+            get;
+        }
 
-   
+
 
         /// <summary>
         /// IsActive property. It indicates whether the Window is active. 
@@ -138,7 +147,7 @@ namespace UnitWrappers.System.Windows
         /// Sets/gets DialogResult
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden),
-         TypeConverter(typeof (DialogResultConverter))]
+         TypeConverter(typeof(DialogResultConverter))]
         Nullable<bool> DialogResult { get; set; }
 
         /// <summary>
@@ -148,78 +157,77 @@ namespace UnitWrappers.System.Windows
         /// <remarks>
         ///     Default will be SingleBorderWindow. 
         /// </remarks> 
-         WindowStyle WindowStyle { get; set; }
+        WindowStyle WindowStyle { get; set; }
 
         /// <summary> 
         ///     Current state of the window.  Valid options are Maximized, Minimized,
         ///     or Normal.  The host window may choose to ignore a request to change 
         ///     the current window state. 
         /// </summary>
-          WindowState WindowState { get; set; }
+        WindowState WindowState { get; set; }
 
-          ///<summary> 
-          ///     Determines if the window should show up in the system taskbar. 
-          ///     This also determines if the window appears in the Alt-Tab list.
-          ///</summary> 
-          bool ShowInTaskbar { get; set; }
+        ///<summary> 
+        ///     Determines if the window should show up in the system taskbar. 
+        ///     This also determines if the window appears in the Alt-Tab list.
+        ///</summary> 
+        bool ShowInTaskbar { get; set; }
 
         /// <summary> 
         ///     Current state of the window.  Valid options are Maximized, Minimized,
         ///     or Normal.  The host window may choose to ignore a request to change
         ///     the current window state.
         /// </summary> 
-           ResizeMode ResizeMode { get; set; }
+        ResizeMode ResizeMode { get; set; }
 
         /// <summary>
         ///     Determines if this window is always on the top. 
         /// </summary> 
-            bool Topmost { get; set; }
+        bool Topmost { get; set; }
 
 
-             /// <summary> 
-             ///     This event is raised after the window source is created before it is shown 
-             /// </summary>
-             event EventHandler SourceInitialized;
+        /// <summary> 
+        ///     This event is raised after the window source is created before it is shown 
+        /// </summary>
+        event EventHandler SourceInitialized;
 
-             /// <summary> 
-             ///     This event is raised when the window is activated 
-             /// </summary>
-             event EventHandler Activated;
+        /// <summary> 
+        ///     This event is raised when the window is activated 
+        /// </summary>
+        event EventHandler Activated;
 
-             /// <summary> 
-             ///     This event is raised when the window is deactivated 
-             /// </summary>
-             event EventHandler Deactivated;
+        /// <summary> 
+        ///     This event is raised when the window is deactivated 
+        /// </summary>
+        event EventHandler Deactivated;
 
-             /// <summary> 
-             ///     This event is raised when the window state is changed 
-             /// </summary>
-             event EventHandler StateChanged;
+        /// <summary> 
+        ///     This event is raised when the window state is changed 
+        /// </summary>
+        event EventHandler StateChanged;
 
-             /// <summary> 
-             ///     This event is raised when the window location is changed 
-             /// </summary>
-             event EventHandler LocationChanged;
+        /// <summary> 
+        ///     This event is raised when the window location is changed 
+        /// </summary>
+        event EventHandler LocationChanged;
 
-             /// <summary> 
-             ///     This event is raised before the window is closed 
-             /// </summary>
-             /// <remarks> 
-             ///     The user can set the CancelEventArg.Cancel property to true to prevent
-             ///     the window from closing. However, if the Applicaiton is shutting down
-             ///     the window closing cannot be cancelled
-             /// </remarks> 
-             event CancelEventHandler Closing;
+        /// <summary> 
+        ///     This event is raised before the window is closed 
+        /// </summary>
+        /// <remarks> 
+        ///     The user can set the CancelEventArg.Cancel property to true to prevent
+        ///     the window from closing. However, if the Applicaiton is shutting down
+        ///     the window closing cannot be cancelled
+        /// </remarks> 
+        event CancelEventHandler Closing;
 
-             /// <summary>
-             ///     This event is raised when the window is closed.
-             /// </summary> 
-             event EventHandler Closed;
+        /// <summary>
+        ///     This event is raised when the window is closed.
+        /// </summary> 
+        event EventHandler Closed;
 
-             /// <summary>
-             ///     This event is raised when the window and its content is rendered.
-             /// </summary> 
-             event EventHandler ContentRendered;
-    
+        /// <summary>
+        ///     This event is raised when the window and its content is rendered.
+        /// </summary> 
+        event EventHandler ContentRendered;
     }
 }
