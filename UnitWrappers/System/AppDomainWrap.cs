@@ -15,7 +15,17 @@ namespace UnitWrappers.System
     public class AppDomainWrap : IAppDomain,IWrap<AppDomain>
     {
 		private AppDomain _underlyingObject;
-		
+
+        public static implicit operator AppDomainWrap(AppDomain o)
+        {
+            return new AppDomainWrap(o);
+        }
+
+        public static implicit operator AppDomain(AppDomainWrap o)
+        {
+            return o._underlyingObject;
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UnitWrappers.System.AppDomainWrap"/> class. 
         /// </summary>

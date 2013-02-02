@@ -10,15 +10,29 @@ namespace UnitWrappers.System.IO
 	/// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
 	/// </summary>
 	[Serializable, ComVisible(true)]
-	public class FileInfoWrap : IFileInfo
+	public class FileInfoWrap : IFileInfo,IWrap<FileInfo>
 	{
+        public FileInfo _underlyingObject;
+
+        FileInfo IWrap<FileInfo>.UnderlyingObject { get { return _underlyingObject; } }
+
+        public static implicit operator FileInfoWrap(FileInfo o)
+        {
+            return new FileInfoWrap(o);
+        }
+
+        public static implicit operator FileInfo(FileInfoWrap o)
+        {
+            return o._underlyingObject;
+        }
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileInfoWrap"/> class on the specified path. 
 		/// </summary>
 		/// <param name="fileInfo">A <see cref="T:System.IO.FileInfo"/> object.</param>
 		public FileInfoWrap(FileInfo fileInfo)
 		{
-            FileInfoInstance = fileInfo;
+            _underlyingObject = fileInfo;
 		}
 
 		/// <summary>
@@ -27,203 +41,201 @@ namespace UnitWrappers.System.IO
 		/// <param name="fileName">The fully qualified name of the new file, or the relative file name.</param>
 		public FileInfoWrap(string fileName)
 		{
-            FileInfoInstance = new FileInfo(fileName);
+            _underlyingObject = new FileInfo(fileName);
 		}
 
 
 		public FileAttributes Attributes
 		{
-			get { return FileInfoInstance.Attributes; }
-			set { FileInfoInstance.Attributes = value; }
+			get { return _underlyingObject.Attributes; }
+			set { _underlyingObject.Attributes = value; }
 		}
 
 		public DateTime CreationTime
 		{
-			get { return FileInfoInstance.CreationTime; }
-			set { FileInfoInstance.CreationTime = value; }
+			get { return _underlyingObject.CreationTime; }
+			set { _underlyingObject.CreationTime = value; }
 		}
 
 		public DateTime CreationTimeUtc
 		{
-			get { return FileInfoInstance.CreationTimeUtc; }
-			set { FileInfoInstance.CreationTimeUtc = value; }
+			get { return _underlyingObject.CreationTimeUtc; }
+			set { _underlyingObject.CreationTimeUtc = value; }
 		}
 
 		public IDirectoryInfo Directory
 		{
-			get { return new DirectoryInfoWrap(FileInfoInstance.Directory); }
+			get { return new DirectoryInfoWrap(_underlyingObject.Directory); }
 		}
 
 		public string DirectoryName
 		{
-			get { return FileInfoInstance.DirectoryName; }
+			get { return _underlyingObject.DirectoryName; }
 		}
 
 		public bool Exists
 		{
-			get { return FileInfoInstance.Exists; }
+			get { return _underlyingObject.Exists; }
 		}
 
 		public string Extension
 		{
-			get { return FileInfoInstance.Extension; }
+			get { return _underlyingObject.Extension; }
 		}
-
-		public FileInfo FileInfoInstance { get; private set; }
 
 		public string FullName
 		{
-			get { return FileInfoInstance.FullName; }
+			get { return _underlyingObject.FullName; }
 		}
 
 		public bool IsReadOnly
 		{
-			get { return FileInfoInstance.IsReadOnly; }
-			set { FileInfoInstance.IsReadOnly = value; }
+			get { return _underlyingObject.IsReadOnly; }
+			set { _underlyingObject.IsReadOnly = value; }
 		}
 
 		public DateTime LastAccessTime
 		{
-			get { return FileInfoInstance.LastAccessTime; }
-			set { FileInfoInstance.LastAccessTime = value; }
+			get { return _underlyingObject.LastAccessTime; }
+			set { _underlyingObject.LastAccessTime = value; }
 		}
 
 		public DateTime LastAccessTimeUtc
 		{
-			get { return FileInfoInstance.LastAccessTimeUtc; }
-			set { FileInfoInstance.LastAccessTimeUtc = value; }
+			get { return _underlyingObject.LastAccessTimeUtc; }
+			set { _underlyingObject.LastAccessTimeUtc = value; }
 		}
 
 		public DateTime LastWriteTime
 		{
-			get { return FileInfoInstance.LastWriteTime; }
-			set { FileInfoInstance.LastWriteTime = value; }
+			get { return _underlyingObject.LastWriteTime; }
+			set { _underlyingObject.LastWriteTime = value; }
 		}
 
 		public DateTime LastWriteTimeUtc
 		{
-			get { return FileInfoInstance.LastWriteTimeUtc; }
-			set { FileInfoInstance.LastWriteTimeUtc = value; }
+			get { return _underlyingObject.LastWriteTimeUtc; }
+			set { _underlyingObject.LastWriteTimeUtc = value; }
 		}
 
 		public long Length
 		{
-			get { return FileInfoInstance.Length; }
+			get { return _underlyingObject.Length; }
 		}
 
 		public string Name
 		{
-			get { return FileInfoInstance.Name; }
+			get { return _underlyingObject.Name; }
 		}
 
 		public IStreamWriter AppendText()
 		{
-			return new StreamWriterWrap(FileInfoInstance.AppendText());
+			return new StreamWriterWrap(_underlyingObject.AppendText());
 		}
 
 		public void Decrypt()
 		{
-			FileInfoInstance.Decrypt();
+			_underlyingObject.Decrypt();
 		}
 
 		public void Delete()
 		{
-			FileInfoInstance.Delete();
+			_underlyingObject.Delete();
 		}
 
 		public void Encrypt()
 		{
-			FileInfoInstance.Encrypt();
+			_underlyingObject.Encrypt();
 		}
 
 		public IFileInfo CopyTo(string destFileName)
 		{
-			return new FileInfoWrap(FileInfoInstance.CopyTo(destFileName));
+			return new FileInfoWrap(_underlyingObject.CopyTo(destFileName));
 		}
 
 		public IFileInfo CopyTo(string destFileName, bool overwrite)
 		{
-			return new FileInfoWrap(FileInfoInstance.CopyTo(destFileName, overwrite));
+			return new FileInfoWrap(_underlyingObject.CopyTo(destFileName, overwrite));
 		}
 
 		public IFileStream Create()
 		{
-			return new FileStreamWrap(FileInfoInstance.Create());
+			return new FileStreamWrap(_underlyingObject.Create());
 		}
 
 		public IStreamWriter CreateText()
 		{
-			return new StreamWriterWrap(FileInfoInstance.CreateText());
+			return new StreamWriterWrap(_underlyingObject.CreateText());
 		}
 
 		public IFileSecurity GetAccessControl()
 		{
-			return new FileSecurityWrap(FileInfoInstance.GetAccessControl());
+			return new FileSecurityWrap(_underlyingObject.GetAccessControl());
 		}
 
 		public IFileSecurity GetAccessControl(AccessControlSections includeSections)
 		{
-			return new FileSecurityWrap(FileInfoInstance.GetAccessControl(includeSections));
+			return new FileSecurityWrap(_underlyingObject.GetAccessControl(includeSections));
 		}
 
 		public void MoveTo(string destFileName)
 		{
-			FileInfoInstance.MoveTo(destFileName);
+			_underlyingObject.MoveTo(destFileName);
 		}
 
 		public IFileStream Open(FileMode mode)
 		{
-			return new FileStreamWrap(FileInfoInstance.Open(mode));
+			return new FileStreamWrap(_underlyingObject.Open(mode));
 		}
 
 		public IFileStream Open(FileMode mode, FileAccess access)
 		{
-			return new FileStreamWrap(FileInfoInstance.Open(mode, access));
+			return new FileStreamWrap(_underlyingObject.Open(mode, access));
 		}
 
 		public IFileStream Open(FileMode mode, FileAccess access, FileShare share)
 		{
-			return new FileStreamWrap(FileInfoInstance.Open(mode, access, share));
+			return new FileStreamWrap(_underlyingObject.Open(mode, access, share));
 		}
 
 		public IFileStream OpenRead()
 		{
-			return new FileStreamWrap(FileInfoInstance.OpenRead());
+			return new FileStreamWrap(_underlyingObject.OpenRead());
 		}
 
 		public IStreamReader OpenText()
 		{
-			return new StreamReaderWrap(FileInfoInstance.OpenText());
+			return new StreamReaderWrap(_underlyingObject.OpenText());
 		}
 
 		public IFileStream OpenWrite()
 		{
-			return new FileStreamWrap(FileInfoInstance.OpenWrite());
+			return new FileStreamWrap(_underlyingObject.OpenWrite());
 		}
 
 		public void Refresh()
 		{
-			FileInfoInstance.Refresh();
+			_underlyingObject.Refresh();
 		}
 
 		public IFileInfo Replace(string destinationFileName, string destinationBackupFileName)
 		{
-			return new FileInfoWrap(FileInfoInstance.Replace(destinationFileName, destinationBackupFileName));
+			return new FileInfoWrap(_underlyingObject.Replace(destinationFileName, destinationBackupFileName));
 		}
 
 		public IFileInfo Replace(string destinationFileName, string destinationBackupFileName, bool ignoreMetadataErrors)
 		{
-			return new FileInfoWrap(FileInfoInstance.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors));
+			return new FileInfoWrap(_underlyingObject.Replace(destinationFileName, destinationBackupFileName, ignoreMetadataErrors));
 		}
 
 		public void SetAccessControl(IFileSecurity fileSecurity)
 		{
-			FileInfoInstance.SetAccessControl(fileSecurity.FileSecurityInstance);
+			_underlyingObject.SetAccessControl(fileSecurity.FileSecurityInstance);
 		}
 
 		public override string ToString()
 		{
-			return FileInfoInstance.ToString();
+			return _underlyingObject.ToString();
 		}
 
 		internal static IFileInfo[] ConvertFileInfoArrayIntoIFileInfoWrapArray(FileInfo[] fileInfos)

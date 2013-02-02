@@ -1,38 +1,73 @@
+## Description 
+* Wraps classes into other classes with interfaces which are suitable for unit testing.
+* Designed to be used with dependency injection containers. 
+* Should be used with mocking libraries and correspondending automocking container extensions in tests.
+* There are frameworks which use CLR implementaion features to fake underlying implementaion of classes. These are not available for free on each paltform and it is viable alternative.
+* When used with container injection then reveals complex object which should be splitter according functional provided.
+* Used at least in one prodcution desktop application.
 
-* Concept of usage (building unit testable object graph):
+### Design
+* No wraps for POCOs and structs like instance of DateTime, Version
+* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties).
+* Static and instance members in different classes
+* No WRAP suffix in interfaces
+* Underlying object is not public API of wrapping interface
+* Possibility of doing shareable forks via hosted platform
+* Classes with static members as factories
+* Automatic coverage report generation
+* .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono)
+* One to one corresponce with real classes, casting back and forth
 
-{code}
-var service = IoC.Get<SomeService>();
+### TODO:
+* Real world sample with IoC/DI + WCF, Net, IO, etc.
+* Semi-automatic migration, documenting, wrapping (using NRefactory)
+* Cover more of Mono, PortableLibrary, MonoDroid 
+* Performance and memory usage overhead evaluation
+* Support for code contracts and members' attributes defined on real .NET classes
+* Namespace wide factories
+* Tests which check method signatures (that wraps call right underlying methods) on code or IL level
+* Units.GetInstance<IXyzWrap>()
+* Test helpers like in http://systemioabstractions.codeplex.com
 
-public class SomeService()
-{
-    ...
+## Performance
 
-    public SomeService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
-	{
-	    _file = file;
-		_appDomainSystem = appDomainSystem;
-		_processSystem = processSystem;
-	}
+### Calls
 
-	public void Run()
-	{
-		if (file.Exists("Daemon.exe")
-		{
-		     processSystem.Start("Daemon.exe");
-		}
-		else if (file.Exists("Daemon.dll")
-		{
-		    var domain = appDomainSystem.CreateDomain("Daemon");
-			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
-			daemon.Start();
-		}
-		else new Daemon().Start();
-	}
-}
-{code}
+### Object graph constuction
 
-* Develop
+
+## Sample of concept:
+> 
+> var service = IoC.Get<HostService>();
+> 
+> public class HostService()
+> {
+>     ...
+> 
+>   public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
+> 	{
+> 	    _file = file;
+> 		_appDomainSystem = appDomainSystem;
+> 		_processSystem = processSystem;
+> 	}
+> 
+> 	public void Run()
+> 	{
+> 		if (file.Exists("Daemon.exe")
+> 		{
+> 		     processSystem.Start("Daemon.exe");
+> 		}
+> 		else if (file.Exists("Daemon.dll")
+> 		{
+> 		    var domain = appDomainSystem.CreateDomain("Daemon");
+> 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
+> 			daemon.Start();
+> 		}
+> 		else new Daemon().Start();
+> 	}
+> }
+
+## Develop
 SystemWrapper.sln:
 Visual Studio 2010
 Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version
@@ -43,13 +78,13 @@ SystemWrapper.Mono.sln:
 Linux
 MonoDevelop
 
-* Obsolete and new methods
+## Obsolete and new methods
 
 Methods obsolete in .NET 4.0 or .NET 3.5 are not implemented.
 New .NET methods sometimes backported to 3.5 wrappers.
 
 
-* Coverage
+## Coverage
 Total number of wraps: 52
 Microsoft.Win32.Registry-> UnitWrappers.Microsoft.Win32.IRegistry : 100%
 Microsoft.Win32.RegistryKey-> UnitWrappers.Microsoft.Win32.IRegistryKeySystem UnitWrappers.Microsoft.Win32.IRegistryKey : 60%

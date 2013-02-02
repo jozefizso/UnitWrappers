@@ -44,10 +44,7 @@ namespace UnitWrappers.System.IO
         /// Gets the string representing the extension part of the file.
         /// </summary>
         string Extension { get; }
-        /// <summary>
-        /// Gets <see cref="T:System.IO.FileInfo"/> object.
-        /// </summary>
-        FileInfo FileInfoInstance { get; }
+
         /// <summary>
         /// Gets the full path of the directory or file.
         /// </summary>
