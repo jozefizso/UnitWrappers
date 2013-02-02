@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>UnitWrappers.NET35</id>
-    <version>$version$</version>
+    <version>0.5.10.0</version>
     <authors>Dzmitry Lahoda, vkreynin</authors>
     <licenseUrl>https://github.com/asd-and-Rizzo/SystemWrapper/blob/master/license.txt</licenseUrl>
     <projectUrl>https://github.com/asd-and-Rizzo/SystemWrapper</projectUrl>
