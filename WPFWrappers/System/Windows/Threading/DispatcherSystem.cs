@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security;
 using System.Security.Permissions;
+using System.Threading;
 using System.Windows.Threading;
 using UnitWrappers.System.Threading;
 
@@ -25,7 +26,8 @@ namespace UnitWrappers.System.Windows.Threading
         {
             var wrap = (thread as ThreadWrap);
             if (wrap == null) throw new ArgumentException("Thread should wrap CLR thread","thread");
-            return new DispatcherWrap(Dispatcher.FromThread(wrap.UnderlyingObject));
+            var real = ((IWrap<Thread>) wrap).UnderlyingObject;
+            return new DispatcherWrap(Dispatcher.FromThread(real));
         }
 
         /// <inheritdoc />

@@ -8,9 +8,22 @@ namespace UnitWrappers.System.Diagnostics
     ///<summary>
     /// Wrapper for <see cref="T:System.Diagnostics.Process"/> class.
     ///</summary>
-    public class ProcessWrap :  IProcess
+    public class ProcessWrap : IProcess, IWrap<Process>
     {
+        public Process _underlyingObject;
         private IProcessStartInfo startInfo;
+
+        Process IWrap<Process>.UnderlyingObject { get { return _underlyingObject; } }
+
+        public static implicit operator ProcessWrap(Process o)
+        {
+            return new ProcessWrap(o);
+        }
+
+        public static implicit operator Process(ProcessWrap o)
+        {
+            return o._underlyingObject;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UnitWrappers.System.Diagnostics.ProcessWrap"/> class from framework <see cref="Process"/> class.
@@ -18,7 +31,7 @@ namespace UnitWrappers.System.Diagnostics
         /// <param name="process"></param>
         public ProcessWrap(Process process)
         {
-            UnderlyingObject = process;
+            _underlyingObject = process;
         }
 
         /// <summary>
@@ -26,317 +39,330 @@ namespace UnitWrappers.System.Diagnostics
         /// </summary>
         public ProcessWrap()
         {
-            UnderlyingObject = new Process();
+            _underlyingObject = new Process();
         }
 
         public int ExitCode
         {
-            get { return UnderlyingObject.ExitCode; }
+            get { return _underlyingObject.ExitCode; }
         }
 
         public void Close()
         {
-            UnderlyingObject.Close();
+            _underlyingObject.Close();
         }
 
-        public Process UnderlyingObject { get; private set; }
+
 
         public bool Start()
         {
-            return UnderlyingObject.Start();
+            return _underlyingObject.Start();
         }
 
         public IProcessStartInfo StartInfo
         {
-            get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(UnderlyingObject.StartInfo)); }
+            get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(_underlyingObject.StartInfo)); }
             set { startInfo = value; }
         }
 
         public void WaitForExit()
         {
-            UnderlyingObject.WaitForExit();
+            _underlyingObject.WaitForExit();
         }
 
         public bool WaitForExit(int milliseconds)
         {
-            return UnderlyingObject.WaitForExit(milliseconds);
+            return _underlyingObject.WaitForExit(milliseconds);
         }
 
         public bool WaitForInputIdle()
         {
-            return UnderlyingObject.WaitForInputIdle();
+            return _underlyingObject.WaitForInputIdle();
         }
 
         public bool CloseMainWindow()
         {
-            return UnderlyingObject.CloseMainWindow();
+            return _underlyingObject.CloseMainWindow();
         }
 
         public void Kill()
         {
-            UnderlyingObject.Kill();
+            _underlyingObject.Kill();
         }
 
         public IntPtr MainWindowHandle
         {
-            get { return UnderlyingObject.MainWindowHandle; }
+            get { return _underlyingObject.MainWindowHandle; }
         }
 
         public event DataReceivedEventHandler ErrorDataReceived
         {
-            add { UnderlyingObject.ErrorDataReceived += value; }
-            remove { UnderlyingObject.ErrorDataReceived -= value; }
+            add { _underlyingObject.ErrorDataReceived += value; }
+            remove { _underlyingObject.ErrorDataReceived -= value; }
         }
 
         public event EventHandler Exited
         {
-            add { UnderlyingObject.Exited += value; }
-            remove { UnderlyingObject.Exited -= value; }
+            add { _underlyingObject.Exited += value; }
+            remove { _underlyingObject.Exited -= value; }
         }
 
         public event DataReceivedEventHandler OutputDataReceived
         {
-            add { UnderlyingObject.OutputDataReceived += value; }
-            remove { UnderlyingObject.OutputDataReceived -= value; }
+            add { _underlyingObject.OutputDataReceived += value; }
+            remove { _underlyingObject.OutputDataReceived -= value; }
         }
 
         public void BeginErrorReadLine()
         {
-            UnderlyingObject.BeginErrorReadLine();
+            _underlyingObject.BeginErrorReadLine();
         }
 
         public void BeginOutputReadLine()
         {
-            UnderlyingObject.BeginOutputReadLine();
+            _underlyingObject.BeginOutputReadLine();
         }
 
         public void CancelErrorRead()
         {
-            UnderlyingObject.CancelErrorRead();
+            _underlyingObject.CancelErrorRead();
         }
 
         public void CancelOutputRead()
         {
-            UnderlyingObject.CancelOutputRead();
+            _underlyingObject.CancelOutputRead();
         }
 
         public void Refresh()
         {
-            UnderlyingObject.Refresh();
+            _underlyingObject.Refresh();
         }
 
         public bool WaitForInputIdle(int milliseconds)
         {
-          return  UnderlyingObject.WaitForInputIdle();
+            return _underlyingObject.WaitForInputIdle();
         }
 
         public int BasePriority
         {
-            get { return UnderlyingObject.BasePriority; }
+            get { return _underlyingObject.BasePriority; }
         }
 
         public bool EnableRaisingEvents
         {
-            get { return UnderlyingObject.EnableRaisingEvents ; }
-            set { UnderlyingObject.EnableRaisingEvents = value; }
+            get { return _underlyingObject.EnableRaisingEvents; }
+            set { _underlyingObject.EnableRaisingEvents = value; }
         }
 
         public DateTime ExitTime
         {
-            get { return UnderlyingObject.ExitTime ; }
+            get { return _underlyingObject.ExitTime; }
         }
 
         public IntPtr Handle
         {
-            get { return UnderlyingObject.Handle ; }
+            get { return _underlyingObject.Handle; }
         }
 
         public int HandleCount
         {
-            get { return UnderlyingObject.HandleCount ; }
+            get { return _underlyingObject.HandleCount; }
         }
 
         public bool HasExited
         {
-            get { return UnderlyingObject.HasExited ; }
+            get { return _underlyingObject.HasExited; }
         }
 
         public int Id
         {
-            get { return UnderlyingObject.Id; }
+            get { return _underlyingObject.Id; }
         }
 
         public string MachineName
         {
-            get { return UnderlyingObject.MachineName ; }
+            get { return _underlyingObject.MachineName; }
         }
 
         public ProcessModule MainModule
         {
-            get { return UnderlyingObject.MainModule ; }
+            get { return _underlyingObject.MainModule; }
         }
 
         public string MainWindowTitle
         {
-            get { return UnderlyingObject.MainWindowTitle; }
+            get { return _underlyingObject.MainWindowTitle; }
         }
 
         public IntPtr MaxWorkingSet
         {
-            get { return UnderlyingObject.MaxWorkingSet; }
-            set { UnderlyingObject.MaxWorkingSet = value; }
+            get { return _underlyingObject.MaxWorkingSet; }
+            set { _underlyingObject.MaxWorkingSet = value; }
         }
 
         public IntPtr MinWorkingSet
         {
-            get { return UnderlyingObject.MinWorkingSet; }
-            set { UnderlyingObject.MinWorkingSet = value; }
+            get { return _underlyingObject.MinWorkingSet; }
+            set { _underlyingObject.MinWorkingSet = value; }
         }
 
         public ProcessModuleCollection Modules
         {
-            get { return UnderlyingObject.Modules; }
+            get { return _underlyingObject.Modules; }
         }
 
         public long NonpagedSystemMemorySize64
         {
-            get { return UnderlyingObject.NonpagedSystemMemorySize64; }
+            get { return _underlyingObject.NonpagedSystemMemorySize64; }
         }
 
         public long PagedMemorySize64
         {
-            get { return UnderlyingObject.PagedMemorySize64; }
+            get { return _underlyingObject.PagedMemorySize64; }
         }
 
         public long PagedSystemMemorySize64
         {
-            get { return UnderlyingObject.PagedSystemMemorySize64; }
+            get { return _underlyingObject.PagedSystemMemorySize64; }
         }
 
         public long PeakPagedMemorySize64
         {
-            get { return UnderlyingObject.PeakPagedMemorySize64; }
+            get { return _underlyingObject.PeakPagedMemorySize64; }
         }
 
         public long PeakVirtualMemorySize64
         {
-            get { return UnderlyingObject.PeakVirtualMemorySize64; }
+            get { return _underlyingObject.PeakVirtualMemorySize64; }
         }
 
         public long PeakWorkingSet64
         {
-            get { return UnderlyingObject.PeakWorkingSet64; }
+            get { return _underlyingObject.PeakWorkingSet64; }
         }
 
         public bool PriorityBoostEnabled
         {
-            get { return UnderlyingObject.PriorityBoostEnabled; }
-            set { UnderlyingObject.PriorityBoostEnabled = value; }
+            get { return _underlyingObject.PriorityBoostEnabled; }
+            set { _underlyingObject.PriorityBoostEnabled = value; }
         }
 
         public ProcessPriorityClass PriorityClass
         {
-            get { return UnderlyingObject.PriorityClass ; }
-            set { UnderlyingObject.PriorityClass = value; }
+            get { return _underlyingObject.PriorityClass; }
+            set { _underlyingObject.PriorityClass = value; }
         }
 
         public TimeSpan PrivilegedProcessorTime
         {
-            get { return UnderlyingObject .PrivilegedProcessorTime; }
+            get { return _underlyingObject.PrivilegedProcessorTime; }
         }
 
         public string ProcessName
         {
-            get { return UnderlyingObject.ProcessName ; }
+            get { return _underlyingObject.ProcessName; }
         }
 
         public IntPtr ProcessorAffinity
         {
-            get { return UnderlyingObject.ProcessorAffinity; }
-            set { UnderlyingObject.ProcessorAffinity = value; }
+            get { return _underlyingObject.ProcessorAffinity; }
+            set { _underlyingObject.ProcessorAffinity = value; }
         }
 
         public bool Responding
         {
-            get { return UnderlyingObject.Responding; }
+            get { return _underlyingObject.Responding; }
         }
 
         public int SessionId
         {
-            get { return UnderlyingObject.SessionId ; }
+            get { return _underlyingObject.SessionId; }
         }
 
         public StreamReader StandardError
         {
-            get { return UnderlyingObject.StandardError; }
+            get { return _underlyingObject.StandardError; }
         }
 
         public StreamWriter StandardInput
         {
-            get { return UnderlyingObject.StandardInput; }
+            get { return _underlyingObject.StandardInput; }
         }
 
         public StreamReader StandardOutput
         {
-            get { return UnderlyingObject.StandardOutput; }
+            get { return _underlyingObject.StandardOutput; }
         }
 
         public DateTime StartTime
         {
-            get { return UnderlyingObject.StartTime ; }
+            get { return _underlyingObject.StartTime; }
         }
 
         public ISynchronizeInvoke SynchronizingObject
         {
-            get { return UnderlyingObject.SynchronizingObject; }
-            set { UnderlyingObject.SynchronizingObject = value; }
+            get { return _underlyingObject.SynchronizingObject; }
+            set { _underlyingObject.SynchronizingObject = value; }
         }
 
         public ProcessThreadCollection Threads
         {
-            get { return UnderlyingObject.Threads; }
+            get { return _underlyingObject.Threads; }
         }
 
         public TimeSpan TotalProcessorTime
         {
-            get { return UnderlyingObject.TotalProcessorTime ; }
+            get { return _underlyingObject.TotalProcessorTime; }
         }
 
         public TimeSpan UserProcessorTime
         {
-            get { return UnderlyingObject.UserProcessorTime; }
+            get { return _underlyingObject.UserProcessorTime; }
         }
 
         public long VirtualMemorySize64
         {
-            get { return UnderlyingObject.VirtualMemorySize64; }
+            get { return _underlyingObject.VirtualMemorySize64; }
         }
 
         public long WorkingSet64
         {
-            get { return UnderlyingObject.WorkingSet64; }
+            get { return _underlyingObject.WorkingSet64; }
         }
 
+        /// <summary>
+        /// Formats the process's name as a string, combined with the parent component type, if applicable.
+        /// 
+        /// </summary>
+        /// 
+        /// <returns>
+        /// The <see cref="P:System.Diagnostics.Process.ProcessName"/>, combined with the base component's <see cref="M:System.Object.ToString"/> return value.
+        /// 
+        /// </returns>
+        /// <exception cref="T:System.PlatformNotSupportedException"><see cref="M:System.Diagnostics.Process.ToString"/> is not supported on Windows 98.
+        ///                 </exception><filterpriority>2</filterpriority>
         public override string ToString()
         {
-            return UnderlyingObject.ToString();
+            return _underlyingObject.ToString();
         }
 
         public void Dispose()
         {
-            UnderlyingObject.Dispose();
+            _underlyingObject.Dispose();
         }
 
         public ISite Site
         {
-            get { return UnderlyingObject.Site; }
-            set { UnderlyingObject.Site = value; }
+            get { return _underlyingObject.Site; }
+            set { _underlyingObject.Site = value; }
         }
 
         public event EventHandler Disposed
         {
-            add { UnderlyingObject.Disposed += value; }
-            remove { UnderlyingObject.Disposed -= value; }
+            add { _underlyingObject.Disposed += value; }
+            remove { _underlyingObject.Disposed -= value; }
         }
+
+
     }
 }

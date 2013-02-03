@@ -9,32 +9,43 @@ namespace UnitWrappers.System.Windows.Threading
 
     public class DispatcherWrap : IDispatcher, IWrap<Dispatcher>
     {
+        private Dispatcher _underlyingObject;
 
-        public Dispatcher UnderlyingObject { get; set; }
+        public static implicit operator DispatcherWrap(Dispatcher o)
+        {
+            return new DispatcherWrap(o);
+        }
+
+        public static implicit operator Dispatcher(DispatcherWrap o)
+        {
+            return o._underlyingObject;
+        }
+
+        Dispatcher IWrap<Dispatcher>.UnderlyingObject { get { return _underlyingObject;  } }
 
         public DispatcherWrap(Dispatcher dispatcher)
         {
-            UnderlyingObject = dispatcher;
+            _underlyingObject = dispatcher;
         }
 
         /// <inheritdoc />
         [EditorBrowsable(EditorBrowsableState.Never)]
         public bool CheckAccess()
         {
-            return UnderlyingObject.CheckAccess();
+            return _underlyingObject.CheckAccess();
         }
 
         /// <inheritdoc />
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void VerifyAccess()
         {
-            UnderlyingObject.VerifyAccess();
+            _underlyingObject.VerifyAccess();
         }
 
         /// <inheritdoc />
         public bool HasShutdownStarted
         {
-            get { return UnderlyingObject.HasShutdownStarted; }
+            get { return _underlyingObject.HasShutdownStarted; }
         }
 
         /// <inheritdoc />
@@ -42,121 +53,121 @@ namespace UnitWrappers.System.Windows.Threading
         {
             get
             {
-                return UnderlyingObject.HasShutdownFinished;
+                return _underlyingObject.HasShutdownFinished;
             }
         }
 
         /// <inheritdoc />
         public event EventHandler ShutdownStarted
         {
-            add { UnderlyingObject.ShutdownStarted += value; }
-            remove { UnderlyingObject.ShutdownStarted -= value; }
+            add { _underlyingObject.ShutdownStarted += value; }
+            remove { _underlyingObject.ShutdownStarted -= value; }
         }
 
         /// <inheritdoc /> 
         public event EventHandler ShutdownFinished
         {
-            add { UnderlyingObject.ShutdownFinished += value; }
-            remove { UnderlyingObject.ShutdownFinished -= value; }
+            add { _underlyingObject.ShutdownFinished += value; }
+            remove { _underlyingObject.ShutdownFinished -= value; }
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public DispatcherOperation BeginInvoke(DispatcherPriority priority, Delegate method)
         {
-            return UnderlyingObject.BeginInvoke(priority, method);
+            return _underlyingObject.BeginInvoke(priority, method);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public DispatcherOperation BeginInvoke(DispatcherPriority priority, Delegate method, object arg)
         {
-            return UnderlyingObject.BeginInvoke(priority, method, arg);
+            return _underlyingObject.BeginInvoke(priority, method, arg);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public DispatcherOperation BeginInvoke(DispatcherPriority priority, Delegate method, object arg, params object[] args)
         {
-            return UnderlyingObject.BeginInvoke(priority, method, arg, args);
+            return _underlyingObject.BeginInvoke(priority, method, arg, args);
         }
 
         /// <inheritdoc />
         public DispatcherOperation BeginInvoke(Delegate method, params object[] args)
         {
-            return UnderlyingObject.BeginInvoke(method, args);
+            return _underlyingObject.BeginInvoke(method, args);
         }
 
         /// <inheritdoc />
         public DispatcherOperation BeginInvoke(Delegate method, DispatcherPriority priority, params object[] args)
         {
-            return UnderlyingObject.BeginInvoke(method, priority, args);
+            return _underlyingObject.BeginInvoke(method, priority, args);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public object Invoke(DispatcherPriority priority, Delegate method)
         {
-            return UnderlyingObject.Invoke(priority, method);
+            return _underlyingObject.Invoke(priority, method);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public object Invoke(DispatcherPriority priority, Delegate method, object arg)
         {
-            return UnderlyingObject.Invoke(priority, method, arg);
+            return _underlyingObject.Invoke(priority, method, arg);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public object Invoke(DispatcherPriority priority, Delegate method, object arg, params object[] args)
         {
-            return UnderlyingObject.Invoke(priority, method, method, arg, args);
+            return _underlyingObject.Invoke(priority, method, method, arg, args);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public object Invoke(DispatcherPriority priority, TimeSpan timeout, Delegate method)
         {
-            return UnderlyingObject.Invoke(priority, timeout, method);
+            return _underlyingObject.Invoke(priority, timeout, method);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public object Invoke(DispatcherPriority priority, TimeSpan timeout, Delegate method, object arg)
         {
-            return UnderlyingObject.Invoke(priority, timeout, method, arg);
+            return _underlyingObject.Invoke(priority, timeout, method, arg);
         }
 
         /// <inheritdoc />
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
         public object Invoke(DispatcherPriority priority, TimeSpan timeout, Delegate method, object arg, params object[] args)
         {
-            return UnderlyingObject.Invoke(priority, timeout, method, arg, args);
+            return _underlyingObject.Invoke(priority, timeout, method, arg, args);
         }
 
         /// <inheritdoc />
         public object Invoke(Delegate method, params object[] args)
         {
-            return UnderlyingObject.Invoke(method, args);
+            return _underlyingObject.Invoke(method, args);
         }
 
         /// <inheritdoc />
         public object Invoke(Delegate method, DispatcherPriority priority, params object[] args)
         {
-            return UnderlyingObject.Invoke(method, priority, args);
+            return _underlyingObject.Invoke(method, priority, args);
         }
 
         /// <inheritdoc />
         public object Invoke(Delegate method, TimeSpan timeout, params object[] args)
         {
-            return UnderlyingObject.Invoke(method, timeout, args);
+            return _underlyingObject.Invoke(method, timeout, args);
         }
 
         /// <inheritdoc />
         public object Invoke(Delegate method, TimeSpan timeout, DispatcherPriority priority, params object[] args)
         {
-            return UnderlyingObject.Invoke(method, timeout, priority, args);
+            return _underlyingObject.Invoke(method, timeout, priority, args);
         }
 
         /// <inheritdoc />
@@ -164,7 +175,7 @@ namespace UnitWrappers.System.Windows.Threading
         {
             get
             {
-                return new ThreadWrap(UnderlyingObject.Thread);
+                return new ThreadWrap(_underlyingObject.Thread);
             }
         }
 
@@ -172,14 +183,14 @@ namespace UnitWrappers.System.Windows.Threading
         [SecurityCritical]
         public void BeginInvokeShutdown(DispatcherPriority priority)
         {
-            UnderlyingObject.BeginInvokeShutdown(priority);
+            _underlyingObject.BeginInvokeShutdown(priority);
         }
 
         /// <inheritdoc />
         [SecurityCritical]
         public void InvokeShutdown()
         {
-            UnderlyingObject.InvokeShutdown();
+            _underlyingObject.InvokeShutdown();
         }
 
         /// <inheritdoc />
@@ -188,22 +199,22 @@ namespace UnitWrappers.System.Windows.Threading
         {
             get
             {
-                return UnderlyingObject.Hooks;
+                return _underlyingObject.Hooks;
             }
         }
 
         /// <inheritdoc />
         public event DispatcherUnhandledExceptionFilterEventHandler UnhandledExceptionFilter
         {
-            add { UnderlyingObject.UnhandledExceptionFilter += value; }
-            remove { UnderlyingObject.UnhandledExceptionFilter -= value; }
+            add { _underlyingObject.UnhandledExceptionFilter += value; }
+            remove { _underlyingObject.UnhandledExceptionFilter -= value; }
         }
 
         /// <inheritdoc />
         public event DispatcherUnhandledExceptionEventHandler UnhandledException
         {
-            add { UnderlyingObject.UnhandledException += value; }
-            remove { UnderlyingObject.UnhandledException -= value; }
+            add { _underlyingObject.UnhandledException += value; }
+            remove { _underlyingObject.UnhandledException -= value; }
         }
     }
 }

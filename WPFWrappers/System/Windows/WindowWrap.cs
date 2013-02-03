@@ -21,6 +21,16 @@ namespace UnitWrappers.System.Windows
     {
         private Window _underlyingObject;
 
+        public static implicit operator WindowWrap(Window o)
+        {
+            return new WindowWrap(o);
+        }
+
+        public static implicit operator Window(WindowWrap o)
+        {
+            return o._underlyingObject;
+        }
+
         Window IWrap<Window>.UnderlyingObject
         {
             get { return _underlyingObject; }

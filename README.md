@@ -64,13 +64,19 @@
  
 ### Develop
 SystemWrapper.sln:
+
 Visual Studio 2010
+
 Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version
+
 ReSharper(or other test runner) - to run unit tests(NUnit)
 
 SystemWrapper.Mono.sln:
+
 Linux
+
 MonoDevelop
+
 
 ### Obsolete and new methods
 

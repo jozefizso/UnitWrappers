@@ -9,10 +9,7 @@ namespace UnitWrappers.System.Diagnostics
     /// <summary>
     /// Description of IProcess
     /// </summary>
-    public interface IProcess 
-
-        :IComponent
-
+    public interface IProcess  :IComponent
     {
 
         // Properties
@@ -31,10 +28,7 @@ namespace UnitWrappers.System.Diagnostics
         /// Frees all the resources that are associated with this component.
         /// </summary>
         void Close();
-        /// <summary>
-        /// Gets <see cref="T:System.Diagnostics.Process"/> object.
-        /// </summary>
-        Process UnderlyingObject { get; }
+
         /// <summary>
         /// Starts (or reuses) the process resource that is specified by the StartInfo  property of this Process component and associates it with the component.
         /// </summary>

@@ -86,6 +86,10 @@
     <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
     <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
+    <Compile Include="System\Diagnostics\FileVersionInfoSystem.cs" />
+    <Compile Include="System\Diagnostics\FileVersionInfoWrap.cs" />
+    <Compile Include="System\Diagnostics\IFileVersionInfo.cs" />
+    <Compile Include="System\Diagnostics\IFileVersionInfoSystem.cs" />
     <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
     <Compile Include="System\Management\IManagementObjectSearcher.cs" />
     <Compile Include="System\Management\ManagementObjectSearcherWrap.cs" />

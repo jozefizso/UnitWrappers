@@ -6,25 +6,26 @@ using System.Text;
 
 namespace UnitWrappers.System.ServiceModel
 {
-    public class OperationContextExtensionWrap : IExtension<IOperationContext> 
+    public class OperationContextExtensionWrap : IExtension<IOperationContext>, IWrap<IExtension<OperationContext>>
     {
-        public IExtension<OperationContext> UnderlyingObject { get; private set; }
+        private IExtension<OperationContext> _underlyingObject;
+        IExtension<OperationContext> IWrap<IExtension<OperationContext>>.UnderlyingObject { get { return _underlyingObject; } }
 
         public OperationContextExtensionWrap(IExtension<OperationContext> underlyingObject)
         {
-            UnderlyingObject = underlyingObject;
+            _underlyingObject = underlyingObject;
         }
 
         public void Attach(IOperationContext owner)
         {
-            var wrap = (OperationContextWrap) owner;
-            UnderlyingObject.Attach(wrap.UnderlyingObject);
+            OperationContext operationContext = (OperationContextWrap)owner;
+            _underlyingObject.Attach(operationContext);
         }
 
         public void Detach(IOperationContext owner)
         {
-            var wrap = (OperationContextWrap)owner;
-            UnderlyingObject.Detach(wrap.UnderlyingObject);
+            OperationContext operationContext = (OperationContextWrap)owner;
+            _underlyingObject.Detach(operationContext);
         }
     }
 }

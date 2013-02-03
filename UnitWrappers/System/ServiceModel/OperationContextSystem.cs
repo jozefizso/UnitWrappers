@@ -11,13 +11,14 @@ namespace UnitWrappers.System.ServiceModel
             {
                 if (OperationContext.Current == null)
                     return null;
+                //TODO: thread local storage
                 return new OperationContextWrap(OperationContext.Current);
             }
 
             set
             {
-                OperationContextWrap operationContextWrap = (OperationContextWrap)value;
-                OperationContext.Current = operationContextWrap.UnderlyingObject;
+                OperationContext operationContext = (OperationContextWrap)value;
+                OperationContext.Current = operationContext;
             }
         }
     }

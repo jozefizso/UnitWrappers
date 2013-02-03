@@ -31,7 +31,7 @@ namespace UnitWrappers.System.ServiceModel
 
         public void Add(IExtension<IOperationContext> item)
         {
-            var wrap = (OperationContextExtensionWrap)item;
+            IWrap<IExtension<OperationContext>> wrap = (OperationContextExtensionWrap)item;
             UnderlyingObject.Add(wrap.UnderlyingObject);
         }
 
@@ -42,19 +42,19 @@ namespace UnitWrappers.System.ServiceModel
 
         public bool Contains(IExtension<IOperationContext> item)
         {
-            var wrap = (OperationContextExtensionWrap)item;
+            IWrap<IExtension<OperationContext>> wrap = (OperationContextExtensionWrap)item;
             return UnderlyingObject.Contains(wrap.UnderlyingObject);
         }
 
         public void CopyTo(IExtension<IOperationContext>[] array, int arrayIndex)
         {
-            var underlyingObjects = array.Cast<OperationContextExtensionWrap>().Select(x=>x.UnderlyingObject).ToArray();
+            var underlyingObjects = array.Cast<IWrap<IExtension<OperationContext>>>().Select(x => x.UnderlyingObject).ToArray();
             UnderlyingObject.CopyTo(underlyingObjects, arrayIndex);
         }
 
         public bool Remove(IExtension<IOperationContext> item)
         {
-            var wrap = (OperationContextExtensionWrap)item;
+            IWrap<IExtension<OperationContext>> wrap = (OperationContextExtensionWrap)item;
             return UnderlyingObject.Remove(wrap.UnderlyingObject);
         }
 

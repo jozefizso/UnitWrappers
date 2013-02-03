@@ -12,49 +12,63 @@ namespace UnitWrappers.System.Threading
     /// <summary>
     /// Wrapper for <see cref="Thread"/> class.
     /// </summary>
-    public class ThreadWrap : IThread
+    public class ThreadWrap : IThread,IWrap<Thread>
     {
-        public Thread UnderlyingObject { get; private set; }
+        public Thread _underlyingObject;
+
+        Thread IWrap<Thread>.UnderlyingObject { get { return _underlyingObject; } }
+
+
+        public static implicit operator ThreadWrap(Thread o)
+        {
+            return new ThreadWrap(o);
+        }
+
+        public static implicit operator Thread(ThreadWrap o)
+        {
+            return o._underlyingObject;
+        }
+
 
         public ThreadWrap(Thread thread)
         {
-            UnderlyingObject = thread;
+            _underlyingObject = thread;
         }
         #if !PORTABLE
         public ExecutionContext ExecutionContext
         {
             get
             {
-                return UnderlyingObject.ExecutionContext;
+                return _underlyingObject.ExecutionContext;
             }
         }
 
 
         public string Name
         {
-            get { return UnderlyingObject.Name; }
-            set { UnderlyingObject.Name = Name; }
+            get { return _underlyingObject.Name; }
+            set { _underlyingObject.Name = Name; }
         }
 
         public ThreadWrap(ThreadStart start)
         {
-            UnderlyingObject = new global::System.Threading.Thread(start);
+            _underlyingObject = new global::System.Threading.Thread(start);
         }
 
         public ThreadWrap(ParameterizedThreadStart start)
         {
-            UnderlyingObject = new global::System.Threading.Thread(start);
+            _underlyingObject = new global::System.Threading.Thread(start);
         }
 
 
         public ThreadWrap(ParameterizedThreadStart start, int maxStackSize)
         {
-            UnderlyingObject = new global::System.Threading.Thread(start, maxStackSize);
+            _underlyingObject = new global::System.Threading.Thread(start, maxStackSize);
         }
 
         public ThreadWrap(ThreadStart start, int maxStackSize)
         {
-            UnderlyingObject = new global::System.Threading.Thread(start, maxStackSize);
+            _underlyingObject = new global::System.Threading.Thread(start, maxStackSize);
         }
 #endif
         /// <inheritdoc />
@@ -62,11 +76,11 @@ namespace UnitWrappers.System.Threading
         {
             get
             {
-                return UnderlyingObject.CurrentCulture;
+                return _underlyingObject.CurrentCulture;
             }
             set
             {
-                UnderlyingObject.CurrentCulture = value;
+                _underlyingObject.CurrentCulture = value;
             }
         }
 
@@ -75,11 +89,11 @@ namespace UnitWrappers.System.Threading
         {
             get
             {
-                return UnderlyingObject.CurrentUICulture;
+                return _underlyingObject.CurrentUICulture;
             }
             set
             {
-                UnderlyingObject.CurrentUICulture = value;
+                _underlyingObject.CurrentUICulture = value;
             }
         }
 
@@ -90,101 +104,101 @@ namespace UnitWrappers.System.Threading
         /// <inheritdoc />
         public bool IsAlive
         {
-            get { return UnderlyingObject.IsAlive; }
+            get { return _underlyingObject.IsAlive; }
         }
 
         /// <inheritdoc />
         public bool IsThreadPoolThread
         {
-            get { return UnderlyingObject.IsThreadPoolThread; }
+            get { return _underlyingObject.IsThreadPoolThread; }
         }
 
         /// <inheritdoc />
         public ThreadState ThreadState
         {
-            get { return UnderlyingObject.ThreadState; }
+            get { return _underlyingObject.ThreadState; }
         }
 
         /// <inheritdoc />
         public bool IsBackground
         {
-            get { return UnderlyingObject.IsBackground; }
-            set { UnderlyingObject.IsBackground = value; }
+            get { return _underlyingObject.IsBackground; }
+            set { _underlyingObject.IsBackground = value; }
         }
         /// <inheritdoc />
         public ThreadPriority Priority
         {
-            get { return UnderlyingObject.Priority; }
-            set { UnderlyingObject.Priority = value; }
+            get { return _underlyingObject.Priority; }
+            set { _underlyingObject.Priority = value; }
         }
 
         /// <inheritdoc />
         public void Abort()
         {
-            UnderlyingObject.Abort();
+            _underlyingObject.Abort();
         }
 
         public void Abort(object stateInfo)
         {
-           UnderlyingObject.Abort(stateInfo);
+           _underlyingObject.Abort(stateInfo);
         }
 
         public ApartmentState GetApartmentState()
         {
-            return UnderlyingObject.GetApartmentState();
+            return _underlyingObject.GetApartmentState();
         }
 
         /// <inheritdoc />
         public void SetApartmentState(ApartmentState state)
         {
-            UnderlyingObject.SetApartmentState(state);
+            _underlyingObject.SetApartmentState(state);
         }
         /// <inheritdoc />
         public void Start()
         {
-            UnderlyingObject.Start();
+            _underlyingObject.Start();
         }
         /// <inheritdoc />
         public void Start(object parameter)
         {
-            UnderlyingObject.Start(parameter);
+            _underlyingObject.Start(parameter);
         }
         /// <inheritdoc />
         public void Join()
         {
-            UnderlyingObject.Join();
+            _underlyingObject.Join();
         }
 
         public bool Join(int millisecondsTimeout)
         {
-          return  UnderlyingObject.Join(millisecondsTimeout);
+          return  _underlyingObject.Join(millisecondsTimeout);
         }
 
         public bool Join(TimeSpan timeout)
         {
-            return UnderlyingObject.Join(timeout);
+            return _underlyingObject.Join(timeout);
         }
 
         public void Interrupt()
         {
-            UnderlyingObject.Interrupt();
+            _underlyingObject.Interrupt();
         }
 
         public bool TrySetApartmentState(ApartmentState state)
         {
-            return UnderlyingObject.TrySetApartmentState(state);
+            return _underlyingObject.TrySetApartmentState(state);
         }
 
 #endif
         /// <inheritdoc />
         public int ManagedThreadId
         {
-            get { return UnderlyingObject.ManagedThreadId; }
+            get { return _underlyingObject.ManagedThreadId; }
         }
 
         public override  int GetHashCode()
         {
-            return UnderlyingObject.GetHashCode();
+            return _underlyingObject.GetHashCode();
         }
     }
 }

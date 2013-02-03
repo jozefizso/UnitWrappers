@@ -81,7 +81,10 @@
     <Compile Include="System\AppDomainWrap.cs" />
     <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
     <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />
+    <Compile Include="System\Diagnostics\FileVersionInfoSystem.cs" />
     <Compile Include="System\Diagnostics\FileVersionInfoWrap.cs" />
+    <Compile Include="System\Diagnostics\IFileVersionInfo.cs" />
+    <Compile Include="System\Diagnostics\IFileVersionInfoSystem.cs" />
     <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IEnvironment.cs" />

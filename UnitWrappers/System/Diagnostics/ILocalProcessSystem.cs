@@ -30,8 +30,6 @@ namespace UnitWrappers.System.Diagnostics
         IProcess Start(IProcessStartInfo startInfo);
 
 
-
-
         /// <summary>
         /// Starts a process resource by specifying the name of an application and a set of command-line arguments, and associates the resource with a new <see cref="IProcess"/> component.
         /// </summary>
