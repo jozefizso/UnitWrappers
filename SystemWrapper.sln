@@ -23,7 +23,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Portable", "UnitWrappers\UnitWrappers.Portable.csproj", "{3E1F1726-BEA8-4CE7-8D3B-50784493C7A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWrappers.NET35", "WixWrappers.NET35\WixWrappers.NET35.csproj", "{6877A4EB-B555-44F2-801D-CC35C41DDC5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWrappers.NET35", "WixWrappers\WixWrappers.NET35.csproj", "{6877A4EB-B555-44F2-801D-CC35C41DDC5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.TestsSupport.NET35", "UnitWrappers.TestsSupport\UnitWrappers.TestsSupport.NET35.csproj", "{3701AA1C-00C9-430E-9879-029F1D7FAC54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.TestsSupport.NET35.Tests", "UnitWrappers.TestsSupport.Tests\UnitWrappers.TestsSupport.NET35.Tests.csproj", "{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET35", "UnitWrappers.Helpers\UnitWrappers.Helpers.NET35.csproj", "{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerfromanceTests.NET40", "UnitWrappers.PerfromanceTests\UnitWrappers.PerfromanceTests.NET40.csproj", "{96338A4C-8725-4EB9-8091-786ACCDA301D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +83,22 @@ Global
 		{6877A4EB-B555-44F2-801D-CC35C41DDC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6877A4EB-B555-44F2-801D-CC35C41DDC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6877A4EB-B555-44F2-801D-CC35C41DDC5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3701AA1C-00C9-430E-9879-029F1D7FAC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3701AA1C-00C9-430E-9879-029F1D7FAC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3701AA1C-00C9-430E-9879-029F1D7FAC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3701AA1C-00C9-430E-9879-029F1D7FAC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

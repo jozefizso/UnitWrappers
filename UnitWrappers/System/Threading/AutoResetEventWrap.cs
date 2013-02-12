@@ -3,9 +3,19 @@ using System.Threading;
 
 namespace UnitWrappers.System.Threading
 {
-    public class AutoResetEventWrap : IAutoResetEvent
+    public class AutoResetEventWrap : IAutoResetEvent, IWrap<AutoResetEvent>, IWrap<WaitHandle>
     {
         private AutoResetEvent _underlyingObject;
+
+        public static implicit operator AutoResetEventWrap(AutoResetEvent o)
+        {
+            return new AutoResetEventWrap(o);
+        }
+
+        public static implicit operator AutoResetEvent(AutoResetEventWrap o)
+        {
+            return o._underlyingObject;
+        }
 
         public AutoResetEventWrap(AutoResetEvent eventWaitHandle)
         {
@@ -17,6 +27,7 @@ namespace UnitWrappers.System.Threading
             _underlyingObject = new AutoResetEvent(initialState);
         }
 
+        AutoResetEvent IWrap<AutoResetEvent>.UnderlyingObject { get { return _underlyingObject; } }
         WaitHandle IWrap<WaitHandle>.UnderlyingObject { get { return _underlyingObject; } }
 
         public void Close()

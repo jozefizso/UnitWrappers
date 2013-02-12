@@ -14,10 +14,7 @@ namespace UnitWrappers.System.IO
         /// Gets or sets the number of bytes allocated for this stream. 
         /// </summary>
         int Capacity { get; set; }
-        /// <summary>
-        /// Gets <see cref="T:System.IO.MemoryStream"/> object.
-        /// </summary>
-        MemoryStream MemoryStreamInstance { get; }
+
 
         // Methods
 
@@ -35,7 +32,7 @@ namespace UnitWrappers.System.IO
         /// Writes the entire contents of this memory stream to another stream. 
         /// </summary>
         /// <param name="stream">The stream to write this memory stream to.</param>
-        void WriteTo(IStream stream);
+        void WriteTo(Stream stream);
 
 	}
 }

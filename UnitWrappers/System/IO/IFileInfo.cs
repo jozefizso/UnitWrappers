@@ -81,10 +81,10 @@ namespace UnitWrappers.System.IO
         // Methods
 
         /// <summary>
-        /// Creates a IStreamWriter that appends text to the file represented by this instance of the IFileInfo.
+        /// Creates a StreamWriterBase that appends text to the file represented by this instance of the IFileInfo.
         /// </summary>
-        /// <returns>A new IStreamWriter.</returns>
-        IStreamWriter AppendText();
+        /// <returns>A new StreamWriterBase.</returns>
+        StreamWriterBase AppendText();
         /// <summary>
         /// Copies an existing file to a new file, disallowing the overwriting of an existing file.
         /// </summary>
@@ -102,12 +102,12 @@ namespace UnitWrappers.System.IO
         /// Creates a file.
         /// </summary>
         /// <returns></returns>
-        IFileStream Create();
+        FileStreamBase Create();
         /// <summary>
-        /// Creates a IStreamWriter that writes a new text file.
+        /// Creates a StreamWriterBase that writes a new text file.
         /// </summary>
-        /// <returns>A new IStreamWriter.</returns>
-        IStreamWriter CreateText();
+        /// <returns>A new StreamWriterBase.</returns>
+        StreamWriterBase CreateText();
         /// <summary>
         /// Decrypts a file that was encrypted by the current account using the Encrypt method. 
         /// </summary>
@@ -143,14 +143,14 @@ namespace UnitWrappers.System.IO
         /// </summary>
         /// <param name="mode">A FileMode constant specifying the mode (for example, Open or Append) in which to open the file.</param>
         /// <returns>A file opened in the specified mode, with read/write access and unshared. </returns>
-        IFileStream Open(FileMode mode);
+        FileStreamBase Open(FileMode mode);
         /// <summary>
         /// Opens a file in the specified mode.
         /// </summary>
         /// <param name="mode">A FileMode constant specifying the mode (for example, Open or Append) in which to open the file.</param>
         /// <param name="access">A FileAccess constant specifying whether to open the file with Read, Write, or ReadWrite file access.</param>
         /// <returns>A file opened in the specified mode, with read/write access and unshared. </returns>
-        IFileStream Open(FileMode mode, FileAccess access);
+        FileStreamBase Open(FileMode mode, FileAccess access);
         /// <summary>
         /// Opens a file in the specified mode.
         /// </summary>
@@ -158,22 +158,22 @@ namespace UnitWrappers.System.IO
         /// <param name="access">A FileAccess constant specifying whether to open the file with Read, Write, or ReadWrite file access.</param>
         /// <param name="share">A FileShare constant specifying the type of access other FileStream objects have to this file.</param>
         /// <returns>A file opened in the specified mode, with read/write access and unshared. </returns>
-        IFileStream Open(FileMode mode, FileAccess access, FileShare share);
+        FileStreamBase Open(FileMode mode, FileAccess access, FileShare share);
         /// <summary>
-        /// Creates a read-only IFileStream. 
+        /// Creates a read-only FileStreamBase. 
         /// </summary>
-        /// <returns>A new read-only IFileStream object. </returns>
-        IFileStream OpenRead();
+        /// <returns>A new read-only FileStreamBase object. </returns>
+        FileStreamBase OpenRead();
         /// <summary>
         /// Creates a IStreamReader with UTF8 encoding that reads from an existing text file.
         /// </summary>
         /// <returns>A new IStreamReader with UTF8 encoding. </returns>
-        IStreamReader OpenText();
+        StreamReaderBase OpenText();
         /// <summary>
-        /// Creates a write-only IFileStream. 
+        /// Creates a write-only FileStreamBase. 
         /// </summary>
-        /// <returns>A new write-only unshared IFileStream object.</returns>
-        IFileStream OpenWrite();
+        /// <returns>A new write-only unshared FileStreamBase object.</returns>
+        FileStreamBase OpenWrite();
         /// <summary>
         /// Refreshes the state of the object.
         /// </summary>

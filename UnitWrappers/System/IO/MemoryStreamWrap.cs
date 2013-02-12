@@ -8,25 +8,21 @@ namespace UnitWrappers.System.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.MemoryStream"/> class.
     /// </summary>
-    public class MemoryStreamWrap : IMemoryStream
-	{
+    public class MemoryStreamWrap : MemoryStream, IMemoryStream,IWrap<MemoryStream>
+    {
+        private MemoryStream _underlyingObject;
+
+        MemoryStream IWrap<MemoryStream>.UnderlyingObject { get { return _underlyingObject; }}
 
 		/// <summary>
 		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
 		/// </summary>
 		public MemoryStreamWrap()
 		{
-         MemoryStreamInstance = new MemoryStream();
+         _underlyingObject = new MemoryStream();
 		}
 
 
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
-		/// </summary>
-		public MemoryStreamWrap(Stream stream)
-		{
-			MemoryStreamInstance = stream as MemoryStream;
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.MemoryStreamWrap"/> class on the specified path. 
@@ -34,7 +30,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="memoryStream">A <see cref="T:System.IO.MemoryStream"/> object.</param>
 		public MemoryStreamWrap(MemoryStream memoryStream)
 		{
-			MemoryStreamInstance = memoryStream;
+			_underlyingObject = memoryStream;
 		}
 
 		/// <summary>
@@ -43,7 +39,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="buffer">The array of unsigned bytes from which to create the current stream. </param>
 		public MemoryStreamWrap(byte[] buffer)
 		{
-			MemoryStreamInstance = new MemoryStream(buffer);
+			_underlyingObject = new MemoryStream(buffer);
 		}
 
 
@@ -53,7 +49,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="capacity"></param>
 		public MemoryStreamWrap(int capacity)
 		{
-	MemoryStreamInstance = new MemoryStream(capacity);
+	_underlyingObject = new MemoryStream(capacity);
 		}
 
 
@@ -64,7 +60,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
 		public MemoryStreamWrap(byte[] buffer, bool writable)
 		{
-			MemoryStreamInstance = new MemoryStream(buffer, writable);
+			_underlyingObject = new MemoryStream(buffer, writable);
 		}
 
 
@@ -77,7 +73,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="count">The length of the stream in bytes. </param>
 		public MemoryStreamWrap(byte[] buffer, int index, int count)
 		{
-			MemoryStreamInstance = new MemoryStream(buffer, index, count);
+			_underlyingObject = new MemoryStream(buffer, index, count);
 		}
 
 
@@ -91,7 +87,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
 		public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable)
 		{
-			MemoryStreamInstance = new MemoryStream(buffer, index, count, writable);
+			_underlyingObject = new MemoryStream(buffer, index, count, writable);
 		}
 
 
@@ -105,7 +101,7 @@ namespace UnitWrappers.System.IO
 		/// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
 		public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
 		{
-			MemoryStreamInstance = new MemoryStream(buffer, index, count, writable, publiclyVisible);
+			_underlyingObject = new MemoryStream(buffer, index, count, writable, publiclyVisible);
 		}
 		
 		/// <summary>
@@ -113,7 +109,7 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public bool CanRead
         {
-            get { return MemoryStreamInstance.CanRead; }
+            get { return _underlyingObject.CanRead; }
         }
 
         /// <summary>
@@ -121,13 +117,13 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public bool CanSeek
         {
-            get { return MemoryStreamInstance.CanSeek; }
+            get { return _underlyingObject.CanSeek; }
         }
 
         [ComVisible(false)]
         public bool CanTimeout
         {
-            get { return MemoryStreamInstance.CanTimeout; }
+            get { return _underlyingObject.CanTimeout; }
         }
 
         /// <summary>
@@ -135,13 +131,13 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public bool CanWrite
         {
-            get { return MemoryStreamInstance.CanWrite; }
+            get { return _underlyingObject.CanWrite; }
         }
 
         public int Capacity
         {
-            get { return MemoryStreamInstance.Capacity; }
-            set { MemoryStreamInstance.Capacity = value; }
+            get { return _underlyingObject.Capacity; }
+            set { _underlyingObject.Capacity = value; }
         }
 
         /// <summary>
@@ -149,61 +145,60 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public long Length
         {
-            get { return MemoryStreamInstance.Length; }
+            get { return _underlyingObject.Length; }
         }
 
-        public MemoryStream MemoryStreamInstance { get; private set; }
 
         /// <summary>
         /// Gets or sets the current position within the stream. 
         /// </summary>
         public long Position
         {
-            get { return MemoryStreamInstance.Position; }
-            set { MemoryStreamInstance.Position = value; }
+            get { return _underlyingObject.Position; }
+            set { _underlyingObject.Position = value; }
         }
 
         [ComVisible(false)]
         public int ReadTimeout
         {
-            get { return MemoryStreamInstance.ReadTimeout; }
-            set { MemoryStreamInstance.ReadTimeout = value; }
+            get { return _underlyingObject.ReadTimeout; }
+            set { _underlyingObject.ReadTimeout = value; }
         }
 
-        public Stream StreamInstance { get { return MemoryStreamInstance; } }
+        public Stream StreamInstance { get { return _underlyingObject; } }
 
         [ComVisible(false)]
         public int WriteTimeout
         {
-            get { return MemoryStreamInstance.WriteTimeout; }
-            set { MemoryStreamInstance.WriteTimeout = value; }
+            get { return _underlyingObject.WriteTimeout; }
+            set { _underlyingObject.WriteTimeout = value; }
         }
 
         [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
         public IAsyncResult BeginRead(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
         {
-            return MemoryStreamInstance.BeginRead(buffer, offset, count, callback, state);
+            return _underlyingObject.BeginRead(buffer, offset, count, callback, state);
         }
 
         [HostProtection(SecurityAction.LinkDemand, ExternalThreading = true)]
         public IAsyncResult BeginWrite(byte[] buffer, int offset, int count, AsyncCallback callback, object state)
         {
-            return MemoryStreamInstance.BeginWrite(buffer, offset, count, callback, state);
+            return _underlyingObject.BeginWrite(buffer, offset, count, callback, state);
         }
 
         public virtual void Close()
         {
-            MemoryStreamInstance.Close();
+            _underlyingObject.Close();
         }
 
         public int EndRead(IAsyncResult asyncResult)
         {
-            return MemoryStreamInstance.EndRead(asyncResult);
+            return _underlyingObject.EndRead(asyncResult);
         }
 
         public void EndWrite(IAsyncResult asyncResult)
         {
-            MemoryStreamInstance.EndWrite(asyncResult);
+            _underlyingObject.EndWrite(asyncResult);
         }
 
         /// <summary>
@@ -211,7 +206,7 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public void Flush()
         {
-            MemoryStreamInstance.Flush();
+            _underlyingObject.Flush();
         }
 
         /// <summary>
@@ -223,7 +218,7 @@ namespace UnitWrappers.System.IO
         /// <returns>The total number of bytes written into the buffer. This can be less than the number of bytes requested if that number of bytes are not currently available, or zero if the end of the stream is reached before any bytes are read. </returns>
         public int Read(byte[] buffer, int offset, int count)
         {
-            return MemoryStreamInstance.Read(buffer, offset, count);
+            return _underlyingObject.Read(buffer, offset, count);
         }
 
         /// <summary>
@@ -232,7 +227,7 @@ namespace UnitWrappers.System.IO
         /// <returns>The byte cast to a Int32, or -1 if the end of the stream has been reached.</returns>
         public int ReadByte()
         {
-            return MemoryStreamInstance.ReadByte();
+            return _underlyingObject.ReadByte();
         }
 
         /// <summary>
@@ -243,7 +238,7 @@ namespace UnitWrappers.System.IO
         /// <returns>The new position within the stream, calculated by combining the initial reference point and the offset.</returns>
         public long Seek(long offset, SeekOrigin origin)
         {
-            return MemoryStreamInstance.Seek(offset, origin);
+            return _underlyingObject.Seek(offset, origin);
         }
 
         /// <summary>
@@ -252,14 +247,10 @@ namespace UnitWrappers.System.IO
         /// <param name="value">The value at which to set the length.</param>
         public void SetLength(long value)
         {
-            MemoryStreamInstance.SetLength(value);
+            _underlyingObject.SetLength(value);
         }
 
-        [HostProtection(SecurityAction.LinkDemand, Synchronization = true)]
-        public IStream Synchronized(IStream stream)
-        {
-            return new MemoryStreamWrap(Stream.Synchronized(stream.StreamInstance));
-        }
+      
 
         /// <summary>
         /// Writes a block of bytes to the current stream using data read from buffer. 
@@ -269,7 +260,7 @@ namespace UnitWrappers.System.IO
         /// <param name="count">The maximum number of bytes to write. </param>
         public void Write(byte[] buffer, int offset, int count)
         {
-            MemoryStreamInstance.Write(buffer, offset, count);
+            _underlyingObject.Write(buffer, offset, count);
         }
 
         /// <summary>
@@ -278,27 +269,26 @@ namespace UnitWrappers.System.IO
         /// <param name="value">The byte to write. </param>
         public void WriteByte(byte value)
         {
-            MemoryStreamInstance.WriteByte(value);
+            _underlyingObject.WriteByte(value);
         }
 
         public byte[] GetBuffer()
         {
-            return MemoryStreamInstance.GetBuffer();
+            return _underlyingObject.GetBuffer();
         }
 
         public byte[] ToArray()
         {
-            return MemoryStreamInstance.ToArray();
+            return _underlyingObject.ToArray();
         }
 
-        public void WriteTo(IStream stream)
-        {
-            MemoryStreamInstance.WriteTo(stream.StreamInstance);
-        }
+       
 
         public void Dispose()
         {
-            MemoryStreamInstance.Dispose();
+            _underlyingObject.Dispose();
         }
+
+     
     }
 }

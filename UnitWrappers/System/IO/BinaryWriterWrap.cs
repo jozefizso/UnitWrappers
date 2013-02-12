@@ -30,14 +30,6 @@ namespace UnitWrappers.System.IO
             BinaryWriterInstance = new BinaryWriter(output);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and using UTF-8 as the encoding for strings.
-		/// </summary>
-		/// <param name="output">The output stream.</param>
-		public BinaryWriterWrap(IStream output)
-		{
-            BinaryWriterInstance = new BinaryWriter(output.StreamInstance);
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
@@ -49,15 +41,7 @@ namespace UnitWrappers.System.IO
             BinaryWriterInstance = new BinaryWriter(output, encoding);
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the BinaryWriterWrap class based on the supplied stream and a specific character encoding.
-		/// </summary>
-		/// <param name="output">The supplied stream.</param>
-		/// <param name="encoding">The character encoding.</param>
-		public BinaryWriterWrap(IStream output, Encoding encoding)
-		{
-            BinaryWriterInstance = new BinaryWriter(output.StreamInstance, encoding);
-		}
+
 
 		public Stream BaseStream
 		{

@@ -27,11 +27,11 @@ namespace UnitWrappers.System.IO
         /// <param name="encoding">The character encoding to use.</param>
         void AppendAllText(string path, string contents, Encoding encoding);
         /// <summary>
-        /// Creates a IStreamWriter that appends UTF-8 encoded text to an existing file. 
+        /// Creates a StreamWriterBase that appends UTF-8 encoded text to an existing file. 
         /// </summary>
         /// <param name="path">The path to the file to append to.</param>
-        /// <returns>A IStreamWriter that appends UTF-8 encoded text to an existing file.</returns>
-        IStreamWriter AppendText(string path);
+        /// <returns>A StreamWriterBase that appends UTF-8 encoded text to an existing file.</returns>
+        StreamWriterBase AppendText(string path);
         /// <summary>
         /// Copies an existing file to a new file. Overwriting a file of the same name is not allowed.
         /// </summary>
@@ -49,15 +49,15 @@ namespace UnitWrappers.System.IO
         /// Creates or overwrites a file in the specified path.
         /// </summary>
         /// <param name="path">The path and name of the file to create.</param>
-        /// <returns>A IFileStream that provides read/write access to the file specified in path.</returns>
-        IFileStream Create(string path);
+        /// <returns>A FileStreamBase that provides read/write access to the file specified in path.</returns>
+        FileStreamBase Create(string path);
         /// <summary>
         /// Creates or overwrites the specified file.
         /// </summary>
         /// <param name="path">The name of the file.</param>
         /// <param name="bufferSize">The number of bytes buffered for reads and writes to the file. </param>
-        /// <returns>A IFileStream with the specified buffer size that provides read/write access to the file specified in path. </returns>
-        IFileStream Create(string path, int bufferSize);
+        /// <returns>A FileStreamBase with the specified buffer size that provides read/write access to the file specified in path. </returns>
+        FileStreamBase Create(string path, int bufferSize);
         /// <summary>
         /// Creates or overwrites the specified file, specifying a buffer size and a FileOptions value that describes how to create or overwrite the file. 
         /// </summary>
@@ -65,7 +65,7 @@ namespace UnitWrappers.System.IO
         /// <param name="bufferSize">The number of bytes buffered for reads and writes to the file. </param>
         /// <param name="options">One of the FileOptions values that describes how to create or overwrite the file. </param>
         /// <returns>A new file with the specified buffer size. </returns>
-        IFileStream Create(string path, int bufferSize, FileOptions options);
+        FileStreamBase Create(string path, int bufferSize, FileOptions options);
         /// <summary>
         /// Creates or overwrites the specified file with the specified buffer size, file options, and file security.
         /// </summary>
@@ -74,13 +74,13 @@ namespace UnitWrappers.System.IO
         /// <param name="options">One of the FileOptions values that describes how to create or overwrite the file. </param>
         /// <param name="fileSecurity">One of the IFileSecurity values that determines the access control and audit security for the file. </param>
         /// <returns>A new file with the specified buffer size, file options, and file security. </returns>
-        IFileStream Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity);
+        FileStreamBase Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity);
         /// <summary>
         /// Creates or opens a file for writing UTF-8 encoded text. 
         /// </summary>
         /// <param name="path">The file to be opened for writing. </param>
-        /// <returns>A IStreamWriter that writes to the specified file using UTF-8 encoding. </returns>
-        IStreamWriter CreateText(string path);
+        /// <returns>A StreamWriterBase that writes to the specified file using UTF-8 encoding. </returns>
+        StreamWriterBase CreateText(string path);
         /// <summary>
         /// Decrypts a file that was encrypted by the current account using the Encrypt method. 
         /// </summary>
@@ -169,7 +169,7 @@ namespace UnitWrappers.System.IO
         /// <param name="path">The file to open. </param>
         /// <param name="mode">A FileMode value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten. </param>
         /// <returns>A FileStream opened in the specified mode and path, with read/write access and not shared. </returns>
-        IFileStream Open(string path, FileMode mode);
+        FileStreamBase Open(string path, FileMode mode);
         /// <summary>
         /// Opens a FileStream on the specified path, with the specified mode and access.
         /// </summary>
@@ -177,7 +177,7 @@ namespace UnitWrappers.System.IO
         /// <param name="mode">A FileMode value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</param>
         /// <param name="access">A FileAccess value that specifies the operations that can be performed on the file. </param>
         /// <returns>An unshared FileStream that provides access to the specified file, with the specified mode and access.</returns>
-		IFileStream Open(string path, FileMode mode, FileAccess access);
+		FileStreamBase Open(string path, FileMode mode, FileAccess access);
         /// <summary>
         /// Opens a FileStream on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option. 
         /// </summary>
@@ -186,25 +186,25 @@ namespace UnitWrappers.System.IO
         /// <param name="access">A FileAccess value that specifies the operations that can be performed on the file. </param>
         /// <param name="share">A FileShare value specifying the type of access other threads have to the file. </param>
         /// <returns>A FileStream on the specified path, having the specified mode with read, write, or read/write access and the specified sharing option. </returns>
-        IFileStream Open(string path, FileMode mode, FileAccess access, FileShare share);
+        FileStreamBase Open(string path, FileMode mode, FileAccess access, FileShare share);
         /// <summary>
         /// Opens an existing file for reading. 
         /// </summary>
         /// <param name="path">The file to be opened for reading.</param>
         /// <returns>A read-only FileStream on the specified path. </returns>
-        IFileStream OpenRead(string path);
+        FileStreamBase OpenRead(string path);
         /// <summary>
         /// Opens an existing UTF-8 encoded text file for reading. 
         /// </summary>
         /// <param name="path">The file to be opened for reading. </param>
         /// <returns>A StreamReader on the specified path. </returns>
-        IStreamReader OpenText(string path);
+        StreamReaderBase OpenText(string path);
         /// <summary>
         /// Opens an existing file for writing. 
         /// </summary>
         /// <param name="path">The file to be opened for writing. </param>
         /// <returns>An unshared FileStream object on the specified path with Write access. </returns>
-        IFileStream OpenWrite(string path);
+        FileStreamBase OpenWrite(string path);
         /// <summary>
         /// Opens a binary file, reads the contents of the file into a byte array, and then closes the file.
         /// </summary>

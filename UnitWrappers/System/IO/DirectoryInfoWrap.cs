@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting;
 using System.Security.AccessControl;
@@ -172,19 +173,19 @@ namespace UnitWrappers.System.IO
 		public IFileInfo[] GetFiles()
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles();
-			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
+		    return fileInfos.Select(x=> new FileInfoWrap(x)).ToArray();
 		}
 
 		public IFileInfo[] GetFiles(string searchPattern)
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles(searchPattern);
-			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
+            return fileInfos.Select(x => new FileInfoWrap(x)).ToArray();
 		}
 
 		public IFileInfo[] GetFiles(string searchPattern, SearchOption searchOption)
 		{
 			FileInfo[] fileInfos = DirectoryInfo.GetFiles(searchPattern, searchOption);
-			return FileInfoWrap.ConvertFileInfoArrayIntoIFileInfoWrapArray(fileInfos);
+            return fileInfos.Select(x => new FileInfoWrap(x)).ToArray();
 		}
 
 		public FileSystemInfo[] GetFileSystemInfos()

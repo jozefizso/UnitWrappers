@@ -6,9 +6,10 @@ using System.Threading;
 namespace UnitWrappers.System.Threading
 {
     /// <summary>
-    /// Wraps instance of <see cref="WaitHandle"/>
+    /// Encapsulates operating system–specific objects that wait for exclusive access to shared resources.
+    /// 
     /// </summary>
-    public interface IWaitHandle:IDisposable,IWrap<WaitHandle>
+    public interface IWaitHandle:IDisposable
     {
         void Close();
         bool WaitOne();

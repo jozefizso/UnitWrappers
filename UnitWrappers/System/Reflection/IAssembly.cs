@@ -107,22 +107,22 @@ namespace UnitWrappers.System.Reflection
         /// <returns>An array of Type objects that represent the types defined in this assembly that are visible outside the assembly.</returns>
         Type[] GetExportedTypes();
         /// <summary>
-        /// Gets a IFileStream for the specified file in the file table of the manifest of this assembly.
+        /// Gets a FileStreamBase for the specified file in the file table of the manifest of this assembly.
         /// </summary>
         /// <param name="name">The name of the specified file. Do not include the path to the file.</param>
-        /// <returns>A IFileStream for the specified file, or nullNothingnullptra null reference (Nothing in Visual Basic) if the file is not found.</returns>
-        IFileStream GetFile(string name);
+        /// <returns>A FileStreamBase for the specified file, or nullNothingnullptra null reference (Nothing in Visual Basic) if the file is not found.</returns>
+        FileStreamBase GetFile(string name);
         /// <summary>
         /// Gets the files in the file table of an assembly manifest.
         /// </summary>
-        /// <returns>An array of IFileStream objects.</returns>
-        IFileStream[] GetFiles();
+        /// <returns>An array of FileStreamBase objects.</returns>
+        FileStreamBase[] GetFiles();
         /// <summary>
         /// Gets the files in the file table of an assembly manifest, specifying whether to include resource modules.
         /// </summary>
         /// <param name="getResourceModules"> true to include resource modules; otherwise, false.</param>
-        /// <returns>An array of IFileStream objects.</returns>
-        IFileStream[] GetFiles(bool getResourceModules);
+        /// <returns>An array of FileStreamBase objects.</returns>
+        FileStreamBase[] GetFiles(bool getResourceModules);
         /// <summary>
         /// Returns the hash code for this instance. 
         /// </summary>

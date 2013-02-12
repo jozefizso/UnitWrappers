@@ -8,8 +8,6 @@ namespace UnitWrappers.System.IO
     /// </summary>
     public interface IStreamReader : ITextReader
     {
-        // Properties
-
         /// <summary>
         /// Returns the underlying stream. 
         /// </summary>
@@ -25,13 +23,7 @@ namespace UnitWrappers.System.IO
         /// </summary>
         /// <value> true if the current stream position is at the end of the stream; otherwise false. </value>
         bool EndOfStream { get; }
-        /// <summary>
-        /// Gets <see cref="T:System.IO.StreamReader"/> object.
-        /// </summary>
-        StreamReader UnderlyingObject { get; }
 
-        // Methods
-        
         /// <summary>
         /// Allows a IStreamReader object to discard its current data. 
         /// </summary>

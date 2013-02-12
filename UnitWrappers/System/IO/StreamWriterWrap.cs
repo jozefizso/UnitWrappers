@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting;
 using System.Text;
 
 namespace UnitWrappers.System.IO
@@ -10,9 +11,26 @@ namespace UnitWrappers.System.IO
     /// </summary>
     [Serializable]
     [ComVisible(true)]
-    public class StreamWriterWrap : TextWriter, IStreamWriter
+    public class StreamWriterWrap : StreamWriterBase, IWrap<StreamWriter>,IStreamWriter
     {
+        public StreamWriter _underlyingObject;
 
+        StreamWriter IWrap<StreamWriter>.UnderlyingObject
+        {
+            get { return _underlyingObject; }
+        }
+
+
+
+        public static implicit operator StreamWriterWrap(StreamWriter o)
+        {
+            return new StreamWriterWrap(o);
+        }
+
+        public static implicit operator StreamWriter(StreamWriterWrap o)
+        {
+            return o._underlyingObject;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.StreamWriterWrap"/> class on the specified path. 
@@ -20,7 +38,7 @@ namespace UnitWrappers.System.IO
         /// <param name="streamWriter">A <see cref="T:System.IO.StreamWriter"/> object.</param>
         public StreamWriterWrap(StreamWriter streamWriter)
         {
-            StreamWriterInstance = streamWriter;
+            _underlyingObject = streamWriter;
         }
 
 
@@ -30,7 +48,7 @@ namespace UnitWrappers.System.IO
         /// <param name="stream">The stream to write to.</param>
         public StreamWriterWrap(Stream stream)
         {
-            StreamWriterInstance = new StreamWriter(stream);
+            _underlyingObject = new StreamWriter(stream);
         }
 
 
@@ -40,7 +58,7 @@ namespace UnitWrappers.System.IO
         /// <param name="path">The complete file path to write to. path can be a file name.</param>
         public StreamWriterWrap(string path)
         {
-            StreamWriterInstance = new StreamWriter(path);
+            _underlyingObject = new StreamWriter(path);
         }
 
 
@@ -51,7 +69,7 @@ namespace UnitWrappers.System.IO
         /// <param name="encoding">The character encoding to use.</param>
         public StreamWriterWrap(Stream stream, Encoding encoding)
         {
-            StreamWriterInstance = new StreamWriter(stream, encoding);
+            _underlyingObject = new StreamWriter(stream, encoding);
         }
 
 
@@ -62,7 +80,7 @@ namespace UnitWrappers.System.IO
         /// <param name="append">Determines whether data is to be appended to the file. If the file exists and append is false, the file is overwritten. If the file exists and append is true, the data is appended to the file. Otherwise, a new file is created.</param>
         public StreamWriterWrap(string path, bool append)
         {
-            StreamWriterInstance = new StreamWriter(path, append);
+            _underlyingObject = new StreamWriter(path, append);
         }
 
 
@@ -74,7 +92,7 @@ namespace UnitWrappers.System.IO
         /// <param name="bufferSize">Sets the buffer size.</param>
         public StreamWriterWrap(Stream stream, Encoding encoding, int bufferSize)
         {
-            StreamWriterInstance = new StreamWriter(stream, encoding, bufferSize);
+            _underlyingObject = new StreamWriter(stream, encoding, bufferSize);
         }
 
 
@@ -87,7 +105,7 @@ namespace UnitWrappers.System.IO
         /// <param name="encoding">The character encoding to use.</param>
         public StreamWriterWrap(string path, bool append, Encoding encoding)
         {
-            StreamWriterInstance = new StreamWriter(path, append, encoding);
+            _underlyingObject = new StreamWriter(path, append, encoding);
         }
 
 
@@ -101,57 +119,239 @@ namespace UnitWrappers.System.IO
         /// <param name="bufferSize">Sets the buffer size.</param>
         public StreamWriterWrap(string path, bool append, Encoding encoding, int bufferSize)
         {
-            StreamWriterInstance = new StreamWriter(path, append, encoding, bufferSize);
+            _underlyingObject = new StreamWriter(path, append, encoding, bufferSize);
         }
 
 
 
-        public bool AutoFlush
+        public override bool AutoFlush
         {
-            get { return StreamWriterInstance.AutoFlush; }
-            set { StreamWriterInstance.AutoFlush = value; }
+            get { return _underlyingObject.AutoFlush; }
+            set { _underlyingObject.AutoFlush = value; }
         }
 
-        public Stream BaseStream
+        public override Stream BaseStream
         {
-            get { return StreamWriterInstance.BaseStream; }
+            get { return _underlyingObject.BaseStream; }
+        }
+
+        public override IFormatProvider FormatProvider
+        {
+            get { return _underlyingObject.FormatProvider; }
+        }
+
+        public override string NewLine
+        {
+            get { return _underlyingObject.NewLine; }
+            set { _underlyingObject.NewLine = value; }
         }
 
         public override Encoding Encoding
         {
-            get { return StreamWriterInstance.Encoding; }
+            get { return _underlyingObject.Encoding; }
         }
 
-        public StreamWriter StreamWriterInstance { get; private set; }
 
         public override void Close()
         {
-            StreamWriterInstance.Close();
+            _underlyingObject.Close();
+        }
+
+        public override ObjRef CreateObjRef(Type requestedType)
+        {
+            return _underlyingObject.CreateObjRef(requestedType);
         }
 
         public override void Flush()
         {
-            StreamWriterInstance.Flush();
+            _underlyingObject.Flush();
         }
 
         public override void Write(char value)
         {
-            StreamWriterInstance.Write(value);
+            _underlyingObject.Write(value);
         }
 
         public override void Write(char[] buffer)
         {
-            StreamWriterInstance.Write(buffer);
+            _underlyingObject.Write(buffer);
+        }
+
+        public override void Write(decimal value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(ulong value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(string format, object arg0)
+        {
+            _underlyingObject.Write(format, arg0);
+        }
+
+        public override void Write(string format, object arg0, object arg1)
+        {
+            _underlyingObject.Write(format, arg0, arg1);
+        }
+
+        public override void Write(string format, object arg0, object arg1, object arg2)
+        {
+            _underlyingObject.Write(format, arg0, arg1, arg2);
+        }
+
+        public override void Write(string format, object[] arg)
+        {
+            _underlyingObject.Write(format, arg);
+        }
+
+        public override void Write(float value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(uint value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(double value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(int value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(long value)
+        {
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(object value)
+        {
+            _underlyingObject.Write(value);
         }
 
         public override void Write(string value)
         {
-            StreamWriterInstance.Write(value);
+            _underlyingObject.Write(value);
+        }
+
+        public override void Write(bool value)
+        {
+            _underlyingObject.Write(value);
         }
 
         public override void Write(char[] buffer, int index, int count)
         {
-            StreamWriterInstance.Write(buffer, index, count);
+            _underlyingObject.Write(buffer, index, count);
+        }
+
+        public override void WriteLine()
+        {
+            _underlyingObject.WriteLine();
+        }
+
+        public override void WriteLine(char value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(char[] buffer, int index, int count)
+        {
+            _underlyingObject.WriteLine(buffer,index,count);
+        }
+
+        public override void WriteLine(bool value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(string value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(string format, object arg0)
+        {
+            _underlyingObject.WriteLine(format, arg0);
+        }
+
+        public override void WriteLine(char[] buffer)
+        {
+            _underlyingObject.WriteLine(buffer);
+        }
+
+        public override void WriteLine(decimal value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(double value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(float value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(int value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(long value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(object value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(string format, object arg0, object arg1)
+        {
+            _underlyingObject.WriteLine(format, arg0, arg1);
+        }
+
+        public override void WriteLine(string format, object arg0, object arg1, object arg2)
+        {
+            _underlyingObject.WriteLine(format, arg0, arg1, arg2);
+        }
+
+        public override void WriteLine(string format, params object[] arg)
+        {
+            _underlyingObject.WriteLine(format, arg);
+        }
+
+        public override void WriteLine(uint value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override void WriteLine(ulong value)
+        {
+            _underlyingObject.WriteLine(value);
+        }
+
+        public override string ToString()
+        {
+            return _underlyingObject.ToString();
+        }
+
+      
+
+        public override object InitializeLifetimeService()
+        {
+            return _underlyingObject.InitializeLifetimeService();
         }
     }
 }

@@ -7,11 +7,20 @@ using System.Threading;
 
 namespace UnitWrappers.System.Threading
 {
-    public class MutexWrap : IMutex
+    public class MutexWrap : IMutex, IWrap<Mutex>, IWrap<WaitHandle>
     {
 
         private Mutex _underlyingObject;
 
+        public static implicit operator MutexWrap(Mutex o)
+        {
+            return new MutexWrap(o);
+        }
+
+        public static implicit operator Mutex(MutexWrap o)
+        {
+            return o._underlyingObject;
+        }
 
 
         public bool WaitOne()
@@ -19,11 +28,8 @@ namespace UnitWrappers.System.Threading
             return _underlyingObject.WaitOne();
         }
 
-        WaitHandle IWrap<WaitHandle>.UnderlyingObject
-        {
-            get { return _underlyingObject; }
-
-        }
+        Mutex IWrap<Mutex>.UnderlyingObject{get { return _underlyingObject; }}
+        WaitHandle IWrap<WaitHandle>.UnderlyingObject { get { return _underlyingObject; } }
 
         public MutexWrap(Mutex mutex)
         {

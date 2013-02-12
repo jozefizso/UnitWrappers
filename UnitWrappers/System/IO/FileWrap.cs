@@ -23,7 +23,7 @@ namespace UnitWrappers.System.IO
             File.AppendAllText(path, contents, encoding);
         }
 
-        public IStreamWriter AppendText(string path)
+        public StreamWriterBase AppendText(string path)
         {
             return new StreamWriterWrap(File.AppendText(path));
         }
@@ -38,27 +38,27 @@ namespace UnitWrappers.System.IO
             File.Copy(sourceFileName, destFileName, overwrite);
         }
 
-        public IFileStream Create(string path)
+        public FileStreamBase Create(string path)
         {
             return new FileStreamWrap(File.Create(path));
         }
 
-        public IFileStream Create(string path, int bufferSize)
+        public FileStreamBase Create(string path, int bufferSize)
         {
             return new FileStreamWrap(File.Create(path, bufferSize));
         }
 
-        public IFileStream Create(string path, int bufferSize, FileOptions options)
+        public FileStreamBase Create(string path, int bufferSize, FileOptions options)
         {
             return new FileStreamWrap(File.Create(path, bufferSize, options));
         }
 
-        public IFileStream Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity)
+        public FileStreamBase Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity)
         {
             return new FileStreamWrap(File.Create(path, bufferSize, options, fileSecurity.FileSecurityInstance));
         }
 
-        public IStreamWriter CreateText(string path)
+        public StreamWriterBase CreateText(string path)
         {
             return new StreamWriterWrap(File.CreateText(path));
         }
@@ -133,32 +133,32 @@ namespace UnitWrappers.System.IO
             File.Move(sourceFileName, destFileName);
         }
 
-        public IFileStream Open(string path, FileMode mode)
+        public FileStreamBase Open(string path, FileMode mode)
         {
             return new FileStreamWrap(File.Open(path, mode));
         }
 
-        public IFileStream Open(string path, FileMode mode, FileAccess access)
+        public FileStreamBase Open(string path, FileMode mode, FileAccess access)
         {
             return new FileStreamWrap(File.Open(path, mode, access));
         }
 
-        public IFileStream Open(string path, FileMode mode, FileAccess access, FileShare share)
+        public FileStreamBase Open(string path, FileMode mode, FileAccess access, FileShare share)
         {
             return new FileStreamWrap(File.Open(path, mode, access, share));
         }
 
-        public IFileStream OpenRead(string path)
+        public FileStreamBase OpenRead(string path)
         {
             return new FileStreamWrap(File.OpenRead(path));
         }
 
-        public IStreamReader OpenText(string path)
+        public StreamReaderBase OpenText(string path)
         {
             return new StreamReaderWrap(File.OpenText(path));
         }
 
-        public IFileStream OpenWrite(string path)
+        public FileStreamBase OpenWrite(string path)
         {
             return new FileStreamWrap(File.OpenWrite(path));
         }

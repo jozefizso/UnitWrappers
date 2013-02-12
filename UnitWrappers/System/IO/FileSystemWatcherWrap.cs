@@ -34,8 +34,6 @@ namespace UnitWrappers.System.IO
             FileSystemWatcherInstance = new FileSystemWatcher(path, filter);
         }
 
-        #region IFileSystemWatcher Members
-
         public FileSystemWatcher FileSystemWatcherInstance { get; private set; }
 
 
@@ -207,8 +205,6 @@ namespace UnitWrappers.System.IO
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        #endregion
 
         protected virtual void Dispose(bool disposing)
         {

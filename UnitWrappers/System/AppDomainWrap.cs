@@ -1,5 +1,7 @@
 using System;
+using System.Configuration.Assemblies;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
@@ -95,7 +97,10 @@ namespace UnitWrappers.System
         /// <inheritdoc />
         event ResolveEventHandler IAppDomain.AssemblyResolve
         {
-            add { _underlyingObject.AssemblyResolve += value; }
+            add
+            {
+                _underlyingObject.AssemblyResolve += value;
+            }
             remove { _underlyingObject.AssemblyResolve -= value; }
         }
 
@@ -170,5 +175,68 @@ namespace UnitWrappers.System
         {
             get { return _underlyingObject.FriendlyName; }
         }
+        /// <inheritdoc />
+        public object InitializeLifetimeService()
+        {
+            return _underlyingObject.GetLifetimeService();
+        }
+        /// <inheritdoc />
+        public bool IsDefaultAppDomain()
+        {
+            return _underlyingObject.IsDefaultAppDomain();
+        }
+        /// <inheritdoc />
+        public int ExecuteAssembly(string assemblyFile)
+        {
+            return _underlyingObject.ExecuteAssembly(assemblyFile);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssembly(string assemblyFile, Evidence assemblySecurity)
+        {
+            return _underlyingObject.ExecuteAssembly(assemblyFile, assemblySecurity);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssembly(string assemblyFile, Evidence assemblySecurity, string[] args)
+        {
+            return _underlyingObject.ExecuteAssembly(assemblyFile, assemblySecurity, args);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssembly(string assemblyFile, Evidence assemblySecurity, string[] args, byte[] hashValue,
+                                   AssemblyHashAlgorithm hashAlgorithm)
+        {
+            return _underlyingObject.ExecuteAssembly(assemblyFile, assemblySecurity, args, hashValue, hashAlgorithm);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssemblyByName(string assemblyName)
+        {
+            return _underlyingObject.ExecuteAssemblyByName(assemblyName);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssemblyByName(string assemblyName, Evidence assemblySecurity)
+        {
+            return _underlyingObject.ExecuteAssemblyByName(assemblyName, assemblySecurity);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssemblyByName(IAssemblyName assemblyName, Evidence assemblySecurity, params string[] args)
+        {
+            IWrap<AssemblyName> real = (IWrap<AssemblyName>)assemblyName;
+            return _underlyingObject.ExecuteAssemblyByName(real.UnderlyingObject, assemblySecurity, args);
+        }
+        /// <inheritdoc />
+        public int ExecuteAssemblyByName(string assemblyName, Evidence assemblySecurity, params string[] args)
+        {
+            return _underlyingObject.ExecuteAssemblyByName(assemblyName, assemblySecurity, args);
+        }
+        /// <inheritdoc />
+        public IAssembly[] GetAssemblies()
+        {
+            return _underlyingObject.GetAssemblies().Select(x => (IAssembly)new AssemblyWrap(x)).ToArray();
+        }
+        /// <inheritdoc />
+        public int Id { get { return _underlyingObject.Id; } }
+        /// <inheritdoc />
+        public string RelativeSearchPath { get { return _underlyingObject.RelativeSearchPath; }}
+        /// <inheritdoc />
+        public bool ShadowCopyFiles { get { return _underlyingObject.ShadowCopyFiles; } }
     }
 }

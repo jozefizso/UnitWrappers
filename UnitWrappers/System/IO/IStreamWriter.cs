@@ -12,10 +12,9 @@ namespace UnitWrappers.System.IO
     public interface IStreamWriter
     {
 
-        // Properties
 
         /// <summary>
-        /// Gets or sets a value indicating whether the IStreamWriter will flush its buffer to the underlying stream after every call to IStreamWriter.Write. 
+        /// Gets or sets a value indicating whether the StreamWriteBase will flush its buffer to the underlying stream after every call to StreamWriteBase.Write. 
         /// </summary>
         bool AutoFlush { get; set; }
         /// <summary>
@@ -34,12 +33,7 @@ namespace UnitWrappers.System.IO
         /// Gets or sets the line terminator string used by the current TextWriter.
         /// </summary>
         string NewLine { get; set; }
-        /// <summary>
-        /// Gets <see cref="T:System.IO.StreamWriter"/> object.
-        /// </summary>
-        StreamWriter StreamWriterInstance { get; }
 
-        // Methods
 
         /// <summary>
         /// Implements a TextWriter for writing characters to a stream in a particular encoding. 

@@ -1,11 +1,11 @@
-Total number of wraps: 57
+Total number of wraps: 58
 Microsoft.Win32.Registry-> UnitWrappers.Microsoft.Win32.IRegistry : 100%
 
 Microsoft.Win32.RegistryKey-> UnitWrappers.Microsoft.Win32.IRegistryKeySystem UnitWrappers.Microsoft.Win32.IRegistryKey : 60%
 
 Microsoft.Win32.SafeHandles.SafeFileHandle-> UnitWrappers.Microsoft.Win32.SafeHandles.ISafeFileHandle : 90%
 
-System.AppDomain-> UnitWrappers.System.IAppDomain UnitWrappers.System.IAppDomainSystem : 40%
+System.AppDomain-> UnitWrappers.System.IAppDomain UnitWrappers.System.IAppDomainSystem : 52%
 
 System.ComponentModel.BackgroundWorker-> UnitWrappers.System.ComponentModel.IBackgroundWorker : 65%
 
@@ -21,7 +21,9 @@ System.Data.SqlClient.SqlDataReader-> UnitWrappers.System.Data.SqlClient.ISqlDat
 
 System.DateTime-> UnitWrappers.System.IDateTimeSystem : 20%
 
-System.Diagnostics.Process-> UnitWrappers.System.Diagnostics.IProcessSystem UnitWrappers.System.Diagnostics.IProcess : 56%
+System.Diagnostics.FileVersionInfo-> UnitWrappers.System.Diagnostics.IFileVersionInfoSystem UnitWrappers.System.Diagnostics.IFileVersionInfo : 50%
+
+System.Diagnostics.Process-> UnitWrappers.System.Diagnostics.IProcessSystem UnitWrappers.System.Diagnostics.IProcess : 55%
 
 System.Diagnostics.ProcessStartInfo-> UnitWrappers.System.Diagnostics.IProcessStartInfo : 34%
 
@@ -41,19 +43,19 @@ System.IO.File-> UnitWrappers.System.IO.IFile : 89%
 
 System.IO.FileInfo-> UnitWrappers.System.IO.IFileInfo UnitWrappers.System.IO.IFileInfoSystem : 58%
 
-System.IO.FileStream-> UnitWrappers.System.IO.IFileStream : 71%
+System.IO.FileStream-> UnitWrappers.System.IO.IFileStream : 66%
 
 System.IO.FileSystemWatcher-> UnitWrappers.System.IO.IFileSystemWatcher : 50%
 
-System.IO.MemoryStream-> UnitWrappers.System.IO.IMemoryStream : 80%
+System.IO.MemoryStream-> UnitWrappers.System.IO.IMemoryStream : 72%
 
 System.IO.Path-> UnitWrappers.System.IO.IPath : 100%
 
-System.IO.Stream-> UnitWrappers.System.IO.IStream : 58%
+System.IO.Stream-> UnitWrappers.System.IO.IStream UnitWrappers.System.IO.IStreamSystem : 56%
 
-System.IO.StreamReader-> UnitWrappers.System.IO.IStreamReader : 44%
+System.IO.StreamReader-> UnitWrappers.System.IO.IStreamReader : 41%
 
-System.IO.StreamWriter-> UnitWrappers.System.IO.IStreamWriter : 42%
+System.IO.StreamWriter-> UnitWrappers.System.IO.IStreamWriter : 40%
 
 System.IO.TextReader-> UnitWrappers.System.IO.ITextReader : 61%
 
@@ -89,9 +91,9 @@ System.ServiceModel.OperationContext-> UnitWrappers.System.ServiceModel.IOperati
 
 System.ServiceModel.ServiceHost-> UnitWrappers.System.ServiceModel.IServiceHost : 18%
 
-System.Threading.AutoResetEvent-> UnitWrappers.System.Threading.IAutoResetEvent : 25%
+System.Threading.AutoResetEvent-> UnitWrappers.System.Threading.IAutoResetEvent : 15%
 
-System.Threading.Mutex-> UnitWrappers.System.Threading.IMutexSystem UnitWrappers.System.Threading.IMutex : 28%
+System.Threading.Mutex-> UnitWrappers.System.Threading.IMutexSystem UnitWrappers.System.Threading.IMutex : 20%
 
 System.Threading.Tasks.Task-> UnitWrappers.System.Threading.Tasks.ITask : 18%
 
@@ -99,7 +101,7 @@ System.Threading.Thread-> UnitWrappers.System.Threading.IThread UnitWrappers.Sys
 
 System.Threading.ThreadPool-> UnitWrappers.System.Threading.IThreadPool : 44%
 
-System.Threading.WaitHandle-> UnitWrappers.System.Threading.IWaitHandleSystem UnitWrappers.System.Threading.IWaitHandle : 20%
+System.Threading.WaitHandle-> UnitWrappers.System.Threading.IWaitHandleSystem UnitWrappers.System.Threading.IWaitHandle : 24%
 
 System.Timers.Timer-> UnitWrappers.System.Timers.ITimer : 28%
 

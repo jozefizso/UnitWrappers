@@ -82,8 +82,11 @@
     <Compile Include="System\Data\SqlClient\SqlCommandWrapTests.cs" />
     <Compile Include="System\Diagnostics\ProcessWrapTests.cs" />
     <Compile Include="System\Diagnostics\ProcessStartInfoWrapTests.cs" />
+    <Compile Include="System\IO\BinaryReaderWrapTests.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="System\IO\Compression\DeflateStreamWrapTests.cs" />
-    <Compile Include="System\IO\BinaryReaderWrapTests.cs" />
+    <Compile Include="System\IO\FileSteamWrapTests.cs" />
     <Compile Include="System\Reflection\AssemblyWrapTests.cs" />
     <Compile Include="System\IO\DirectoryInfoWrapTests.cs" />
     <Compile Include="System\IO\DirectoryWrapTests.cs" />

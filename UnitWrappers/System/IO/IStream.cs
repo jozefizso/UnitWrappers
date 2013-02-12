@@ -37,16 +37,12 @@ namespace UnitWrappers.System.IO
         /// Gets or sets a value, in milliseconds, that determines how long the stream will attempt to read before timing out. 
         /// </summary>
         int ReadTimeout { get; set; }
-        /// <summary>
-        /// Gets <see cref="T:System.IO.Stream"/> object.
-        /// </summary>
-        Stream StreamInstance { get; }
+
         /// <summary>
         /// Gets or sets a value, in milliseconds, that determines how long the stream will attempt to write before timing out. 
         /// </summary>
         int WriteTimeout { get; set; }
 
-        // Methods
 
         /// <summary>
         /// Begins an asynchronous read operation. 
@@ -112,12 +108,7 @@ namespace UnitWrappers.System.IO
         /// </summary>
         /// <param name="value">The desired length of the current stream in bytes. </param>
         void SetLength(long value);
-        /// <summary>
-        /// Creates a thread-safe (synchronized) wrapper around the specified Stream object. 
-        /// </summary>
-        /// <param name="stream">The IStream object to synchronize. </param>
-        /// <returns>A thread-safe IStream object. </returns>
-        IStream Synchronized(IStream stream);
+
         /// <summary>
         /// When overridden in a derived class, writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
         /// </summary>

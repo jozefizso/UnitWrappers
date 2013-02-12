@@ -88,7 +88,52 @@
     <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IEnvironment.cs" />
+    <Compile Include="System\IO\BinaryReaderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\BinaryWriterWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\Compression\DeflateStreamWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\Compression\IDeflateStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\FileStreamBase.cs" />
+    <Compile Include="System\IO\IBinaryReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IBinaryWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IFileStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IMemoryStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />
+    <Compile Include="System\IO\IStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IStreamReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IStreamSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IStreamWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\ITextReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\MemoryStreamWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\StreamReaderBase.cs" />
+    <Compile Include="System\IO\StreamWriterBase.cs" />
     <Compile Include="System\Net\IWebClient.cs" />
     <Compile Include="System\Net\IWebRequestSystem.cs" />
     <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
@@ -137,10 +182,6 @@
     <Compile Include="System\IConsole.cs" />
     <Compile Include="System\IDateTimeSystem.cs" />
     <Compile Include="System\IO\IFileSystemWatcher.cs" />
-    <Compile Include="System\IO\BinaryReaderWrap.cs" />
-    <Compile Include="System\IO\BinaryWriterWrap.cs" />
-    <Compile Include="System\IO\Compression\DeflateStreamWrap.cs" />
-    <Compile Include="System\IO\Compression\IDeflateStream.cs" />
     <Compile Include="System\IO\DirectoryInfoWrap.cs" />
     <Compile Include="System\IO\DirectoryWrap.cs" />
     <Compile Include="System\IO\FileInfoSystem.cs" />
@@ -148,21 +189,12 @@
     <Compile Include="System\IO\FileStreamWrap.cs" />
     <Compile Include="System\IO\FileSystemWatcherWrap.cs" />
     <Compile Include="System\IO\FileWrap.cs" />
-    <Compile Include="System\IO\IBinaryReader.cs" />
-    <Compile Include="System\IO\IBinaryWriter.cs" />
     <Compile Include="System\IO\IDirectoryInfo.cs" />
     <Compile Include="System\IO\IDirectory.cs" />
     <Compile Include="System\IO\IFileInfoSystem.cs" />
     <Compile Include="System\IO\IFileInfo.cs" />
-    <Compile Include="System\IO\IFileStream.cs" />
     <Compile Include="System\IO\IFile.cs" />
-    <Compile Include="System\IO\IMemoryStream.cs" />
     <Compile Include="System\IO\IPath.cs" />
-    <Compile Include="System\IO\IStreamReader.cs" />
-    <Compile Include="System\IO\IStream.cs" />
-    <Compile Include="System\IO\IStreamWriter.cs" />
-    <Compile Include="System\IO\ITextReader.cs" />
-    <Compile Include="System\IO\MemoryStreamWrap.cs" />
     <Compile Include="System\IO\PathWrap.cs" />
     <Compile Include="System\IO\StreamReaderWrap.cs" />
     <Compile Include="System\IO\StreamWriterWrap.cs" />

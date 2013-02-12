@@ -75,7 +75,7 @@ namespace UnitWrappers.System.Windows
 
         #if NET40
         [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
-        #endif
+        #endif        
         public string GetText()
         {
             return Clipboard.GetText();

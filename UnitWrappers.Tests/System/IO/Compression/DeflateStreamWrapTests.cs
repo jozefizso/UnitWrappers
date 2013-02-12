@@ -28,24 +28,24 @@ namespace UnitWrappers.Tests.System.IO.Compression
         {
         }
 
-        [Test]
-        public void Constructor_Sets_DeflateStreamInstance()
-        {
-            var mockStream = MockRepository.GenerateMock<IStream>();
-            mockStream.Stub(mo => mo.StreamInstance).Return(_fileStream);
+        //[Test]
+        //public void Constructor_Sets_DeflateStreamInstance()
+        //{
+        //    var mockStream = MockRepository.GenerateMock<IStream>();
+        //    mockStream.Stub(mo => mo.StreamInstance).Return(_fileStream);
 
-            var instance = new DeflateStreamWrap(mockStream, CompressionMode.Compress);
-            Assert.IsNotNull(instance.DeflateStreamInstance);
-        }
+        //    var instance = new DeflateStreamWrap(mockStream, CompressionMode.Compress);
+        //    Assert.IsNotNull(instance.DeflateStreamInstance);
+        //}
 
-        [Test]
-        public void Initialize_Sets_DeflateStreamInstance()
-        {
-            var mockStream = MockRepository.GenerateMock<IStream>();
-            mockStream.Stub(mo => mo.StreamInstance).Return(_fileStream);
-            var instance = new DeflateStreamWrap(mockStream, CompressionMode.Compress);
-            Assert.IsNotNull(instance.DeflateStreamInstance);
-        }
+        //[Test]
+        //public void Initialize_Sets_DeflateStreamInstance()
+        //{
+        //    var mockStream = MockRepository.GenerateMock<IStream>();
+        //    mockStream.Stub(mo => mo.StreamInstance).Return(_fileStream);
+        //    var instance = new DeflateStreamWrap(mockStream, CompressionMode.Compress);
+        //    Assert.IsNotNull(instance.DeflateStreamInstance);
+        //}
 
 
     }

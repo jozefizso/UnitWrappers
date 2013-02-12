@@ -28,6 +28,9 @@ namespace UnitWrappers.CoverageCalculator
 
             // namespace wide factories
             string factory = "Factory";
+            // base classes when wrapping abstract types like Stream
+            string abstractBase = "Base";
+
 
             Assembly unitWrappers = typeof(IDateTimeSystem).Assembly;
             Assembly wpfWrappers = typeof(IDispatcher).Assembly;
@@ -96,6 +99,14 @@ namespace UnitWrappers.CoverageCalculator
                 {
                     continue;
                 }
+                 // exclude namespace wide factories
+                if (wraps.Key.EndsWith(abstractBase)
+                    && frameworkNameSpace.EndsWith(wraps.Key.Replace(abstractBase, "")))
+                {
+                    continue;
+                }
+                
+
                 // exclude utilitary types
                 var accessor = typeof (IWrap<>).Name.Remove(0, 1);
                 if (wraps.Key.StartsWith(accessor))
@@ -111,7 +122,7 @@ namespace UnitWrappers.CoverageCalculator
             
             using (var fileStream = new FileStreamWrap("Coverage.txt", FileMode.Create))
             {
-                using (var streamWriter = new StreamWriterWrap(fileStream.FileStreamInstance))
+                using (StreamWriterWrap streamWriter = new StreamWriterWrap(fileStream))
                 {
                     streamWriter.WriteLine("Total number of wraps: " + counterParts.Count);
                     foreach (var counterPart in counterParts)

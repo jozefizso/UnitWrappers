@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
@@ -135,19 +136,19 @@ namespace UnitWrappers.System.Reflection
             return AssemblyInstance.GetExportedTypes();
         }
 
-        public IFileStream GetFile(string name)
+        public FileStreamBase GetFile(string name)
         {
             return new FileStreamWrap(AssemblyInstance.GetFile(name));
         }
 
-        public virtual IFileStream[] GetFiles()
+        public virtual FileStreamBase[] GetFiles()
         {
-            return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles());
+            return AssemblyInstance.GetFiles().Select(x=>new FileStreamWrap(x)).ToArray();
         }
 
-        public IFileStream[] GetFiles(bool getResourceModules)
+        public FileStreamBase[] GetFiles(bool getResourceModules)
         {
-            return FileStreamWrap.ConvertFileStreamArrayIntoIFileStreamWrapArray(AssemblyInstance.GetFiles(getResourceModules));
+            return AssemblyInstance.GetFiles(getResourceModules).Select(x => new FileStreamWrap(x)).ToArray(); ;
         }
 
         public override int GetHashCode()

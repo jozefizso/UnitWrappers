@@ -1,3 +1,5 @@
+using System;
+using System.Security;
 using System.Security.Permissions;
 #if !MONO && !PORTABLE
 using UnitWrappers.Microsoft.Win32.SafeHandles;
@@ -9,23 +11,37 @@ namespace UnitWrappers.System.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.FileStream"/> class.
     /// </summary>
-    public interface IFileStream : IStream
+    public interface IFileStream : IStream, IDisposable
     {
 
+#if NET401
+        /// <summary>
+        /// Clears buffers for this stream and causes any buffered data to be written to the file, and also clears all intermediate file buffers.
+        /// </summary>
+        /// <param name="flushToDisk">true to flush all intermediate file buffers; otherwise, false. </param>
+        void Flush(bool flushToDisk);
+#endif
 
         /// <summary>
         /// Gets a value indicating whether the FileStream was opened asynchronously or synchronously.
         /// </summary>
         bool IsAsync { get; }
         /// <summary>
-        /// Gets the name of the IFileStream that was passed to the constructor.
+        /// Gets the name of the FileStreamBase that was passed to the constructor.
         /// </summary>
         string Name { get; }
 #if !MONO && !PORTABLE
         /// <summary>
         /// Gets a ISafeFileHandle object that represents the operating system file handle for the file that the current FileStream object encapsulates. 
         /// </summary>
-        ISafeFileHandle SafeFileHandle { [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode), SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] get; }
+        ISafeFileHandle SafeFileHandle
+        {
+#if NET401
+            [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+            [SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] 
+#endif
+            get;
+        }
 #endif
 
         /// <summary>

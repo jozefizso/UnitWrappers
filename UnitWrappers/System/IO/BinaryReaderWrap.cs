@@ -33,14 +33,6 @@ namespace UnitWrappers.System.IO
 
 
 
-        /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and using UTF8Encoding. 
-        /// </summary>
-        /// <param name="input">A <see cref="T:System.IO.Stream"/> object.</param>
-        public BinaryReaderWrap(IStream input)
-        {
-            BinaryReaderInstance = new BinaryReader(input.StreamInstance);
-        }
 
 
 
@@ -55,16 +47,7 @@ namespace UnitWrappers.System.IO
         }
 
 
-        /// <summary>
-        /// Initializes a new instance of the BinaryReader class based on the supplied stream and a specific character encoding.
-        /// </summary>
-        /// <param name="stream">The supplied stream.</param>
-        /// <param name="encoding">The character encoding.</param>
-        public BinaryReaderWrap(IStream stream, Encoding encoding)
-        {
-            BinaryReaderInstance = new BinaryReader(stream.StreamInstance, encoding);
-        }
-
+ 
         public Stream BaseStream
         {
             get { return BinaryReaderInstance.BaseStream; }

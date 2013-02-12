@@ -14,7 +14,7 @@ namespace UnitWrappers.Tests.System.Reflection
         {
             IAssemblySystem assemblySystem = new AssemblySystem();
             IAssembly sampleAssembly = assemblySystem.GetAssembly(new Int32().GetType());
-            IFileStream[] fileStreams = sampleAssembly.GetFiles();
+            FileStreamBase[] fileStreams = sampleAssembly.GetFiles();
             Assert.AreEqual(1, fileStreams.Length);
             fileStreams[0].Name.Should().EndWith("mscorlib.dll");
         }

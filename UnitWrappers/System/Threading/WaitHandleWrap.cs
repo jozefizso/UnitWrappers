@@ -4,30 +4,42 @@ using System.Threading;
 namespace UnitWrappers.System.Threading
 {
     /// <summary>
-    /// 
+    /// Wraps instance of <see cref="WaitHandle"/>
     /// </summary>
-    public class WaitHandleWrap : IWaitHandle
+    public class WaitHandleWrap : IWaitHandle,IWrap<WaitHandle>
     {
-        public WaitHandle UnderlyingObject { get; private set; }
+        private WaitHandle _underlyingObject;
+
+        public static implicit operator WaitHandleWrap(WaitHandle o)
+        {
+            return new WaitHandleWrap(o);
+        }
+
+        public static implicit operator WaitHandle(WaitHandleWrap o)
+        {
+            return o._underlyingObject;
+        }
+
+        WaitHandle IWrap<WaitHandle>.UnderlyingObject { get { return _underlyingObject; } }
 
         public WaitHandleWrap(WaitHandle waitHandle)
         {
-            UnderlyingObject = waitHandle;
+            _underlyingObject = waitHandle;
         }
 
         public bool WaitOne()
         {
-            return UnderlyingObject.WaitOne();
+            return _underlyingObject.WaitOne();
         }
 
         public void Close()
         {
-            UnderlyingObject.Close();
+            _underlyingObject.Close();
         }
 
         void IDisposable.Dispose()
         {
-            (UnderlyingObject as IDisposable).Dispose();
+            (_underlyingObject as IDisposable).Dispose();
         }
     }
 }

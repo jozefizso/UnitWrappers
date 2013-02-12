@@ -17,6 +17,7 @@
 * Automatic coverage report generation
 * .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono)
 * One to one corresponce with real classes, casting back and forth
+* Interfaces free of wrapeed classes related info.
 
 ### TODO:
 * Real world sample with IoC/DI + WCF, Net, IO, etc.

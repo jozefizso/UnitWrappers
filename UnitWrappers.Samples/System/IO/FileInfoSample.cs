@@ -8,7 +8,7 @@ namespace UnitWrappers.Samples.System.IO
     {
         public void CreateAndDeleteFile(IFileInfo fi)
         {
-            IFileStream fs = fi.Create();
+            FileStreamBase fs = fi.Create();
             fs.Close();
             fi.Delete();
         }
@@ -21,7 +21,7 @@ namespace UnitWrappers.Samples.System.IO
         {
             // Add mock repository.
             IFileInfo fileInfoRepository = MockRepository.GenerateMock<IFileInfo>();
-            IFileStream fileStreamRepository = MockRepository.GenerateMock<IFileStream>();
+            FileStreamBase fileStreamRepository = MockRepository.GenerateMock<FileStreamBase>();
 
             // Create expectations
             fileInfoRepository.Expect(x => x.Create()).Return(fileStreamRepository);

@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.AccessControl;
+using System.Security.Permissions;
 using UnitWrappers.System.Security.AccessControl;
 
 namespace UnitWrappers.System.IO
@@ -9,12 +10,18 @@ namespace UnitWrappers.System.IO
 	/// <summary>
 	/// Wrapper for <see cref="T:System.IO.FileInfo"/> class.
 	/// </summary>
-	[Serializable, ComVisible(true)]
+	[Serializable]
+#if !PORTABLE
+    [ComVisible(true)]
+#endif
+    [FileIOPermission(SecurityAction.InheritanceDemand, Unrestricted = true)]
 	public class FileInfoWrap : IFileInfo,IWrap<FileInfo>
 	{
         public FileInfo _underlyingObject;
 
         FileInfo IWrap<FileInfo>.UnderlyingObject { get { return _underlyingObject; } }
+        
+   
 
         public static implicit operator FileInfoWrap(FileInfo o)
         {
@@ -128,7 +135,7 @@ namespace UnitWrappers.System.IO
 			get { return _underlyingObject.Name; }
 		}
 
-		public IStreamWriter AppendText()
+		public StreamWriterBase AppendText()
 		{
 			return new StreamWriterWrap(_underlyingObject.AppendText());
 		}
@@ -158,15 +165,16 @@ namespace UnitWrappers.System.IO
 			return new FileInfoWrap(_underlyingObject.CopyTo(destFileName, overwrite));
 		}
 
-		public IFileStream Create()
+		public FileStreamBase Create()
 		{
 			return new FileStreamWrap(_underlyingObject.Create());
 		}
 
-		public IStreamWriter CreateText()
+		public StreamWriterBase CreateText()
 		{
 			return new StreamWriterWrap(_underlyingObject.CreateText());
 		}
+
 
 		public IFileSecurity GetAccessControl()
 		{
@@ -183,32 +191,32 @@ namespace UnitWrappers.System.IO
 			_underlyingObject.MoveTo(destFileName);
 		}
 
-		public IFileStream Open(FileMode mode)
+		public FileStreamBase Open(FileMode mode)
 		{
 			return new FileStreamWrap(_underlyingObject.Open(mode));
 		}
 
-		public IFileStream Open(FileMode mode, FileAccess access)
+		public FileStreamBase Open(FileMode mode, FileAccess access)
 		{
 			return new FileStreamWrap(_underlyingObject.Open(mode, access));
 		}
 
-		public IFileStream Open(FileMode mode, FileAccess access, FileShare share)
+		public FileStreamBase Open(FileMode mode, FileAccess access, FileShare share)
 		{
 			return new FileStreamWrap(_underlyingObject.Open(mode, access, share));
 		}
 
-		public IFileStream OpenRead()
+		public FileStreamBase OpenRead()
 		{
 			return new FileStreamWrap(_underlyingObject.OpenRead());
 		}
 
-		public IStreamReader OpenText()
+		public StreamReaderBase OpenText()
 		{
 			return new StreamReaderWrap(_underlyingObject.OpenText());
 		}
 
-		public IFileStream OpenWrite()
+		public FileStreamBase OpenWrite()
 		{
 			return new FileStreamWrap(_underlyingObject.OpenWrite());
 		}
@@ -238,12 +246,6 @@ namespace UnitWrappers.System.IO
 			return _underlyingObject.ToString();
 		}
 
-		internal static IFileInfo[] ConvertFileInfoArrayIntoIFileInfoWrapArray(FileInfo[] fileInfos)
-		{
-			FileInfoWrap[] fileInfoWraps = new FileInfoWrap[fileInfos.Length];
-			for (int i = 0; i < fileInfos.Length; i++)
-				fileInfoWraps[i] = new FileInfoWrap(fileInfos[i]);
-			return fileInfoWraps;
-		}
+
 	}
 }
