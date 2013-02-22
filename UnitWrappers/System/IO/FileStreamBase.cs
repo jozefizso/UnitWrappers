@@ -8,54 +8,53 @@ namespace UnitWrappers.System.IO
 {
     public abstract class FileStreamBase : Stream, IFileStream
     {
-#if NET401
- [SecuritySafeCritical]
-#endif
+
+// [SecuritySafeCritical]
+
         static FileStreamBase()
         {
         }
-#if NET401
-        [SecuritySafeCritical]
+#if NET40
+        //[SecuritySafeCritical]
 
         public abstract void Flush(bool flushToDisk);
 #endif
         public abstract bool IsAsync { get; }
         public abstract string Name
         {
-            #if NET401
-            [SecuritySafeCritical]
-#endif
+          
+            //[SecuritySafeCritical]
+
             get;
 
         }
 #if !PORTABLE
         public abstract ISafeFileHandle SafeFileHandle
         {
-#if NET401
-            [SecurityCritical, SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-#endif
-#if NET351
-           [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-           [SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-#endif
+            // [SecurityCritical, SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+
+
+           //[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+           //[SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+
             get;
         }
 #endif
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+       // [SecuritySafeCritical]
+
         public abstract IFileSecurity GetAccessControl();
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+       // [SecuritySafeCritical]
+
         public abstract void Lock(long position, long length);
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+       // [SecuritySafeCritical]
+
         public abstract void SetAccessControl(IFileSecurity fileSecurity);
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+      //  [SecuritySafeCritical]
+
         public abstract void Unlock(long position, long length);
 
         

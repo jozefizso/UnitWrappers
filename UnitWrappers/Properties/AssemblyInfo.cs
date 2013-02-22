@@ -31,8 +31,8 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.5.10.0")]
-[assembly: AssemblyFileVersion("0.5.10.0")]
+[assembly: AssemblyVersion("0.6.1.0")]
+[assembly: AssemblyFileVersion("0.6.1.0")]
 #if NET35 || NET40
 [assembly: InternalsVisibleTo(@"WPFWrappers, PublicKey=00240000048000009400000006020000002400005253413100040000010001005d97ca4508432c
 2d4000fc39af5c546a0ef3a2268ecfefe2e0babee286d7393fb07110d9bc3186d4df5adb420929

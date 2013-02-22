@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET35"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerfromanceTests.NET40", "UnitWrappers.PerfromanceTests\UnitWrappers.PerfromanceTests.NET40.csproj", "{96338A4C-8725-4EB9-8091-786ACCDA301D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.35", "UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.35.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96338A4C-8725-4EB9-8091-786ACCDA301D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

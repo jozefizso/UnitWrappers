@@ -43,7 +43,6 @@ namespace UnitWrappers.System.IO
         /// </summary>
         int WriteTimeout { get; set; }
 
-
         /// <summary>
         /// Begins an asynchronous read operation. 
         /// </summary>
@@ -121,5 +120,9 @@ namespace UnitWrappers.System.IO
         /// </summary>
         /// <param name="value">The byte to write to the stream. </param>
         void WriteByte(byte value);
+#if NET40
+        void CopyTo(Stream destination);
+        void CopyTo(Stream destination,int bufferSize);
+#endif
     }
 }

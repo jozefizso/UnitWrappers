@@ -769,11 +769,6 @@
             One of the <see cref="T:System.Threading.ThreadPriority"/> values. The default value is Normal.
             </value>
         </member>
-        <member name="T:UnitWrappers.System.ServiceModel.IOperationContextSystem">
-            <summary>
-            Wraps static members of <see cref="T:System.ServiceModel.OperationContext"/>
-            </summary>
-        </member>
         <member name="T:UnitWrappers.System.IO.DirectoryWrap">
             <summary>
             Wrapper for <see cref="T:System.IO.Directory"/> class.
@@ -1281,6 +1276,12 @@
             Wrapper for <see cref="T:System.IO.FileStream"/> class.
             </summary>
         </member>
+        <member name="M:UnitWrappers.System.IO.IFileStream.Flush(System.Boolean)">
+            <summary>
+            Clears buffers for this stream and causes any buffered data to be written to the file, and also clears all intermediate file buffers.
+            </summary>
+            <param name="flushToDisk">true to flush all intermediate file buffers; otherwise, false. </param>
+        </member>
         <member name="M:UnitWrappers.System.IO.IFileStream.GetAccessControl">
             <summary>
             Gets a IFileSecurity object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
@@ -1336,265 +1337,6 @@
         <member name="M:UnitWrappers.Microsoft.Win32.IRegistryKey.Close">
             <summary>
             Closes the key and flushes it to disk if its contents have been modified.
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap">
-            <summary>
-            Default <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.
-            </summary>
-        </member>
-        <member name="T:UnitWrappers.System.ServiceModel.IServiceHost">
-            <summary>
-            Wrapper interface for <see cref="T:System.ServiceModel.ServiceHost"/>.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String,System.Uri)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IServiceHost.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri,System.Uri)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.Authorization">
-            <summary>
-            Gets the authorization behavior for the service.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Description.ServiceAuthorizationBehavior"/> for the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.BaseAddresses">
-            <summary>
-            Gets the base addresses used by the service host.
-            </summary>
-            <value>A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/> that contains the base addresses used by the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.ChannelDispatchers">
-            <summary>
-            Gets a collection of channel dispatchers used by he service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Dispatcher.ChannelDispatcherCollection"/> containing the channel dispatchers used by the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.CloseTimeout">
-            <summary>
-            Gets or sets the interval of time allowed for the service host to close.
-            </summary>
-            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to close.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.Credentials">
-            <summary>
-            Gets the crendentials for the service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Description.ServiceCredentials"/> instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.Description">
-            <summary>
-            Gets the description of the service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Description.ServiceDescription"/> instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.Extensions">
-            <summary>
-            Gets the extensions registered for the service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> contianing extensions registered for the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.ManualFlowControlLimit">
-            <summary>
-            Gets or sets the flow control limit for messages recieved by the service host.
-            </summary>
-            <value>int. The flow control limit for messages recieved by the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IServiceHost.OpenTimeout">
-            <summary>
-            Gets or sets the interval of time allowed for the service host to open.
-            </summary>
-            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to open.</value>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.#ctor(System.ServiceModel.ServiceHostBase)">
-            <summary>
-            Default Constructor.
-            Creates a new instance of the <see cref="T:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap"/> class.
-            </summary>
-            <param name="underlyingObject">The <see cref="T:System.ServiceModel.ServiceHost"/> instance to wrap.</param>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.String,System.Uri)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.AddServiceEndpoint(System.String,System.ServiceModel.Channels.Binding,System.Uri,System.Uri)">
-            <summary>
-            Adds a service endpoint to the service host with the specified contract, binding and address.
-            </summary>
-            <param name="implementedContract">The contract implemented by the endpoint.</param>
-            <param name="binding">A <see cref="T:System.ServiceModel.Channels.Binding"/> instnace for the endpoint.</param>
-            <param name="address">The address for the endpoint.</param>
-            <param name="listenUri">The address at which the endpoint listens for incoming messages.</param>
-            <returns>A <see cref="T:System.ServiceModel.Description.ServiceEndpoint"/> instance that was added to the service host.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.Authorization">
-            <summary>
-            Gets the authorization behavior for the service.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Description.ServiceAuthorizationBehavior"/> for the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.BaseAddresses">
-            <summary>
-            Gets the base addresses used by the service host.
-            </summary>
-            <value>A <see cref="T:System.Collections.ObjectModel.ReadOnlyCollection`1"/> that contains the base addresses used by the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.ChannelDispatchers">
-            <summary>
-            Gets a collection of channel dispatchers used by he service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Dispatcher.ChannelDispatcherCollection"/> containing the channel dispatchers used by the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.CloseTimeout">
-            <summary>
-            Gets or sets the interval of time allowed for the service host to close.
-            </summary>
-            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to close.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.Credentials">
-            <summary>
-            Gets the crendentials for the service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Description.ServiceCredentials"/> instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.Description">
-            <summary>
-            Gets the description of the service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Description.ServiceDescription"/> instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.Extensions">
-            <summary>
-            Gets the extensions registered for the service host.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> contianing extensions registered for the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.ManualFlowControlLimit">
-            <summary>
-            Gets or sets the flow control limit for messages recieved by the service host.
-            </summary>
-            <value>int. The flow control limit for messages recieved by the service host.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.ServiceHostBaseWrap.OpenTimeout">
-            <summary>
-            Gets or sets the interval of time allowed for the service host to open.
-            </summary>
-            <value>A <see cref="T:System.TimeSpan"/> that specifies the interval of time allowed for the service host to open.</value>
-        </member>
-        <member name="T:UnitWrappers.System.ServiceModel.IInstanceContext">
-            <summary>
-            Interface wrapper that wraps a <see cref="T:System.ServiceModel.InstanceContext"/> instance.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IInstanceContext.IncrementManualFlowControlLimit(System.Int32)">
-            <summary>
-            Increments the manual control flow limit
-            </summary>
-            <param name="limit">int. The flow control limit to increment to.</param>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IInstanceContext.GetServiceInstance">
-            <summary>
-            Gets the service instance.
-            </summary>
-            <returns>object.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IInstanceContext.GetServiceInstance(System.ServiceModel.Channels.Message)">
-            <summary>
-            Gets the service instance for the specified <see cref="T:System.ServiceModel.Channels.Message"/>.
-            </summary>
-            <param name="message">A <see cref="T:System.ServiceModel.Channels.Message"/> instance.</param>
-            <returns>object.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.Extensions">
-            <summary>
-            Gets the underlying <see cref="T:System.ServiceModel.IExtensionCollection`1"/> from the underlying
-            <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.Host">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> instance that wraps the underlying <see cref="T:System.ServiceModel.ServiceHost"/>
-            from the InstanceContxt.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.IncomingChannels">
-            <summary>
-            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of incoming channels
-            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.ManualFlowControlLimit">
-            <summary>
-            Gets or sets the manual flow control limit on the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.OutgoinChannels">
-            <summary>
-            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of outgoing channels
-            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IInstanceContext.SynchronizationContext">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IInstanceContext.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
             </summary>
         </member>
         <member name="T:UnitWrappers.System.IO.PathWrap">
@@ -1872,22 +1614,13 @@
             <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Peek">
-            <summary>
-            Returns the next available character but does not consume it. 
-            </summary>
-            <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
+            <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Read">
             <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Read(System.Char[],System.Int32,System.Int32)">
-            <summary>
-            Reads a maximum of count characters from the current stream into buffer, beginning at index. 
-            </summary>
-            <param name="buffer">When this method returns, contains the specified character array with the values between index and (index + count - 1) replaced by the characters read from the current source.</param>
-            <param name="index">The index of buffer at which to begin writing.</param>
-            <param name="count">The maximum number of characters to read. </param>
-            <returns>The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the count parameter, depending on whether the data is available within the stream.</returns>
+            <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.ReadBlock(System.Char[],System.Int32,System.Int32)">
             <inheritdoc />
@@ -1896,10 +1629,7 @@
             <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.ReadToEnd">
-            <summary>
-            Reads the stream from the current position to the end of the stream.
-            </summary>
-            <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns the empty string("").</returns>
+            <inheritdoc />
         </member>
         <member name="M:UnitWrappers.System.IO.StreamReaderWrap.Dispose">
             <inheritdoc />
@@ -2813,107 +2543,6 @@
         </member>
         <member name="P:UnitWrappers.System.Threading.ThreadSystem.CurrentContext">
             <inheritdoc />
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.GetCallbackChannel``1">
-            <summary>
-            Gets a channel to the client instance that called the current operation.
-            </summary>
-            <typeparam name="T">The type of channel used to callback the client.</typeparam>
-            <returns>A channel to the client instance that called the operation of the type specified in the
-            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.IOperationContext.SetTransactionComplete">
-            <summary>
-            Commits the current executing transaction.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Channel">
-            <summary>
-            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> for the endpoint to inspect.
-            </summary>
-            <value>The <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.EndpointDispatcher"/> to inspect.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Extensions">
-            <summary>
-            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.HasSupportingTokens">
-            <summary>
-            Gets a value indicating weather the incoming message has supporting tokens.
-            </summary>
-            <value>True if the incoming message has supporting tokents, else false.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.Host">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper for the current service object.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageHeaders">
-            <summary>
-            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageProperties">
-            <summary>
-            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
-            the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.IncomingMessageVersion">
-            <summary>
-            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.InstanceContext">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageHeaders">
-            <summary>
-            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.OutgoingMessageProperties">
-            <summary>
-            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> implementation for the current executing method.
-            </summary>
-            <value>A <see cref="P:UnitWrappers.System.ServiceModel.IOperationContext.RequestContext"/> instance, or null if there is no request context.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SessionId">
-            <summary>
-            Gets a string used to identify the current session.
-            </summary>
-            <value>A string used to identify the current session.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.IOperationContext.SupportingTokens">
-            <summary>
-            Gets the collection of security tokens.
-            </summary>
-            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
         </member>
         <member name="T:UnitWrappers.System.Reflection.IAssemblyName">
             <summary>
@@ -3964,71 +3593,6 @@
         <member name="M:UnitWrappers.System.Net.NetworkInformation.NetworkInterfaceWrap.GetIsNetworkAvailable">
             <inheritdoc />
         </member>
-        <member name="T:UnitWrappers.System.ServiceModel.InstanceContextWrap">
-            <summary>
-            Default implementation of <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/>
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.#ctor(System.ServiceModel.InstanceContext)">
-            <summary>
-            Default Constructor.
-            Creates a new instance of the <see cref="T:UnitWrappers.System.ServiceModel.InstanceContextWrap"/> class.
-            </summary>
-            <param name="underlyingObject">The <see cref="T:System.ServiceModel.InstanceContext"/> instance to wrap.</param>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.IncrementManualFlowControlLimit(System.Int32)">
-            <summary>
-            Increments the manual control flow limit
-            </summary>
-            <param name="limit">int. The flow control limit to increment to.</param>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.GetServiceInstance">
-            <summary>
-            Gets the service instance.
-            </summary>
-            <returns>object.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.InstanceContextWrap.GetServiceInstance(System.ServiceModel.Channels.Message)">
-            <summary>
-            Gets the service instance for the specified <see cref="T:System.ServiceModel.Channels.Message"/>.
-            </summary>
-            <param name="message">A <see cref="T:System.ServiceModel.Channels.Message"/> instance.</param>
-            <returns>object.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.Extensions">
-            <summary>
-            Gets the underlying <see cref="T:System.ServiceModel.IExtensionCollection`1"/> from the underlying
-            <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.Host">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> instance that wraps the underlying <see cref="T:System.ServiceModel.ServiceHost"/>
-            from the InstanceContxt.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.IncomingChannels">
-            <summary>
-            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of incoming channels
-            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.ManualFlowControlLimit">
-            <summary>
-            Gets or sets the manual flow control limit on the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.OutgoinChannels">
-            <summary>
-            Gets a <see cref="T:System.Collections.Generic.ICollection`1"/> instance containing a list of outgoing channels
-            from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.InstanceContextWrap.SynchronizationContext"/> from the wrapped <see cref="T:System.ServiceModel.InstanceContext"/>.
-            </summary>
-        </member>
         <member name="M:UnitWrappers.System.IAppDomainSystem.Unload(UnitWrappers.System.IAppDomain)">
             <summary>
             Unloads the specified application domain.
@@ -4126,10 +3690,247 @@
             Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
             </summary>
         </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Close">
+        <member name="T:UnitWrappers.System.IO.ITextWriter">
             <summary>
-            Implements a TextWriter for writing characters to a stream in a particular encoding. 
+            
             </summary>
+            <remarks>
+            <see cref="T:System.IO.TextWriter"/> does not provides virtual <see cref="M:System.IDisposable.Dispose"/>
+            </remarks>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Close">
+            <summary>
+            Closes the current writer and releases any system resources associated with the writer.
+            </summary>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Flush">
+            <summary>
+            Clears all buffers for the current writer and causes any buffered data to be written to the underlying device.
+            </summary>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Char)">
+            <summary>
+            Writes a character to the text stream.
+            </summary>
+            <param name="value">The character to write to the text stream. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Char[])">
+            <summary>
+            Writes a character array to the text stream.
+            </summary>
+            <param name="buffer">The character array to write to the text stream. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Writes a subarray of characters to the text stream.
+            </summary>
+            <param name="buffer">The character array to write data from. </param><param name="index">Starting index in the buffer. </param><param name="count">The number of characters to write. </param><exception cref="T:System.ArgumentException">The buffer length minus <paramref name="index"/> is less than <paramref name="count"/>. </exception><exception cref="T:System.ArgumentNullException">The <paramref name="buffer"/> parameter is null. </exception><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> or <paramref name="count"/> is negative. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Boolean)">
+            <summary>
+            Writes the text representation of a Boolean value to the text stream.
+            </summary>
+            <param name="value">The Boolean to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Int32)">
+            <summary>
+            Writes the text representation of a 4-byte signed integer to the text stream.
+            </summary>
+            <param name="value">The 4-byte signed integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Int64)">
+            <summary>
+            Writes the text representation of an 8-byte signed integer to the text stream.
+            </summary>
+            <param name="value">The 8-byte signed integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.UInt32)">
+            <summary>
+            Writes the text representation of a 4-byte unsigned integer to the text stream.
+            </summary>
+            <param name="value">The 4-byte unsigned integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.UInt64)">
+            <summary>
+            Writes the text representation of an 8-byte unsigned integer to the text stream.
+            </summary>
+            <param name="value">The 8-byte unsigned integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.UInt32)">
+            <summary>
+            Writes the text representation of a 4-byte unsigned integer followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The 4-byte unsigned integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.UInt64)">
+            <summary>
+            Writes the text representation of an 8-byte unsigned integer followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The 8-byte unsigned integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Single)">
+            <summary>
+            Writes the text representation of a 4-byte floating-point value to the text stream.
+            </summary>
+            <param name="value">The 4-byte floating-point value to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Double)">
+            <summary>
+            Writes the text representation of an 8-byte floating-point value to the text stream.
+            </summary>
+            <param name="value">The 8-byte floating-point value to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Decimal)">
+            <summary>
+            Writes the text representation of a decimal value to the text stream.
+            </summary>
+            <param name="value">The decimal value to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.String)">
+            <summary>
+            Writes a string to the text stream.
+            </summary>
+            <param name="value">The string to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.Object)">
+            <summary>
+            Writes the text representation of an object to the text stream by calling ToString on that object.
+            </summary>
+            <param name="value">The object to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.String,System.Object)">
+            <summary>
+            Writes out a formatted string, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg0">An object to write into the formatted string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to the number of provided objects to be formatted. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.String,System.Object,System.Object)">
+            <summary>
+            Writes out a formatted string, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg0">An object to write into the formatted string. </param><param name="arg1">An object to write into the formatted string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to the number of provided objects to be formatted. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes out a formatted string, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg0">An object to write into the formatted string. </param><param name="arg1">An object to write into the formatted string. </param><param name="arg2">An object to write into the formatted string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to the number of provided objects to be formatted. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.Write(System.String,System.Object[])">
+            <summary>
+            Writes out a formatted string, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg">The object array to write into the formatted string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> or <paramref name="arg"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to <paramref name="arg"/>. Length. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine">
+            <summary>
+            Writes a line terminator to the text stream.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Char)">
+            <summary>
+            Writes a character followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The character to write to the text stream. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Char[])">
+            <summary>
+            Writes an array of characters followed by a line terminator to the text stream.
+            </summary>
+            <param name="buffer">The character array from which data is read. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Writes a subarray of characters followed by a line terminator to the text stream.
+            </summary>
+            <param name="buffer">The character array from which data is read. </param><param name="index">The index into <paramref name="buffer"/> at which to begin reading. </param><param name="count">The maximum number of characters to write. </param><exception cref="T:System.ArgumentException">The buffer length minus <paramref name="index"/> is less than <paramref name="count"/>. </exception><exception cref="T:System.ArgumentNullException">The <paramref name="buffer"/> parameter is null. </exception><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> or <paramref name="count"/> is negative. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Boolean)">
+            <summary>
+            Writes the text representation of a Boolean followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The Boolean to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Int32)">
+            <summary>
+            Writes the text representation of a 4-byte signed integer followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The 4-byte signed integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Int64)">
+            <summary>
+            Writes the text representation of an 8-byte signed integer followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The 8-byte signed integer to write. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.String)">
+            <summary>
+            Writes a string followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The string to write. If <paramref name="value"/> is null, only the line termination characters are written. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.Object)">
+            <summary>
+            Writes the text representation of an object by calling ToString on this object, followed by a line terminator to the text stream.
+            </summary>
+            <param name="value">The object to write. If <paramref name="value"/> is null, only the line termination characters are written. </param><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.String,System.Object)">
+            <summary>
+            Writes out a formatted string and a new line, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatted string. </param><param name="arg0">The object to write into the formatted string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to the number of provided objects to be formatted. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.String,System.Object,System.Object)">
+            <summary>
+            Writes out a formatted string and a new line, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg0">The object to write into the format string. </param><param name="arg1">The object to write into the format string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to the number of provided objects to be formatted. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.String,System.Object,System.Object,System.Object)">
+            <summary>
+            Writes out a formatted string and a new line, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg0">The object to write into the format string. </param><param name="arg1">The object to write into the format string. </param><param name="arg2">The object to write into the format string. </param><exception cref="T:System.ArgumentNullException"><paramref name="format"/> is null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to the number of provided objects to be formatted. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="M:UnitWrappers.System.IO.ITextWriter.WriteLine(System.String,System.Object[])">
+            <summary>
+            Writes out a formatted string and a new line, using the same semantics as <see cref="M:System.String.Format(System.String,System.Object)"/>.
+            </summary>
+            <param name="format">The formatting string. </param><param name="arg">The object array to write into format string. </param><exception cref="T:System.ArgumentNullException">A string or object is passed in as null. </exception><exception cref="T:System.ObjectDisposedException">The <see cref="T:System.IO.TextWriter"/> is closed. </exception><exception cref="T:System.IO.IOException">An I/O error occurs. </exception><exception cref="T:System.FormatException">The format specification in format is invalid.-or- The number indicating an argument to be formatted is less than zero, or larger than or equal to arg.Length. </exception><filterpriority>1</filterpriority>
+        </member>
+        <member name="P:UnitWrappers.System.IO.ITextWriter.FormatProvider">
+            <summary>
+            Gets an object that controls formatting.
+            </summary>
+            
+            <returns>
+            An <see cref="T:System.IFormatProvider"/> object for a specific culture, or the formatting of the current culture if no other culture is specified.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:UnitWrappers.System.IO.ITextWriter.Encoding">
+            <summary>
+            When overridden in a derived class, returns the <see cref="T:System.Text.Encoding"/> in which the output is written.
+            </summary>
+            
+            <returns>
+            The Encoding in which the output is written.
+            </returns>
+            <filterpriority>1</filterpriority>
+        </member>
+        <member name="P:UnitWrappers.System.IO.ITextWriter.NewLine">
+            <summary>
+            Gets or sets the line terminator string used by the current TextWriter.
+            </summary>
+            
+            <returns>
+            The line terminator string for the current TextWriter.
+            </returns>
+            <filterpriority>2</filterpriority>
         </member>
         <member name="M:UnitWrappers.System.IO.IStreamWriter.CreateObjRef(System.Type)">
             <summary>
@@ -4137,122 +3938,6 @@
             </summary>
             <param name="requestedType">The Type of the object that the new ObjRef will reference.</param>
             <returns>Information required to generate a proxy.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Flush">
-            <summary>
-            Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Char)">
-            <summary>
-            Writes a character to the stream.
-            </summary>
-            <param name="value">The character to write to the text stream.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Char[])">
-            <summary>
-            Writes a character array to the stream.
-            </summary>
-            <param name="buffer">A character array containing the data to write. If buffer is nullNothingnullptra null reference (Nothing in Visual Basic), nothing is written.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.String)">
-            <summary>
-            Writes a string to the stream.
-            </summary>
-            <param name="value">The string to write to the stream. If value is null, nothing is written.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Boolean)">
-            <summary>
-            Writes the text representation of a Boolean value to the text stream.
-            </summary>
-            <param name="value">The Boolean to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Decimal)">
-            <summary>
-            Writes the text representation of a decimal value to the text stream. 
-            </summary>
-            <param name="value">The decimal value to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Double)">
-            <summary>
-            Writes the text representation of an 8-byte floating-point value to the text stream. 
-            </summary>
-            <param name="value">The 8-byte floating-point value to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Int32)">
-            <summary>
-            Writes the text representation of a 4-byte signed integer to the text stream.
-            </summary>
-            <param name="value">The 4-byte signed integer to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Int64)">
-            <summary>
-            Writes the text representation of an 8-byte signed integer to the text stream. 
-            </summary>
-            <param name="value">The 8-byte signed integer to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Object)">
-            <summary>
-            Writes the text representation of an object to the text stream by calling ToString on that object. 
-            </summary>
-            <param name="value">The object to write. </param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Single)">
-            <summary>
-            Writes the text representation of a 4-byte floating-point value to the text stream. 
-            </summary>
-            <param name="value">The 4-byte floating-point value to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.UInt32)">
-            <summary>
-            Writes the text representation of a 4-byte unsigned integer to the text stream. 
-            </summary>
-            <param name="value">The 4-byte unsigned integer to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.UInt64)">
-            <summary>
-            Writes the text representation of an 8-byte unsigned integer to the text stream.
-            </summary>
-            <param name="value">The 8-byte unsigned integer to write.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.String,System.Object)">
-            <summary>
-            Writes out a formatted string, using the same semantics as String.Format. 
-            </summary>
-            <param name="format">The formatting string. </param>
-            <param name="arg0">An object to write into the formatted string.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.String,System.Object[])">
-            <summary>
-            Writes out a formatted string, using the same semantics as String.Format. 
-            </summary>
-            <param name="format">The formatting string. </param>
-            <param name="arg">The object array to write into the formatted string. </param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.Char[],System.Int32,System.Int32)">
-            <summary>
-            Writes a subarray of characters to the stream.
-            </summary>
-            <param name="buffer">A character array containing the data to write. </param>
-            <param name="index">The index into buffer at which to begin writing.</param>
-            <param name="count">The number of characters to read from buffer. </param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.String,System.Object,System.Object)">
-            <summary>
-            Writes out a formatted string, using the same semantics as String.Format. 
-            </summary>
-            <param name="format">The formatting string. </param>
-            <param name="arg0">An object to write into the formatted string.</param>
-            <param name="arg1">An object to write into the formatted string.</param>
-        </member>
-        <member name="M:UnitWrappers.System.IO.IStreamWriter.Write(System.String,System.Object,System.Object,System.Object)">
-            <summary>
-            Writes out a formatted string, using the same semantics as String.Format. 
-            </summary>
-            <param name="format">The formatting string. </param>
-            <param name="arg0">An object to write into the formatted string.</param>
-            <param name="arg1">An object to write into the formatted string.</param>
-            <param name="arg2">An object to write into the formatted string.</param>
         </member>
         <member name="P:UnitWrappers.System.IO.IStreamWriter.AutoFlush">
             <summary>
@@ -4263,129 +3948,6 @@
             <summary>
             Gets the underlying stream that interfaces with a backing store.
             </summary>
-        </member>
-        <member name="P:UnitWrappers.System.IO.IStreamWriter.Encoding">
-            <summary>
-            Gets the Encoding in which the output is written.
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.IO.IStreamWriter.FormatProvider">
-            <summary>
-            Gets an object that controls formatting. 
-            </summary>
-        </member>
-        <member name="P:UnitWrappers.System.IO.IStreamWriter.NewLine">
-            <summary>
-            Gets or sets the line terminator string used by the current TextWriter.
-            </summary>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.#ctor(System.ServiceModel.OperationContext)">
-            <summary>
-            Default Constructor.
-            Creates a new instance of the <see cref="T:UnitWrappers.System.ServiceModel.OperationContextWrap"/> class.
-            </summary>
-            <param name="context">The <see cref="T:System.ServiceModel.OperationContext"/> to wrap.</param>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.GetCallbackChannel``1">
-            <summary>
-            Gets a channel to the client instance that called the current operation.
-            </summary>
-            <typeparam name="T">The type of channel used to callback the client.</typeparam>
-            <returns>A channel to the client instance that called the operation of the type specified in the
-            <see cref="P:System.ServiceModel.ServiceContractAttribute.CallbackContract"/> property.</returns>
-        </member>
-        <member name="M:UnitWrappers.System.ServiceModel.OperationContextWrap.SetTransactionComplete">
-            <summary>
-            Commits the current executing transaction.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">. Thrown when there is no transaction in the current context.</exception>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Channel">
-            <summary>
-            Gets the channel associated with the current <see cref="T:System.ServiceModel.OperationContext"/> object.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IContextChannel"/> associated with the current <see cref="T:System.ServiceModel.OperationContext"/></value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> for the endpoint to inspect.
-            </summary>
-            <value>The <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.EndpointDispatcher"/> to inspect.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Extensions">
-            <summary>
-            Gets a <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions for the current message context.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.IExtensionCollection`1"/> of service extensions.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.HasSupportingTokens">
-            <summary>
-            Gets a value indicating weather the incoming message has supporting tokens.
-            </summary>
-            <value>True if the incoming message has supporting tokents, else false.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.Host">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper for the current service object.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IServiceHost"/> wrapper.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageHeaders">
-            <summary>
-            Gets the incoming message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance that contains the incoming message headers.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageProperties">
-            <summary>
-            Gets the message properties for the incoming message in the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance that contains the message properties for
-            the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.IncomingMessageVersion">
-            <summary>
-            Gets the incoming SOAP messsage version for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageVersion"/> representing the SOAP version of the incoming message.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.InstanceContext">
-            <summary>
-            Gets a <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper that manages the current service instance.
-            </summary>
-            <value>A <see cref="T:UnitWrappers.System.ServiceModel.IInstanceContext"/> wrapper for the current service instance.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageHeaders">
-            <summary>
-            Gets the outgoing message headers for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageHeader"/> instance containing the outgoing message headers
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.OutgoingMessageProperties">
-            <summary>
-            Gets the outgoing message properties for the <see cref="T:System.ServiceModel.OperationContext"/>.
-            </summary>
-            <value>A <see cref="T:System.ServiceModel.Channels.MessageProperties"/> instance containing the outgoing message properties
-            for the <see cref="T:System.ServiceModel.OperationContext"/>.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext">
-            <summary>
-            Gets the <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> implementation for the current executing method.
-            </summary>
-            <value>A <see cref="P:UnitWrappers.System.ServiceModel.OperationContextWrap.RequestContext"/> instance, or null if there is no request context.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SessionId">
-            <summary>
-            Gets a string used to identify the current session.
-            </summary>
-            <value>A string used to identify the current session.</value>
-        </member>
-        <member name="P:UnitWrappers.System.ServiceModel.OperationContextWrap.SupportingTokens">
-            <summary>
-            Gets the collection of security tokens.
-            </summary>
-            <value>A <see cref="T:System.Collections.Generic.ICollection`1"/>.</value>
         </member>
         <member name="T:UnitWrappers.System.IO.FileInfoWrap">
             <summary>

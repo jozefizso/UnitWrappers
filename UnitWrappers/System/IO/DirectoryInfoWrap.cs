@@ -11,7 +11,8 @@ namespace UnitWrappers.System.IO
 	/// <summary>
 	/// Wrapper for <see cref="T:System.IO.DirectoryInfo"/> class.
 	/// </summary>
-	[Serializable, ComVisible(true)]
+	[Serializable]
+    [ComVisible(true)]
 	public class DirectoryInfoWrap : IDirectoryInfo
 	{
 

@@ -9,7 +9,9 @@ namespace UnitWrappers.System.IO
     /// Wrapper for <see cref="T:System.IO.StreamReader"/> class.
     /// </summary>
     [Serializable]
+#if !PORTABLE
     [ComVisible(true)]
+#endif
     public class StreamReaderWrap : StreamReaderBase, IWrap<StreamReader>
     {
 
@@ -161,9 +163,6 @@ namespace UnitWrappers.System.IO
             get { return _underlyingObject.EndOfStream; }
         }
 
-
-
-
         /// <inheritdoc />
         public  override void Close()
         {
@@ -175,11 +174,8 @@ namespace UnitWrappers.System.IO
             _underlyingObject.DiscardBufferedData();
         }
 
-        /// <summary>
-        /// Returns the next available character but does not consume it. 
-        /// </summary>
-        /// <returns>An integer representing the next character to be read, or -1 if no more characters are available or the stream does not support seeking.</returns>
-        public override int Peek()
+       /// <inheritdoc />
+       public override int Peek()
         {
             return _underlyingObject.Peek();
         }
@@ -189,13 +185,7 @@ namespace UnitWrappers.System.IO
             return _underlyingObject.Read();
         }
 
-        /// <summary>
-        /// Reads a maximum of count characters from the current stream into buffer, beginning at index. 
-        /// </summary>
-        /// <param name="buffer">When this method returns, contains the specified character array with the values between index and (index + count - 1) replaced by the characters read from the current source.</param>
-        /// <param name="index">The index of buffer at which to begin writing.</param>
-        /// <param name="count">The maximum number of characters to read. </param>
-        /// <returns>The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the count parameter, depending on whether the data is available within the stream.</returns>
+        /// <inheritdoc />
         public override int Read(char[] buffer, int index, int count)
         {
             return _underlyingObject.Read(buffer, index, count);
@@ -211,16 +201,14 @@ namespace UnitWrappers.System.IO
             return _underlyingObject.ReadLine();
         }
 
-        /// <summary>
-        /// Reads the stream from the current position to the end of the stream.
-        /// </summary>
-        /// <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns the empty string("").</returns>
+        /// <inheritdoc />
         public override string ReadToEnd()
         {
             return _underlyingObject.ReadToEnd();
         }
+
         /// <inheritdoc />
-        public new  void Dispose()
+        public override  void Dispose()
         {
             _underlyingObject.Dispose();
         }

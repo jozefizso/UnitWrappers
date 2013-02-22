@@ -9,6 +9,7 @@ namespace UnitWrappers.System.ServiceModel
     public class OperationContextExtensionWrap : IExtension<IOperationContext>, IWrap<IExtension<OperationContext>>
     {
         private IExtension<OperationContext> _underlyingObject;
+
         IExtension<OperationContext> IWrap<IExtension<OperationContext>>.UnderlyingObject { get { return _underlyingObject; } }
 
         public OperationContextExtensionWrap(IExtension<OperationContext> underlyingObject)

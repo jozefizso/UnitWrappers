@@ -8,104 +8,102 @@ namespace UnitWrappers.System.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.MemoryStream"/> class.
     /// </summary>
-    public class MemoryStreamWrap : MemoryStream, IMemoryStream,IWrap<MemoryStream>
+    public class MemoryStreamWrap : MemoryStream, IMemoryStream, IWrap<MemoryStream>
     {
         private MemoryStream _underlyingObject;
 
-        MemoryStream IWrap<MemoryStream>.UnderlyingObject { get { return _underlyingObject; }}
+        MemoryStream IWrap<MemoryStream>.UnderlyingObject { get { return _underlyingObject; } }
 
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
-		/// </summary>
-		public MemoryStreamWrap()
-		{
-         _underlyingObject = new MemoryStream();
-		}
+        /// <summary>
+        /// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized to zero. 
+        /// </summary>
+        public MemoryStreamWrap()
+        {
+            _underlyingObject = new MemoryStream();
+        }
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.MemoryStreamWrap"/> class on the specified path. 
+        /// </summary>
+        /// <param name="memoryStream">A <see cref="T:System.IO.MemoryStream"/> object.</param>
+        public MemoryStreamWrap(MemoryStream memoryStream)
+        {
+            _underlyingObject = memoryStream;
+        }
 
-
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.MemoryStreamWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="memoryStream">A <see cref="T:System.IO.MemoryStream"/> object.</param>
-		public MemoryStreamWrap(MemoryStream memoryStream)
-		{
-			_underlyingObject = memoryStream;
-		}
-
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create the current stream. </param>
-		public MemoryStreamWrap(byte[] buffer)
-		{
-			_underlyingObject = new MemoryStream(buffer);
-		}
+        /// <summary>
+        /// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array. 
+        /// </summary>
+        /// <param name="buffer">The array of unsigned bytes from which to create the current stream. </param>
+        public MemoryStreamWrap(byte[] buffer)
+        {
+            _underlyingObject = new MemoryStream(buffer);
+        }
 
 
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized as specified. 
-		/// </summary>
-		/// <param name="capacity"></param>
-		public MemoryStreamWrap(int capacity)
-		{
-	_underlyingObject = new MemoryStream(capacity);
-		}
+        /// <summary>
+        /// Initializes a new instance of the MemoryStreamWrap class with an expandable capacity initialized as specified. 
+        /// </summary>
+        /// <param name="capacity"></param>
+        public MemoryStreamWrap(int capacity)
+        {
+            _underlyingObject = new MemoryStream(capacity);
+        }
 
 
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array with the CanWrite property set as specified. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-		public MemoryStreamWrap(byte[] buffer, bool writable)
-		{
-			_underlyingObject = new MemoryStream(buffer, writable);
-		}
+        /// <summary>
+        /// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified byte array with the CanWrite property set as specified. 
+        /// </summary>
+        /// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
+        /// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
+        public MemoryStreamWrap(byte[] buffer, bool writable)
+        {
+            _underlyingObject = new MemoryStream(buffer, writable);
+        }
 
 
 
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region (index) of a byte array. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="index">The index into buffer at which the stream begins.</param>
-		/// <param name="count">The length of the stream in bytes. </param>
-		public MemoryStreamWrap(byte[] buffer, int index, int count)
-		{
-			_underlyingObject = new MemoryStream(buffer, index, count);
-		}
+        /// <summary>
+        /// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region (index) of a byte array. 
+        /// </summary>
+        /// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
+        /// <param name="index">The index into buffer at which the stream begins.</param>
+        /// <param name="count">The length of the stream in bytes. </param>
+        public MemoryStreamWrap(byte[] buffer, int index, int count)
+        {
+            _underlyingObject = new MemoryStream(buffer, index, count);
+        }
 
 
 
-		/// <summary>
-		/// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="index">The index into buffer at which the stream begins.</param>
-		/// <param name="count">The length of the stream in bytes. </param>
-		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-		public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable)
-		{
-			_underlyingObject = new MemoryStream(buffer, index, count, writable);
-		}
+        /// <summary>
+        /// Initializes a new non-resizable instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified. 
+        /// </summary>
+        /// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
+        /// <param name="index">The index into buffer at which the stream begins.</param>
+        /// <param name="count">The length of the stream in bytes. </param>
+        /// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
+        public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable)
+        {
+            _underlyingObject = new MemoryStream(buffer, index, count, writable);
+        }
 
 
-		/// <summary>
-		/// Initializes a new instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified, and the ability to call GetBuffer set as specified. 
-		/// </summary>
-		/// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
-		/// <param name="index">The index into buffer at which the stream begins.</param>
-		/// <param name="count">The length of the stream in bytes.</param>
-		/// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
-		/// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
-		public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
-		{
-			_underlyingObject = new MemoryStream(buffer, index, count, writable, publiclyVisible);
-		}
-		
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports reading.
+        /// <summary>
+        /// Initializes a new instance of the MemoryStreamWrap class based on the specified region of a byte array, with the CanWrite property set as specified, and the ability to call GetBuffer set as specified. 
+        /// </summary>
+        /// <param name="buffer">The array of unsigned bytes from which to create this stream. </param>
+        /// <param name="index">The index into buffer at which the stream begins.</param>
+        /// <param name="count">The length of the stream in bytes.</param>
+        /// <param name="writable">The setting of the CanWrite property, which determines whether the stream supports writing. </param>
+        /// <param name="publiclyVisible"> true to enable GetBuffer, which returns the unsigned byte array from which the stream was created; otherwise, false. </param>
+        public MemoryStreamWrap(byte[] buffer, int index, int count, bool writable, bool publiclyVisible)
+        {
+            _underlyingObject = new MemoryStream(buffer, index, count, writable, publiclyVisible);
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the current stream supports reading.
         /// </summary>
         public bool CanRead
         {
@@ -250,7 +248,7 @@ namespace UnitWrappers.System.IO
             _underlyingObject.SetLength(value);
         }
 
-      
+
 
         /// <summary>
         /// Writes a block of bytes to the current stream using data read from buffer. 
@@ -282,13 +280,13 @@ namespace UnitWrappers.System.IO
             return _underlyingObject.ToArray();
         }
 
-       
+
 
         public void Dispose()
         {
             _underlyingObject.Dispose();
         }
 
-     
+
     }
 }

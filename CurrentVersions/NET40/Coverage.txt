@@ -1,4 +1,4 @@
-Total number of wraps: 58
+Total number of wraps: 57
 Microsoft.Win32.Registry-> UnitWrappers.Microsoft.Win32.IRegistry : 100%
 
 Microsoft.Win32.RegistryKey-> UnitWrappers.Microsoft.Win32.IRegistryKeySystem UnitWrappers.Microsoft.Win32.IRegistryKey : 60%
@@ -33,7 +33,7 @@ System.IO.BinaryReader-> UnitWrappers.System.IO.IBinaryReader : 92%
 
 System.IO.BinaryWriter-> UnitWrappers.System.IO.IBinaryWriter : 88%
 
-System.IO.Compression.DeflateStream-> UnitWrappers.System.IO.Compression.IDeflateStream : 12%
+System.IO.Compression.DeflateStream-> UnitWrappers.System.IO.Compression.IDeflateStream : 82%
 
 System.IO.Directory-> UnitWrappers.System.IO.IDirectory : 77%
 
@@ -43,21 +43,25 @@ System.IO.File-> UnitWrappers.System.IO.IFile : 89%
 
 System.IO.FileInfo-> UnitWrappers.System.IO.IFileInfo UnitWrappers.System.IO.IFileInfoSystem : 58%
 
-System.IO.FileStream-> UnitWrappers.System.IO.IFileStream : 66%
+System.IO.FileStream-> UnitWrappers.System.IO.IFileStream : 71%
 
 System.IO.FileSystemWatcher-> UnitWrappers.System.IO.IFileSystemWatcher : 50%
 
-System.IO.MemoryStream-> UnitWrappers.System.IO.IMemoryStream : 72%
+System.IO.IsolatedStorage.IsolatedStorageFile-> UnitWrappers.System.IO.IsolatedStorage.IIsolatedStorageFile : 0%
+
+System.IO.MemoryStream-> UnitWrappers.System.IO.IMemoryStream : 76%
 
 System.IO.Path-> UnitWrappers.System.IO.IPath : 100%
 
-System.IO.Stream-> UnitWrappers.System.IO.IStream UnitWrappers.System.IO.IStreamSystem : 56%
+System.IO.Stream-> UnitWrappers.System.IO.IStream UnitWrappers.System.IO.IStreamSystem : 61%
 
 System.IO.StreamReader-> UnitWrappers.System.IO.IStreamReader : 41%
 
-System.IO.StreamWriter-> UnitWrappers.System.IO.IStreamWriter : 40%
+System.IO.StreamWriter-> UnitWrappers.System.IO.IStreamWriter : 78%
 
 System.IO.TextReader-> UnitWrappers.System.IO.ITextReader : 61%
+
+System.IO.TextWriter-> UnitWrappers.System.IO.ITextWriter : 82%
 
 System.Management.ManagementObjectSearcher-> UnitWrappers.System.Management.IManagementObjectSearcher : 6%
 
@@ -84,12 +88,6 @@ System.Security.AccessControl.DirectorySecurity-> UnitWrappers.System.Security.A
 System.Security.AccessControl.FileSecurity-> UnitWrappers.System.Security.AccessControl.IFileSecurity : 2%
 
 System.Security.Permissions.FileIOPermission-> UnitWrappers.System.Security.Permissions.IFileIOPermission : 41%
-
-System.ServiceModel.InstanceContext-> UnitWrappers.System.ServiceModel.IInstanceContext : 18%
-
-System.ServiceModel.OperationContext-> UnitWrappers.System.ServiceModel.IOperationContextSystem UnitWrappers.System.ServiceModel.IOperationContext : 44%
-
-System.ServiceModel.ServiceHost-> UnitWrappers.System.ServiceModel.IServiceHost : 18%
 
 System.Threading.AutoResetEvent-> UnitWrappers.System.Threading.IAutoResetEvent : 15%
 

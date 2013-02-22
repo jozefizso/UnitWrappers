@@ -1,99 +1,37 @@
-﻿using System;
-using System.Globalization;
-using System.Threading;
-using UnitWrappers.System.Threading;
+﻿using System.Threading;
 
 namespace UnitWrappers.TestsSupport
 {
-    public class SameThread : IThread
+    public class SameThread : ThreadWrapBase
     {
         private ParameterizedThreadStart _parameterizedThreadStart;
         private ThreadStart _threadStart;
+        private Thread _thread;
 
-        public SameThread(ParameterizedThreadStart handler)
+        public SameThread(ParameterizedThreadStart start)
         {
-            _parameterizedThreadStart = handler;
+            _thread = Thread.CurrentThread;
+            _parameterizedThreadStart = start;
         }
 
-        public SameThread(ThreadStart handler)
+        public SameThread(ThreadStart start)
         {
-            _threadStart = handler;
+            _thread = Thread.CurrentThread;
+            _threadStart = start;
         }
 
-        public CultureInfo CurrentCulture
-        {
-            get { return global::System.Threading.Thread.CurrentThread.CurrentCulture; }
-            set { global::System.Threading.Thread.CurrentThread.CurrentCulture = value; }
-        }
-
-        public int ManagedThreadId { get; private set; }
-        public CultureInfo CurrentUICulture { get; set; }
-        public ExecutionContext ExecutionContext { get; private set; }
-        public string Name { get; set; }
-
-        public bool IsAlive
-        {
-            get { return false; }
-        }
-
-        public bool IsThreadPoolThread { get; private set; }
-        public ThreadState ThreadState { get; private set; }
-        public bool IsBackground { get; set; }
-        public ThreadPriority Priority { get; set; }
-
-        public void Abort()
-        {
-            
-        }
-
-        public void Abort(object stateInfo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ApartmentState GetApartmentState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetApartmentState(ApartmentState state)
-        {
-            
-        }
-
-        public void Start()
+        public override void Start()
         {
             _threadStart.Invoke();
         }
 
-        public void Start(object parameter)
+        public override void Start(object parameter)
         {
-           _parameterizedThreadStart.Invoke(parameter);
+            _parameterizedThreadStart.Invoke(parameter);
         }
 
-        public void Join()
-        {
-            throw new NotImplementedException();
-        }
 
-        public bool Join(int millisecondsTimeout)
-        {
-            throw new NotImplementedException();
-        }
 
-        public bool Join(TimeSpan timeout)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void Interrupt()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool TrySetApartmentState(ApartmentState state)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

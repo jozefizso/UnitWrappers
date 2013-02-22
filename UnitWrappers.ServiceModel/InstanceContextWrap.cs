@@ -9,9 +9,22 @@ namespace UnitWrappers.System.ServiceModel
     /// <summary>
     /// Default implementation of <see cref="IInstanceContext"/>
     /// </summary>
-    public class InstanceContextWrap : IInstanceContext
+    public class InstanceContextWrap : IInstanceContext,IWrap<InstanceContext>
     {
-        readonly InstanceContext UnderlyingObject;
+        private InstanceContext _underlyingObject;
+
+        InstanceContext IWrap<InstanceContext>.UnderlyingObject { get { return _underlyingObject; } }
+
+
+        public static implicit operator InstanceContextWrap(InstanceContext o)
+        {
+            return new InstanceContextWrap(o);
+        }
+
+        public static implicit operator InstanceContext(InstanceContextWrap o)
+        {
+            return o._underlyingObject;
+        }
 
         /// <summary>
         /// Default Constructor.
@@ -20,7 +33,7 @@ namespace UnitWrappers.System.ServiceModel
         /// <param name="underlyingObject">The <see cref="InstanceContext"/> instance to wrap.</param>
         public InstanceContextWrap(InstanceContext underlyingObject)
         {
-            UnderlyingObject = underlyingObject;
+            _underlyingObject = underlyingObject;
         }
 
         /// <summary>
@@ -29,7 +42,7 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public IExtensionCollection<InstanceContext> Extensions
         {
-            get { return UnderlyingObject.Extensions; }
+            get { return _underlyingObject.Extensions; }
         }
 
         IServiceHost IInstanceContext.Host
@@ -43,7 +56,7 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public IServiceHost Host
         {
-            get { return new ServiceHostBaseWrap(UnderlyingObject.Host); }
+            get { return new ServiceHostBaseWrap(_underlyingObject.Host); }
         }
 
         /// <summary>
@@ -52,7 +65,7 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public ICollection<IChannel> IncomingChannels
         {
-            get { return UnderlyingObject.IncomingChannels; }
+            get { return _underlyingObject.IncomingChannels; }
         }
 
         /// <summary>
@@ -60,8 +73,8 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public int ManualFlowControlLimit
         {
-            get { return UnderlyingObject.ManualFlowControlLimit; }
-            set { UnderlyingObject.ManualFlowControlLimit = value; }
+            get { return _underlyingObject.ManualFlowControlLimit; }
+            set { _underlyingObject.ManualFlowControlLimit = value; }
         }
 
         /// <summary>
@@ -70,7 +83,7 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public ICollection<IChannel> OutgoinChannels
         {
-            get { return UnderlyingObject.OutgoingChannels; }
+            get { return _underlyingObject.OutgoingChannels; }
         }
 
         /// <summary>
@@ -78,8 +91,8 @@ namespace UnitWrappers.System.ServiceModel
         /// </summary>
         public SynchronizationContext SynchronizationContext
         {
-            get { return UnderlyingObject.SynchronizationContext; }
-            set { UnderlyingObject.SynchronizationContext = value; }
+            get { return _underlyingObject.SynchronizationContext; }
+            set { _underlyingObject.SynchronizationContext = value; }
         }
 
         /// <summary>
@@ -88,7 +101,7 @@ namespace UnitWrappers.System.ServiceModel
         /// <param name="limit">int. The flow control limit to increment to.</param>
         public void IncrementManualFlowControlLimit(int limit)
         {
-            UnderlyingObject.IncrementManualFlowControlLimit(limit);
+            _underlyingObject.IncrementManualFlowControlLimit(limit);
         }
 
         /// <summary>
@@ -97,7 +110,7 @@ namespace UnitWrappers.System.ServiceModel
         /// <returns>object.</returns>
         public object GetServiceInstance()
         {
-            return UnderlyingObject.GetServiceInstance();
+            return _underlyingObject.GetServiceInstance();
         }
 
         /// <summary>
@@ -107,10 +120,10 @@ namespace UnitWrappers.System.ServiceModel
         /// <returns>object.</returns>
         public object GetServiceInstance(Message message)
         {
-            return UnderlyingObject.GetServiceInstance(message);
+            return _underlyingObject.GetServiceInstance(message);
         }
 
 
-
+     
     }
 }

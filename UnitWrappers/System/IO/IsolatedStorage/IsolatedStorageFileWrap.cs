@@ -6,13 +6,15 @@ using System.Text;
 
 namespace UnitWrappers.System.IO.IsolatedStorage
 {
-    public class IsolatedStorageFileWrap
+    public class IsolatedStorageFileWrap : IIsolatedStorageFile,IWrap<IsolatedStorageFile>
     {
+        private IsolatedStorageFile _underlyingObject;
+
         public IsolatedStorageFileWrap(IsolatedStorageFile isolatedStorageFile)
         {
-            UnderlyingObject = isolatedStorageFile;
+            _underlyingObject = isolatedStorageFile;
         }
 
-        protected IsolatedStorageFile UnderlyingObject { get;private set; }
+         IsolatedStorageFile IWrap<IsolatedStorageFile>.UnderlyingObject { get { return _underlyingObject; } }
     }
 }

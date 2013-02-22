@@ -10,8 +10,10 @@ namespace UnitWrappers.System.IO
     /// Wrapper for <see cref="T:System.IO.StreamWriter"/> class.
     /// </summary>
     [Serializable]
+#if !PORTABLE
     [ComVisible(true)]
-    public class StreamWriterWrap : StreamWriterBase, IWrap<StreamWriter>,IStreamWriter
+#endif
+    public class StreamWriterWrap : StreamWriterBase, IWrap<StreamWriter>
     {
         public StreamWriter _underlyingObject;
 
@@ -122,8 +124,6 @@ namespace UnitWrappers.System.IO
             _underlyingObject = new StreamWriter(path, append, encoding, bufferSize);
         }
 
-
-
         public override bool AutoFlush
         {
             get { return _underlyingObject.AutoFlush; }
@@ -133,6 +133,11 @@ namespace UnitWrappers.System.IO
         public override Stream BaseStream
         {
             get { return _underlyingObject.BaseStream; }
+        }
+
+        public override void Dispose()
+        {
+            _underlyingObject.Dispose();
         }
 
         public override IFormatProvider FormatProvider
@@ -331,6 +336,7 @@ namespace UnitWrappers.System.IO
         {
             _underlyingObject.WriteLine(format, arg);
         }
+
 
         public override void WriteLine(uint value)
         {

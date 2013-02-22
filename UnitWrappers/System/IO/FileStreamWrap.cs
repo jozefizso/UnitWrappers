@@ -26,9 +26,9 @@ namespace UnitWrappers.System.IO
 
 
 
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+      //  [SecuritySafeCritical]
+
         static FileStreamWrap()
         {
         }
@@ -50,6 +50,7 @@ namespace UnitWrappers.System.IO
         public FileStreamWrap(FileStream fileStream)
         {
             _underlyingObject = fileStream;
+            
         }
 
 
@@ -82,16 +83,14 @@ namespace UnitWrappers.System.IO
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         /// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
         /// <param name="isAsync"> true if the handle was opened asynchronously (that is, in overlapped I/O mode); otherwise, false. </param>
-#if NET351
-        [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-#endif
+
+       // [SecurityPermission(SecurityAction.Demand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+
         public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
             _underlyingObject = new FileStream(handle.UnderlyingObject, access, bufferSize, isAsync);
         }
 #endif
-
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UnitWrappers.System.IO.FileStreamWrap"/> class with the specified path and creation mode. 
@@ -157,7 +156,6 @@ namespace UnitWrappers.System.IO
         {
             _underlyingObject = new FileStream(path, mode, access, share, bufferSize, useAsync);
         }
-
 
 
         /// <summary>
@@ -257,8 +255,8 @@ namespace UnitWrappers.System.IO
             set { _underlyingObject.WriteTimeout = value; }
         }
 
-#if NET401
-        [SecuritySafeCritical]
+#if NET40
+        //[SecuritySafeCritical]
 
         public override void Flush(bool flushToDisk)
         {
@@ -275,17 +273,17 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public override long Length
         {
-#if NET401
-            [SecuritySafeCritical]
-#endif
+
+          //  [SecuritySafeCritical]
+
             get { return _underlyingObject.Length; }
         }
 
         public override string Name
         {
-#if NET401
-            [SecuritySafeCritical]
-#endif
+
+         //   [SecuritySafeCritical]
+
             get { return _underlyingObject.Name; }
         }
 
@@ -294,21 +292,21 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public override long Position
         {
-#if NET401
-            [SecuritySafeCritical]
-#endif
+
+        //    [SecuritySafeCritical]
+
             get { return _underlyingObject.Position; }
-#if NET401
-            [SecuritySafeCritical]
-#endif
+
+         //   [SecuritySafeCritical]
+
             set { _underlyingObject.Position = value; }
         }
 #if !PORTABLE
         public override ISafeFileHandle SafeFileHandle
         {
-#if NET351
-            [SecurityCritical, SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] 
-#endif
+
+          //  [SecurityCritical, SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] 
+
             get { return new SafeFileHandleWrap(_underlyingObject.SafeFileHandle); }
         }
 #endif
@@ -373,24 +371,22 @@ namespace UnitWrappers.System.IO
         /// <summary>
         /// Clears all buffers for this stream and causes any buffered data to be written to the file system.
         /// </summary>
-#if NET401
-            [SecuritySafeCritical]
-#endif
+
+         //   [SecuritySafeCritical]
+
         public override void Flush()
         {
             _underlyingObject.Flush();
         }
 
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+        //[SecuritySafeCritical]
         public override IFileSecurity GetAccessControl()
         {
             return new FileSecurityWrap(_underlyingObject.GetAccessControl());
         }
-#if NET401
-        [SecuritySafeCritical]
-#endif
+       // [SecuritySafeCritical]
+
         public override void Lock(long position, long length)
         {
             _underlyingObject.Lock(position, length);
@@ -427,9 +423,9 @@ namespace UnitWrappers.System.IO
         {
             return _underlyingObject.Seek(offset, origin);
         }
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+        //[SecuritySafeCritical]
+
         public override void SetAccessControl(IFileSecurity fileSecurity)
         {
             _underlyingObject.SetAccessControl(fileSecurity.FileSecurityInstance);
@@ -452,9 +448,9 @@ namespace UnitWrappers.System.IO
             return _underlyingObject.ToString();
         }
 
-#if NET401
-        [SecuritySafeCritical]
-#endif
+
+        //[SecuritySafeCritical]
+
         public override void Unlock(long position, long length)
         {
             _underlyingObject.Unlock(position, length);

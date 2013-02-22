@@ -14,7 +14,7 @@ namespace UnitWrappers.System.IO
     public interface IFileStream : IStream, IDisposable
     {
 
-#if NET401
+#if NET40
         /// <summary>
         /// Clears buffers for this stream and causes any buffered data to be written to the file, and also clears all intermediate file buffers.
         /// </summary>
@@ -36,10 +36,10 @@ namespace UnitWrappers.System.IO
         /// </summary>
         ISafeFileHandle SafeFileHandle
         {
-#if NET401
-            [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
-            [SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] 
-#endif
+
+          //  [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
+          //  [SecurityPermission(SecurityAction.InheritanceDemand, Flags = SecurityPermissionFlag.UnmanagedCode)] 
+
             get;
         }
 #endif

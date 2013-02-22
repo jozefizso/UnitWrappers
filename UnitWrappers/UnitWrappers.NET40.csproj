@@ -116,6 +116,7 @@
     <Compile Include="System\IO\IMemoryStream.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="System\IO\IsolatedStorage\IIsolatedStorageFile.cs" />
     <Compile Include="System\IO\IStream.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,6 +127,7 @@
     <Compile Include="System\IO\IStreamWriter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="System\IO\ITextWriter.cs" />
     <Compile Include="System\IO\MemoryStreamWrap.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -211,16 +213,6 @@
     <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />
     <Compile Include="System\Security\Permissions\PermissionsFactory.cs" />
     <Compile Include="System\Security\Principal\WindowsIdentityWrap.cs" />
-    <Compile Include="System\ServiceModel\IInstanceContext.cs" />
-    <Compile Include="System\ServiceModel\InstanceContextWrap.cs" />
-    <Compile Include="System\ServiceModel\IOperationContext.cs" />
-    <Compile Include="System\ServiceModel\IOperationContextSystem.cs" />
-    <Compile Include="System\ServiceModel\IServiceHost.cs" />
-    <Compile Include="System\ServiceModel\OperationContextExtensionCollectionWrap.cs" />
-    <Compile Include="System\ServiceModel\OperationContextExtensionWrap.cs" />
-    <Compile Include="System\ServiceModel\OperationContextSystem.cs" />
-    <Compile Include="System\ServiceModel\OperationContextWrap.cs" />
-    <Compile Include="System\ServiceModel\ServiceHostBaseWrap.cs" />
     <Compile Include="System\Threading\AutoResetEventSystem.cs" />
     <Compile Include="System\Threading\AutoResetEventWrap.cs" />
     <Compile Include="System\Threading\IAutoResetEvent.cs" />

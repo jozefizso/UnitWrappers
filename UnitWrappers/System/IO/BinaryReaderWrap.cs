@@ -8,7 +8,9 @@ namespace UnitWrappers.System.IO
     /// <summary>
     /// Wrapper for <see cref="T:System.IO.BinaryReader"/> class.
     /// </summary>
+#if !PORTABLE
     [ComVisible(true)]
+#endif
     public class BinaryReaderWrap : IBinaryReader
     {
         /// <summary>

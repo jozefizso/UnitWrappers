@@ -7,37 +7,7 @@ using UnitWrappers.System.Security.AccessControl;
 
 namespace UnitWrappers.TestsSupport.System.IO
 {
-    //public class InMemoryFileStream:FileStreamBase//,IStream
-    //{
-    //    public Stream StreamInstance { get; private set; }
-    //    public IStream Synchronized(IStream stream)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
 
-    //    public bool IsAsync { get; private set; }
-    //    public string Name { get; private set; }
-    //    public ISafeFileHandle SafeFileHandle { get; private set; }
-    //    public IFileSecurity GetAccessControl()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void Lock(long position, long length)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void SetAccessControl(IFileSecurity fileSecurity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-
-    //    public void Unlock(long position, long length)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
-    //}
 
     public class InMemoryFileSystem : IDirectory, IPath,IFile
     {

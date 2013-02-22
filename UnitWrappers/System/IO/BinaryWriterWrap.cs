@@ -8,7 +8,8 @@ namespace UnitWrappers.System.IO
 	/// <summary>
 	/// Wrapper for <see cref="T:System.IO.BinaryWriter"/> class.
 	/// </summary>
-	[Serializable, ComVisible(true)]
+	[Serializable]
+    [ComVisible(true)]
 	public class BinaryWriterWrap :IBinaryWriter
 	{
 

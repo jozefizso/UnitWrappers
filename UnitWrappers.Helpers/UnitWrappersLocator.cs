@@ -5,7 +5,8 @@ using System.Text;
 
 namespace UnitWrappers.Helpers
 {
-    public class Class1
+    public class UnitWrappersLocator
     {
+        
     }
 }

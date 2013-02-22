@@ -13,7 +13,7 @@ namespace UnitWrappers.System.ServiceModel
         private InstanceContextWrap _instanceContext;
         private OperationContext _underlyingObject;
 
-         OperationContext IWrap<OperationContext>.UnderlyingObject { get { return _underlyingObject; } }
+        OperationContext IWrap<OperationContext>.UnderlyingObject { get { return _underlyingObject; } }
 
         public static implicit operator OperationContextWrap(OperationContext o)
         {
@@ -193,6 +193,6 @@ namespace UnitWrappers.System.ServiceModel
         }
 
 
-  
+
     }
 }
