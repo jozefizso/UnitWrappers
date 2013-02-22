@@ -9,7 +9,7 @@ namespace UnitWrappers.System.ServiceModel
     /// <summary>
     /// Default implementation of <see cref="IInstanceContext"/>
     /// </summary>
-    public class InstanceContextWrap : IInstanceContext,IWrap<InstanceContext>
+    public class InstanceContextWrap : IInstanceContext, IWrap<InstanceContext>
     {
         private InstanceContext _underlyingObject;
 
@@ -123,7 +123,15 @@ namespace UnitWrappers.System.ServiceModel
             return _underlyingObject.GetServiceInstance(message);
         }
 
+        public event EventHandler Closed
+        {
+            add { _underlyingObject.Closed += value; }
+            remove { _underlyingObject.Closed -= value; }
+        }
 
-     
+        public void Close()
+        {
+            _underlyingObject.Close();
+        }
     }
 }

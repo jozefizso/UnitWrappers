@@ -1,8 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
-
 
 namespace UnitWrappers.System.ServiceModel
 {
@@ -55,5 +55,8 @@ namespace UnitWrappers.System.ServiceModel
         /// <param name="message">A <see cref="Message"/> instance.</param>
         /// <returns>object.</returns>
         object GetServiceInstance(Message message);
+
+        event EventHandler Closed;
+        void Close();
     }
 }
