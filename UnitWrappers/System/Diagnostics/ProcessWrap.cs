@@ -11,7 +11,6 @@ namespace UnitWrappers.System.Diagnostics
     public class ProcessWrap : IProcess, IWrap<Process>
     {
         public Process _underlyingObject;
-        private IProcessStartInfo startInfo;
 
         Process IWrap<Process>.UnderlyingObject { get { return _underlyingObject; } }
 
@@ -61,8 +60,8 @@ namespace UnitWrappers.System.Diagnostics
 
         public IProcessStartInfo StartInfo
         {
-            get { return startInfo ?? (startInfo = new ProcessStartInfoWrap(_underlyingObject.StartInfo)); }
-            set { startInfo = value; }
+            get { return new ProcessStartInfoWrap(_underlyingObject.StartInfo); }
+            set { _underlyingObject.StartInfo = value.UnderlyingObject; }
         }
 
         public void WaitForExit()
