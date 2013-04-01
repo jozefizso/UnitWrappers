@@ -1,10 +1,13 @@
 using System;
 using System.Security;
 using System.Security.Permissions;
-#if !MONO && !PORTABLE
+#if !MONO && !PORTABLE && !ANDROID
 using UnitWrappers.Microsoft.Win32.SafeHandles;
 #endif
+
+#if !ANDROID
 using UnitWrappers.System.Security.AccessControl;
+#endif
 
 namespace UnitWrappers.System.IO
 {
@@ -30,7 +33,7 @@ namespace UnitWrappers.System.IO
         /// Gets the name of the FileStreamBase that was passed to the constructor.
         /// </summary>
         string Name { get; }
-#if !MONO && !PORTABLE
+#if !MONO && !PORTABLE && !ANDROID
         /// <summary>
         /// Gets a ISafeFileHandle object that represents the operating system file handle for the file that the current FileStream object encapsulates. 
         /// </summary>
@@ -53,23 +56,29 @@ namespace UnitWrappers.System.IO
         /// </summary>
         /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
         //        void Dispose(bool disposing);
-        /// <summary>
-        /// Gets a IFileSecurity object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
-        /// </summary>
-        /// <returns>A IFileSecurity object that encapsulates the access control settings for the file described by the current FileStream object. </returns>
-        IFileSecurity GetAccessControl();
+
         /// <summary>
         /// Prevents other processes from changing the FileStream while permitting read access. 
         /// </summary>
         /// <param name="position">The beginning of the range to lock. The value of this parameter must be equal to or greater than zero (0). </param>
         /// <param name="length">The range to be locked. </param>
         void Lock(long position, long length);
+
+#if !ANDROID
+		/// <summary>
+		/// Gets a IFileSecurity object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
+		/// </summary>
+		/// <returns>A IFileSecurity object that encapsulates the access control settings for the file described by the current FileStream object. </returns>
+		IFileSecurity GetAccessControl();
+
         /// <summary>
         /// Applies access control list (ACL) entries described by a IFileSecurity object to the file described by the current FileStream object. 
         /// </summary>
         /// <param name="fileSecurity">A IFileSecurity object that describes an ACL entry to apply to the current file.</param>
         void SetAccessControl(IFileSecurity fileSecurity);
-        /// <summary>
+#endif
+
+		/// <summary>
         /// Returns a String that represents the current Object. 
         /// </summary>
         /// <returns>A String that represents the current Object. </returns>

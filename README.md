@@ -8,26 +8,29 @@
 
 ### Design
 * No wraps for POCOs and structs like instance of DateTime, Version
-* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties).
+* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution
 * Static and instance members in different classes
 * No WRAP suffix in interfaces
-* Underlying object is not public API of wrapping interface
 * Possibility of doing shareable forks via hosted platform
 * Classes with static members as factories
 * Automatic coverage report generation
 * .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono)
+* All classes behave like they behave on .NET/Mono counterpart.
+* Close integration with no wrappers code (e.g. can convert FileStreamWrap to Stream, AssemblyWrap to Assembly)
+* Underlying object is not public API of wrapping interface (not visible from interfaces). 
 * One to one corresponce with real classes, casting back and forth
 * Interfaces free of wrapeed classes related info.
 
 ### TODO:
-* Real world sample with IoC/DI + WCF, Net, IO, etc.
-* Semi-automatic migration, documenting, wrapping (using NRefactory)
+* Real world sample with IoC/DI, Net, IO, WCF, etc.
+* Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
+* Wrapperasing /dewraperasing exsisting code (using NRefactory) Prove of Concept 
 * Cover more of Mono, PortableLibrary, MonoDroid 
 * Performance(calls and object graph construction) and memory usage overhead evaluation
 * Support for code contracts and members' attributes defined on real .NET classes
 * Namespace wide factories
 * Tests which check method signatures (that wraps call right underlying methods) on code or IL level
-* Units.GetInstance<IXyzWrap>()
+* UnitsWrappers.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
 
 ### Sample of concept:
@@ -64,19 +67,23 @@
 ```
  
 ### Develop
-SystemWrapper.sln:
+* UnitWrappers.sln:
 
-Visual Studio 2010
+Visual Studio 2010. If failed to build then clean up .NET specific binaries output.
 
-Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version
+Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version.
 
 ReSharper(or other test runner) - to run unit tests(NUnit)
 
-SystemWrapper.Mono.sln:
+* UnitWrappers.Mono.sln:
 
 Linux
 
 MonoDevelop
+
+* UnitWrappers.Android.sln:
+
+Xamarin Studio 4.0 with Android SDK
 
 
 ### Obsolete and new methods
@@ -84,6 +91,9 @@ MonoDevelop
 Methods obsolete in .NET 4.0 or .NET 3.5 are not implemented.
 New .NET methods sometimes backported to 3.5 wrappers.
 
+### Related 
+http://systemwrapper.codeplex.com/
+http://systemioabstractions.codeplex.com/
 
 ### Coverage
 

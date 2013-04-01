@@ -44,6 +44,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="System\Configuration\" />
+    <Folder Include="System\IO\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IWrap.cs" />
@@ -69,5 +70,15 @@
     <Compile Include="System\Threading\IWaitHandle.cs" />
     <Compile Include="System\Threading\ThreadPoolWrap.cs" />
     <Compile Include="System\Threading\ThreadWrap.cs" />
+    <Compile Include="System\ConsoleWrap.cs" />
+    <Compile Include="System\Threading\IThreadSystem.cs" />
+    <Compile Include="System\Threading\ThreadSystem.cs" />
+    <Compile Include="System\Threading\IWaitHandleSystem.cs" />
+    <Compile Include="System\Threading\IAutoResetEvent.cs" />
+    <Compile Include="System\Threading\IMutexSystem.cs" />
+    <Compile Include="System\Reflection\IAssembly.cs" />
+    <Compile Include="System\IO\FileStreamBase.cs" />
+    <Compile Include="System\IO\IFileStream.cs" />
+    <Compile Include="System\IO\IStream.cs" />
   </ItemGroup>
 </Project>

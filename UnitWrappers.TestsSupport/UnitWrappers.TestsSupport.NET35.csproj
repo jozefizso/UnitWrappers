@@ -39,6 +39,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Threading, Version=1.0.2617.102, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Components\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -49,7 +53,7 @@
     <Compile Include="System\IO\InMemoryFileSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SameThreadBackgroundWorker.cs" />
-    <Compile Include="SameThread.cs" />
+    <Compile Include="CurrentThread.cs" />
     <Compile Include="System\IO\Node.cs" />
     <Compile Include="ThreadWrapBase.cs" />
   </ItemGroup>

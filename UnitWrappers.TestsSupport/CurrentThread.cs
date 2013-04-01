@@ -2,19 +2,20 @@
 
 namespace UnitWrappers.TestsSupport
 {
-    public class SameThread : ThreadWrapBase
+
+    public class CurrentThread : ThreadWrapBase
     {
         private ParameterizedThreadStart _parameterizedThreadStart;
         private ThreadStart _threadStart;
         private Thread _thread;
 
-        public SameThread(ParameterizedThreadStart start)
+        public CurrentThread(ParameterizedThreadStart start)
         {
             _thread = Thread.CurrentThread;
             _parameterizedThreadStart = start;
         }
 
-        public SameThread(ThreadStart start)
+        public CurrentThread(ThreadStart start)
         {
             _thread = Thread.CurrentThread;
             _threadStart = start;

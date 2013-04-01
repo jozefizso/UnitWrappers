@@ -10,24 +10,25 @@ namespace UnitWrappers.System
     /// </summary>
     public interface IConsole
     {
-        // Properties
-
+#if !ANDROID
         /// <summary>
         /// Gets or sets the foreground color of the console.
         /// </summary>
         ConsoleColor ForegroundColor { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
+
+		/// <summary>
+		/// Sets the foreground and background console colors to their defaults.
+		/// </summary>
+		[SecuritySafeCritical]
+		void ResetColor();
+#endif
         /// <summary>
         /// Gets the standard output stream.
         /// </summary>
         TextWriter Out { [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)] get; }
 
-        // Methods
+     
 
-        /// <summary>
-        /// Sets the foreground and background console colors to their defaults.
-        /// </summary>
-        [SecuritySafeCritical]
-        void ResetColor();
         ///<summary>
         /// Sets the Out  property to the specified TextWriter  object.
         ///</summary>
@@ -89,11 +90,13 @@ namespace UnitWrappers.System
         [HostProtection(SecurityAction.LinkDemand, UI = true)]
         void WriteLine(string format, object arg0, object arg1, object arg2);
 
-        /*
-                // Events
-                public static event ConsoleCancelEventHandler CancelKeyPress;
 
-                // Methods
+
+        /*
+
+
+event ConsoleCancelEventHandler CancelKeyPress;
+
                 [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries"), HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void Beep();
                 [SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)]
@@ -197,7 +200,7 @@ namespace UnitWrappers.System
                 [CLSCompliant(false), SecuritySafeCritical, HostProtection(SecurityAction.LinkDemand, UI = true)]
                 public static void WriteLine(string format, object arg0, object arg1, object arg2, object arg3, __arglist);
 
-                // Properties
+
                 public static ConsoleColor BackgroundColor { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static int BufferHeight { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }
                 public static int BufferWidth { [SecuritySafeCritical] get; [SecuritySafeCritical] set; }

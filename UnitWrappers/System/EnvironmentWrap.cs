@@ -74,20 +74,40 @@ namespace UnitWrappers.System
         {
             return global::System.Environment.GetEnvironmentVariable(variable, target);
         }
-#endif
 
-        /// <inheritdoc />
-        public IDictionary GetEnvironmentVariables()
-        {
-            return global::System.Environment.GetEnvironmentVariables();
-        }
-        #if !ANDROID
         /// <inheritdoc />
         public IDictionary GetEnvironmentVariables(EnvironmentVariableTarget target)
         {
             return global::System.Environment.GetEnvironmentVariables(target);
         }
+
+		/// <inheritdoc />
+		public void SetEnvironmentVariable(string variable, string value)
+		{
+			global::System.Environment.SetEnvironmentVariable(variable, value);
+		}
+		/// <inheritdoc />
+		public void SetEnvironmentVariable(string variable, string value, EnvironmentVariableTarget target)
+		{
+			global::System.Environment.SetEnvironmentVariable(variable, value, target);
+		}
+		
+		/// <inheritdoc />
+		public string SystemDirectory
+		{
+			get
+			{
+				return Environment.SystemDirectory;
+			}
+		}
+
 #endif
+
+		/// <inheritdoc />
+		public IDictionary GetEnvironmentVariables()
+		{
+			return global::System.Environment.GetEnvironmentVariables();
+		}
         /// <inheritdoc />
         public string GetFolderPath(global::System.Environment.SpecialFolder folder)
         {
@@ -166,18 +186,7 @@ namespace UnitWrappers.System
                 return global::System.Environment.ProcessorCount;
             }
         }
-        #if !ANDROID
-        /// <inheritdoc />
-        public void SetEnvironmentVariable(string variable, string value)
-        {
-            global::System.Environment.SetEnvironmentVariable(variable, value);
-        }
-        /// <inheritdoc />
-        public void SetEnvironmentVariable(string variable, string value, EnvironmentVariableTarget target)
-        {
-            global::System.Environment.SetEnvironmentVariable(variable, value, target);
-        }
-#endif
+
         /// <inheritdoc />
         public string StackTrace
         {
@@ -186,16 +195,7 @@ namespace UnitWrappers.System
                 return Environment.StackTrace;
             }
         }
-        #if !ANDROID
-        /// <inheritdoc />
-        public string SystemDirectory
-        {
-            get
-            {
-                return Environment.SystemDirectory;
-            }
-        }
-#endif
+
         /// <inheritdoc />
         public int TickCount
         {

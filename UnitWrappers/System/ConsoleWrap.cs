@@ -8,6 +8,8 @@ namespace UnitWrappers.System
     /// </summary>
     public class ConsoleWrap : IConsole
     {
+
+#if !ANDROID
         /// <inheritdoc />
         public ConsoleColor ForegroundColor
         {
@@ -15,17 +17,21 @@ namespace UnitWrappers.System
             set { Console.ForegroundColor = value; }
         }
 
+		/// <inheritdoc />
+		public void ResetColor()
+		{
+			Console.ResetColor();
+		}
+#endif
+
+	
         /// <inheritdoc />
         public TextWriter Out
         {
             get { return Console.Out; }
         }
 
-        /// <inheritdoc />
-        public void ResetColor()
-        {
-            Console.ResetColor();
-        }
+
 
         /// <inheritdoc />
         public void SetOut(TextWriter newOut)
