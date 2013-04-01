@@ -22,7 +22,7 @@ namespace UnitWrappers.Microsoft.Win32
 
         public void Close()
         {
-           _underlyingObject.Close();
+            _underlyingObject.Close();
         }
 
         public IRegistryKey CreateSubKey(string subkey)
@@ -99,17 +99,23 @@ namespace UnitWrappers.Microsoft.Win32
 
         public IRegistryKey OpenSubKey(string name)
         {
-            return new RegistryKeyWrap(_underlyingObject.OpenSubKey(name));
+            var subKey = _underlyingObject.OpenSubKey(name);
+
+            return subKey == null ? null : new RegistryKeyWrap(subKey);
         }
 
         public IRegistryKey OpenSubKey(string name, RegistryKeyPermissionCheck permissionCheck)
         {
-            return new RegistryKeyWrap(_underlyingObject.OpenSubKey(name, permissionCheck));
+            var subKey = _underlyingObject.OpenSubKey(name, permissionCheck);
+
+            return subKey == null ? null : new RegistryKeyWrap(subKey);
         }
 
         public IRegistryKey OpenSubKey(string name, bool writable)
         {
-            return new RegistryKeyWrap(_underlyingObject.OpenSubKey(name, writable));
+            var subKey = _underlyingObject.OpenSubKey(name, writable);
+
+            return subKey == null ? null : new RegistryKeyWrap(subKey);
         }
 
         public void SetValue(string name, object value)
