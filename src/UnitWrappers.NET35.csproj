@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitWrappers</RootNamespace>
+    <AssemblyName>UnitWrappers</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\ispro\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\UnitWrappers.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>../../build/NET35\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>../../build/NET35\UnitWrappers.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>../../build/NET35\</OutputPath>
+    <DefineConstants>TRACE;NET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>../../build/NET35\UnitWrappers.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading, Version=1.0.2617.102, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>../../lib/TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IWrap.cs" />
+    <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
+    <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
+    <Compile Include="System\AppDomainWrap.cs" />
+    <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
+    <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />
+    <Compile Include="System\Diagnostics\FileVersionInfoSystem.cs" />
+    <Compile Include="System\Diagnostics\FileVersionInfoWrap.cs" />
+    <Compile Include="System\Diagnostics\IFileVersionInfo.cs" />
+    <Compile Include="System\Diagnostics\IFileVersionInfoSystem.cs" />
+    <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
+    <Compile Include="System\EnvironmentWrap.cs" />
+    <Compile Include="System\IEnvironment.cs" />
+    <Compile Include="System\IO\BinaryReaderWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\BinaryWriterWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\Compression\DeflateStreamWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\Compression\IDeflateStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\FileStreamBase.cs" />
+    <Compile Include="System\IO\IBinaryReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IBinaryWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IFileStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IMemoryStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IsolatedStorage\IIsolatedStorageFile.cs" />
+    <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />
+    <Compile Include="System\IO\IStream.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IStreamReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IStreamSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\IStreamWriter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\ITextReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\ITextWriter.cs" />
+    <Compile Include="System\IO\MemoryStreamWrap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="System\IO\StreamReaderBase.cs" />
+    <Compile Include="System\IO\StreamWriterBase.cs" />
+    <Compile Include="System\Net\IWebClient.cs" />
+    <Compile Include="System\Net\IWebRequestSystem.cs" />
+    <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
+    <Compile Include="System\Net\NetworkInformation\INetworkInterface.cs" />
+    <Compile Include="System\Net\NetworkInformation\IPing.cs" />
+    <Compile Include="System\Net\NetworkInformation\NetworkChangeWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\NetworkInterfaceWrap.cs" />
+    <Compile Include="System\Net\NetworkInformation\PingWrap.cs" />
+    <Compile Include="System\Net\WebClientWrap.cs" />
+    <Compile Include="System\Net\WebRequestSystem.cs" />
+    <Compile Include="System\Runtime\InteropServices\ISafeHandle.cs" />
+    <Compile Include="System\Security\Permissions\PermissionsFactory.cs" />
+    <Compile Include="System\Security\Permissions\IFileIOPermission.cs" />
+    <Compile Include="System\Security\Permissions\FileIOPermissionWrap.cs" />
+    <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />
+    <Compile Include="System\Security\Principal\WindowsIdentityWrap.cs" />
+    <Compile Include="System\Configuration\ConfigurationManagerWrap.cs" />
+    <Compile Include="System\Configuration\IConfigurationManager.cs" />
+    <Compile Include="System\ConsoleWrap.cs" />
+    <Compile Include="System\AppDomainSystem.cs" />
+    <Compile Include="System\Data\SqlClient\ISqlCommand.cs" />
+    <Compile Include="System\Data\SqlClient\ISqlConnection.cs" />
+    <Compile Include="System\Data\SqlClient\ISqlDataReader.cs" />
+    <Compile Include="System\Data\SqlClient\SqlCommandWrap.cs" />
+    <Compile Include="System\Data\SqlClient\SqlConnectionWrap.cs">
+    </Compile>
+    <Compile Include="System\Data\SqlClient\SqlDataReaderWrap.cs" />
+    <Compile Include="System\DateTimeSystem.cs" />
+    <Compile Include="System\Diagnostics\IProcessStartInfo.cs" />
+    <Compile Include="System\Diagnostics\IProcessSystem.cs" />
+    <Compile Include="System\Diagnostics\IProcess.cs" />
+    <Compile Include="System\Diagnostics\ProcessStartInfoWrap.cs" />
+    <Compile Include="System\Diagnostics\ProcessSystem.cs" />
+    <Compile Include="System\Diagnostics\ProcessWrap.cs" />
+    <Compile Include="System\IAppDomain.cs" />
+    <Compile Include="System\IAppDomainSystem.cs" />
+    <Compile Include="System\IConsole.cs" />
+    <Compile Include="System\IDateTimeSystem.cs" />
+    <Compile Include="System\IO\IFileSystemWatcher.cs" />
+    <Compile Include="System\IO\DirectoryInfoWrap.cs" />
+    <Compile Include="System\IO\DirectoryWrap.cs" />
+    <Compile Include="System\IO\FileInfoSystem.cs" />
+    <Compile Include="System\IO\FileInfoWrap.cs" />
+    <Compile Include="System\IO\FileStreamWrap.cs" />
+    <Compile Include="System\IO\FileSystemWatcherWrap.cs" />
+    <Compile Include="System\IO\FileWrap.cs" />
+    <Compile Include="System\IO\IDirectoryInfo.cs" />
+    <Compile Include="System\IO\IDirectory.cs" />
+    <Compile Include="System\IO\IFileInfoSystem.cs" />
+    <Compile Include="System\IO\IFileInfo.cs" />
+    <Compile Include="System\IO\IFile.cs" />
+    <Compile Include="System\IO\IPath.cs" />
+    <Compile Include="System\IO\PathWrap.cs" />
+    <Compile Include="System\IO\StreamReaderWrap.cs" />
+    <Compile Include="System\IO\StreamWriterWrap.cs" />
+    <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
+    <Compile Include="Microsoft\Win32\IRegistry.cs" />
+    <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
+    <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
+    <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
+    <Compile Include="Microsoft\Win32\SafeHandles\SafeFileHandleWrap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Net\Sockets\ISocket.cs" />
+    <Compile Include="System\Net\Sockets\SocketWrap.cs" />
+    <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
+    <Compile Include="System\Reflection\AssemblySystem.cs" />
+    <Compile Include="System\Reflection\AssemblyWrap.cs" />
+    <Compile Include="System\Reflection\IAssemblyName.cs" />
+    <Compile Include="System\Reflection\IAssembly.cs" />
+    <Compile Include="System\Reflection\IAssemblySystem.cs" />
+    <Compile Include="System\Security\AccessControl\DirectorySecurityWrap.cs" />
+    <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
+    <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
+    <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="System\Threading\AutoResetEventSystem.cs" />
+    <Compile Include="System\Threading\AutoResetEventWrap.cs" />
+    <Compile Include="System\Threading\IAutoResetEvent.cs" />
+    <Compile Include="System\Threading\IMutex.cs" />
+    <Compile Include="System\Threading\IMutexSystem.cs" />
+    <Compile Include="System\Threading\IThreadPool.cs" />
+    <Compile Include="System\Threading\IThreadSystem.cs" />
+    <Compile Include="System\Threading\IThread.cs" />
+    <Compile Include="System\Threading\IWaitHandle.cs" />
+    <Compile Include="System\Threading\IWaitHandleSystem.cs" />
+    <Compile Include="System\Threading\MutexSystem.cs" />
+    <Compile Include="System\Threading\MutexWrap.cs" />
+    <Compile Include="System\Threading\Tasks\ITask.cs" />
+    <Compile Include="System\Threading\Tasks\TaskWrap.cs" />
+    <Compile Include="System\Threading\ThreadPoolWrap.cs" />
+    <Compile Include="System\Threading\ThreadSystem.cs" />
+    <Compile Include="System\Threading\ThreadWrap.cs" />
+    <Compile Include="System\Threading\WaitHandleSystem.cs" />
+    <Compile Include="System\Threading\WaitHandleWrap.cs" />
+    <Compile Include="System\Timers\ITimer.cs" />
+    <Compile Include="System\Timers\TimerWrap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\UnitWrappers.snk">
+      <Link>UnitWrappers.snk</Link>
+    </None>
+    <None Include="UnitWrappers.NET35.nuspec" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
