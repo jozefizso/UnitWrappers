@@ -31,6 +31,7 @@
 * Tests which check method signatures (that wraps call right underlying methods) on code or IL level
 * UnitsWrappers.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
+* Research F# scructural typing to provide F# version
 
 ### Sample of concept:
 
