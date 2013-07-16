@@ -7,19 +7,18 @@
 * Used at least in one prodcution desktop application.
 
 ### Design
-* No wraps for POCOs and structs like instance of DateTime, Version
-* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution
-* Static and instance members in different classes
-* No WRAP suffix in interfaces
-* Possibility of doing shareable forks via hosted platform
-* Classes with static members as factories
-* Automatic coverage report generation
-* .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono)
+* No wraps for POCOs and structs like instance of DateTime, Version. But members like `DateTime.Now` are covered.
+* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution.
+* Static and instance members in different classes. E.g. `IAssemblySystem` and `IAssembly`.
+* No `Wrap` word in interfaces. `Wrap` word in wrapping classes.
+* Possibility of doing shareable forks via hosted platform.
+* Classes with static members as factories. 
+* Automatic coverage report generation.
+* .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono).
 * All classes behave like they behave on .NET/Mono counterpart.
-* Close integration with no wrappers code (e.g. can convert FileStreamWrap to Stream, AssemblyWrap to Assembly)
-* Underlying object is not public API of wrapping interface (not visible from interfaces). 
-* One to one corresponce with real classes, casting back and forth
-* Interfaces free of wrapeed classes related info.
+* One to one corresponce with real classes, casting back and forth. Close integration with no wrappers code. E.g. can convert `FileStreamWrap` to `FileStream` or `Stream`, `AssemblyWrap` to `Assembly`.
+* Underlying object is not public API of wrapping interface (not visible from interfaces). Explicit `IWrap` implementation is used.
+* Interfaces free of wrapped classes related info.
 
 ### TODO:
 * Real world sample with IoC/DI, Net, IO, WCF, etc.
