@@ -2,14 +2,18 @@
 <package>
   <metadata>
     <id>UnitWrappers</id>
-    <version>0.6.1.0</version>
-    <authors>Dzmitry Lahoda, Vadim Kreynin</authors>
-    <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
+    <version>0.6.2.0</version>
+    <authors>Dzmitry Lahoda</authors>
+    <owners>dzmitry_lahoda</owners>
+    <licenseUrl>http://creativecommons.org/publicdomain/zero/1.0/</licenseUrl>
     <projectUrl>https://github.com/asd-and-Rizzo/UnitWrappers</projectUrl>
 	<iconUrl>https://raw.github.com/asd-and-Rizzo/UnitWrappers/master/doc/UnitWrappers.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Unit testable classes wrappers for CLR</description>
-	<releaseNotes>Initial release for reuse in other proejcts</releaseNotes>
+	<releaseNotes>
+	* 0.6.2.0
+	- 
+	</releaseNotes>
     <tags>testing isolation tdd</tags>
   </metadata>
 </package>
