@@ -25,15 +25,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Portable", "Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWrappers.NET35", "WixWrappers\WixWrappers.NET35.csproj", "{6877A4EB-B555-44F2-801D-CC35C41DDC5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.TestsSupport.NET35", "UnitWrappers.TestsSupport\UnitWrappers.TestsSupport.NET35.csproj", "{3701AA1C-00C9-430E-9879-029F1D7FAC54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.TestsSupport.NET40", "UnitWrappers.TestsSupport\UnitWrappers.TestsSupport.NET40.csproj", "{3701AA1C-00C9-430E-9879-029F1D7FAC54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.TestsSupport.NET35.Tests", "UnitWrappers.TestsSupport.Tests\UnitWrappers.TestsSupport.NET35.Tests.csproj", "{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.TestsSupport.NET40.Tests", "UnitWrappers.TestsSupport.Tests\UnitWrappers.TestsSupport.NET40.Tests.csproj", "{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET35", "UnitWrappers.Helpers\UnitWrappers.Helpers.NET35.csproj", "{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET40", "UnitWrappers.Helpers\UnitWrappers.Helpers.NET40.csproj", "{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerfromanceTests.NET40", "UnitWrappers.PerfromanceTests\UnitWrappers.PerfromanceTests.NET40.csproj", "{96338A4C-8725-4EB9-8091-786ACCDA301D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerformanceTests.NET40", "UnitWrappers.PerfromanceTests\UnitWrappers.PerformanceTests.NET40.csproj", "{96338A4C-8725-4EB9-8091-786ACCDA301D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.35", "UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.35.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.NET40", "UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.NET40.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

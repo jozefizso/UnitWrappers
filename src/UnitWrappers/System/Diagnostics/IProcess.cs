@@ -6,23 +6,9 @@ using System.Runtime.InteropServices;
 
 namespace UnitWrappers.System.Diagnostics
 {
-    /// <summary>
-    /// Description of IProcess
-    /// </summary>
-    public interface IProcess  :IComponent
+
+    public interface IProcess  :ILocalProcess, IComponent
     {
-
-        // Properties
-
-        /// <summary>
-        /// Gets the value that the associated process specified when it terminated.
-        /// </summary>
-     
-        [MonitoringDescription("ProcessExitCode"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-
-        int ExitCode { get; }
-
-        // Methods
 
         /// <summary>
         /// Frees all the resources that are associated with this component.
@@ -56,8 +42,6 @@ namespace UnitWrappers.System.Diagnostics
 
         bool CloseMainWindow();
 
-        void Kill();
-
         [MonitoringDescription("ProcessMainWindowHandle"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         IntPtr MainWindowHandle { get; }
 
@@ -78,9 +62,6 @@ namespace UnitWrappers.System.Diagnostics
         [ComVisible(false)]
         void CancelOutputRead();
 
-
-
-
         void Refresh();
 
         bool WaitForInputIdle(int milliseconds);
@@ -90,14 +71,12 @@ namespace UnitWrappers.System.Diagnostics
         int BasePriority { get; }
         [MonitoringDescription("ProcessEnableRaisingEvents"), Browsable(false), DefaultValue(false)]
         bool EnableRaisingEvents { get; set; }
-        [MonitoringDescription("ProcessExitTime"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        DateTime ExitTime { get; }
+
         [MonitoringDescription("ProcessHandle"), Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         IntPtr Handle { get; }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessHandleCount")]
         int HandleCount { get; }
-        [Browsable(false), MonitoringDescription("ProcessTerminated"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        bool HasExited { get; }
+
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessId")]
         int Id { get; }
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), MonitoringDescription("ProcessMachineName")]
@@ -145,8 +124,7 @@ namespace UnitWrappers.System.Diagnostics
         StreamWriter StandardInput { get; }
         [MonitoringDescription("ProcessStandardOutput"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false)]
         StreamReader StandardOutput { get; }
-        [MonitoringDescription("ProcessStartTime"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        DateTime StartTime { get; }
+
         [MonitoringDescription("ProcessSynchronizingObject"), Browsable(false), DefaultValue((string)null)]
         ISynchronizeInvoke SynchronizingObject { get; set; }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden), Browsable(false), MonitoringDescription("ProcessThreads")]

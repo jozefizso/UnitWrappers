@@ -10,10 +10,10 @@ namespace UnitWrappers.TestsSupport
         private readonly string _name;
         private Stream _stream;
 
-        public InMemoryFileStream(string name, string value)
+        public InMemoryFileStream(string name, string data)
         {
             _name = name;
-            _stream = generateStreamFromString(value);
+            _stream = generateStreamFromString(data);
         }
 
         public override void Flush()
@@ -59,10 +59,13 @@ namespace UnitWrappers.TestsSupport
         }
 
         public override long Position { get { return _stream.Position; } set { _stream.Position = value; } }
+
+
         public override void Flush(bool flushToDisk)
         {
             _stream.Flush();
         }
+
 
         public override void Lock(long position, long length)
         {

@@ -11,6 +11,7 @@ namespace UnitWrappers.System.Diagnostics
     public class ProcessWrap : IProcess, IWrap<Process>
     {
         public Process _underlyingObject;
+        private EventWrapper<Process, ProcessWrap> exited;
 
         Process IWrap<Process>.UnderlyingObject { get { return _underlyingObject; } }
 
@@ -96,20 +97,52 @@ namespace UnitWrappers.System.Diagnostics
 
         public event DataReceivedEventHandler ErrorDataReceived
         {
-            add { _underlyingObject.ErrorDataReceived += value; }
-            remove { _underlyingObject.ErrorDataReceived -= value; }
+            add
+            {
+                _underlyingObject.ErrorDataReceived += value;
+            }
+            remove
+            {
+                _underlyingObject.ErrorDataReceived -= value;
+            }
         }
+
+
 
         public event EventHandler Exited
         {
-            add { _underlyingObject.Exited += value; }
-            remove { _underlyingObject.Exited -= value; }
+            add
+            {
+                if (exited == null)
+                {
+                    exited = new EventWrapper<Process, ProcessWrap>(x => new ProcessWrap(x), _underlyingObject, this);
+                    _underlyingObject.Exited += exited.Raise;
+                }
+                exited.Add(value);
+            }
+            remove
+            {
+                if (exited == null)
+                    return;
+                bool empty = exited.Remove(value);
+                if (empty)
+                {
+                    _underlyingObject.Exited -= exited.Raise;
+                    exited = null;
+                }
+            }
         }
 
         public event DataReceivedEventHandler OutputDataReceived
         {
-            add { _underlyingObject.OutputDataReceived += value; }
-            remove { _underlyingObject.OutputDataReceived -= value; }
+            add
+            {
+                _underlyingObject.OutputDataReceived += value;
+            }
+            remove
+            {
+                _underlyingObject.OutputDataReceived -= value;
+            }
         }
 
         public void BeginErrorReadLine()

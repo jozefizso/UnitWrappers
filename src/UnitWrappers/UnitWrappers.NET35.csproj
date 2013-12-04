@@ -75,6 +75,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventWrapper.cs" />
     <Compile Include="IWrap.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="System\Diagnostics\FileVersionInfoWrap.cs" />
     <Compile Include="System\Diagnostics\IFileVersionInfo.cs" />
     <Compile Include="System\Diagnostics\IFileVersionInfoSystem.cs" />
+    <Compile Include="System\Diagnostics\ILocalProcess.cs" />
     <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
     <Compile Include="System\IEnvironment.cs" />

@@ -5,55 +5,59 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}</ProjectGuid>
+    <ProjectGuid>{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitWrappers.TestsSupport.Tests</RootNamespace>
-    <AssemblyName>UnitWrappers.TestsSupport.Tests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>UnitWrappers.System.ServiceModel</RootNamespace>
+    <AssemblyName>UnitWrappers.ServiceModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>../../build/NET35\</OutputPath>
+    <OutputPath>..\..\build\NET40\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>../../build/NET35\</OutputPath>
+    <OutputPath>..\..\build\NET40\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>../../lib/NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InMemoryFileSystemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IInstanceContext.cs" />
+    <Compile Include="InstanceContextWrap.cs" />
+    <Compile Include="IOperationContext.cs" />
+    <Compile Include="IOperationContextSystem.cs" />
+    <Compile Include="IServiceHost.cs" />
+    <Compile Include="OperationContextExtensionCollectionWrap.cs" />
+    <Compile Include="OperationContextExtensionWrap.cs" />
+    <Compile Include="OperationContextSystem.cs" />
+    <Compile Include="OperationContextWrap.cs" />
+    <Compile Include="ServiceHostBaseWrap.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnitWrappers.TestsSupport\UnitWrappers.TestsSupport.NET35.csproj">
-      <Project>{3701AA1C-00C9-430E-9879-029F1D7FAC54}</Project>
-      <Name>UnitWrappers.TestsSupport.NET35</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET35.csproj">
-      <Project>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</Project>
-      <Name>UnitWrappers.NET35</Name>
+    <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET40.csproj">
+      <Project>{A00B02B8-6875-45D4-910A-0D7C1F0A2311}</Project>
+      <Name>UnitWrappers.NET40</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -8,8 +8,19 @@ namespace UnitWrappers.Helpers
 {
     public class FileSystem
     {
-        public IDirectory Directory { get; set; }
-        public IFile File { get; set; }
-        public IPath Path { get; set; }
+        public FileSystem(IPath path, IFile file, IDirectory directory)
+        {
+            Directory = directory;
+            File = file;
+            Path = path;
+        }
+
+        public FileSystem():
+            this(new PathWrap(), new FileWrap(), new DirectoryWrap()){}
+
+        public IDirectory Directory { get; private set; }
+        public IFile File { get; private set; }
+        public IPath Path { get; private set; }
+        
     }
 }
