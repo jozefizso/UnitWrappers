@@ -20,7 +20,11 @@
 * Underlying object is not public API of wrapping interface (not visible from interfaces). Explicit `IWrap` implementation is used.
 * Interfaces free of wrapped classes related info.
 
+### NOTE:
+I expected massive breaking changes in far future to make desing more correct. This changes will include renaming to NUnitWrappers.
+
 ### TODO:
+* Wrap `sender`s of events
 * Real world sample with IoC/DI, Net, IO, WCF, etc.
 * Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
 * Wrapperasing /dewraperasing exsisting code (using NRefactory) Prove of Concept 
