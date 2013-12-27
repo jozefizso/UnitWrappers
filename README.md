@@ -21,7 +21,7 @@
 * Interfaces free of wrapped classes related info.
 
 ### NOTE:
-I expected massive breaking changes in far future to make desing more correct. This changes will include renaming to NUnitWrappers.
+I expected massive breaking changes in far future to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
 
 ### TODO:
 * Wrap `sender`s of events
