@@ -2,16 +2,16 @@
 * Wraps classes into other classes with interfaces which are suitable for unit testing.
 * Designed to be used with dependency injection containers. 
 * Should be used with mocking libraries and correspondending automocking container extensions in tests.
-* There are frameworks which use CLR implementaion features to fake underlying implementaion of classes. These are not available for free on each paltform and it is viable alternative.
+* There are frameworks which use CLR implementaion hooks  to fake underlying implementaion of classes. These are not available for free on each paltform, but is viable alternative for wrappers in some cases.
 * When used with container injection then reveals complex object which should be splitter according functional provided.
 * Used at least in one prodcution desktop application.
 
 ### Design
 * No wraps for POCOs and structs like instance of DateTime, Version. But members like `DateTime.Now` are covered.
-* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution.
+* No combined objects (e.g. `File`, `Path`, `Directory` into one like `IO` or `FileSystem` object contaning aforemention as properties) in compiled distribution (only samples which can be copy pasted).
 * Static and instance members in different classes. E.g. `IAssemblySystem` and `IAssembly`.
 * No `Wrap` word in interfaces. `Wrap` word in wrapping classes.
-* Possibility of doing shareable forks via hosted platform.
+* Possibility of doing shareable forks via hosted platform (git).
 * Classes with static members as factories. 
 * Automatic coverage report generation.
 * .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono).
@@ -20,11 +20,20 @@
 * Underlying object is not public API of wrapping interface (not visible from interfaces). Explicit `IWrap` implementation is used.
 * Interfaces free of wrapped classes related info.
 
+### CLR implementation hooks vs wrappers
+* Wrappers reveal complex code
+* Wrappers enforce better desing
+* Wrappers are open source and can be used on any CLR
+* Wrappers are easy to inject into old codebase by replacing static methods with singletons
+* Wrappers cannot be used to hook 3rd party components
+* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design, if something needs to be fast then, you should go to PInvoke:)
+
 ### NOTE:
 I expected massive breaking changes in far future to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
 
 ### TODO:
-* Wrap `sender`s of events
+* Virtual in memory file system.
+* Wrap all `sender`s of events
 * Real world sample with IoC/DI, Net, IO, WCF, etc.
 * Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
 * Wrapperasing /dewraperasing exsisting code (using NRefactory) Prove of Concept 
@@ -36,6 +45,7 @@ I expected massive breaking changes in far future to make desing more correct. T
 * UnitsWrappers.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
 * Research F# scructural typing to provide F# version
+* Virtual in memory web server.
 
 ### Sample of concept:
 
