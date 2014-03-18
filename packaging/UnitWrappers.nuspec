@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>UnitWrappers</id>
-    <version>0.6.2.0</version>
+    <version>0.6.3.0</version>
     <authors>Dzmitry Lahoda</authors>
     <owners>dzmitry_lahoda</owners>
     <licenseUrl>http://creativecommons.org/publicdomain/zero/1.0/</licenseUrl>
@@ -11,8 +11,10 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Unit testable classes wrappers for CLR</description>
 	<releaseNotes>
+	* 0.6.3.0
+	- started to wrap senders in ProcessWrap
 	* 0.6.2.0
-	- 
+	- added some methods
 	</releaseNotes>
     <tags>testing isolation tdd</tags>
   </metadata>
