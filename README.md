@@ -88,10 +88,6 @@ I expected massive breaking changes and fixes in far future to make desing more 
  
 ### Develop
 
-* How to build
-
-
-
 
 * UnitWrappers.sln:
 
