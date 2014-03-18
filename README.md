@@ -1,35 +1,45 @@
 
-### How to build
-- Open UnitWrappers.sln in SharpDevelop 4.3 or Visual Studio 2010
-- Build in Debug or Release mode for Any Cpu
 
 ### Description 
 * Wraps classes into other classes with interfaces which are suitable for unit testing.
 * Designed to be used with dependency injection containers. 
 * Should be used with mocking libraries and correspondending automocking container extensions in tests.
-* There are frameworks which use CLR implementaion features to fake underlying implementaion of classes. These are not available for free on each paltform and it is viable alternative.
+* There are frameworks which use CLR implementaion hooks  to fake underlying implementaion of classes. These are not available for free on each paltform, but is viable alternative for wrappers in some cases.
 * When used with container injection then reveals complex object which should be splitter according functional provided.
 * Used at least in one prodcution desktop application.
 
 ### Design
-* No wraps for POCOs and structs like instance of DateTime, Version. But members like `DateTime.Now` are covered.
-* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution. Only code helpers.
-* Static and instance members in different classes. E.g. `IAssemblySystem` and `IAssembly`.
-* No `Wrap` word in interfaces. `Wrap` word in wrapping classes.
+* No wraps for POCOs and structs like instance of `DateTime`, `Version`. But static members like `DateTime.Now` are covered.
 * Implicit conversion of wrappers to real object and vice versa.
 * Wrapping `sender` of events (not all are done yet)
-* Classes with static members as factories. 
+* No combined objects (e.g. `File`, `Path`, `Directory` into one like `IO` or `FileSystem` object contaning aforemention as properties) in compiled distribution (only samples which can be copy pasted).
+* Static and instance members in different classes. E.g. `IAssemblySystem` and `IAssembly`.
+* No `Wrap` word in interfaces. `Wrap` word in wrapping classes.
+* Wrappers for static members also include `Create` methods for constuction of wraps instead of constuctor
 * .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono).
 * All classes behave like they behave on .NET/Mono counterpart.
 * One to one corresponce with real classes, casting back and forth. Close integration with no wrappers code. E.g. can convert `FileStreamWrap` to `FileStream` or `Stream`, `AssemblyWrap` to `Assembly`.
 * Underlying object is not public API of wrapping interface (not visible from interfaces). Explicit `IWrap` implementation is used.
 * Interfaces free of wrapped classes related info.
 
+
 ### Tooling
 * Automatic coverage report generation.
 
+### CLR implementation hooks vs wrappers
+* Wrappers reveal complex code
+* Wrappers enforce better desing
+* Wrappers are open source and can be used on any CLR
+* Wrappers are easy to inject into old codebase by replacing static methods with singletons
+* Wrappers cannot be used to hook 3rd party components
+* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design, if something needs to be fast then, you should go to PInvoke:)
+
+### NOTE:
+I expected massive breaking changes and fixes in far future to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
 
 ### TODO:
+* Virtual in memory file system.
+* Wrap all `sender`s of events
 * Real world sample with IoC/DI, Net, IO, WCF, etc.
 * Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
 * Wrapperasing /dewraperasing exsisting code (using NRefactory) Prove of Concept 
@@ -41,6 +51,7 @@
 * UnitsWrappers.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
 * Research F# scructural typing to provide F# version
+* Virtual in memory web server.
 
 ### Sample of concept:
 
@@ -76,12 +87,19 @@
 ```
  
 ### Develop
+
+* How to build
+
+
+
+
 * UnitWrappers.sln:
 
-Visual Studio 2010. If failed to build then clean up .NET specific binaries output.
+Open SharpDevelop 4.3. Build in Debug or Release mode for Any Cpu.
 
+Visual Studio 2010. 
+If failed to build then clean up .NET specific binaries output. 
 Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version.
-
 ReSharper(or other test runner) - to run unit tests(NUnit)
 
 * UnitWrappers.Mono.sln:
@@ -102,6 +120,7 @@ New .NET methods sometimes backported to 3.5 wrappers.
 
 ### Related 
 http://systemwrapper.codeplex.com/
+
 http://systemioabstractions.codeplex.com/
 
 ### Coverage
