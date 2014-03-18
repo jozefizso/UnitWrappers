@@ -1,19 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+# SharpDevelop 4.3
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E50B9CA0-7AE3-4DBE-9C22-6459DFB0A5E1}"
+	ProjectSection(SolutionItems) = postProject
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35", "UnitWrappers\UnitWrappers.NET35.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.Tests", "UnitWrappers.Tests\UnitWrappers.NET40.Tests.csproj", "{977D8BEB-334E-4938-BAE0-CB75698B1255}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.Samples", "UnitWrappers.Samples\UnitWrappers.NET40.Samples.csproj", "{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E50B9CA0-7AE3-4DBE-9C22-6459DFB0A5E1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.CoverageCalculator", "UnitWrappers.CoverageCalculator\UnitWrappers.NET40.CoverageCalculator.csproj", "{6C2A3342-5819-4B49-AD1B-1CE677487281}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40", "UnitWrappers\UnitWrappers.NET40.csproj", "{A00B02B8-6875-45D4-910A-0D7C1F0A2311}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Converter", "UnitWrappers.Converter\UnitWrappers.Converter.csproj", "{D482FFEF-D41B-4366-933D-69C18C45DC75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Converter.NET40", "UnitWrappers.Converter\UnitWrappers.Converter.NET40.csproj", "{D482FFEF-D41B-4366-933D-69C18C45DC75}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET35", "WPFWrappers\WPFWrappers.NET35.csproj", "{1C5FB667-50DF-49AF-8314-25F418E45448}"
 EndProject

@@ -21,7 +21,7 @@ namespace UnitWrappers.CoverageCalculator
         {
             // stripped out interface version of some framework class with less control above underlying instance
             // no corresponding direct implementation
-            var narrowMembers = new[] { typeof(IDispatcherService).FullName, typeof(ILocalProcessSystem).FullName,typeof(IWindowState).FullName };
+            var narrowMembers = new[] { typeof(IDispatcherService).FullName, typeof(ILocalProcessSystem).FullName,typeof(IWindowState).FullName,typeof(ILocalProcess).FullName };
 
             // static members and constuctors of class
             var staticMembers = "System";
