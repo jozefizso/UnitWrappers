@@ -11,12 +11,16 @@ namespace UnitWrappers.System.Diagnostics
     public class ProcessWrap : IProcess, IWrap<Process>
     {
         public Process _underlyingObject;
+        
+        private EventWrapper<Process, ProcessWrap,DataReceivedEventArgs> errorDataReceived;
+        private EventWrapper<Process, ProcessWrap,DataReceivedEventArgs> outputDataReceived;
         private EventWrapper<Process, ProcessWrap> exited;
 
         Process IWrap<Process>.UnderlyingObject { get { return _underlyingObject; } }
 
         public static implicit operator ProcessWrap(Process o)
         {
+      
             return new ProcessWrap(o);
         }
 
@@ -95,20 +99,34 @@ namespace UnitWrappers.System.Diagnostics
             get { return _underlyingObject.MainWindowHandle; }
         }
 
+        ///<inheritdoc/>
         public event DataReceivedEventHandler ErrorDataReceived
         {
             add
             {
-                _underlyingObject.ErrorDataReceived += value;
+            	if (errorDataReceived == null)
+                {
+                    errorDataReceived = new EventWrapper<Process, ProcessWrap,DataReceivedEventArgs>(x => new ProcessWrap(x), _underlyingObject, this);
+                    _underlyingObject.ErrorDataReceived += errorDataReceived.Raise;
+                }
+            	errorDataReceived.Add((s,e)=> value(s,e));
             }
             remove
             {
-                _underlyingObject.ErrorDataReceived -= value;
+            	if (errorDataReceived == null)
+                    return;
+                bool empty = errorDataReceived.Remove((s,e)=> value(s,e));
+                if (empty)
+                {
+                    _underlyingObject.ErrorDataReceived -= errorDataReceived.Raise;
+                    errorDataReceived = null;
+                }
             }
         }
 
 
-
+        
+        ///<inheritdoc/>
         public event EventHandler Exited
         {
             add
@@ -137,11 +155,23 @@ namespace UnitWrappers.System.Diagnostics
         {
             add
             {
-                _underlyingObject.OutputDataReceived += value;
+            	if (outputDataReceived == null)
+                {
+                    outputDataReceived = new EventWrapper<Process, ProcessWrap,DataReceivedEventArgs>(x => new ProcessWrap(x), _underlyingObject, this);
+                    _underlyingObject.OutputDataReceived += outputDataReceived.Raise;
+                }
+            	outputDataReceived.Add((s,e)=> value(s,e));
             }
             remove
             {
-                _underlyingObject.OutputDataReceived -= value;
+            	if (outputDataReceived == null)
+                    return;
+                bool empty = outputDataReceived.Remove((s,e)=> value(s,e));
+                if (empty)
+                {
+                    _underlyingObject.OutputDataReceived -= outputDataReceived.Raise;
+                    outputDataReceived = null;
+                }
             }
         }
 

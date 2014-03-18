@@ -1,3 +1,8 @@
+
+### How to build
+- Open UnitWrappers.sln in SharpDevelop 4.3 or Visual Studio 2010
+- Build in Debug or Release mode for Any Cpu
+
 ### Description 
 * Wraps classes into other classes with interfaces which are suitable for unit testing.
 * Designed to be used with dependency injection containers. 
@@ -8,17 +13,21 @@
 
 ### Design
 * No wraps for POCOs and structs like instance of DateTime, Version. But members like `DateTime.Now` are covered.
-* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution.
+* No combined objects (e.g. File, Path, Directory into one like IO or FileSystem object contaning aforemention as properties) in compiled distribution. Only code helpers.
 * Static and instance members in different classes. E.g. `IAssemblySystem` and `IAssembly`.
 * No `Wrap` word in interfaces. `Wrap` word in wrapping classes.
-* Possibility of doing shareable forks via hosted platform.
+* Implicit conversion of wrappers to real object and vice versa.
+* Wrapping `sender` of events (not all are done yet)
 * Classes with static members as factories. 
-* Automatic coverage report generation.
 * .NET 4.0, .NET 3.5 support (main target is .NET 4.0 and according Mono).
 * All classes behave like they behave on .NET/Mono counterpart.
 * One to one corresponce with real classes, casting back and forth. Close integration with no wrappers code. E.g. can convert `FileStreamWrap` to `FileStream` or `Stream`, `AssemblyWrap` to `Assembly`.
 * Underlying object is not public API of wrapping interface (not visible from interfaces). Explicit `IWrap` implementation is used.
 * Interfaces free of wrapped classes related info.
+
+### Tooling
+* Automatic coverage report generation.
+
 
 ### TODO:
 * Real world sample with IoC/DI, Net, IO, WCF, etc.

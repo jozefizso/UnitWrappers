@@ -2,6 +2,8 @@
 
 namespace UnitWrappers
 {
+	
+		
     internal class EventWrapper<TOriginal, TWrapper,TEventArgs>
         where TOriginal : class
         where TWrapper : class
@@ -12,7 +14,11 @@ namespace UnitWrappers
         private readonly TOriginal _original;
         private readonly TWrapper _wrapper;
 
-
+/// <summary>
+/// 
+/// </summary>
+/// <param name="listener"></param>
+/// <returns>True if no listeners remained, false if there are some listeners</returns>
         public bool Remove(EventHandler<TEventArgs> listener)
         {
             if (_listeners == null)
