@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Security;
+using System.IO;
 using UnitWrappers.System.IO;
 
 namespace UnitWrappers.System.Reflection
@@ -14,12 +15,7 @@ namespace UnitWrappers.System.Reflection
     public interface IAssembly : IEvidenceFactory, ICustomAttributeProvider, ISerializable
     {
 
-        // Properties
-
-        /// <summary>
-        /// Gets <see cref="T:System.Reflection.Assembly"/> object.
-        /// </summary>
-        Assembly AssemblyInstance { get; }
+  
         /// <summary>
         /// Gets the location of the assembly as specified originally, for example, in an <see cref="AssemblyName"/> object.
         /// </summary>
@@ -65,7 +61,6 @@ namespace UnitWrappers.System.Reflection
         [ComVisible(false)]
         bool ReflectionOnly { get; }
 
-        // Methods
 
         /// <summary>
         /// Locates the specified type from this assembly and creates an instance of it using the system activator, using case-sensitive search.
@@ -139,64 +134,34 @@ namespace UnitWrappers.System.Reflection
         /// <returns>An array of type <see cref="T:UnitWrappers.System.Reflection.IAssemblyName"/> containing all the assemblies referenced by this assembly.</returns>
         IAssemblyName[] GetReferencedAssemblies();
 
-
+        Type GetType(string name);
+        Type GetType(string name, bool throwOnError);
+        Type GetType(string name, bool throwOnError, bool ignoreCase);
+        Stream GetManifestResourceStream(Type type, string name);
+        IAssemblyName GetName(bool copiedName);
+        Type[] GetTypes();
+        bool IsDefined(Type attributeType, bool inherit);
+         IAssembly GetSatelliteAssembly(CultureInfo culture);
+         IAssembly GetSatelliteAssembly(CultureInfo culture, Version version);  
+        Stream GetManifestResourceStream(string name);
+       
+       
+        string[] GetManifestResourceNames();
         /*
-            public Module[] GetLoadedModules();
-            public Module[] GetLoadedModules(bool getResourceModules);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public virtual ManifestResourceInfo GetManifestResourceInfo(string resourceName);
-            public virtual string[] GetManifestResourceNames();
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public virtual Stream GetManifestResourceStream(string name);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public virtual Stream GetManifestResourceStream(Type type, string name);
-            public Module GetModule(string name);
-            public Module[] GetModules();
-            public Module[] GetModules(bool getResourceModules);
-            public virtual AssemblyName GetName(bool copiedName);
-            [SecurityPermission(SecurityAction.LinkDemand, Flags=SecurityPermissionFlag.SerializationFormatter)]
-            public virtual void GetObjectData(SerializationInfo info, StreamingContext context);
-            public Assembly GetSatelliteAssembly(CultureInfo culture);
-            public Assembly GetSatelliteAssembly(CultureInfo culture, Version version);
-            public virtual Type GetType(string name);
-            public virtual Type GetType(string name, bool throwOnError);
-            public Type GetType(string name, bool throwOnError, bool ignoreCase);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public virtual Type[] GetTypes();
-            public virtual bool IsDefined(Type attributeType, bool inherit);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly Load(byte[] rawAssembly);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly Load(AssemblyName assemblyRef);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly Load(string assemblyString);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly Load(AssemblyName assemblyRef, Evidence assemblySecurity);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly Load(string assemblyString, Evidence assemblySecurity);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly Load(byte[] rawAssembly, byte[] rawSymbolStore);
-            [MethodImpl(MethodImplOptions.NoInlining), SecurityPermission(SecurityAction.Demand, Flags=SecurityPermissionFlag.ControlEvidence)]
-            public static Assembly Load(byte[] rawAssembly, byte[] rawSymbolStore, Evidence securityEvidence);
-            public static Assembly LoadFile(string path);
-            [SecurityPermission(SecurityAction.Demand, Flags=SecurityPermissionFlag.ControlEvidence)]
-            public static Assembly LoadFile(string path, Evidence securityEvidence);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly LoadFrom(string assemblyFile, Evidence securityEvidence);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly LoadFrom(string assemblyFile, Evidence securityEvidence, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm);
+             Module[] GetLoadedModules();
+             Module[] GetLoadedModules(bool getResourceModules);
+            ManifestResourceInfo GetManifestResourceInfo(string resourceName);
+             Module GetModule(string name);
+             Module[] GetModules();
+             Module[] GetModules(bool getResourceModules);
+            void GetObjectData(SerializationInfo info, StreamingContext context);  
+            
+
+            
             public Module LoadModule(string moduleName, byte[] rawModule);
             public Module LoadModule(string moduleName, byte[] rawModule, byte[] rawSymbolStore);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly ReflectionOnlyLoad(string assemblyString);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly ReflectionOnlyLoad(byte[] rawAssembly);
-            [MethodImpl(MethodImplOptions.NoInlining)]
-            public static Assembly ReflectionOnlyLoadFrom(string assemblyFile);
-            Type _Assembly.GetType();
-            public override string ToString();
-          
-         * // Events
+
+
             public event ModuleResolveEventHandler ModuleResolve;
 
        */

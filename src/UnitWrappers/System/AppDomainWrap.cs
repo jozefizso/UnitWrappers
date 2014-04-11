@@ -52,7 +52,8 @@ namespace UnitWrappers.System
         /// <inheritdoc />
         public IAssembly Load(IAssemblyName assemblyRef)
         {
-            return new AssemblyWrap(_underlyingObject.Load(assemblyRef.AssemblyNameInstance));
+        	var un = ((IWrap<AssemblyName>)assemblyRef).UnderlyingObject;
+        	return new AssemblyWrap(_underlyingObject.Load(un));
         }
         /// <inheritdoc />
         public void SetData(string name, object data)

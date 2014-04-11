@@ -5380,11 +5380,6 @@
             </summary>
             <returns>A String that is the full name of the assembly, or the class name if the full name of the assembly cannot be determined.</returns>
         </member>
-        <member name="P:UnitWrappers.System.Reflection.IAssemblyName.AssemblyNameInstance">
-            <summary>
-            Gets <see cref="T:System.Reflection.AssemblyName"/> object.
-            </summary>
-        </member>
         <member name="P:UnitWrappers.System.Reflection.IAssemblyName.CodeBase">
             <summary>
             Gets or sets the location of the assembly as a URL.
@@ -5590,11 +5585,6 @@
             Gets the <see cref="T:UnitWrappers.System.Reflection.IAssemblyName"/> objects for all the assemblies referenced by this assembly. 
             </summary>
             <returns>An array of type <see cref="T:UnitWrappers.System.Reflection.IAssemblyName"/> containing all the assemblies referenced by this assembly.</returns>
-        </member>
-        <member name="P:UnitWrappers.System.Reflection.IAssembly.AssemblyInstance">
-            <summary>
-            Gets <see cref="T:System.Reflection.Assembly"/> object.
-            </summary>
         </member>
         <member name="P:UnitWrappers.System.Reflection.IAssembly.CodeBase">
             <summary>

@@ -12,14 +12,28 @@ namespace UnitWrappers.System.Reflection
     /// </summary>
     [Serializable]
     [ComVisible(true)]
-    public class AssemblyNameWrap : IAssemblyName
+    public class AssemblyNameWrap : IAssemblyName,IWrap<AssemblyName>
     {
+    	
+		AssemblyName _underlyingObject;
+    	
+    	public static implicit operator AssemblyNameWrap(AssemblyName o)
+        {
+            return new AssemblyNameWrap(o);
+        }
+
+        public static implicit operator AssemblyName(AssemblyNameWrap o)
+        {
+            return o._underlyingObject;
+        }
+        
+    	
         /// <summary>
         /// Initializes a new instance of the <see cref="T:UnitWrappers.System.Reflection.AssemblyNameWrap"/> class. 
         /// </summary>
         public AssemblyNameWrap()
         {
-            AssemblyNameInstance = new AssemblyName();
+            _underlyingObject = new AssemblyName();
         }
 
         /// <summary>
@@ -28,7 +42,7 @@ namespace UnitWrappers.System.Reflection
         /// <param name="assemblyName">AssemblyName object.</param>
         public AssemblyNameWrap(AssemblyName assemblyName)
         {
-            AssemblyNameInstance = assemblyName;
+            _underlyingObject = assemblyName;
         }
 
         /// <summary>
@@ -37,80 +51,83 @@ namespace UnitWrappers.System.Reflection
         /// <param name="assemblyName">The display name of the assembly, as returned by the FullName property.</param>
         public AssemblyNameWrap(string assemblyName)
         {
-            AssemblyNameInstance = new AssemblyName(assemblyName);
+            _underlyingObject = new AssemblyName(assemblyName);
         }
 
 
 
-        public AssemblyName AssemblyNameInstance { get; private set; }
+    	
+		 AssemblyName IWrap<AssemblyName>.UnderlyingObject {
+			get { return _underlyingObject; }
+		}
 
         public string CodeBase
         {
-            get { return AssemblyNameInstance.CodeBase; }
-            set { AssemblyNameInstance.CodeBase = value; }
+            get { return _underlyingObject.CodeBase; }
+            set { _underlyingObject.CodeBase = value; }
         }
 
         public CultureInfo CultureInfo
         {
-            get { return AssemblyNameInstance.CultureInfo; }
-            set { AssemblyNameInstance.CultureInfo = value; }
+            get { return _underlyingObject.CultureInfo; }
+            set { _underlyingObject.CultureInfo = value; }
         }
 
         public string EscapedCodeBase
         {
-            get { return AssemblyNameInstance.EscapedCodeBase; }
+            get { return _underlyingObject.EscapedCodeBase; }
         }
 
         public AssemblyNameFlags Flags
         {
-            get { return AssemblyNameInstance.Flags; }
-            set { AssemblyNameInstance.Flags = value; }
+            get { return _underlyingObject.Flags; }
+            set { _underlyingObject.Flags = value; }
         }
 
         public string FullName
         {
-            get { return AssemblyNameInstance.FullName; }
+            get { return _underlyingObject.FullName; }
         }
 
         public AssemblyHashAlgorithm HashAlgorithm
         {
-            get { return AssemblyNameInstance.HashAlgorithm; }
-            set { AssemblyNameInstance.HashAlgorithm = value; }
+            get { return _underlyingObject.HashAlgorithm; }
+            set { _underlyingObject.HashAlgorithm = value; }
         }
 
         public StrongNameKeyPair KeyPair
         {
-            get { return AssemblyNameInstance.KeyPair; }
-            set { AssemblyNameInstance.KeyPair = value; }
+            get { return _underlyingObject.KeyPair; }
+            set { _underlyingObject.KeyPair = value; }
         }
 
         public string Name
         {
-            get { return AssemblyNameInstance.Name; }
-            set { AssemblyNameInstance.Name = value; }
+            get { return _underlyingObject.Name; }
+            set { _underlyingObject.Name = value; }
         }
 
         public ProcessorArchitecture ProcessorArchitecture
         {
-            get { return AssemblyNameInstance.ProcessorArchitecture; }
-            set { AssemblyNameInstance.ProcessorArchitecture = value; }
+            get { return _underlyingObject.ProcessorArchitecture; }
+            set { _underlyingObject.ProcessorArchitecture = value; }
         }
 
         public Version Version
         {
-            get { return AssemblyNameInstance.Version; }
-            set { AssemblyNameInstance.Version = value; }
+            get { return _underlyingObject.Version; }
+            set { _underlyingObject.Version = value; }
         }
 
         public AssemblyVersionCompatibility VersionCompatibility
         {
-            get { return AssemblyNameInstance.VersionCompatibility; }
-            set { AssemblyNameInstance.VersionCompatibility = value; }
+            get { return _underlyingObject.VersionCompatibility; }
+            set { _underlyingObject.VersionCompatibility = value; }
         }
 
         public object Clone()
         {
-            return AssemblyNameInstance.Clone();
+            return _underlyingObject.Clone();
         }
 
         public IAssemblyName GetAssemblyName(string assemblyFile)
@@ -120,42 +137,44 @@ namespace UnitWrappers.System.Reflection
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            AssemblyNameInstance.GetObjectData(info, context);
+            _underlyingObject.GetObjectData(info, context);
         }
 
         public byte[] GetPublicKey()
         {
-            return AssemblyNameInstance.GetPublicKey();
+            return _underlyingObject.GetPublicKey();
         }
 
         public byte[] GetPublicKeyToken()
         {
-            return AssemblyNameInstance.GetPublicKeyToken();
+            return _underlyingObject.GetPublicKeyToken();
         }
 
         public void OnDeserialization(object sender)
         {
-            AssemblyNameInstance.OnDeserialization(sender);
+            _underlyingObject.OnDeserialization(sender);
         }
 
         public bool ReferenceMatchesDefinition(IAssemblyName reference, IAssemblyName definition)
         {
-            return AssemblyName.ReferenceMatchesDefinition(reference.AssemblyNameInstance, definition.AssemblyNameInstance);
+        	var unRef = ((IWrap<AssemblyName>)reference).UnderlyingObject;
+        	var unDef =  ((IWrap<AssemblyName>)definition).UnderlyingObject;
+            return AssemblyName.ReferenceMatchesDefinition(unRef,unDef);
         }
 
         public void SetPublicKey(byte[] publicKey)
         {
-            AssemblyNameInstance.SetPublicKey(publicKey);
+            _underlyingObject.SetPublicKey(publicKey);
         }
 
         public void SetPublicKeyToken(byte[] publicKeyToken)
         {
-            AssemblyNameInstance.SetPublicKeyToken(publicKeyToken);
+            _underlyingObject.SetPublicKeyToken(publicKeyToken);
         }
 
         public override string ToString()
         {
-            return AssemblyNameInstance.ToString();
+            return _underlyingObject.ToString();
         }
 
         internal static IAssemblyName[] ConvertFileInfoArrayIntoIFileInfoWrapArray(AssemblyName[] assemblyNames)

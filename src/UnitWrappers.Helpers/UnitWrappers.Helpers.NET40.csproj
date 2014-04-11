@@ -8,7 +8,7 @@
     <ProjectGuid>{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitWrappers.Helpers</RootNamespace>
+    <RootNamespace>UnitWrappers</RootNamespace>
     <AssemblyName>UnitWrappers.Helpers</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -57,9 +57,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrentThread.cs" />
     <Compile Include="FileSystem.cs" />
+    <Compile Include="IEnvironmentEx.cs" />
+    <Compile Include="InMemoryFileStream.cs" />
+    <Compile Include="InMemoryFileSystem.cs" />
     <Compile Include="Locator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SameThreadBackgroundWorker.cs" />
+    <Compile Include="SyncThread.cs" />
+    <Compile Include="ThreadWrapBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET40.csproj">

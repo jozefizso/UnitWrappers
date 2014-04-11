@@ -3,7 +3,7 @@ using System.Configuration.Assemblies;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
-
+using Evidence = System.Security.Policy.Evidence;
 namespace UnitWrappers.System.Reflection
 {
     public interface IAssemblySystem
@@ -60,13 +60,21 @@ namespace UnitWrappers.System.Reflection
 
         IAssembly LoadFile(string path);
 
-        
 
         IAssembly ReflectionOnlyLoad(byte[] rawAssembly);
 
         IAssembly ReflectionOnlyLoadFrom(string assemblyFile);
 
+        IAssembly ReflectionOnlyLoad(string assemblyString);
 
+IAssembly Load(byte[] rawAssembly, byte[] rawSymbolStore, Evidence securityEvidence);
+
+IAssembly Load(IAssemblyName assemblyRef, Evidence assemblySecurity);
+IAssembly Load(string assemblyString, Evidence assemblySecurity);
+IAssembly LoadFile(string path, Evidence securityEvidence);
+IAssembly LoadFrom(string assemblyFile, Evidence securityEvidence);
+IAssembly LoadFrom(string assemblyFile, Evidence securityEvidence, byte[] hashValue, AssemblyHashAlgorithm hashAlgorithm);
+//        
 
 #if !NET35
         IAssembly Load(byte[] rawAssembly,byte[] rawSymbolStore,SecurityContextSource securityContextSource);

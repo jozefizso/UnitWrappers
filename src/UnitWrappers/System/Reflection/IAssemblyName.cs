@@ -12,14 +12,6 @@ namespace UnitWrappers.System.Reflection
     /// </summary>
     public interface IAssemblyName
     {
-
-
-        // Properties
-
-        /// <summary>
-        /// Gets <see cref="T:System.Reflection.AssemblyName"/> object.
-        /// </summary>
-        AssemblyName AssemblyNameInstance { get; }
         /// <summary>
         /// Gets or sets the location of the assembly as a URL.
         /// </summary>
@@ -65,7 +57,7 @@ namespace UnitWrappers.System.Reflection
         /// </summary>
         AssemblyVersionCompatibility VersionCompatibility { get; set; }
 
-        // Methods
+
         /// <summary>
         /// Makes a copy of this IAssemblyName object. 
         /// </summary>
