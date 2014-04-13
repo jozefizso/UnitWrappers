@@ -59,7 +59,6 @@
   <ItemGroup>
     <Compile Include="CurrentThread.cs" />
     <Compile Include="FileSystem.cs" />
-    <Compile Include="IEnvironmentEx.cs" />
     <Compile Include="InMemoryFileStream.cs" />
     <Compile Include="InMemoryFileSystem.cs" />
     <Compile Include="Locator.cs" />
