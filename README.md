@@ -5,9 +5,9 @@
  {
     ...
  
-  public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
+    public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
  	{
- 	 _file = file;
+   	 _file = file;
  		_appDomainSystem = appDomainSystem;
  		_processSystem = processSystem;
  	}
@@ -15,16 +15,15 @@
  	public void Run()
  	{
  		if (_file.Exists("Daemon.exe")
- 		{
  		     _processSystem.Start("Daemon.exe");
- 		}
  		else if (_file.Exists("Daemon.dll")
  		{
  		 var domain = _appDomainSystem.CreateDomain("Daemon");
  			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
  			daemon.Start();
  		}
- 		else new Daemon().Start();
+ 		else 
+ 		     new Daemon().Start();
  	}
  }
 ```
