@@ -64,7 +64,7 @@
 * Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design. If something needs to be really fast, then should go to PInvoke.
 
 ### NOTE:
-I expected massive breaking changes regarding wrapping all `sender`s in events to make desing more correct. This changes will be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
+I expected massive breaking changes regarding wrapping all `sender`s in events to make desing more correct. This changes may be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
 
 ### TODO:
 * Virtual in memory file system.
