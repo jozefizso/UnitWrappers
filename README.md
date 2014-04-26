@@ -34,7 +34,7 @@
 * Designed to be used with dependency injection containers. 
 * Should be used with mocking libraries and correspondending automocking container extensions in tests.
 * There are frameworks which use CLR implementaion hooks  to fake underlying implementaion of classes. These are not available for free on each paltform, but is viable alternative for wrappers in some cases.
-* When used with container injection then reveals complex object which should be splitter according functional provided.
+* When used with container injection then reveals complex object which should be splitted according functional provided.
 * Used at least in one prodcution desktop application.
 
 ### Design
