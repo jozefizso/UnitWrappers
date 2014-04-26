@@ -1,4 +1,33 @@
-
+```csharp
+ var service = IoC.Get<HostService>();
+ 
+ public class HostService()
+ {
+    ...
+ 
+    public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
+ 	{
+ 	    _file = file;
+ 		_appDomainSystem = appDomainSystem;
+ 		_processSystem = processSystem;
+ 	}
+ 
+ 	public void Run()
+ 	{
+ 		if (file.Exists("Daemon.exe")
+ 		{
+ 		     processSystem.Start("Daemon.exe");
+ 		}
+ 		else if (file.Exists("Daemon.dll")
+ 		{
+ 		    var domain = appDomainSystem.CreateDomain("Daemon");
+ 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
+ 			daemon.Start();
+ 		}
+ 		else new Daemon().Start();
+ 	}
+ }
+```
 
 ### Description 
 * Wraps classes into other classes with interfaces which are suitable for unit testing.
@@ -53,50 +82,13 @@ I expected massive breaking changes and fixes in far future to make desing more 
 * Research F# scructural typing to provide F# version
 * Virtual in memory web server.
 
-### Sample of concept:
 
-```csharp
- var service = IoC.Get<HostService>();
- 
- public class HostService()
- {
-    ...
- 
-    public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
- 	{
- 	    _file = file;
- 		_appDomainSystem = appDomainSystem;
- 		_processSystem = processSystem;
- 	}
- 
- 	public void Run()
- 	{
- 		if (file.Exists("Daemon.exe")
- 		{
- 		     processSystem.Start("Daemon.exe");
- 		}
- 		else if (file.Exists("Daemon.dll")
- 		{
- 		    var domain = appDomainSystem.CreateDomain("Daemon");
- 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
- 			daemon.Start();
- 		}
- 		else new Daemon().Start();
- 	}
- }
-```
- 
 ### Develop
 
 
 * UnitWrappers.sln:
 
-Open SharpDevelop 4.3. Build in Debug or Release mode for Any Cpu.
-
-Visual Studio 2010. 
-If failed to build then clean up .NET specific binaries output. 
-Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version.
-ReSharper(or other test runner) - to run unit tests(NUnit)
+Open SharpDevelop 4.X. Build in Debug or Release mode for Any Cpu.
 
 * UnitWrappers.Mono.sln:
 
