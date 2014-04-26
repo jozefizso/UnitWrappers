@@ -7,7 +7,7 @@
  
     public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
  	{
-   	 _file = file;
+   	_file = file;
  		_appDomainSystem = appDomainSystem;
  		_processSystem = processSystem;
  	}
@@ -60,10 +60,10 @@
 * Wrappers are open source and can be used on any CLR
 * Wrappers are easy to inject into old codebase by replacing static methods with singletons
 * Wrappers cannot be used to hook 3rd party components
-* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design, if something needs to be fast then, you should go to PInvoke:)
+* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design. If something needs to be really fast, then should go to PInvoke.
 
 ### NOTE:
-I expected massive breaking changes and fixes in far future to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
+I expected massive breaking changes regarding wrapping all `sender`s in events to make desing more correct. This changes will be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
 
 ### TODO:
 * Virtual in memory file system.
