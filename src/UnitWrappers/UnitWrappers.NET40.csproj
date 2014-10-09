@@ -156,6 +156,8 @@
     <Compile Include="System\IO\StreamWriterBase.cs" />
     <Compile Include="System\Management\IManagementObjectSearcher.cs" />
     <Compile Include="System\Management\ManagementObjectSearcherWrap.cs" />
+    <Compile Include="System\Net\Mail\ISmtpClient.cs" />
+    <Compile Include="System\Net\Mail\SmtpClientWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
     <Compile Include="System\Net\NetworkInformation\INetworkInterface.cs" />
     <Compile Include="System\Net\NetworkInformation\IPing.cs" />
@@ -258,7 +260,9 @@
       <Link>UnitWrappers.snk</Link>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="System\Net\Mail" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

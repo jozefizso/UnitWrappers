@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerformanceTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.NET40", "UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.NET40.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Wraperizer", "UnitWrappers.Wraperizer\UnitWrappers.Wraperizer.csproj", "{380A11C6-A794-4CC8-A217-4620E7A27780}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380A11C6-A794-4CC8-A217-4620E7A27780}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{380A11C6-A794-4CC8-A217-4620E7A27780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{380A11C6-A794-4CC8-A217-4620E7A27780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380A11C6-A794-4CC8-A217-4620E7A27780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
