@@ -1,11 +1,40 @@
-
+### Sample 
+```csharp
+ var service = IoC.Get<HostService>();
+ 
+ public class HostService()
+ {
+    ...
+ 
+    public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
+ 	{
+   	_file = file;
+ 		_appDomainSystem = appDomainSystem;
+ 		_processSystem = processSystem;
+ 	}
+ 
+ 	public void Run()
+ 	{
+ 		if (_file.Exists("Daemon.exe")
+ 		     _processSystem.Start("Daemon.exe");
+ 		else if (_file.Exists("Daemon.dll")
+ 		{
+ 		 var domain = _appDomainSystem.CreateDomain("Daemon");
+ 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
+ 			daemon.Start();
+ 		}
+ 		else 
+ 		     new Daemon().Start();
+ 	}
+ }
+```
 
 ### Description 
 * Wraps classes into other classes with interfaces which are suitable for unit testing.
 * Designed to be used with dependency injection containers. 
 * Should be used with mocking libraries and correspondending automocking container extensions in tests.
 * There are frameworks which use CLR implementaion hooks  to fake underlying implementaion of classes. These are not available for free on each paltform, but is viable alternative for wrappers in some cases.
-* When used with container injection then reveals complex object which should be splitter according functional provided.
+* When used with container injection then reveals complex object which should be splitted according functional provided.
 * Used at least in one prodcution desktop application.
 
 ### Design
@@ -32,10 +61,10 @@
 * Wrappers are open source and can be used on any CLR
 * Wrappers are easy to inject into old codebase by replacing static methods with singletons
 * Wrappers cannot be used to hook 3rd party components
-* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design, if something needs to be fast then, you should go to PInvoke:)
+* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design. If something needs to be really fast, then should go to PInvoke.
 
 ### NOTE:
-If massive breaking changes and fixes happen to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
+If massive breaking changes and fixes happen to make desing more correct. This changes will be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
 
 ### TODO:
 * Virtual in memory file system.
@@ -53,50 +82,13 @@ If massive breaking changes and fixes happen to make desing more correct. This c
 * Research F# scructural typing to provide F# version
 * Virtual in memory web server.
 
-### Sample of concept:
 
-```csharp
- var service = IoC.Get<HostService>();
- 
- public class HostService()
- {
-    ...
- 
-    public HostService(IFile file, IAppDomainSystem appDomainSystem, IProcessSystem processSystem)
- 	{
- 	    _file = file;
- 		_appDomainSystem = appDomainSystem;
- 		_processSystem = processSystem;
- 	}
- 
- 	public void Run()
- 	{
- 		if (file.Exists("Daemon.exe")
- 		{
- 		     processSystem.Start("Daemon.exe");
- 		}
- 		else if (file.Exists("Daemon.dll")
- 		{
- 		    var domain = appDomainSystem.CreateDomain("Daemon");
- 			dynamic daemon = domain.CreateInstanceAndUnwrap("Daemon.dll","Daemon");
- 			daemon.Start();
- 		}
- 		else new Daemon().Start();
- 	}
- }
-```
- 
 ### Develop
 
 
 * UnitWrappers.sln:
 
-Open SharpDevelop 4.3. Build in Debug or Release mode for Any Cpu.
-
-Visual Studio 2010. 
-If failed to build then clean up .NET specific binaries output. 
-Portable Library Tools (http://msdn.microsoft.com/en-us/library/gg597391.aspx) - to open portable version.
-ReSharper(or other test runner) - to run unit tests(NUnit)
+Open SharpDevelop 4.X. Build in Debug or Release mode for Any Cpu.
 
 * UnitWrappers.Mono.sln:
 
