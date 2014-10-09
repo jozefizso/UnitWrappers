@@ -35,7 +35,7 @@
 * Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design, if something needs to be fast then, you should go to PInvoke:)
 
 ### NOTE:
-I expected massive breaking changes and fixes in far future to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
+If massive breaking changes and fixes happen to make desing more correct. This changes will be marked by renaming to NUnitWrappers.
 
 ### TODO:
 * Virtual in memory file system.
@@ -118,6 +118,8 @@ New .NET methods sometimes backported to 3.5 wrappers.
 http://systemwrapper.codeplex.com/
 
 http://systemioabstractions.codeplex.com/
+
+https://sourceforge.net/projects/wrappergen/
 
 ### Coverage
 
