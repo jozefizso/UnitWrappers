@@ -109,6 +109,8 @@
     <Compile Include="System\Diagnostics\IFileVersionInfoSystem.cs" />
     <Compile Include="System\Diagnostics\ILocalProcess.cs" />
     <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
+    <Compile Include="System\Diagnostics\ITraceSource.cs" />
+    <Compile Include="System\Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="System\IO\BinaryReaderWrap.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -260,9 +262,7 @@
       <Link>UnitWrappers.snk</Link>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="System\Net\Mail" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

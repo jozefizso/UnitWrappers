@@ -99,6 +99,7 @@
     <Compile Include="System\Data\SqlClient\SqlCommandWrapTests.cs" />
     <Compile Include="System\Diagnostics\ProcessWrapTests.cs" />
     <Compile Include="System\Diagnostics\ProcessStartInfoWrapTests.cs" />
+    <Compile Include="System\Diagnostics\TraceSourceWrapTests.cs" />
     <Compile Include="System\IO\BinaryReaderWrapTests.cs">
       <SubType>Code</SubType>
     </Compile>
