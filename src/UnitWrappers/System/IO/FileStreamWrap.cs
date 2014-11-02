@@ -428,7 +428,7 @@ namespace UnitWrappers.System.IO
 
         public override void SetAccessControl(IFileSecurity fileSecurity)
         {
-            _underlyingObject.SetAccessControl(fileSecurity.FileSecurityInstance);
+            _underlyingObject.SetAccessControl(((IWrap<FileSecurity>)fileSecurity).UnderlyingObject);
         }
 
         /// <summary>

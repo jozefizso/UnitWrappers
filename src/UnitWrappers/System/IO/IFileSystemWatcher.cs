@@ -13,10 +13,10 @@ namespace UnitWrappers.System.IO
         /// <summary>
         /// Gets instance of FileSystemWatcher object.
         /// </summary>
-        FileSystemWatcher FileSystemWatcherInstance { get; }
+        FileSystemWatcher UnderlyingObject { get; }
 
         /// <summary> 
-        ///       Gets or sets the type of changes to watch for. 
+        ///       Gets or sets the type of changes to watch for. t
         /// </summary>
         [DefaultValue(NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName)]
         NotifyFilters NotifyFilter { get; set; }

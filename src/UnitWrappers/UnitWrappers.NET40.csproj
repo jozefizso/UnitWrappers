@@ -228,8 +228,10 @@
     <Compile Include="System\Reflection\IAssemblySystem.cs" />
     <Compile Include="System\Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
+    <Compile Include="System\Security\AccessControl\FileSystemSecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
     <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="System\Security\AccessControl\IFileSystemSecurity.cs" />
     <Compile Include="System\Security\Permissions\FileIOPermissionWrap.cs" />
     <Compile Include="System\Security\Permissions\IFileIOPermission.cs" />
     <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />

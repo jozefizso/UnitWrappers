@@ -107,11 +107,17 @@ Methods obsolete in .NET 4.0 or .NET 3.5 are not implemented.
 New .NET methods sometimes backported to 3.5 wrappers.
 
 ### Related 
-http://systemwrapper.codeplex.com/
+- http://systemwrapper.codeplex.com - has lesser coverage and bad design of wrapping
 
-http://systemioabstractions.codeplex.com/
+- https://github.com/tathamoddie/System.IO.Abstractions - has lesser coverage, adhoc custom interfaces and non generic testing helpers (i.e. ad hoc manual file system instead of real in memory implementation)
 
-https://sourceforge.net/projects/wrappergen/
+- https://sourceforge.net/projects/wrappergen/  - tools to generate wrapper for classes, old and need to be tuned 
+
+- https://katanaproject.codeplex.com/wikipage?title=Packages&referringTitle=Home - generic `wrappers` for web servers
+
+- http://msdn.microsoft.com/en-us/library/windows/apps/br211377.aspx - WinRT API provides IO via Interfaces, no need to wrap at all
+
+- http://jolt.codeplex.com/wikipage?title=Jolt.Testing.CodeGeneration.Proxy&referringTitle=Jolt.Testing  code generator of IL for wrappers
 
 ### Coverage
 

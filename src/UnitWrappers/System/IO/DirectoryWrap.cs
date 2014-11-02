@@ -22,7 +22,7 @@ namespace UnitWrappers.System.IO
         {
             if (directorySecurity == null)
                 throw new ArgumentNullException("directorySecurity");
-            DirectoryInfo di = Directory.CreateDirectory(path, directorySecurity.DirectorySecurityInstance);
+            DirectoryInfo di = Directory.CreateDirectory(path, ((IWrap<DirectorySecurity>)directorySecurity).UnderlyingObject);
             return new DirectoryInfoWrap(di);
         }
 
@@ -151,7 +151,7 @@ namespace UnitWrappers.System.IO
         {
             if (directorySecurity == null)
                 throw new ArgumentNullException("directorySecurity");
-            Directory.SetAccessControl(path, directorySecurity.DirectorySecurityInstance);
+            Directory.SetAccessControl(path, ((IWrap<DirectorySecurity>)directorySecurity).UnderlyingObject);
         }
 
         public void SetCreationTime(string path, DateTime creationTime)

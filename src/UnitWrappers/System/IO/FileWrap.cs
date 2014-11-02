@@ -55,7 +55,7 @@ namespace UnitWrappers.System.IO
 
         public FileStreamBase Create(string path, int bufferSize, FileOptions options, IFileSecurity fileSecurity)
         {
-            return new FileStreamWrap(File.Create(path, bufferSize, options, fileSecurity.FileSecurityInstance));
+            return new FileStreamWrap(File.Create(path, bufferSize, options, ((IWrap<FileSecurity>)fileSecurity).UnderlyingObject));
         }
 
         public StreamWriterBase CreateText(string path)
@@ -200,7 +200,7 @@ namespace UnitWrappers.System.IO
 
         public void SetAccessControl(string path, IFileSecurity fileSecurity)
         {
-            File.SetAccessControl(path, fileSecurity.FileSecurityInstance);
+            File.SetAccessControl(path, ((IWrap<FileSecurity>)fileSecurity).UnderlyingObject);
         }
 
         public void SetAttributes(string path, FileAttributes fileAttributes)

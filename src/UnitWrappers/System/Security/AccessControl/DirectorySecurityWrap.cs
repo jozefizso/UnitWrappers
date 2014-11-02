@@ -1,27 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Security.AccessControl;
 
 namespace UnitWrappers.System.Security.AccessControl
 {
-    /// <summary>
-    /// Wrapper for <see cref="T:System.Security.AccessControl.DirectorySecurity"/> class.
-    /// </summary>
-    public class DirectorySecurityWrap : IDirectorySecurity
+    public class DirectorySecurityWrap : FileSystemSecurityWrap, IWrap<DirectorySecurity>,IDirectorySecurity
     {
-        private DirectorySecurity _directorySecurity;
+        private DirectorySecurity _underlyingObject;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="T:UnitWrappers.System.Security.AccessControl.DirectorySecurityWrap"/> class on the specified path. 
-		/// </summary>
-		/// <param name="directorySecurity">A <see cref="T:System.Security.AccessControl.DirectorySecurity"/> object.</param>
-		public DirectorySecurityWrap(DirectorySecurity directorySecurity)
-		{
-            _directorySecurity = directorySecurity;
-		}
-
-
-		public DirectorySecurity DirectorySecurityInstance
+        public DirectorySecurityWrap(DirectorySecurity directorySecurity):base(directorySecurity)
         {
-            get { return _directorySecurity; }
+            _underlyingObject = directorySecurity;
         }
+
+        DirectorySecurity IWrap<DirectorySecurity>.UnderlyingObject
+        {
+            get { return _underlyingObject; }
+        }
+
+        public static implicit operator DirectorySecurityWrap(DirectorySecurity o)
+        {
+            return new DirectorySecurityWrap(o);
+        }
+
+        public static implicit operator DirectorySecurity(DirectorySecurityWrap o)
+        {
+            return o._underlyingObject;
+        }
+
     }
+
 }

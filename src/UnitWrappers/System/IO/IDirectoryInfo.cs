@@ -13,8 +13,6 @@ namespace UnitWrappers.System.IO
     {
 
    
-        // Properties
-
         /// <summary>
         ///  Gets or sets the <see cref="FileAttributes"/> of the current Gets or sets the creation time, in coordinated universal time (UTC), of the current FileSystemInfo object. . 
         /// </summary>
@@ -27,10 +25,7 @@ namespace UnitWrappers.System.IO
         /// Gets or sets the creation time, in coordinated universal time (UTC), of the current <see cref="T:System.IO.FileSystemInfo"/> object. 
         /// </summary>
         DateTime CreationTimeUtc { get; set; }
-        /// <summary>
-        /// Gets <see cref="T:System.IO.DirectoryInfo"/> object.
-        /// </summary>
-        DirectoryInfo DirectoryInfo { get; }
+   
         /// <summary>
         ///  Gets a value indicating whether the directory exists. 
         /// </summary>

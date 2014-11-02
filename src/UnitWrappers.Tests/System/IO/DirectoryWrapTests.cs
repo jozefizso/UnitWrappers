@@ -2,6 +2,8 @@ using System;
 using NUnit.Framework;
 using UnitWrappers.System.IO;
 using UnitWrappers.System.Security.AccessControl;
+using System.Security.AccessControl;
+using System.IO;
 
 namespace UnitWrappers.Tests.System.IO
 {
@@ -36,6 +38,25 @@ namespace UnitWrappers.Tests.System.IO
         }
 
         [Test]
+        public void CreateDirectory_MoveTo()
+        {
+            //arange
+            IDirectory directory = new DirectoryWrap(); // should create this somewhere and inject into you method for later mocking
+            var source = Path.GetRandomFileName();
+            var target = Path.GetRandomFileName();
+
+            //act
+            IDirectoryInfo info = directory.CreateDirectory(source);           
+            info.MoveTo(target);
+
+            //assert
+            Assert.IsTrue(info.Exists);
+
+            // clean
+            info.Delete();    
+        }
+
+        [Test]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ArgumentNullException_is_thrown_if_directorySecurity_is_null()
         {
@@ -53,7 +74,7 @@ namespace UnitWrappers.Tests.System.IO
         public void GetAccessControl_test()
         {
             IDirectorySecurity directorySecurity = _directoryWrap.GetAccessControl(path);
-            Assert.IsNotNull(directorySecurity.DirectorySecurityInstance);
+            Assert.IsNotNull(((IWrap<DirectorySecurity>)directorySecurity).UnderlyingObject);
         }
 
         [Test]

@@ -12,7 +12,7 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public FileSystemWatcherWrap()
         {
-            FileSystemWatcherInstance = new FileSystemWatcher();
+            UnderlyingObject = new FileSystemWatcher();
         }
 
         /// <summary>
@@ -31,10 +31,10 @@ namespace UnitWrappers.System.IO
         /// </summary> 
         public FileSystemWatcherWrap(string path, string filter)
         {
-            FileSystemWatcherInstance = new FileSystemWatcher(path, filter);
+            UnderlyingObject = new FileSystemWatcher(path, filter);
         }
 
-        public FileSystemWatcher FileSystemWatcherInstance { get; private set; }
+        public FileSystemWatcher UnderlyingObject { get; private set; }
 
 
         /// <summary> 
@@ -43,8 +43,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue(NotifyFilters.LastWrite | NotifyFilters.FileName | NotifyFilters.DirectoryName)]
         public NotifyFilters NotifyFilter
         {
-            get { return FileSystemWatcherInstance.NotifyFilter; }
-            set { FileSystemWatcherInstance.NotifyFilter = value; }
+            get { return UnderlyingObject.NotifyFilter; }
+            set { UnderlyingObject.NotifyFilter = value; }
         }
 
         /// <summary>
@@ -53,8 +53,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue(false)]
         public bool EnableRaisingEvents
         {
-            get { return FileSystemWatcherInstance.EnableRaisingEvents; }
-            set { FileSystemWatcherInstance.EnableRaisingEvents = value; }
+            get { return UnderlyingObject.EnableRaisingEvents; }
+            set { UnderlyingObject.EnableRaisingEvents = value; }
         }
 
         /// <summary> 
@@ -63,8 +63,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue("*.*")]
         public string Filter
         {
-            get { return FileSystemWatcherInstance.Filter; }
-            set { FileSystemWatcherInstance.Filter = value; }
+            get { return UnderlyingObject.Filter; }
+            set { UnderlyingObject.Filter = value; }
         }
 
         /// <summary> 
@@ -74,8 +74,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue(false)]
         public bool IncludeSubdirectories
         {
-            get { return FileSystemWatcherInstance.IncludeSubdirectories; }
-            set { FileSystemWatcherInstance.IncludeSubdirectories = value; }
+            get { return UnderlyingObject.IncludeSubdirectories; }
+            set { UnderlyingObject.IncludeSubdirectories = value; }
         }
 
         /// <summary>
@@ -85,8 +85,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue(8192)]
         public int InternalBufferSize
         {
-            get { return FileSystemWatcherInstance.InternalBufferSize; }
-            set { FileSystemWatcherInstance.InternalBufferSize = value; }
+            get { return UnderlyingObject.InternalBufferSize; }
+            set { UnderlyingObject.InternalBufferSize = value; }
         }
 
 
@@ -96,8 +96,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue("")]
         public string Path
         {
-            get { return FileSystemWatcherInstance.Path; }
-            set { FileSystemWatcherInstance.Path = value; }
+            get { return UnderlyingObject.Path; }
+            set { UnderlyingObject.Path = value; }
         }
 
         /// <summary> 
@@ -107,8 +107,8 @@ namespace UnitWrappers.System.IO
         [DefaultValue(null)]
         public ISynchronizeInvoke SynchronizingObject
         {
-            get { return FileSystemWatcherInstance.SynchronizingObject; }
-            set { FileSystemWatcherInstance.SynchronizingObject = value; }
+            get { return UnderlyingObject.SynchronizingObject; }
+            set { UnderlyingObject.SynchronizingObject = value; }
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace UnitWrappers.System.IO
         /// </summary> 
         public void BeginInit()
         {
-            FileSystemWatcherInstance.BeginInit();
+            UnderlyingObject.BeginInit();
         }
 
         /// <summary> 
@@ -126,7 +126,7 @@ namespace UnitWrappers.System.IO
         /// </summary> 
         public void EndInit()
         {
-            FileSystemWatcherInstance.EndInit();
+            UnderlyingObject.EndInit();
         }
 
 
@@ -136,8 +136,8 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public event FileSystemEventHandler Changed
         {
-            add { FileSystemWatcherInstance.Changed += value; }
-            remove { FileSystemWatcherInstance.Changed -= value; }
+            add { UnderlyingObject.Changed += value; }
+            remove { UnderlyingObject.Changed -= value; }
         }
 
         /// <summary>
@@ -146,8 +146,8 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public event FileSystemEventHandler Created
         {
-            add { FileSystemWatcherInstance.Created += value; }
-            remove { FileSystemWatcherInstance.Created -= value; }
+            add { UnderlyingObject.Created += value; }
+            remove { UnderlyingObject.Created -= value; }
         }
 
         /// <summary>
@@ -156,8 +156,8 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public event FileSystemEventHandler Deleted
         {
-            add { FileSystemWatcherInstance.Deleted += value; }
-            remove { FileSystemWatcherInstance.Deleted -= value; }
+            add { UnderlyingObject.Deleted += value; }
+            remove { UnderlyingObject.Deleted -= value; }
         }
 
         /// <summary>
@@ -165,8 +165,8 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public event ErrorEventHandler Error
         {
-            add { FileSystemWatcherInstance.Error += value; }
-            remove { FileSystemWatcherInstance.Error -= value; }
+            add { UnderlyingObject.Error += value; }
+            remove { UnderlyingObject.Error -= value; }
         }
 
         /// <summary> 
@@ -175,8 +175,8 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public event RenamedEventHandler Renamed
         {
-            add { FileSystemWatcherInstance.Renamed += value; }
-            remove { FileSystemWatcherInstance.Renamed -= value; }
+            add { UnderlyingObject.Renamed += value; }
+            remove { UnderlyingObject.Renamed -= value; }
         }
 
 
@@ -187,7 +187,7 @@ namespace UnitWrappers.System.IO
         /// </summary> 
         public WaitForChangedResult WaitForChanged(WatcherChangeTypes changeType)
         {
-            return FileSystemWatcherInstance.WaitForChanged(changeType);
+            return UnderlyingObject.WaitForChanged(changeType);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace UnitWrappers.System.IO
         /// </summary>
         public WaitForChangedResult WaitForChanged(WatcherChangeTypes changeType, int timeout)
         {
-            return FileSystemWatcherInstance.WaitForChanged(changeType, timeout);
+            return UnderlyingObject.WaitForChanged(changeType, timeout);
         }
 
         public void Dispose()
@@ -210,10 +210,10 @@ namespace UnitWrappers.System.IO
         {
             if (disposing)
             {
-                if (FileSystemWatcherInstance != null)
+                if (UnderlyingObject != null)
                 {
-                    FileSystemWatcherInstance.Dispose();
-                    FileSystemWatcherInstance = null;
+                    UnderlyingObject.Dispose();
+                    UnderlyingObject = null;
                 }
                 // get rid of managed resources      
             } // get rid of unmanaged resources  
