@@ -48,21 +48,21 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>Full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>../../build/NET35\</OutputPath>
+    <OutputPath>../../bin/NET35\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET35</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>../../build/NET35\UnitWrappers.xml</DocumentationFile>
+    <DocumentationFile>../../bin/NET35\UnitWrappers.xml</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>../../build/NET35\</OutputPath>
+    <OutputPath>../../bin/NET35\</OutputPath>
     <DefineConstants>TRACE;NET35</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>../../build/NET35\UnitWrappers.xml</DocumentationFile>
+    <DocumentationFile>../../bin/NET35\UnitWrappers.xml</DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -80,9 +80,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Threading, Version=1.0.2617.102, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Threading">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>../../lib/TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+      <HintPath>../../packages/TaskParallelLibrary\lib\Net35\System.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>

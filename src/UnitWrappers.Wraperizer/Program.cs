@@ -10,10 +10,10 @@ namespace UnitWrappers.Wraperizer
 		{
 						
 			Console.WriteLine("Starting to reflect");			
+			Type testType = typeof(System.Net.Mail.SmtpClient);
+			var result = InstanceWraperizer.Generate(testType);
 			
-			
-			
-			Console.Write("Press any key to continue . . . ");
+			Console.Write(result);
 			Console.ReadKey(true);
 		}
 	}

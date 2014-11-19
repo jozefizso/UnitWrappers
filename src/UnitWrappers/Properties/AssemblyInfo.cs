@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("UnitWrappers")]
-[assembly: AssemblyDescription("Unit testable class wrappers for CLR/BCL/.NETe.")]
+[assembly: AssemblyDescription("Unit testable class wrappers for CLR/BCL/.NET")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("UnitWrappers")]
@@ -19,8 +19,8 @@ using System.Runtime.InteropServices;
 #endif
 
 
-[assembly: AssemblyVersion("0.6.4.0")]
-[assembly: AssemblyFileVersion("0.6.4.0")]
+[assembly: AssemblyVersion("0.6.5.0")]
+[assembly: AssemblyFileVersion("0.6.5.0")]
 #if NET35 || NET40
 [assembly: InternalsVisibleTo(@"WPFWrappers, PublicKey=00240000048000009400000006020000002400005253413100040000010001005d97ca4508432c
 2d4000fc39af5c546a0ef3a2268ecfefe2e0babee286d7393fb07110d9bc3186d4df5adb420929

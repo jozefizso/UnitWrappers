@@ -119,8 +119,8 @@ namespace UnitWrappers.CoverageCalculator
 
             counterParts = counterParts.OrderBy(x => x.Wrapped.FullName).ToList();
             
-            
-            using (var fileStream = new FileStreamWrap("Coverage.txt", FileMode.Create))
+            var output = "Coverage.txt";
+            using (var fileStream = new FileStreamWrap(output, FileMode.Create))
             {
                 using (StreamWriterWrap streamWriter = new StreamWriterWrap(fileStream))
                 {
@@ -135,6 +135,8 @@ namespace UnitWrappers.CoverageCalculator
 
                 }
             }
+            Console.WriteLine("See " + output);
+            Console.ReadKey();
         }
 
         private static string cutEnd(string value, string pattern)

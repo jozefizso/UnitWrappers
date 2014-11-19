@@ -22,11 +22,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>Full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>../../build/NET40\</OutputPath>
+    <OutputPath>../../bin/NET40/</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>../../build/NET40\UnitWrappers.XML</DocumentationFile>
+    <DocumentationFile>../../bin/NET40/UnitWrappers.XML</DocumentationFile>
     <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
@@ -56,11 +56,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>../../build/NET40\</OutputPath>
+    <OutputPath>../../bin/NET40/</OutputPath>
     <DefineConstants>TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>../../build/NET40\UnitWrappers.XML</DocumentationFile>
+    <DocumentationFile>../../bin/NET40/UnitWrappers.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -84,6 +84,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Log" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -158,7 +161,6 @@
     <Compile Include="System\IO\StreamWriterBase.cs" />
     <Compile Include="System\Management\IManagementObjectSearcher.cs" />
     <Compile Include="System\Management\ManagementObjectSearcherWrap.cs" />
-    <Compile Include="System\Net\Mail\ISmtpClient.cs" />
     <Compile Include="System\Net\Mail\SmtpClientWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
     <Compile Include="System\Net\NetworkInformation\INetworkInterface.cs" />

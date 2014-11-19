@@ -1,5 +1,5 @@
 ﻿using System;
-using MeasureIt;
+using NStopwatch;
 using NUnit.Framework;
 using UnitWrappers.System;
 
@@ -19,26 +19,26 @@ namespace UnitWrappers.PerfromanceTests
             _dateTime = new DateTimeSystem();
        
             
-            SpeedTesting.Do(output,loop_datetimenow,
-               () => date_time_now(),
-               () => date_time_now_wapper());
+            SpeedTesting.Do(output,5,200000,
+               (r) => date_time_now(r),
+               (r) => date_time_now_wapper(r));
         }
 
-        private const int loop_datetimenow = 200000;
 
-        public void date_time_now()
+
+        public void date_time_now(long repeats)
         {
-            for (int i = 0; i < loop_datetimenow; i++)
+            for (var i = 0; i < repeats; i++)
             {
                 var now = DateTime.Now;
             }
         }
 
-        public void date_time_now_wapper()
+        public void date_time_now_wapper(long repeats)
         {
 
 
-            for (int i = 0; i < loop_datetimenow; i++)
+            for (var i = 0; i < repeats; i++)
             {
                 var now = _dateTime.Now;
             }
@@ -49,23 +49,22 @@ namespace UnitWrappers.PerfromanceTests
         {
             var output = Console.Out;
             _environment = new EnvironmentWrap();
-            SpeedTesting.Do(output,loop_datetimenow,
-               () => environment_username(),
-               () => environment_username_wrapper());
+            SpeedTesting.Do(output,5,2000,
+               (r) => environment_username(r),
+               (r) => environment_username_wrapper(r));
         }
 
-        private int loop = 200;
-        public void environment_username()
+        public void environment_username(long repeats)
         {
-            for (int i = 0; i < loop; i++)
+            for (var i = 0; i < repeats; i++)
             {
                 var name = Environment.UserName;
             }
         }
 
-        public void environment_username_wrapper()
+        public void environment_username_wrapper(long repeats)
         {
-            for (int i = 0; i < loop; i++)
+            for (var i = 0; i < repeats; i++)
             {
                 var name = _environment.UserName;
             }

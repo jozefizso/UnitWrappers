@@ -1,1 +1,1 @@
-tools\Nuget\nuget.exe pack packaging\UnitWrappers.nuspec
+.nuget\nuget.exe pack nuget\UnitWrappers.nuspec -OutputDirectory nuget

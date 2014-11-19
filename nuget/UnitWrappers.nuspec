@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>UnitWrappers</id>
+    <version>0.6.5.0</version>
+    <authors>Dzmitry Lahoda</authors>
+    <owners>dzmitry_lahoda</owners>
+    <licenseUrl>http://creativecommons.org/publicdomain/zero/1.0/</licenseUrl>
+    <projectUrl>https://github.com/asd-and-Rizzo/UnitWrappers</projectUrl>
+	<iconUrl>https://raw.github.com/asd-and-Rizzo/UnitWrappers/master/docs/UnitWrappers.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Unit testable class wrappers for CLR/BCL/.NET</description>
+	<releaseNotes>
+	* 0.6.5.0
+	- added smtp mail client
+	- improved security interfaces of file system 
+  	* 0.6.4.0
+  	- enriched assembly info
+  	- added some sources as part of package which are used for testing
+	* 0.6.3.0
+	- started to wrap senders in ProcessWrap
+	* 0.6.2.0
+	- added some methods
+	</releaseNotes>
+    <tags>testing isolation tdd</tags>
+  </metadata>
+</package>
