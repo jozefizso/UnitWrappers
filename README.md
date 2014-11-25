@@ -108,7 +108,7 @@ New .NET methods sometimes backported to 3.5 wrappers.
 
 - http://jolt.codeplex.com/wikipage?title=Jolt.Testing.CodeGeneration.Proxy&referringTitle=Jolt.Testing  code generator of IL for wrappers
 
-https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
+- https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
 
 ### Coverage
 
