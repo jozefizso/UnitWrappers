@@ -54,7 +54,7 @@
 
 ### Tooling
 * Automatic coverage report generation.
-* [Automatic wrapper generator](src\UnitWrappers.Wraperizer\Wraperizer.md)
+* [Automatic wrapper generator](src/UnitWrappers.Wraperizer/Wraperizer.md)
 
 ### CLR VM hooks vs wrappers
 * Wrappers reveal complex code
