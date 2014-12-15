@@ -14,6 +14,7 @@ namespace UnitWrappers.Wraperizer
 	
 	
 	/*
+	 * .NET version indpendent assembly parser
 	 * TODO: add partial
 	 * TODO: add conversion
 	 * 
@@ -35,6 +36,7 @@ TODO: add contol over events (threading, error handling)
 TODO: add Component inheritance if needed
 TODO: add custom interface hook
 TODO: fix parallel hierarchies of inheritance
+TODO: add doc generation
 
 	 */
 	 
