@@ -108,7 +108,7 @@ New .NET methods sometimes backported to 3.5 wrappers.
 - http://msdn.microsoft.com/en-us/library/windows/apps/br211377.aspx - WinRT API provides IO via Interfaces, no need to wrap at all
 
 
-https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
+- https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
 
 ### Coverage
 
