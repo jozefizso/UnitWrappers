@@ -56,13 +56,24 @@
 * Automatic coverage report generation.
 * [Automatic wrapper generator](src/UnitWrappers.Wraperizer/Wraperizer.md)
 
-### CLR VM hooks vs wrappers
-* Wrappers reveal complex code
+
+### Alternatives
+
+- https://github.com/BrunoJuchli/StaticProxy.Fody and https://github.com/Fody/Ionad- use IL rewrite to hook methods calls and load faked assembly into test process
+
+- https://gitorious.org/asdandrizzo/clr/source/fusion/clr-dll-level-di  - use options provided by CRL loading of dlls to make things testable
+
+- https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
+
+### CLR VM and code weaving hooks vs wrappers
+* Wrappers reveal complex code by looking into consuctor
 * Wrappers enforce better desing
 * Wrappers are open source and can be used on any CLR
-* Hooks are easy to inject into old codebase, but wrappers are easy to
+* Hooks are easy to inject into old codebase, but wrappers sligtly harder
 * Wrappers cannot be used to hook 3rd party components
-* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. Wrappers go domain first design. If something needs to be really fast, then should go to PInvoke.
+* Wrappers add overhead during runtime, but wrappers usually wrap IO operations which take very large time relative to wrappers added overhead. If something needs to be really fast, then should go to PInvoke.
+* Wrappers go domain modelling first design.
+* Wrappers slower down start up time and hard to use without container on devices with limited resources
 
 ### NOTE:
 If massive breaking changes and fixes happen to make design more correct. This changes will be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
@@ -96,7 +107,8 @@ If massive breaking changes and fixes happen to make design more correct. This c
 Methods obsolete in .NET 4.0 or .NET 3.5 are not implemented.
 New .NET methods sometimes backported to 3.5 wrappers.
 
-### Related 
+### Similar 
+
 - http://systemwrapper.codeplex.com - has lesser coverage and bad design of wrapping
 
 - https://github.com/tathamoddie/System.IO.Abstractions - has lesser coverage, adhoc custom interfaces and non generic testing helpers (i.e. ad hoc manual file system instead of real in memory implementation)
@@ -107,8 +119,6 @@ New .NET methods sometimes backported to 3.5 wrappers.
 
 - http://msdn.microsoft.com/en-us/library/windows/apps/br211377.aspx - WinRT API provides IO via Interfaces, no need to wrap at all
 
-
-- https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
 
 ### Coverage
 
