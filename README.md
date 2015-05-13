@@ -79,19 +79,16 @@
 If massive breaking changes and fixes happen to make design more correct. This changes will be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
 
 ### TODO:
-* Virtual in memory file system.
 * Wrap all `sender`s of events
 * Real world sample with IoC/DI, Net, IO, WCF, etc.
 * Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
 * Wrapperasing /dewraperasing existing code (using NRefactory) Prove of Concept 
 * Cover more of Mono, PortableLibrary, MonoDroid 
 * Performance(calls and object graph construction) and memory usage overhead evaluation
-* Support for code contracts and members' attributes defined on real .NET classes
 * Namespace wide factories
 * Tests which check method signatures (that wraps call right underlying methods) on code or IL level
 * UnitsWrappers.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
-* Research F# structural typing to provide F# version
 * Virtual in memory net server.
 
 
