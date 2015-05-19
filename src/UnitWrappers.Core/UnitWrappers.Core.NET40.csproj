@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitWrappers</RootNamespace>
+    <AssemblyName>UnitWrappers.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\NET40\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Portable\</OutputPath>
+    <DefineConstants>TRACE;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\Portable\UnitWrappers.Core.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\IO\FileStreamBase.cs" />
+    <Compile Include="System\IO\IBinaryReader.cs" />
+    <Compile Include="System\IO\IBinaryWriter.cs" />
+    <Compile Include="System\IO\IDirectory.cs" />
+    <Compile Include="System\IO\IDirectoryInfo.cs" />
+    <Compile Include="System\IO\IFile.cs" />
+    <Compile Include="System\IO\IFileInfo.cs" />
+    <Compile Include="System\IO\IFileInfoSystem.cs" />
+    <Compile Include="System\IO\IFileStream.cs" />
+    <Compile Include="System\IO\IFileSystemWatcher.cs" />
+    <Compile Include="System\IO\IMemoryStream.cs" />
+    <Compile Include="System\IO\IPath.cs" />
+    <Compile Include="System\IO\IStream.cs" />
+    <Compile Include="System\IO\IStreamReader.cs" />
+    <Compile Include="System\IO\IStreamSystem.cs" />
+    <Compile Include="System\IO\IStreamWriter.cs" />
+    <Compile Include="System\IO\ITextReader.cs" />
+    <Compile Include="System\IO\ITextWriter.cs" />
+    <Compile Include="System\IO\PathContracts.cs" />
+    <Compile Include="System\IO\StreamReaderBase.cs" />
+    <Compile Include="System\IO\StreamWriterBase.cs" />
+    <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
+    <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
+    <Compile Include="System\Security\AccessControl\IFileSystemSecurity.cs" />
+    <Compile Include="System\Security\Permissions\IFileIOPermission.cs" />
+    <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

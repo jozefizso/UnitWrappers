@@ -126,39 +126,10 @@
     <Compile Include="System\IO\Compression\IDeflateStream.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="System\IO\FileStreamBase.cs" />
-    <Compile Include="System\IO\IBinaryReader.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\IBinaryWriter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\IFileStream.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\IMemoryStream.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="System\IO\IsolatedStorage\IIsolatedStorageFile.cs" />
-    <Compile Include="System\IO\IStream.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\IStreamReader.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\IStreamSystem.cs" />
-    <Compile Include="System\IO\IStreamWriter.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\ITextWriter.cs" />
     <Compile Include="System\IO\MemoryStreamWrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="System\IO\PathContracts.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\StreamReaderBase.cs" />
-    <Compile Include="System\IO\StreamWriterBase.cs" />
     <Compile Include="System\Management\IManagementObjectSearcher.cs" />
     <Compile Include="System\Management\ManagementObjectSearcherWrap.cs" />
     <Compile Include="System\Net\Mail\SmtpClientWrap.cs" />
@@ -205,14 +176,6 @@
     <Compile Include="System\IO\FileStreamWrap.cs" />
     <Compile Include="System\IO\FileSystemWatcherWrap.cs" />
     <Compile Include="System\IO\FileWrap.cs" />
-    <Compile Include="System\IO\IDirectory.cs" />
-    <Compile Include="System\IO\IDirectoryInfo.cs" />
-    <Compile Include="System\IO\IFile.cs" />
-    <Compile Include="System\IO\IFileInfo.cs" />
-    <Compile Include="System\IO\IFileInfoSystem.cs" />
-    <Compile Include="System\IO\IFileSystemWatcher.cs" />
-    <Compile Include="System\IO\IPath.cs" />
-    <Compile Include="System\IO\ITextReader.cs" />
     <Compile Include="System\IO\PathWrap.cs" />
     <Compile Include="System\IO\StreamReaderWrap.cs" />
     <Compile Include="System\IO\StreamWriterWrap.cs" />
@@ -231,12 +194,7 @@
     <Compile Include="System\Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\FileSystemSecurityWrap.cs" />
-    <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
-    <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
-    <Compile Include="System\Security\AccessControl\IFileSystemSecurity.cs" />
     <Compile Include="System\Security\Permissions\FileIOPermissionWrap.cs" />
-    <Compile Include="System\Security\Permissions\IFileIOPermission.cs" />
-    <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />
     <Compile Include="System\Security\Permissions\PermissionsFactory.cs" />
     <Compile Include="System\Security\Principal\WindowsIdentityWrap.cs" />
     <Compile Include="System\Threading\AutoResetEventSystem.cs" />

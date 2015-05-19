@@ -5,7 +5,7 @@ using System.Security.Permissions;
 using UnitWrappers.Microsoft.Win32.SafeHandles;
 #endif
 
-#if !ANDROID
+#if !ANDROID && !PORTABLE
 using UnitWrappers.System.Security.AccessControl;
 #endif
 
@@ -64,7 +64,7 @@ namespace UnitWrappers.System.IO
         /// <param name="length">The range to be locked. </param>
         void Lock(long position, long length);
 
-#if !ANDROID
+#if !ANDROID && !PORTABLE
 		/// <summary>
 		/// Gets a IFileSecurity object that encapsulates the access control list (ACL) entries for the file described by the current FileStream object. 
 		/// </summary>
@@ -78,7 +78,7 @@ namespace UnitWrappers.System.IO
         void SetAccessControl(IFileSecurity fileSecurity);
 #endif
 
-		/// <summary>
+        /// <summary>
         /// Returns a String that represents the current Object. 
         /// </summary>
         /// <returns>A String that represents the current Object. </returns>

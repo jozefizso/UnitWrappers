@@ -1,45 +1,48 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-# SharpDevelop 4.4
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E50B9CA0-7AE3-4DBE-9C22-6459DFB0A5E1}"
-	ProjectSection(SolutionItems) = postProject
-		..\README.md = ..\README.md
-		..\packaging\UnitWrappers.nuspec = ..\packaging\UnitWrappers.nuspec
-		UnitWrappers\Properties\AssemblyInfo.cs = UnitWrappers\Properties\AssemblyInfo.cs
+	ProjectSection(SolutionItems) = preProject
+		src\UnitWrappers\Properties\AssemblyInfo.cs = src\UnitWrappers\Properties\AssemblyInfo.cs
+		README.md = README.md
+		packaging\UnitWrappers.nuspec = packaging\UnitWrappers.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35", "UnitWrappers\UnitWrappers.NET35.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35", "src\UnitWrappers\UnitWrappers.NET35.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.Tests", "UnitWrappers.Tests\UnitWrappers.NET40.Tests.csproj", "{977D8BEB-334E-4938-BAE0-CB75698B1255}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.Tests", "src\UnitWrappers.Tests\UnitWrappers.NET40.Tests.csproj", "{977D8BEB-334E-4938-BAE0-CB75698B1255}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.Samples", "UnitWrappers.Samples\UnitWrappers.NET40.Samples.csproj", "{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.Samples", "src\UnitWrappers.Samples\UnitWrappers.NET40.Samples.csproj", "{B2CCB1C8-04C8-4D64-B415-70CD5811FF9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.CoverageCalculator", "UnitWrappers.CoverageCalculator\UnitWrappers.NET40.CoverageCalculator.csproj", "{6C2A3342-5819-4B49-AD1B-1CE677487281}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40.CoverageCalculator", "src\UnitWrappers.CoverageCalculator\UnitWrappers.NET40.CoverageCalculator.csproj", "{6C2A3342-5819-4B49-AD1B-1CE677487281}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40", "UnitWrappers\UnitWrappers.NET40.csproj", "{A00B02B8-6875-45D4-910A-0D7C1F0A2311}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET40", "src\UnitWrappers\UnitWrappers.NET40.csproj", "{A00B02B8-6875-45D4-910A-0D7C1F0A2311}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Converter.NET40", "UnitWrappers.Converter\UnitWrappers.Converter.NET40.csproj", "{D482FFEF-D41B-4366-933D-69C18C45DC75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Converter.NET40", "src\UnitWrappers.Converter\UnitWrappers.Converter.NET40.csproj", "{D482FFEF-D41B-4366-933D-69C18C45DC75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET35", "WPFWrappers\WPFWrappers.NET35.csproj", "{1C5FB667-50DF-49AF-8314-25F418E45448}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET35", "src\WPFWrappers\WPFWrappers.NET35.csproj", "{1C5FB667-50DF-49AF-8314-25F418E45448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET40", "WPFWrappers\WPFWrappers.NET40.csproj", "{633688C2-496A-4BE8-A4FC-935B5657CD16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFWrappers.NET40", "src\WPFWrappers\WPFWrappers.NET40.csproj", "{633688C2-496A-4BE8-A4FC-935B5657CD16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35.Tests", "UnitWrappers.NET35.Tests\UnitWrappers.NET35.Tests.csproj", "{EE3DA4C9-D40B-40BB-883C-5D9E9D81D55B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35.Tests", "src\UnitWrappers.NET35.Tests\UnitWrappers.NET35.Tests.csproj", "{EE3DA4C9-D40B-40BB-883C-5D9E9D81D55B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Portable", "UnitWrappers\UnitWrappers.Portable.csproj", "{3E1F1726-BEA8-4CE7-8D3B-50784493C7A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Portable", "src\UnitWrappers\UnitWrappers.Portable.csproj", "{3E1F1726-BEA8-4CE7-8D3B-50784493C7A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWrappers.NET35", "WixWrappers\WixWrappers.NET35.csproj", "{6877A4EB-B555-44F2-801D-CC35C41DDC5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WixWrappers.NET35", "src\WixWrappers\WixWrappers.NET35.csproj", "{6877A4EB-B555-44F2-801D-CC35C41DDC5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET40.Tests", "UnitWrappers.Helpers.Tests\UnitWrappers.Helpers.NET40.Tests.csproj", "{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET40.Tests", "src\UnitWrappers.Helpers.Tests\UnitWrappers.Helpers.NET40.Tests.csproj", "{24E679B7-CB93-423F-B7FF-DAC9F6BA4731}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET40", "UnitWrappers.Helpers\UnitWrappers.Helpers.NET40.csproj", "{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Helpers.NET40", "src\UnitWrappers.Helpers\UnitWrappers.Helpers.NET40.csproj", "{7CB465FF-ED6C-4171-9AA6-4BB23F08DE8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerformanceTests.NET40", "UnitWrappers.PerfromanceTests\UnitWrappers.PerformanceTests.NET40.csproj", "{96338A4C-8725-4EB9-8091-786ACCDA301D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerformanceTests.NET40", "src\UnitWrappers.PerfromanceTests\UnitWrappers.PerformanceTests.NET40.csproj", "{96338A4C-8725-4EB9-8091-786ACCDA301D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.NET40", "UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.NET40.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.NET40", "src\UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.NET40.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Wraperizer", "UnitWrappers.Wraperizer\UnitWrappers.Wraperizer.csproj", "{380A11C6-A794-4CC8-A217-4620E7A27780}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Wraperizer", "src\UnitWrappers.Wraperizer\UnitWrappers.Wraperizer.csproj", "{380A11C6-A794-4CC8-A217-4620E7A27780}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Core.NET40", "src\UnitWrappers.Core\UnitWrappers.Core.NET40.csproj", "{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,15 +110,16 @@ Global
 		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{380A11C6-A794-4CC8-A217-4620E7A27780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{380A11C6-A794-4CC8-A217-4620E7A27780}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{380A11C6-A794-4CC8-A217-4620E7A27780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{380A11C6-A794-4CC8-A217-4620E7A27780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{380A11C6-A794-4CC8-A217-4620E7A27780}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{380A11C6-A794-4CC8-A217-4620E7A27780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = UnitWrappers\UnitWrappers.NET35.csproj
 	EndGlobalSection
 EndGlobal

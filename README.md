@@ -86,9 +86,11 @@ If massive breaking changes and fixes happen to make design more correct. This c
 
 ### Develop
 
-- run `nuget.bat`
-- `UnitWrappers.sln` in SharpDevelop 4.4. Build in Debug or Release mode for Any Cpu.
-- `UnitWrappers.Mono.sln` and `UnitWrappers.Android.sln` in Xamarin Studio
+- run `nuget-restore.bat`
+- `UnitWrappers.sln` 
+- in SharpDevelop 4.4. Build in Debug or Release mode for Any Cpu for .NET 3.5 4.0.
+- in Xamarin Studio for Mono and Android
+- in VS 2013 with Xamarin tools for all
 - run `pack.bat` to get nuget packages
 
 ### Obsolete and new methods

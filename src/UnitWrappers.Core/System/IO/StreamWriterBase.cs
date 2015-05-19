@@ -10,6 +10,7 @@ namespace UnitWrappers.System.IO
     /// 
     /// </summary>
     public abstract class StreamWriterBase : 
+
         MarshalByRefObject,
         IStreamWriter
     {
@@ -27,7 +28,7 @@ namespace UnitWrappers.System.IO
         public abstract void Write(bool value);
         public abstract void Write(int value);
         public abstract void Write(long value);
-#if !PORTBLE
+#if !PORTABLE
         public abstract void Write(uint value);
         public abstract void Write(ulong value);
         public abstract void WriteLine(uint value);

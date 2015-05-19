@@ -2,7 +2,7 @@ using System.IO;
 using System.Security;
 using System.Security.Permissions;
 
-#if !ANDROID 
+#if !ANDROID  && !PORTABLE
 
 using UnitWrappers.Microsoft.Win32.SafeHandles;
 using UnitWrappers.System.Security.AccessControl;
@@ -45,7 +45,7 @@ namespace UnitWrappers.System.IO
         }
 #endif
 
-		#if !ANDROID 
+#if !ANDROID  && !PORTABLE
        // [SecuritySafeCritical]
 
         public abstract IFileSecurity GetAccessControl();
@@ -57,7 +57,7 @@ namespace UnitWrappers.System.IO
 
 
 #endif
-       // [SecuritySafeCritical]
+        // [SecuritySafeCritical]
 
         public abstract void Lock(long position, long length);
 
