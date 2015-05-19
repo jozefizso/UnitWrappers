@@ -8,9 +8,6 @@ namespace UnitWrappers.Microsoft.Win32.SafeHandles
     /// </summary>
     public interface ISafeFileHandle : ISafeHandle
     {
-        /// <summary>
-        /// Gets <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> object.
-        /// </summary>
-        SafeFileHandle UnderlyingObject { get; }
+     
      }
 }

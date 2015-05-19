@@ -61,7 +61,7 @@
 
 - https://github.com/BrunoJuchli/StaticProxy.Fody and https://github.com/Fody/Ionad- use IL rewrite to hook methods calls and load faked assembly into test process
 
-- https://gitorious.org/asdandrizzo/clr/source/fusion/clr-dll-level-di  - use options provided by CRL loading of dlls to make things testable
+- https://gitlab.com/asdandrizzo/clr/tree/master/fusion/clr-dll-level-di  - use options provided by CRL loading of dlls to make things testable
 
 - https://github.com/urasandesu/Prig - open source CLR hook to tests static/sealed/private methods.
 

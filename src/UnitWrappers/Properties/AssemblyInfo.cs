@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 #endif
 
 #if NET40 || NET35
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 [assembly: Guid("f50b78bf-5353-4df2-a4cc-536e5d05c823")]
 #endif
 

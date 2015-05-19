@@ -62,7 +62,7 @@ namespace UnitWrappers.System.IO
         /// <param name="access">A FileAccess constant that sets the CanRead and CanWrite properties of the FileStream object. </param>
         public FileStreamWrap(ISafeFileHandle handle, FileAccess access)
         {
-            _underlyingObject = new FileStream(handle.UnderlyingObject, access);
+            _underlyingObject = new FileStream(((IWrap<global::Microsoft.Win32.SafeHandles.SafeFileHandle>)handle).UnderlyingObject, access);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace UnitWrappers.System.IO
         /// <param name="bufferSize">A positive Int32 value greater than 0 indicating the buffer size. For bufferSize values between one and eight, the actual buffer size is set to eight bytes. </param>
         public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize)
         {
-            _underlyingObject = new FileStream(handle.UnderlyingObject, access, bufferSize);
+            _underlyingObject = new FileStream(((IWrap<global::Microsoft.Win32.SafeHandles.SafeFileHandle>)handle).UnderlyingObject, access, bufferSize);
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace UnitWrappers.System.IO
 
         public FileStreamWrap(ISafeFileHandle handle, FileAccess access, int bufferSize, bool isAsync)
         {
-            _underlyingObject = new FileStream(handle.UnderlyingObject, access, bufferSize, isAsync);
+            _underlyingObject = new FileStream(((IWrap<global::Microsoft.Win32.SafeHandles.SafeFileHandle>)handle).UnderlyingObject, access, bufferSize, isAsync);
         }
 #endif
 

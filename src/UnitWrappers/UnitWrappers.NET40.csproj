@@ -99,13 +99,9 @@
   <ItemGroup>
     <Compile Include="EventWrapper.cs" />
     <Compile Include="IWrap.cs" />
-    <Compile Include="Microsoft\Win32\IRegistry.cs" />
-    <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
-    <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
-    <Compile Include="Microsoft\Win32\SafeHandles\ISafeFileHandle.cs" />
     <Compile Include="System\Diagnostics\FileVersionInfoSystem.cs" />
     <Compile Include="System\Diagnostics\FileVersionInfoWrap.cs" />
     <Compile Include="System\Diagnostics\IFileVersionInfo.cs" />
@@ -139,7 +135,6 @@
     <Compile Include="System\Net\NetworkInformation\NetworkChangeWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\NetworkInterfaceWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\PingWrap.cs" />
-    <Compile Include="System\Runtime\InteropServices\ISafeHandle.cs" />
     <Compile Include="Microsoft\Win32\SafeHandles\SafeFileHandleWrap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\AppDomainSystem.cs" />
@@ -207,10 +202,8 @@
     <Compile Include="System\Threading\IWaitHandleSystem.cs" />
     <Compile Include="System\Threading\MutexWrap.cs" />
     <Compile Include="System\Threading\MutexSystem.cs" />
-    <Compile Include="System\Threading\Tasks\ITask.cs" />
     <Compile Include="System\Threading\IThread.cs" />
     <Compile Include="System\Threading\IThreadSystem.cs" />
-    <Compile Include="System\Threading\Tasks\TaskWrap.cs" />
     <Compile Include="System\Threading\ThreadPoolWrap.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadWrap.cs" />
@@ -224,7 +217,12 @@
       <Link>UnitWrappers.snk</Link>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\UnitWrappers.Core\UnitWrappers.Core.NET40.csproj">
+      <Project>{5b248c46-4bbc-4a1b-8737-c9e9ec19e2a3}</Project>
+      <Name>UnitWrappers.Core.NET40</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

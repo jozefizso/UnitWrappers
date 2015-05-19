@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		src\UnitWrappers\Properties\AssemblyInfo.cs = src\UnitWrappers\Properties\AssemblyInfo.cs
 		README.md = README.md
-		packaging\UnitWrappers.nuspec = packaging\UnitWrappers.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET35", "src\UnitWrappers\UnitWrappers.NET35.csproj", "{B8DEECE0-6074-47C2-9AF4-123EE324D212}"
@@ -51,6 +50,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Core.NET35", "src\UnitWrappers.Core\UnitWrappers.Core.NET35.csproj", "{57A2E87D-1A7C-4E37-9CBD-EE43A35B2E07}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Core.Portable", "src\UnitWrappers.Core\UnitWrappers.Core.Portable.csproj", "{FC1F794F-C7F5-411C-B0B7-B0CE05B8A338}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.AlphaFS.NET40", "src\UnitWrappers.AlphaFS\UnitWrappers.AlphaFS.NET40.csproj", "{5D3F82E3-511E-496A-A72F-F6540CF3A6CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,6 +143,10 @@ Global
 		{FC1F794F-C7F5-411C-B0B7-B0CE05B8A338}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC1F794F-C7F5-411C-B0B7-B0CE05B8A338}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC1F794F-C7F5-411C-B0B7-B0CE05B8A338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3F82E3-511E-496A-A72F-F6540CF3A6CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3F82E3-511E-496A-A72F-F6540CF3A6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3F82E3-511E-496A-A72F-F6540CF3A6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3F82E3-511E-496A-A72F-F6540CF3A6CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

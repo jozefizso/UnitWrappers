@@ -8,7 +8,7 @@ namespace UnitWrappers.Microsoft.Win32.SafeHandles
     /// Wrapper for <see cref="T:Microsoft.Win32.SafeHandles.SafeFileHandle"/> class.
     /// </summary>
     [SecurityPermission(SecurityAction.LinkDemand, UnmanagedCode=true)]
-    public class SafeFileHandleWrap : ISafeFileHandle
+    public class SafeFileHandleWrap : ISafeFileHandle, IWrap<SafeFileHandle>
 	{
 	   /// <summary>
 		/// Initializes a new instance of the <see cref="T:UnitWrappers.Microsoft.Win32.SafeHandles.SafeFileHandleWrap"/> class on the specified path. 
@@ -29,7 +29,16 @@ namespace UnitWrappers.Microsoft.Win32.SafeHandles
 			UnderlyingObject = new SafeFileHandle(preexistingHandle, ownsHandle);
 		}
 
+        public static implicit operator SafeFileHandleWrap(SafeFileHandle o)
+        {
 
+            return new SafeFileHandleWrap(o);
+        }
+
+        public static implicit operator SafeFileHandle(SafeFileHandleWrap o)
+        {
+            return o.UnderlyingObject;
+        }
 
 		public bool IsClosed
         {
