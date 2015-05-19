@@ -18,7 +18,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>../../bin/Android</OutputPath>
-    <DefineConstants>DEBUG; ANDROID</DefineConstants>
+    <DefineConstants>DEBUG;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -44,7 +44,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="System\Configuration\" />
-    <Folder Include="System\IO\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IWrap.cs" />

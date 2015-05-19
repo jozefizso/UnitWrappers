@@ -82,8 +82,7 @@ If massive breaking changes and fixes happen to make design more correct. This c
 * Wrap all `sender`s of events
 * Real world sample with IoC/DI, Net, IO, WCF, etc.
 * Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
-* Wrapperasing /dewraperasing existing code (using NRefactory) Prove of Concept 
-* Cover more of Mono, PortableLibrary, MonoDroid 
+* Wrapperasing /dewraperasing existing code (using NRefactory) Prove of Concept  
 * Performance(calls and object graph construction) and memory usage overhead evaluation
 * Namespace wide factories
 * Tests which check method signatures (that wraps call right underlying methods) on code or IL level
@@ -94,7 +93,7 @@ If massive breaking changes and fixes happen to make design more correct. This c
 
 ### Develop
 
-- run `nuget-restore.bat`
+- run `nuget-install.bat`
 - `UnitWrappers.sln` 
 - in SharpDevelop 4.4. Build in Debug or Release mode for Any Cpu for .NET 3.5 4.0.
 - in Xamarin Studio for Mono and Android
