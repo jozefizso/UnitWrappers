@@ -35,7 +35,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>UnitWrappers.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\UnitWrappers.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -81,7 +81,9 @@
     <Compile Include="System\Security\Permissions\IPermissionsFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="UnitWrappers.snk" />
+    <None Include="..\UnitWrappers.snk">
+      <Link>UnitWrappers.snk</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
