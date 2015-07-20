@@ -21,6 +21,8 @@
     <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -47,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\IWrap.cs">
+      <Link>IWrap.cs</Link>
+    </Compile>
     <Compile Include="Microsoft\Win32\IRegistry.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />

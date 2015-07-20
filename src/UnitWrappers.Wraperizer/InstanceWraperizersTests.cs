@@ -12,7 +12,7 @@ namespace UnitWrappers.Wraperizer
 	[TestFixture]
 	public class InstanceWraperizersTests
 	{
-		private Type testType = typeof(System.Net.Mail.SmtpClient);
+		private Type testType = typeof(global::System.Net.Mail.SmtpClient);
 		
 		
 		[Test]

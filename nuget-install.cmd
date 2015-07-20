@@ -1,2 +1,2 @@
-:: restores dependencies ignore of version control
-.nuget\nuget.exe install  src\UnitWrappers.Configuration\packages.config -OutputDirectory packages -ExcludeVersion 
+:: restores dependencies into version independent location
+.nuget\nuget.exe install  .nuget\packages.config -OutputDirectory packages -ExcludeVersion 

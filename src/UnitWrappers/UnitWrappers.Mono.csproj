@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -50,7 +50,6 @@
     <Compile Include="System\IEnvironment.cs" />
     <Compile Include="System\IDateTimeSystem.cs" />
     <Compile Include="System\DateTimeSystem.cs" />
-    <Compile Include="IWrap.cs" />
     <Compile Include="System\Timers\ITimer.cs" />
     <Compile Include="System\Timers\TimerWrap.cs" />
     <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />
@@ -149,8 +148,5 @@
     <Compile Include="System\Net\NetworkInformation\NetworkInterfaceWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\PingWrap.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="System\IO\" />
-    <Folder Include="System\Net\NetworkInformation\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

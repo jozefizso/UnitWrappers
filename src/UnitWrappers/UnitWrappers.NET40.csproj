@@ -98,7 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventWrapper.cs" />
-    <Compile Include="IWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryWrap.cs" />

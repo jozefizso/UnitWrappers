@@ -5,25 +5,22 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UnitWrappers.Core")]
+[assembly: AssemblyTitle("UnitWrappers.Threading.Tasks")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UnitWrappers.Core")]
+[assembly: AssemblyProduct("UnitWrappers.Threading.Tasks")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-#if !PORTABLE
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
 [assembly: ComVisible(false)]
 
-
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("4e0b265d-ffd6-4a06-8153-5b15fac2d447")]
-#endif
+[assembly: Guid("38c9b0ce-d7ca-493b-8265-9b192a8ae303")]
 
 // Version information for an assembly consists of the following four values:
 //

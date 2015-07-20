@@ -57,10 +57,10 @@ namespace UnitWrappers.Tests.System.IO
         }
 
         [Test]
-        [ExpectedException(typeof(ArgumentNullException))]
+
         public void ArgumentNullException_is_thrown_if_directorySecurity_is_null()
         {
-            _directoryWrap.CreateDirectory(path, null);
+           Assert.Throws<ArgumentNullException>(()=>  _directoryWrap.CreateDirectory(path, null));
         }
 
         [Test]
