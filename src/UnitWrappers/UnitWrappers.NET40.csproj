@@ -97,17 +97,15 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyInfo.Version.cs">
+      <Link>Properties\AssemblyInfo.Version.cs</Link>
+    </Compile>
     <Compile Include="EventWrapper.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
     <Compile Include="System\Diagnostics\FileVersionInfoSystem.cs" />
     <Compile Include="System\Diagnostics\FileVersionInfoWrap.cs" />
-    <Compile Include="System\Diagnostics\IFileVersionInfo.cs" />
-    <Compile Include="System\Diagnostics\IFileVersionInfoSystem.cs" />
-    <Compile Include="System\Diagnostics\ILocalProcess.cs" />
-    <Compile Include="System\Diagnostics\ILocalProcessSystem.cs" />
-    <Compile Include="System\Diagnostics\ITraceSource.cs" />
     <Compile Include="System\Diagnostics\TraceSourceWrap.cs" />
     <Compile Include="System\IO\BinaryReaderWrap.cs">
       <SubType>Code</SubType>
@@ -118,19 +116,11 @@
     <Compile Include="System\IO\Compression\DeflateStreamWrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="System\IO\Compression\IDeflateStream.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="System\IO\IsolatedStorage\IIsolatedStorageFile.cs" />
     <Compile Include="System\IO\MemoryStreamWrap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="System\Management\IManagementObjectSearcher.cs" />
     <Compile Include="System\Management\ManagementObjectSearcherWrap.cs" />
     <Compile Include="System\Net\Mail\SmtpClientWrap.cs" />
-    <Compile Include="System\Net\NetworkInformation\INetworkChange.cs" />
-    <Compile Include="System\Net\NetworkInformation\INetworkInterface.cs" />
-    <Compile Include="System\Net\NetworkInformation\IPing.cs" />
     <Compile Include="System\Net\NetworkInformation\NetworkChangeWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\NetworkInterfaceWrap.cs" />
     <Compile Include="System\Net\NetworkInformation\PingWrap.cs" />
@@ -139,29 +129,16 @@
     <Compile Include="System\AppDomainSystem.cs" />
     <Compile Include="System\AppDomainWrap.cs" />
     <Compile Include="System\ComponentModel\BackgroundWorkerWrap.cs" />
-    <Compile Include="System\ComponentModel\IBackgroundWorker.cs" />
     <Compile Include="System\Configuration\ConfigurationManagerWrap.cs" />
-    <Compile Include="System\Configuration\IConfigurationManager.cs" />
     <Compile Include="System\ConsoleWrap.cs" />
-    <Compile Include="System\Data\SqlClient\ISqlCommand.cs" />
-    <Compile Include="System\Data\SqlClient\ISqlConnection.cs" />
-    <Compile Include="System\Data\SqlClient\ISqlDataReader.cs" />
     <Compile Include="System\Data\SqlClient\SqlCommandWrap.cs" />
     <Compile Include="System\Data\SqlClient\SqlConnectionWrap.cs" />
     <Compile Include="System\Data\SqlClient\SqlDataReaderWrap.cs" />
     <Compile Include="System\DateTimeSystem.cs" />
-    <Compile Include="System\Diagnostics\IProcess.cs" />
-    <Compile Include="System\Diagnostics\IProcessStartInfo.cs" />
-    <Compile Include="System\Diagnostics\IProcessSystem.cs" />
     <Compile Include="System\Diagnostics\ProcessStartInfoWrap.cs" />
     <Compile Include="System\Diagnostics\ProcessSystem.cs" />
     <Compile Include="System\Diagnostics\ProcessWrap.cs" />
     <Compile Include="System\EnvironmentWrap.cs" />
-    <Compile Include="System\IAppDomain.cs" />
-    <Compile Include="System\IAppDomainSystem.cs" />
-    <Compile Include="System\IConsole.cs" />
-    <Compile Include="System\IDateTimeSystem.cs" />
-    <Compile Include="System\IEnvironment.cs" />
     <Compile Include="System\IO\IsolatedStorage\IsolatedStorageFileWrap.cs" />
     <Compile Include="System\IO\DirectoryInfoWrap.cs" />
     <Compile Include="System\IO\DirectoryWrap.cs" />
@@ -173,18 +150,12 @@
     <Compile Include="System\IO\PathWrap.cs" />
     <Compile Include="System\IO\StreamReaderWrap.cs" />
     <Compile Include="System\IO\StreamWriterWrap.cs" />
-    <Compile Include="System\Net\IWebClient.cs" />
-    <Compile Include="System\Net\IWebRequestSystem.cs" />
-    <Compile Include="System\Net\Sockets\ISocket.cs" />
     <Compile Include="System\Net\Sockets\SocketWrap.cs" />
     <Compile Include="System\Net\WebClientWrap.cs" />
     <Compile Include="System\Net\WebRequestSystem.cs" />
     <Compile Include="System\Reflection\AssemblyNameWrap.cs" />
     <Compile Include="System\Reflection\AssemblySystem.cs" />
     <Compile Include="System\Reflection\AssemblyWrap.cs" />
-    <Compile Include="System\Reflection\IAssembly.cs" />
-    <Compile Include="System\Reflection\IAssemblyName.cs" />
-    <Compile Include="System\Reflection\IAssemblySystem.cs" />
     <Compile Include="System\Security\AccessControl\DirectorySecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\FileSecurityWrap.cs" />
     <Compile Include="System\Security\AccessControl\FileSystemSecurityWrap.cs" />
@@ -193,22 +164,13 @@
     <Compile Include="System\Security\Principal\WindowsIdentityWrap.cs" />
     <Compile Include="System\Threading\AutoResetEventSystem.cs" />
     <Compile Include="System\Threading\AutoResetEventWrap.cs" />
-    <Compile Include="System\Threading\IAutoResetEvent.cs" />
-    <Compile Include="System\Threading\IMutex.cs" />
-    <Compile Include="System\Threading\IMutexSystem.cs" />
-    <Compile Include="System\Threading\IThreadPool.cs" />
-    <Compile Include="System\Threading\IWaitHandle.cs" />
-    <Compile Include="System\Threading\IWaitHandleSystem.cs" />
     <Compile Include="System\Threading\MutexWrap.cs" />
     <Compile Include="System\Threading\MutexSystem.cs" />
-    <Compile Include="System\Threading\IThread.cs" />
-    <Compile Include="System\Threading\IThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadPoolWrap.cs" />
     <Compile Include="System\Threading\ThreadSystem.cs" />
     <Compile Include="System\Threading\ThreadWrap.cs" />
     <Compile Include="System\Threading\WaitHandleSystem.cs" />
     <Compile Include="System\Threading\WaitHandleWrap.cs" />
-    <Compile Include="System\Timers\ITimer.cs" />
     <Compile Include="System\Timers\TimerWrap.cs" />
   </ItemGroup>
   <ItemGroup>

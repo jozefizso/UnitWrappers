@@ -7,29 +7,30 @@ using System.Management.Instrumentation;
 
 namespace UnitWrappers.System.Management
 {
-    public class ManagementObjectSearcherWrap : IManagementObjectSearcher
+	public class ManagementObjectSearcherWrap : IManagementObjectSearcher, IWrap<ManagementObjectSearcher>
     {
+		private ManagementObjectSearcher _underlyingObject;
 
-        public ManagementObjectSearcher UnderlyingObject { get; set; }
+		ManagementObjectSearcher IWrap<ManagementObjectSearcher>.UnderlyingObject { get { return _underlyingObject;}  }
 
         public ManagementObjectSearcherWrap(ManagementScope scope,ObjectQuery query)
         {
-            UnderlyingObject = new ManagementObjectSearcher(scope,query);
+            _underlyingObject = new ManagementObjectSearcher(scope,query);
         }
 
         public ManagementObjectSearcherWrap(string queryString)
         {
-            UnderlyingObject = new ManagementObjectSearcher(queryString);
+            _underlyingObject = new ManagementObjectSearcher(queryString);
         }
 
         public ManagementObjectSearcherWrap(ManagementObjectSearcher managementObjectSearcher)
         {
-            UnderlyingObject = managementObjectSearcher;
+            _underlyingObject = managementObjectSearcher;
         }
 
         public IEnumerable<ManagementBaseObject> Get()
         {
-            return UnderlyingObject.Get().Cast<ManagementBaseObject>();
+            return _underlyingObject.Get().Cast<ManagementBaseObject>();
         }
     }
 }

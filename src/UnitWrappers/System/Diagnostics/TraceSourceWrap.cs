@@ -24,8 +24,10 @@ namespace UnitWrappers.System.Diagnostics
             return o._underlyingObject;
         }
 
-   
+
+#if !NET35
         [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
+#endif
         public TraceSourceWrap(string name)
         {
             _underlyingObject = new TraceSource(name);
@@ -112,15 +114,19 @@ namespace UnitWrappers.System.Diagnostics
         }
 
         /// <inheritdoc />
+#if !NET35
         [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
-        public void TraceInformation(string message)
+#endif
+		public void TraceInformation(string message)
         {
             _underlyingObject.TraceInformation(message);
         }
 
-        /// <inheritdoc />
+		/// <inheritdoc />
+#if !NET35
         [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
-        public void TraceInformation(string format, params object[] args)
+#endif
+		public void TraceInformation(string format, params object[] args)
         {
             _underlyingObject.TraceInformation(format, args);
         }

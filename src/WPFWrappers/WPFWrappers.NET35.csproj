@@ -90,6 +90,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UnitWrappers.Core\UnitWrappers.Core.NET35.csproj">
+      <Project>{57A2E87D-1A7C-4E37-9CBD-EE43A35B2E07}</Project>
+      <Name>UnitWrappers.Core.NET35</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET35.csproj">
       <Project>{B8DEECE0-6074-47C2-9AF4-123EE324D212}</Project>
       <Name>UnitWrappers.NET35</Name>

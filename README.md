@@ -50,7 +50,7 @@
 * One to one correspondence with real classes, casting back and forth. Close integration with no wrappers code. E.g. can convert `FileStreamWrap` to `FileStream` or `Stream`, `AssemblyWrap` to `Assembly`.
 * Underlying object is not public API of wrapping interface (not visible from interfaces). Explicit `IWrap` implementation is used.
 * Interfaces free of wrapped classes related info.
-
+* Interfaces into separate assemblies of implementaions
 
 ### Tooling
 * Automatic coverage report generation.

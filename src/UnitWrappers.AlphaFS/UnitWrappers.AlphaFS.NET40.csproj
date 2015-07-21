@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\AssemblyInfo.Version.cs">
+      <Link>Properties\AssemblyInfo.Version.cs</Link>
+    </Compile>
     <Compile Include="Filesystem\FileWrap.cs" />
     <Compile Include="Filesystem\IFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -70,6 +70,10 @@
     <Compile Include="ServiceHostBaseWrap.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UnitWrappers.Core\UnitWrappers.Core.NET40.csproj">
+      <Project>{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}</Project>
+      <Name>UnitWrappers.Core.NET40</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnitWrappers\UnitWrappers.NET40.csproj">
       <Project>{A00B02B8-6875-45D4-910A-0D7C1F0A2311}</Project>
       <Name>UnitWrappers.NET40</Name>
