@@ -36,7 +36,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Compile Include="System\IConsole.cs" />
     <Compile Include="System\Reflection\IAssemblyName.cs" />
     <Compile Include="System\Security\AccessControl\IFileSecurity.cs" />
     <Compile Include="System\Security\AccessControl\IDirectorySecurity.cs" />
@@ -47,8 +46,6 @@
     <Compile Include="System\Threading\IWaitHandle.cs" />
     <Compile Include="System\Threading\IMutex.cs" />
     <Compile Include="System\Threading\IMutexSystem.cs" />
-    <Compile Include="System\IEnvironment.cs" />
-    <Compile Include="System\IDateTimeSystem.cs" />
     <Compile Include="System\DateTimeSystem.cs" />
     <Compile Include="System\Timers\ITimer.cs" />
     <Compile Include="System\Timers\TimerWrap.cs" />
@@ -87,8 +84,6 @@
     <Compile Include="System\IO\IStreamWriter.cs" />
     <Compile Include="System\IO\IStreamReader.cs" />
     <Compile Include="System\IO\ITextReader.cs" />
-    <Compile Include="System\IAppDomain.cs" />
-    <Compile Include="System\IAppDomainSystem.cs" />
     <Compile Include="System\Reflection\AssemblyWrap.cs" />
     <Compile Include="System\Reflection\AssemblySystem.cs" />
     <Compile Include="System\Reflection\AssemblyNameWrap.cs" />

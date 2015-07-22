@@ -10,7 +10,7 @@ using UnitWrappers.System.IO;
 
 namespace UnitWrappers.NET35.Tests
 {
-	[TestFixture]
+
 	public class PathWrapTests
 	{
 		private IPath path = new PathWrap();

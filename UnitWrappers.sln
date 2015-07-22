@@ -39,7 +39,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.PerformanceTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.ServiceModel.NET40", "src\UnitWrappers.ServiceModel\UnitWrappers.ServiceModel.NET40.csproj", "{619D75EA-83DF-40C0-AFC2-2C21335AD3AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Wraperizer.NET40", "src\UnitWrappers.Wraperizer\UnitWrappers.Wraperizer.NET40.csproj", "{380A11C6-A794-4CC8-A217-4620E7A27780}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Wraperizer", "src\UnitWrappers.Wraperizer\UnitWrappers.Wraperizer.csproj", "{380A11C6-A794-4CC8-A217-4620E7A27780}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Core.NET40", "src\UnitWrappers.Core\UnitWrappers.Core.NET40.csproj", "{5B248C46-4BBC-4A1B-8737-C9E9EC19E2A3}"
 EndProject
@@ -54,6 +54,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.AlphaFS.NET40", "src\UnitWrappers.AlphaFS\UnitWrappers.AlphaFS.NET40.csproj", "{5D3F82E3-511E-496A-A72F-F6540CF3A6CC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Threading.Tasks.NET45", "src\UnitWrappers.Threading.Tasks\UnitWrappers.Threading.Tasks.NET45.csproj", "{38494EA6-C86C-4877-9C83-CF8A2497D5D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.NET45", "src\UnitWrappers\UnitWrappers.NET45.csproj", "{9AE27237-4217-4F25-96D5-0635EC63AF17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Core.Mono", "src\UnitWrappers.Core\UnitWrappers.Core.Mono.csproj", "{B380DE8F-D80B-4BEA-BC6F-1979C40E144E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Core.NET46", "src\UnitWrappers.Core\UnitWrappers.Core.NET46.csproj", "{19BAC89A-C059-407E-A125-E3CFEA904E0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Research.Reflection", "src\UnitWrappers.Research.Reflection\UnitWrappers.Research.Reflection.csproj", "{FE6D870B-53DA-4A4A-8BCC-6074A03A758C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitWrappers.Research.Reflection.Portable", "src\UnitWrappers.Research.Reflection.Portable\UnitWrappers.Research.Reflection.Portable.csproj", "{8BC51DFF-3EE3-446D-95C6-0B33A8F21705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +163,26 @@ Global
 		{38494EA6-C86C-4877-9C83-CF8A2497D5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38494EA6-C86C-4877-9C83-CF8A2497D5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38494EA6-C86C-4877-9C83-CF8A2497D5D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AE27237-4217-4F25-96D5-0635EC63AF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE27237-4217-4F25-96D5-0635EC63AF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE27237-4217-4F25-96D5-0635EC63AF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE27237-4217-4F25-96D5-0635EC63AF17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B380DE8F-D80B-4BEA-BC6F-1979C40E144E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B380DE8F-D80B-4BEA-BC6F-1979C40E144E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B380DE8F-D80B-4BEA-BC6F-1979C40E144E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B380DE8F-D80B-4BEA-BC6F-1979C40E144E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19BAC89A-C059-407E-A125-E3CFEA904E0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BAC89A-C059-407E-A125-E3CFEA904E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BAC89A-C059-407E-A125-E3CFEA904E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19BAC89A-C059-407E-A125-E3CFEA904E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6D870B-53DA-4A4A-8BCC-6074A03A758C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6D870B-53DA-4A4A-8BCC-6074A03A758C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6D870B-53DA-4A4A-8BCC-6074A03A758C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6D870B-53DA-4A4A-8BCC-6074A03A758C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC51DFF-3EE3-446D-95C6-0B33A8F21705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC51DFF-3EE3-446D-95C6-0B33A8F21705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC51DFF-3EE3-446D-95C6-0B33A8F21705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC51DFF-3EE3-446D-95C6-0B33A8F21705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

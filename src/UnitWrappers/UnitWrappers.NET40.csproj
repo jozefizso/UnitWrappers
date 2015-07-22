@@ -172,6 +172,7 @@
     <Compile Include="System\Threading\WaitHandleSystem.cs" />
     <Compile Include="System\Threading\WaitHandleWrap.cs" />
     <Compile Include="System\Timers\TimerWrap.cs" />
+    <Compile Include="WrapBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\UnitWrappers.snk">

@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Reflection;
 
 
 namespace UnitWrappers.Wraperizer
@@ -8,7 +9,9 @@ namespace UnitWrappers.Wraperizer
 	{
 		public static void Main(string[] args)
 		{
-						
+			var t = typeof (string);
+			var ti = t.GetTypeInfo();
+			
 			Console.WriteLine("Starting to reflect");			
 			Type testType = typeof(global::System.Net.Mail.SmtpClient);
 			var result = InstanceWraperizer.Generate(testType);

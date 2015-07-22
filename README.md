@@ -1,5 +1,9 @@
 ### Sample 
 ```csharp
+
+ IoC.Register<IFile,FileWrap>();
+ IoC.Register<IAppDomainSystem,AppDomainSystem>();//`AbcSystem` means static methods of 'Abc'
+ IoC.Register<IProcessSystem,ProcessSystemWrap>();
  var service = IoC.Get<HostService>();
  
  public class HostService()
@@ -75,31 +79,59 @@
 * Wrappers go domain modelling first design.
 * Wrappers slower down start up time and hard to use without container on devices with limited resources
 
+### Develop
+
+- run `nuget-install.bat`
+- `UnitWrappers.sln` 
+- Build in `Debug` or `Release` mode for `Any Cpu` 
+- in SharpDevelop 5 for .NET 3.5, 4.0
+- in Xamarin Studio 5.9 for all targets
+- in VS 2015 Community with Xamarin tools for all targets
+- run `pack.bat` to get nuget packages
+- all code is in C# only
+
 ### NOTE:
 If massive breaking changes and fixes happen to make design more correct. This changes will be marked by renaming to NUnitWrappers. Also possible to drop `UnitWrappers` namespace prefix to put wrappers into BCL namespaces.
 
+
+
 ### TODO:
+* add `Mono` target install script for windows
 * Use FAKE for build system
 * Wrap all `sender`s of events
-* Real world sample with IoC/DI, Net, IO, WCF, etc.
-* Semi-automatic migration, documenting, wrapping (using NRefactory/Mono.Cecil) of of types
-* Wrapperasing /dewraperasing existing code (using NRefactory) Prove of Concept  
+* Real world sample with IoC/DI, Net, IO, WCF, etc. 
 * Performance(calls and object graph construction) and memory usage overhead evaluation
 * Namespace wide factories
 * Tests which check method signatures (that wraps call right underlying methods) on code or IL level
 * UnitsWrappers.GetInstance<IXyzWrap>()
 * Test helpers like in http://systemioabstractions.codeplex.com
-* Virtual in memory net server.
+* Virtual in memory net server.	
+* Virual in memory NTFS 
+* Semi-automatic migration, documenting, wrapping (using Roslyn/Mono.Cecil) of of types
+* Wrapperasing /dewraperasing existing code (using Roslyn) Prove of Concept 
+* Wraperizer: add partial
+* Wraperizer: add conversion implicit coversion back and forward
+* Wraperizer: use IL reader to allow for .NET current runtime independant generation for several profiles
+* Wraperizer:use roslyn and parse WrapBase<T> as template for mixing
+* Wraperizer: add methods
+* Wraperizer: add properites
+* Wraperizer: add events 
+* Wraperizer:add options how to wrap events
+* Wraperizer:research how event patters are implement and wrap accoding patter used by underlying code
+* Wraperizer: research reading metadata from Reference Assemblies vs real assemblies
+* Wraperizer:add IDisposable
+* Wraperizer:add all unit testable interfaces implemented by wrapped object
+* Wraperizer:add depenencies wrapping (if return type or parameter are used and are wrapped then should build them before
+* Wraperizer: add contol over events (threading, error handling)
+* Wraperizer:add Component inheritance if needed
+* Wraperizer: add custom interface hook
+* Wraperizer: fix parallel hierarchies of inheritance
+* Wraperizer: add doc generation
+* Wraperizer:do call for GetType, Equals, but ToString(only if overridden in wrapped) and GetHashCode
+* 
 
 
-### Develop
 
-- run `nuget-install.bat`
-- `UnitWrappers.sln` 
-- in SharpDevelop 4.4. Build in Debug or Release mode for Any Cpu for .NET 3.5 4.0.
-- in Xamarin Studio for Mono and Android
-- in VS 2013 with Xamarin tools for all
-- run `pack.bat` to get nuget packages
 
 ### Obsolete and new methods
 
