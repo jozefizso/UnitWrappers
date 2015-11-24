@@ -14,7 +14,7 @@ namespace UnitWrappers.Wraperizer
 			
 			Console.WriteLine("Starting to reflect");			
 			Type testType = typeof(global::System.Net.Mail.SmtpClient);
-			var result = InstanceWraperizer.Generate(testType);
+			var result = InstanceWraperizer.Generate(testType.GetTypeInfo());
 			
 			Console.Write(result);
 			Console.ReadKey(true);

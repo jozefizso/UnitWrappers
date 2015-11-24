@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace UnitWrappers.System.Threading
 {
-    public class MutexSystem:IMutexSystem
+    public class MutexSystem: IMutexSystem
     {
         public IMutex OpenExisting(string name)
         {

@@ -13,6 +13,9 @@ using MethodImplAttributes = System.Reflection.MethodImplAttributes;
 
 namespace UnitWrappers.Research.Reflection
 {
+    /// <summary>
+    /// Uses IL reader to obtain same type info as in CLR reflection.
+    /// </summary>
 	public class CecilTypeInfo
 	{
 		private TypeDefinition _il;

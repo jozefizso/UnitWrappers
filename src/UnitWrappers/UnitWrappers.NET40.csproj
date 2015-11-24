@@ -22,11 +22,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>Full</DebugType>
     <Optimize>False</Optimize>
-    <OutputPath>../../bin/NET40/</OutputPath>
+    <OutputPath>..\..\build\NET40\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>../../bin/NET40/UnitWrappers.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <CodeContractsEnableRuntimeChecking>False</CodeContractsEnableRuntimeChecking>
     <CodeContractsRuntimeOnlyPublicSurface>False</CodeContractsRuntimeOnlyPublicSurface>
     <CodeContractsRuntimeThrowOnFailure>True</CodeContractsRuntimeThrowOnFailure>
@@ -56,11 +57,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>../../bin/NET40/</OutputPath>
+    <OutputPath>..\..\build\NET40\Release\</OutputPath>
     <DefineConstants>TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>../../bin/NET40/UnitWrappers.XML</DocumentationFile>
+    <DocumentationFile>..\..\build\NET40\Release\UnitWrappers.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -100,7 +101,6 @@
     <Compile Include="..\AssemblyInfo.Version.cs">
       <Link>Properties\AssemblyInfo.Version.cs</Link>
     </Compile>
-    <Compile Include="EventWrapper.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeySystem.cs" />
     <Compile Include="Microsoft\Win32\RegistryKeyWrap.cs" />
     <Compile Include="Microsoft\Win32\RegistryWrap.cs" />
@@ -172,7 +172,6 @@
     <Compile Include="System\Threading\WaitHandleSystem.cs" />
     <Compile Include="System\Threading\WaitHandleWrap.cs" />
     <Compile Include="System\Timers\TimerWrap.cs" />
-    <Compile Include="WrapBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\UnitWrappers.snk">

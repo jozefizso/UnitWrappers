@@ -4,7 +4,7 @@ namespace UnitWrappers
 {
 	
 		
-    internal class EventWrapper<TOriginal, TWrapper,TEventArgs>
+    public class EventWrapper<TOriginal, TWrapper,TEventArgs>
         where TOriginal : class
         where TWrapper : class
         where TEventArgs : EventArgs
@@ -58,7 +58,7 @@ namespace UnitWrappers
         }
     }
 
-    internal class EventWrapper<TOriginal, TWrapper>
+    public class EventWrapper<TOriginal, TWrapper>
         where TOriginal : class
         where TWrapper : class
     {

@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\NET40\</OutputPath>
+    <OutputPath>..\..\build\NET40\Debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -27,11 +27,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\NET40\</OutputPath>
+    <OutputPath>..\..\build\NET40\Release\</OutputPath>
     <DefineConstants>TRACE;NET40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\NET40\UnitWrappers.Core.XML</DocumentationFile>
+    <DocumentationFile>..\..\build\NET40\Release\UnitWrappers.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -57,6 +57,7 @@
     <Compile Include="..\IWrap.cs">
       <Link>IWrap.cs</Link>
     </Compile>
+    <Compile Include="EventWrapper.cs" />
     <Compile Include="Microsoft\Win32\IRegistry.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKey.cs" />
     <Compile Include="Microsoft\Win32\IRegistryKeySystem.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="System\Threading\IWaitHandle.cs" />
     <Compile Include="System\Threading\IWaitHandleSystem.cs" />
     <Compile Include="System\Timers\ITimer.cs" />
+    <Compile Include="WrapBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\UnitWrappers.snk">

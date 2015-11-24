@@ -7,9 +7,6 @@ using System.Security.Principal;
 
 namespace UnitWrappers.System.Security.AccessControl
 {
-
-
-
     public class FileSystemSecurityWrap : IFileSystemSecurity,IWrap<FileSystemSecurity>
     {
         private FileSystemSecurity _underlyingObject;

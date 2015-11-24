@@ -9,10 +9,6 @@ namespace UnitWrappers.Research.Reflection.Portable
 {
     public class GetTypeInfoTests
     {
-	    class MyType : TypeInfo 
-	    {
-	    }
-
 	    [Test]
 		public void Clr_Methods()
 		{
