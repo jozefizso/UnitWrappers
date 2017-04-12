@@ -13,14 +13,7 @@
 	<releaseNotes>
 	* 0.6.5.0
 	- added smtp mail client
-	- improved security interfaces of file system 
-  	* 0.6.4.0
-  	- enriched assembly info
-  	- added some sources as part of package which are used for testing
-	* 0.6.3.0
-	- started to wrap senders in ProcessWrap
-	* 0.6.2.0
-	- added some methods
+
 	</releaseNotes>
     <tags>testing isolation tdd</tags>
   </metadata>

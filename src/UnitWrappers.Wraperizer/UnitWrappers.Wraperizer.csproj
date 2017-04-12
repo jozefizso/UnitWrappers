@@ -61,12 +61,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <Prefer32Bit>false</Prefer32Bit>
-    <OutputPath>..\..\bin\tools\</OutputPath>
+    <OutputPath>..\..\build\NET46\Debug\</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <Prefer32Bit>false</Prefer32Bit>
-    <OutputPath>..\..\bin\tools\</OutputPath>
-    <DocumentationFile>..\..\bin\tools\UnitWrappers.Wraperizer.XML</DocumentationFile>
+    <OutputPath>..\..\build\NET46\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
@@ -95,9 +97,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UnitWrappers.Core\UnitWrappers.Core.NET40.csproj">
+    <ProjectReference Include="..\UnitWrappers.Core\UnitWrappers.Core.NET45.csproj">
       <Project>{5b248c46-4bbc-4a1b-8737-c9e9ec19e2a3}</Project>
-      <Name>UnitWrappers.Core.NET40</Name>
+      <Name>UnitWrappers.Core.NET45</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

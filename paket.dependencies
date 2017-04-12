@@ -1,0 +1,21 @@
+source https://nuget.org/api/v2
+
+nuget FSharp.Core redirects: force
+
+group Build
+  source https://nuget.org/api/v2
+  
+  nuget SourceLink.Fake
+  nuget FAKE
+  nuget Microsoft.CSharp
+  nuget AlphaFS
+  nuget Wix.Toolset
+  nuget Mono.Cecil
+  
+group Test
+  source https://nuget.org/api/v2
+  
+  nuget NUnit ~> 3
+  nuget NUnit.Runners ~> 3
+  nuget NSubstitute
+  nuget NStopwatch  

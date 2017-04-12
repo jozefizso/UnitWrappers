@@ -1,1 +1,0 @@
-.nuget\nuget.exe pack nuget\UnitWrappers.nuspec -OutputDirectory nuget

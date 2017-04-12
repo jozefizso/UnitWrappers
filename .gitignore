@@ -10,3 +10,7 @@ build
 *.nupkg
 packages
 tests
+.nuget
+.paket/paket.exe
+.fake
+.vs
