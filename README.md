@@ -71,7 +71,7 @@
 
 ### CLR VM and code weaving hooks vs wrappers
 * Wrappers reveal complex code by looking into consuctor
-* Wrappers enforce better desing
+* Wrappers enforce better design
 * Wrappers are open source and can be used on any CLR
 * Hooks are easy to inject into old codebase, but wrappers sligtly harder
 * Wrappers cannot be used to hook 3rd party components
